@@ -1,13 +1,14 @@
 name: Auto approve
-on: [pull_request]
+
+on: pull_request_target
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
+      contents: write
     steps:
       - uses: hmarr/auto-approve-action@v3.2.1
         with:
-          review-message: "PR auto-approved by auto-approve-action :+1:"
           github-token: ${{ secrets.GITHUB_TOKEN }}
