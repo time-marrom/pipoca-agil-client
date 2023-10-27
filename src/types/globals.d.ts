@@ -14,3 +14,10 @@ type MenuOption = {
   text: string
   order: number
 }
+
+type Social = {
+  order: number
+  name: string
+  path: string
+  icon: ElementType
+}
