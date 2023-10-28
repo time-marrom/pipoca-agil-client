@@ -1,11 +1,12 @@
 import { Footer } from "@/components/Footer"
 import { Navbar } from "@/components/Navbar"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
 import { ScrollToTopButton } from "@/components/ScrollToTopButton"
+import "@/styles/globals.css"
+import type { Metadata } from "next"
+import { Fredoka, Open_Sans } from "next/font/google"
 
-const inter = Inter({ subsets: ["latin"] })
+const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-sans" })
+const fredoka = Fredoka({ subsets: ["latin"], variable: "--font-title" })
 
 export const metadata: Metadata = {
   title: "Pipoca Ágil",
@@ -17,7 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${inter.className} min-h-screen w-screen flex-col items-center justify-between`}
+        className={`${openSans.variable} ${fredoka.variable} min-h-screen w-screen flex-col items-center justify-between`}
       >
         <Navbar />
         {children}
