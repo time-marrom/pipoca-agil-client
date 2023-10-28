@@ -17,7 +17,8 @@
     "next-sanity-client": "^1.0.7",
     "next-sanity-image": "^6.1.0",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-hook-form": "^7.47.0"
   },
   "devDependencies": {
     "@types/node": "latest",
