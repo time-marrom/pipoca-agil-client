@@ -2,6 +2,11 @@ type RootLayoutProps = {
   children: React.ReactNode
 }
 
+type MaintenanceContent = {
+  title: string
+  description: string
+}
+
 type HomeContent = {
   title: string
   description: string
