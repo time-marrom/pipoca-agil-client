@@ -1,9 +1,10 @@
-import { HomeContainer } from "@/components/home/HomeContainer"
+import { MaintenanceContent } from "@/components/MaintenanceContent"
+import { PageContainer } from "@/components/PageContainer"
 
 export default function IndicatesPopcorn() {
   return (
-    <main className="flex flex-col items-center justify-between">
-      <HomeContainer />
-    </main>
+    <PageContainer>
+      <MaintenanceContent pageName="Pipoca Indica" />
+    </PageContainer>
   )
 }
