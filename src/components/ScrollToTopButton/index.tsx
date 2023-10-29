@@ -28,12 +28,12 @@ export function ScrollToTopButton() {
 
   return (
     <button
-      className={`fixed flex items-center justify-center bottom-12 right-20 p-2 rounded-full font-bold bg-gray-800 text-white dark:bg-gray-200 dark:text-black transition-opacity ease-in-out duration-300 ${visibility}`}
+      className={`fixed flex items-center justify-center bottom-12 right-20 p-2 rounded-full font-bold bg-secondary-base text-white-base transition-all ease-in-out duration-300 ${visibility} outline-none focus:outline-none hover:bg-secondary-dark`}
       type="button"
       title="Voltar ao topo"
       onClick={scrollToTop}
     >
-      <BsArrowUpShort className="w-4 h-4" />
+      <BsArrowUpShort className="w-5 h-5" />
     </button>
   )
 }
