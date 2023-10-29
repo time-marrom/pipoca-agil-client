@@ -25,3 +25,5 @@ type Social = {
 type MaintenanceContentProps = {
   pageName: string
 }
+
+type PageContainerProps = RootLayoutProps
