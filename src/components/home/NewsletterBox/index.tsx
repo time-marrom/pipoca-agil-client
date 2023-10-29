@@ -6,7 +6,7 @@ type Inputs = {
   email: string
 }
 
-export function NewsletterBox() {
+export function NewsletterBox(): JSX.Element {
   const {
     register,
     handleSubmit,
@@ -20,28 +20,33 @@ export function NewsletterBox() {
   }
 
   return (
-    <div className="w-full h-80 flex flex-col items-start justify-center bg-[#c3c3c3] rounded-lg p-12">
-      <h3 className="text-[#252525] text-2xl font-bold mb-4">
-        Se inscreva na nossa Newsletter
-      </h3>
-      <p className="text-[#3a3a3a] text-center mb-8">
-        Receba as atualizações do Pipoca no seu email
-      </p>
-      <form className="flex flex-col w-full gap-2" onSubmit={handleSubmit(onSubmit)}>
+    <div className="w-full h-80 flex flex-col items-start justify-start">
+      <form
+        className="w-full h-full flex flex-col items-start text-start justify-start bg-white-lighter rounded-lg p-12 gap-1 font-sans"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
+          Newsletter
+        </h3>
+        <p className="text-grayscale-darker text-start font-sans mb-4">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, voluptatem
+          sunt? Repellat non et in adipisci soluta vitae doloremque nemo error, sed
+          tenetur ad blanditiis deserunt deleniti repudiandae saepe praesentium.
+        </p>
         <input
-          className="w-full rounded-md border bg-[#f6f6f6] border-[#9243c0] px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-[#7401b7] focus:border-transparent text-[#252525] placeholder:text-[#727272] placeholder:opacity-50"
+          className="w-full rounded-md border bg-white-base border-secondary-light px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-secondary-base focus:border-transparent text-grayscale-black placeholder:text-grayscale-darkest placeholder:opacity-50"
           type="email"
           placeholder="Digite seu email"
           {...register("email", { required: true })}
         />
 
         {errors.email && (
-          <span className="text-[#E70000] text-sm italic">
+          <span className="text-status-error text-sm italic">
             O campo email é obrigatório
           </span>
         )}
         <button
-          className="bg-[#7401b7] hover:bg-[#4c0178] h-10 max-w-max my-2 text-white rounded-lg px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-white-base cursor-pointer transition duration-300 bg-secondary-base hover:bg-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed"
           type="submit"
           disabled={!isDirty || !isValid}
         >
