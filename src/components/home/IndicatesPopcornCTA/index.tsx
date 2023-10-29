@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function IndicatesPopcornCTA(): JSX.Element {
+export function IndicatesPopcornCTA(): JSX.Element {
   return (
     <div className="w-full h-80 flex flex-col items-start justify-center text-start bg-[#c3c3c3] rounded-lg p-12">
       <h3 className="text-[#252525] text-2xl font-bold mb-4">Pipoca Indica</h3>
