@@ -1,9 +1,12 @@
-import { HomeContainer } from "@/components/home/HomeContainer"
+import { PageContainer } from "@/components/PageContainer"
+import { IndicatesPopcornCTA } from "@/components/home/IndicatesPopcornCTA"
+import { NewsletterBox } from "@/components/home/NewsletterBox"
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between">
-      <HomeContainer />
-    </main>
+    <PageContainer>
+      <IndicatesPopcornCTA />
+      <NewsletterBox />
+    </PageContainer>
   )
 }

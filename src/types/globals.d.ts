@@ -21,3 +21,9 @@ type Social = {
   path: string
   icon: ElementType
 }
+
+type MaintenanceContentProps = {
+  pageName: string
+}
+
+type PageContainerProps = RootLayoutProps
