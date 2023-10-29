@@ -1,5 +1,5 @@
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa"
-import { FaSquareXTwitter } from "react-icons/fa6"
+import { FaLinkedin, FaSquareXTwitter } from "react-icons/fa6"
 
 export const socialMedias: Social[] = [
   {
@@ -19,5 +19,11 @@ export const socialMedias: Social[] = [
     name: "X",
     path: "https://twitter.com/pipoca_agil",
     icon: FaSquareXTwitter
+  },
+  {
+    order: 4,
+    name: "LinkedIn",
+    path: "https://br.linkedin.com/company/pipoca-%C3%A1gil",
+    icon: FaLinkedin
   }
 ]

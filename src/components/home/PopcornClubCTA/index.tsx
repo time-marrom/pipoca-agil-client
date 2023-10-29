@@ -1,11 +1,11 @@
 import Link from "next/link"
 
-export async function IndicatesPopcornCTA() {
+export function PopcornClubCTA(): JSX.Element {
   return (
     <div className="w-full h-80 flex flex-col items-start justify-center text-start p-12">
       <div className="w-full h-full rounded-lg">
         <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
-          Pipoca Indica
+          Clube pipoca
         </h3>
         <p className="text-grayscale-darkest text-start font-sans mb-6">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, voluptatem
