@@ -10,6 +10,29 @@ type MaintenanceContent = {
 type HomeContent = {
   title: string
   description: string
+  imageURL: string
+  imageAlt: string
+  heroButtonLabel: string
+  heroTopics: string[]
+  simulationSectionTitle: string
+  simulationSectionDescription: string
+  simulationSectionTopics: string[]
+  simulationSectionMemberButtonLabel: string
+  simulationSectionMentorButtonLabel: string
+  podcastSectionTitle: string
+  podcastSectionDescription: string
+  popcornClubSectionTitle: string
+  popcornClubSectionDescription: string
+  popcornClubSectionButtonLabel: string
+  agileTrailSectionTitle: string
+  agileTrailSectionDescription: string
+  agileTrailSectionButtonLabel: string
+  popcornIndicationSectionTitle: string
+  popcornIndicationSectionDescription: string
+  popcornIndicationSectionButtonLabel: string
+  newsletterSectionTitle: string
+  newsletterSectionDescription: string
+  newsletterSectionButtonLabel: string
 }
 
 type MenuOption = {
