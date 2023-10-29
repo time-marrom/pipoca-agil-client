@@ -2,6 +2,11 @@ type RootLayoutProps = {
   children: React.ReactNode
 }
 
+type SanityQueries = {
+  maintenance: string
+  home: string
+}
+
 type MaintenanceContent = {
   title: string
   description: string
