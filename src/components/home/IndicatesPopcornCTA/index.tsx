@@ -1,22 +1,24 @@
 import Link from "next/link"
 
-export function IndicatesPopcornCTA(): JSX.Element {
+export async function IndicatesPopcornCTA() {
   return (
-    <div className="w-full h-80 flex flex-col items-start justify-center text-start bg-[#c3c3c3] rounded-lg p-12">
-      <h3 className="text-[#252525] text-2xl font-bold mb-4">Pipoca Indica</h3>
-      <p className="text-[#3a3a3a] text-start mb-6">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est nemo recusandae fuga
-        amet magni itaque harum nam in cupiditate molestias cum, nostrum perferendis? Ipsa
-        nam non expedita, accusamus cum sunt! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Quisquam, voluptatum.
-      </p>
-      <Link
-        href="/pipoca-indica"
-        className="bg-[#7401b7] hover:bg-[#4c0178] h-10 max-w-max my-1 text-white rounded-lg px-4 py-2"
-      >
-        Ver mais
-      </Link>
+    <div className="w-full h-80 flex flex-col items-start justify-center text-start p-12">
+      <div className="w-full h-full rounded-lg">
+        <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
+          Pipoca Indica
+        </h3>
+        <p className="text-grayscale-darkest text-start font-sans mb-6">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, voluptatem
+          sunt? Repellat non et in adipisci soluta vitae doloremque nemo error, sed
+          tenetur ad blanditiis deserunt deleniti repudiandae saepe praesentium.
+        </p>
+        <Link
+          href="/pipoca-indica"
+          className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-white-base cursor-pointer transition duration-300 bg-secondary-base hover:bg-secondary-dark"
+        >
+          Ver mais
+        </Link>
+      </div>
     </div>
   )
 }
