@@ -7,6 +7,12 @@ const nextConfig = {
         hostname: "media.tenor.com",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "static.wixstatic.com",
+        port: "",
+        pathname: "/media/**"
       }
     ]
   }
