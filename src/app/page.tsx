@@ -1,4 +1,5 @@
 import { PageContainer } from "@/components/PageContainer"
+import { AgileTrailCTA } from "@/components/home/AgileTrailCTA"
 import { Hero } from "@/components/home/Hero"
 import { IndicatesPopcornCTA } from "@/components/home/IndicatesPopcornCTA"
 import { NewsletterBox } from "@/components/home/NewsletterBox"
@@ -13,6 +14,7 @@ export default function Home() {
       <SimulationCTA />
       <PodcastCTA />
       <PopcornClubCTA />
+      <AgileTrailCTA />
       <IndicatesPopcornCTA />
       <NewsletterBox />
     </PageContainer>
