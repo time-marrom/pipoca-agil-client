@@ -12,6 +12,9 @@
     "@portabletext/react": "^3.0.9",
     "@sanity/client": "^6.4.12",
     "@sanity/image-url": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.292.0",
     "next": "latest",
     "next-sanity": "^5.5.4",
     "next-sanity-client": "^1.0.7",
@@ -19,7 +22,9 @@
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "^7.47.0",
-    "react-icons": "^4.11.0"
+    "react-icons": "^4.11.0",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "latest",
