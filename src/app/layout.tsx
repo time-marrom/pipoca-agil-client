@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer"
 import { Navbar } from "@/components/Navbar"
 import { ScrollToTopButton } from "@/components/ScrollToTopButton"
+import { RootProviders } from "@/providers/rootProvider"
 import "@/styles/globals.css"
 import type { Metadata } from "next"
 import { Fredoka, Open_Sans } from "next/font/google"
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`${openSans.variable} ${fredoka.variable} min-h-screen w-screen flex-col items-center justify-between`}
       >
         <Navbar />
-        {children}
+        <RootProviders>{children}</RootProviders>
         <ScrollToTopButton />
         <Footer />
       </body>
