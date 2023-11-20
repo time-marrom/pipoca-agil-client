@@ -6,14 +6,14 @@ export function Footer(): JSX.Element {
   const footerOptions = menuOptions.filter((option) => option.name !== "Início")
 
   return (
-    <footer className="min-w-full h-64 px-4 bg-primary-base flex flex-col items-center justify-between font-sans">
+    <footer className="min-w-full h-64 px-4 bg-theme-primary-base flex flex-col items-center justify-between font-sans">
       <div className="flex w-full flex-row items-center justify-between">
         <ul className="h-full w-3/5 grid grid-rows-1 grid-cols-5 gap-1">
           {footerOptions.map((option) => (
             <li key={option.order} className="w-40 flex flex-col gap-1">
               <Link
                 href={option.path}
-                className="hover:underline hover:text-secondary-base hover:decoration-secondary-base"
+                className="hover:underline hover:text-theme-secondary-base hover:decoration-secondary-base"
               >
                 <span className="text-sm font-medium">{option.name}</span>
               </Link>
@@ -30,7 +30,7 @@ export function Footer(): JSX.Element {
           <Link
             href="https://github.com/time-marrom"
             target="_blank"
-            className="underline hover:text-secondary-base hover:decoration-secondary-base"
+            className="underline hover:text-theme-secondary-base hover:decoration-secondary-base"
           >
             Time Marrom
           </Link>

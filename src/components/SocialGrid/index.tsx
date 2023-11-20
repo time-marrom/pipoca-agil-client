@@ -9,7 +9,7 @@ export function SocialGrid(): JSX.Element {
       {orderedSocialMedias.map(({ name, path, icon: Icon }) => (
         <li key={name} className="flex items-center text-center w-8 max-h-max p-1">
           <Link href={path} className="flex items-center text-center rounded-sm">
-            <Icon className="w-6 h-6 font-bold cursor-pointer transition duration-300 text-secondary-base hover:text-secondary-dark" />
+            <Icon className="w-6 h-6 font-bold cursor-pointer transition duration-300 text-theme-secondary-base hover:text-theme-secondary-dark" />
           </Link>
         </li>
       ))}
