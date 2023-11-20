@@ -7,7 +7,7 @@ export type SimulationTestimonyArray = {
   image: string;
 };
 
-const mockArray = [
+export const mockArray = [
   {
     id: 2,
     name: "Maria",
