@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export function PopcornClubCTA(): JSX.Element {
   return (
@@ -8,17 +8,18 @@ export function PopcornClubCTA(): JSX.Element {
           Clube pipoca
         </h3>
         <p className="text-grayscale-darkest text-start font-sans mb-6">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, voluptatem
-          sunt? Repellat non et in adipisci soluta vitae doloremque nemo error, sed
-          tenetur ad blanditiis deserunt deleniti repudiandae saepe praesentium.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio,
+          voluptatem sunt? Repellat non et in adipisci soluta vitae doloremque
+          nemo error, sed tenetur ad blanditiis deserunt deleniti repudiandae
+          saepe praesentium.
         </p>
         <Link
           href="/pipoca-indica"
-          className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-white-base cursor-pointer transition duration-300 bg-secondary-base hover:bg-secondary-dark"
+          className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
         >
           Ver mais
         </Link>
       </div>
     </div>
-  )
+  );
 }
