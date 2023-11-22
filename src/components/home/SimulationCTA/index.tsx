@@ -22,13 +22,13 @@ export function SimulationCTA(): JSX.Element {
         </p>
         <div className="w-full h-full flex flex-row justify-start items-center gap-4">
           <Link
-            href="/pipoca-indica"
+            href="/simulacao/inscricao"
             className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
           >
             Quero ser voluntário
           </Link>
           <Link
-            href="/pipoca-indica"
+            href="/simulacao/inscricao"
             className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
           >
             Quero ser mentor

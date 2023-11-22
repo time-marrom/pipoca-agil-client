@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function SimulationCTA() {
   return (
-    <div className="w-full h-80 p-8 flex flex-row justify-between items-start bg-theme-white-lighter">
+    <div className="w-full h-[490px] p-8 flex flex-row justify-between items-start bg-theme-white-lighter">
       <div className="w-1/2">
         <ul className="list-disc w-10/12 space-y-3">
           {mockArray.map(({ testimony, id }) => (
