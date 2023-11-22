@@ -1,6 +1,6 @@
 export function SimulationHero() {
   return (
-    <div className="w-full h-96 flex flex-row justify-between items-center mx-auto px-4">
+    <div className="w-full h-96 flex flex-row justify-between items-center mx-auto p-12 bg-theme-white-light">
       <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
         Simulação de Projetos Ágeis
       </h3>

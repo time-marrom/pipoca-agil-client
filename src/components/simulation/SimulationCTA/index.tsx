@@ -1,14 +1,26 @@
 import { mockArray } from "@/components/simulation/SimulationTestimony";
+import Image from "next/image";
 import Link from "next/link";
 
 export function SimulationCTA() {
   return (
-    <div className="w-full h-[490px] p-8 flex flex-row justify-between items-start bg-theme-white-lighter">
+    <div className="w-full h-[400px] p-8 flex flex-row justify-between items-center bg-theme-white-lighter">
       <div className="w-1/2">
-        <ul className="list-disc w-10/12 space-y-3">
-          {mockArray.map(({ testimony, id }) => (
-            <li key={id} className="font-sans font-normal text-base italic">
-              {testimony}
+        <ul className="list-none w-10/12 space-y-5">
+          {mockArray.map(({ testimony, id, image, name }) => (
+            <li
+              key={id}
+              className="font-sans font-normal text-base flex flex-row justify-center items-center gap-4"
+            >
+              <Image
+                src={image}
+                alt={name}
+                width={150}
+                height={150}
+                priority
+                className="w-10 h-10 rounded-full object-cover object-center"
+              />
+              <span>{testimony}</span>
             </li>
           ))}
         </ul>
