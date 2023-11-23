@@ -40,7 +40,7 @@ export const mockArray = [
 
 export function SimulationTestimony(): JSX.Element {
   return (
-    <div className="h-[450px] w-full py-4 space-y-8 flex flex-col justify-start items-center">
+    <div className="h-[450px] w-full p-12 space-y-8 flex flex-col justify-start items-center">
       <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
         Vale a pena?
       </h3>
@@ -59,7 +59,7 @@ export function SimulationTestimony(): JSX.Element {
               className="w-20 h-20 rounded-full object-cover object-center"
             />
             <p className="font-sans font-semibold text-base">{item.name}</p>
-            <p className="font-sans font-normal text-base italic">
+            <p className="text-theme-grayscale-darkest text-start font-sans font-normal text-base italic">
               {item.testimony}
             </p>
           </div>

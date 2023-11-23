@@ -4,10 +4,10 @@ export function PopcornClubCTA(): JSX.Element {
   return (
     <div className="w-full h-80 flex flex-col items-start justify-center text-start p-12">
       <div className="w-full h-full rounded-lg">
-        <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
+        <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
           Clube pipoca
         </h3>
-        <p className="text-grayscale-darkest text-start font-sans mb-6">
+        <p className="text-theme-grayscale-darkest text-start font-sans mb-6">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio,
           voluptatem sunt? Repellat non et in adipisci soluta vitae doloremque
           nemo error, sed tenetur ad blanditiis deserunt deleniti repudiandae

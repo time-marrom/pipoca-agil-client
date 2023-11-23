@@ -7,8 +7,8 @@ import {
 
 export function SimulationFAQ() {
   return (
-    <div className="h-96 w-full py-4 space-y-4 flex flex-col justify-start items-center bg-theme-white-lighter">
-      <h3 className="font-sans font-medium text-lg">
+    <div className="h-96 w-full py-4 space-y-4 flex flex-col justify-start items-center bg-theme-white-lighter p-12">
+      <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
         Perguntas Frequentes - FAQ
       </h3>
       <div className="h-full w-1/3 flex flex-col justify-start items-center">

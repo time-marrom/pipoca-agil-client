@@ -1,4 +1,8 @@
+"use client";
+
+import { GlobalContext } from "@/contexts/GlobalContext";
 import Link from "next/link";
+import { useContext } from "react";
 
 const mock = [
   "45 grupos ativos hoje",
@@ -8,13 +12,15 @@ const mock = [
 ];
 
 export function SimulationCTA(): JSX.Element {
+  const { setProfile } = useContext(GlobalContext);
+
   return (
     <div className="w-full h-80 flex flex-row items-start justify-between text-start p-12">
       <div className="w-1/2 h-full flex flex-col items-start justify-center text-start">
-        <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
+        <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
           Simulação Ágil
         </h3>
-        <p className="text-grayscale-darkest text-start font-sans mb-6">
+        <p className="text-theme-grayscale-darkest text-start font-sans mb-6">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio,
           voluptatem sunt? Repellat non et in adipisci soluta vitae doloremque
           nemo error, sed tenetur ad blanditiis deserunt deleniti repudiandae
@@ -22,12 +28,14 @@ export function SimulationCTA(): JSX.Element {
         </p>
         <div className="w-full h-full flex flex-row justify-start items-center gap-4">
           <Link
+            onClick={() => setProfile("Voluntário")}
             href="/simulacao/inscricao"
             className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
           >
             Quero ser voluntário
           </Link>
           <Link
+            onClick={() => setProfile("Mentor")}
             href="/simulacao/inscricao"
             className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
           >
@@ -39,7 +47,7 @@ export function SimulationCTA(): JSX.Element {
         {mock.map((item) => (
           <li
             key={item}
-            className="text-grayscale-black text-start font-sans mb-6"
+            className="text-theme-grayscale-black text-start font-sans mb-6"
           >
             {item}
           </li>

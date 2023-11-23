@@ -41,6 +41,7 @@ export function UserConsentTerms() {
             id="terms"
             checked={isAcceptedTerms}
             onChange={handleCheckboxChange}
+            className="peer h-4 w-4 border-gray-300 rounded text-theme-secondary-base focus:ring-theme-secondary-base disabled:cursor-not-allowed disabled:opacity-70"
           />
           <label
             htmlFor="terms"

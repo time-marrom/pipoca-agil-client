@@ -55,7 +55,7 @@ const mock = [
 export function PartnersGrid(): JSX.Element {
   return (
     <div className="w-full h-80 flex flex-col items-start justify-between text-start p-12">
-      <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
+      <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
         Parceiros
       </h3>
       <ul className="grid grid-rows-1 grid-cols-6 gap-4">

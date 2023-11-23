@@ -32,7 +32,7 @@ export function PodcastCTA(): JSX.Element {
   return (
     <div className="w-full h-80 flex flex-row items-start justify-between text-start p-12 gap-2 bg-theme-white-light">
       <div className="w-1/2 h-full flex flex-col items-start justify-center text-start">
-        <h4 className="text-grayscale-black text-xl font-bold font-title mb-4">
+        <h4 className="text-theme-grayscale-black text-xl font-bold font-title mb-4">
           Episódios recentes
         </h4>
         <ul className="w-full h-full flex flex-row items-start justify-start gap-4">
@@ -49,7 +49,7 @@ export function PodcastCTA(): JSX.Element {
                 priority
                 className="w-40 h-20 rounded-md object-cover object-center"
               />
-              <h5 className="text-grayscale-black text-sm font-sans break-all text-ellipsis">
+              <h5 className="text-theme-grayscale-black text-sm font-sans break-all text-ellipsis">
                 {item.title}
               </h5>
             </li>
@@ -57,10 +57,10 @@ export function PodcastCTA(): JSX.Element {
         </ul>
       </div>
       <div className="w-1/2 h-full flex flex-col items-start justify-center text-start">
-        <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
+        <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
           Podcast
         </h3>
-        <p className="text-grayscale-darkest text-start font-sans mb-6">
+        <p className="text-theme-grayscale-darkest text-start font-sans mb-6">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio,
           voluptatem sunt? Repellat non et in adipisci soluta vitae doloremque
           nemo error, sed tenetur ad blanditiis deserunt deleniti repudiandae

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function SimulationCTA() {
   return (
-    <div className="w-full h-[400px] p-8 flex flex-row justify-between items-center bg-theme-white-lighter">
+    <div className="w-full h-[400px] flex flex-row justify-between items-center bg-theme-white-lighter p-12">
       <div className="w-1/2">
         <ul className="list-none w-10/12 space-y-5">
           {mockArray.map(({ testimony, id, image, name }) => (
@@ -20,14 +20,18 @@ export function SimulationCTA() {
                 priority
                 className="w-10 h-10 rounded-full object-cover object-center"
               />
-              <span>{testimony}</span>
+              <span className="text-theme-grayscale-darkest text-start font-sans font-normal text-base">
+                {testimony}
+              </span>
             </li>
           ))}
         </ul>
       </div>
       <div className="w-1/2 flex flex-col justify-start items-start space-y-4">
-        <h3 className="font-sans font-medium text-lg">Para quem é?</h3>
-        <p className="font-sans font-normal text-base">
+        <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
+          Para quem é?
+        </h3>
+        <p className="text-theme-grayscale-darkest text-start font-sans font-normal text-base">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
           perferendis exercitationem velit illum veritatis cumque eum voluptatem
           amet labore accusamus vero consequatur minima, eveniet reprehenderit

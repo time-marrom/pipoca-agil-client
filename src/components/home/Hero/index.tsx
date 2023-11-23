@@ -34,7 +34,7 @@ export function Hero(): JSX.Element {
     <div className="w-full min-h-[50vh] flex flex-col items-start justify-between text-start font-sans p-12 gap-12 bg-theme-white-light">
       <div className="flex flex-row justify-between items-start gap-8">
         <div className="w-2/3 h-full flex flex-col justify-between items-start gap-4">
-          <h1 className="text-grayscale-black text-4xl font-bold font-title mb-4">
+          <h1 className="text-theme-grayscale-black text-4xl font-bold font-title mb-4">
             Sobre o Pipoca Ágil
           </h1>
           <p>
