@@ -30,7 +30,7 @@ export function ScrollToTopButton() {
 
   return (
     <button
-      className={`fixed flex items-center justify-center bottom-12 right-20 p-2 rounded-full font-bold bg-theme-secondary-base text-theme-white-base transition-all ease-in-out duration-300 ${visibility} outline-none focus:outline-none hover:bg-theme-secondary-dark`}
+      className={`fixed flex items-center justify-center bottom-8 md:bottom-12 right-8 md:right-20 p-2 rounded-full font-bold bg-theme-secondary-base text-theme-white-base transition-all ease-in-out duration-300 ${visibility} outline-none focus:outline-none hover:bg-theme-secondary-dark`}
       type="button"
       title="Voltar ao topo"
       onClick={scrollToTop}
