@@ -1,6 +1,6 @@
 export function SimulationDescription() {
   return (
-    <div className="w-full h-80 flex flex-col items-start justify-center text-start p-12 gap-2">
+    <div className="w-full h-full flex flex-col items-start justify-center text-start p-4 md:p-20 gap-2">
       <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
         O que é?
       </h3>
