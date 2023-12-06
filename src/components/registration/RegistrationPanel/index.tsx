@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { GlobalContext } from "@/contexts/GlobalContext";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -81,9 +82,9 @@ export function RegistrationPanel() {
 
   return (
     <div className="w-full h-full min-h-[65vh] flex flex-col justify-start items-center py-2 mx-auto bg-theme-white-base">
-      <div className="bg-theme-white-light w-4/5 h-full flex flex-col justify-start items-center mx-auto rounded-md shadow-md">
+      <div className="bg-theme-white-light w-4/5 max-w-3xl h-full flex flex-col justify-start items-center mx-auto rounded-md shadow-md">
         {<Steps currentStep={currentStep} />}
-        <div>
+        <div className="w-full h-full">
           {currentStep === 0 && (
             <div className="w-full h-full flex flex-col justify-center items-center">
               <UserConsentTerms />
@@ -98,7 +99,7 @@ export function RegistrationPanel() {
             </div>
           )}
           {currentStep === 1 && (
-            <div className="w-96 h-full flex flex-col justify-center items-center space-y-1">
+            <div className="w-full h-full flex flex-col justify-center items-center space-y-1">
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="w-full h-full flex flex-col justify-center items-center space-y-1"
@@ -260,18 +261,12 @@ export function RegistrationPanel() {
             <div>
               <UserConfirmationMessage />
               <div className="flex flex-row justify-center items-center w-full h-full py-2 mx-auto space-x-8">
-                <Link
-                  href="/"
-                  className="w-full max-w-max h-10 p-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
-                >
-                  Ir para a Home
-                </Link>
-                <Link
-                  href="/simulacao"
-                  className="w-full max-w-max h-10 p-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
-                >
-                  Ir para a Simulação
-                </Link>
+                <Button variant="default" size="sm" asChild>
+                  <Link href="/">Ir para a Home</Link>
+                </Button>
+                <Button variant="default" size="sm" asChild>
+                  <Link href="/simulacao">Ir para a Simulação</Link>
+                </Button>
               </div>
             </div>
           )}
