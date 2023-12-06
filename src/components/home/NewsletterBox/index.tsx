@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 
 type Inputs = {
@@ -46,13 +47,15 @@ export function NewsletterBox(): JSX.Element {
             O campo email é obrigatório
           </span>
         )}
-        <button
-          className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed"
+        <Button
+          variant="default"
+          size="sm"
           type="submit"
           disabled={!isDirty || !isValid}
+          className="font-sans disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Quero receber
-        </button>
+        </Button>
       </form>
     </div>
   );
