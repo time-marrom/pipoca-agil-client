@@ -40,15 +40,15 @@ export const mockArray = [
 
 export function SimulationTestimony(): JSX.Element {
   return (
-    <div className="h-[450px] w-full py-4 space-y-8 flex flex-col justify-start items-center">
+    <div className="h-full w-full py-4 space-y-8 flex flex-col justify-start items-center">
       <h3 className="text-theme-grayscale-black text-2xl font-bold font-title mb-4">
         Vale a pena?
       </h3>
-      <div className="w-full flex flex-row gap-2 justify-center items-center">
+      <div className="w-full flex flex-col lg:flex-row gap-2 justify-center items-center">
         {mockArray.map((item) => (
           <div
             key={item.id}
-            className="w-1/6 min-h-[250px] flex flex-col justify-center items-center text-center space-y-2 p-4 rounded-md shadow-md bg-theme-white-light"
+            className="w-3/4 lg:w-1/5 h-full min-h-[250px] flex flex-col justify-center items-center text-center space-y-2 p-4 rounded-md shadow-md bg-theme-white-light"
           >
             <Image
               src={item.image}
