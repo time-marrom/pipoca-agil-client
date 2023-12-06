@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -28,7 +29,7 @@ export function Hero(): JSX.Element {
       </h1>
       <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-8 mb-8">
         <div className="w-full md:w-2/3 h-full flex flex-col justify-between items-start gap-4">
-          <p>
+          <p className="font-sans text-base">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
             hic vel aliquid voluptate! Delectus, ab! Iure officiis natus nemo,
             labore deleniti quae et magnam suscipit error quibusdam aspernatur
@@ -38,12 +39,11 @@ export function Hero(): JSX.Element {
             voluptate blanditiis asperiores provident voluptatem consequuntur
             nulla?
           </p>
-          <Link
-            href="/clube-pipoca"
-            className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
-          >
-            Entrar no grupo do Pipoca
-          </Link>
+          <Button variant="default" size="sm" asChild>
+            <Link href="/clube-pipoca" className="font-sans text-base">
+              Entrar no grupo do Pipoca
+            </Link>
+          </Button>
         </div>
         <div className="w-full md:w-1/3 h-full flex flex-col items-start md:items-center justify-center gap-2">
           <Image
