@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,48 +31,49 @@ const mock = [
 
 export function PodcastCTA(): JSX.Element {
   return (
-    <div className="w-full h-80 flex flex-row items-start justify-between text-start p-12 gap-2 bg-theme-white-light">
-      <div className="w-1/2 h-full flex flex-col items-start justify-center text-start">
-        <h4 className="text-grayscale-black text-xl font-bold font-title mb-4">
-          Episódios recentes
-        </h4>
-        <ul className="w-full h-full flex flex-row items-start justify-start gap-4">
-          {mock.map((item) => (
-            <li
-              key={item.id}
-              className="flex flex-col items-center justify-start gap-2 bg-theme-white-lighter p-4 rounded-md shadow-md h-48 w-40"
-            >
-              <Image
-                src={item.thumbnailUrl}
-                alt={item.title}
-                width={150}
-                height={150}
-                priority
-                className="w-40 h-20 rounded-md object-cover object-center"
-              />
-              <h5 className="text-grayscale-black text-sm font-sans break-all text-ellipsis">
-                {item.title}
-              </h5>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="w-1/2 h-full flex flex-col items-start justify-center text-start">
-        <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
-          Podcast
-        </h3>
-        <p className="text-grayscale-darkest text-start font-sans mb-6">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio,
-          voluptatem sunt? Repellat non et in adipisci soluta vitae doloremque
-          nemo error, sed tenetur ad blanditiis deserunt deleniti repudiandae
-          saepe praesentium.
-        </p>
-        <Link
-          href="/podcast"
-          className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
-        >
-          Ver mais
-        </Link>
+    <div className="w-full h-full p-4 md:p-20 flex flex-col items-start justify-between text-start gap-2 bg-theme-white-light">
+      <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
+        Podcast
+      </h3>
+      <div className="flex flex-col h-full md:flex-row items-start justify-between gap-6">
+        <div className="w-full h-full md:w-1/2 flex flex-col items-start justify-center text-start">
+          <p className="text-grayscale-darkest text-start font-sans mb-6">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Distinctio, voluptatem sunt? Repellat non et in adipisci soluta
+            vitae doloremque nemo error, sed tenetur ad blanditiis deserunt
+            deleniti repudiandae saepe praesentium.
+          </p>
+          <Button variant="default" size="sm" asChild>
+            <Link href="/podcast" className="font-sans text-base">
+              Ver mais
+            </Link>
+          </Button>
+        </div>
+        <div className="w-full md:w-1/2 h-full flex flex-col items-start justify-center text-start">
+          <h4 className="text-grayscale-black text-xl font-bold font-title mb-4">
+            Episódios recentes
+          </h4>
+          <ul className="w-full h-full flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start gap-2">
+            {mock.map((item) => (
+              <li
+                key={item.id}
+                className="flex md:flex-col items-center justify-start gap-2 bg-theme-white-lighter p-4 rounded-md shadow-md h-36 lg:h-52 w-80 lg:w-52"
+              >
+                <Image
+                  src={item.thumbnailUrl}
+                  alt={item.title}
+                  width={150}
+                  height={150}
+                  priority
+                  className="w-40 h-20 rounded-md object-cover object-center"
+                />
+                <h5 className="w-1/2 md:w-full text-grayscale-black text-sm font-sans break-all text-ellipsis">
+                  {item.title}
+                </h5>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
