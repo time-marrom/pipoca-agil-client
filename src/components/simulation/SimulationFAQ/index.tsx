@@ -7,11 +7,11 @@ import {
 
 export function SimulationFAQ() {
   return (
-    <div className="h-96 w-full py-4 space-y-4 flex flex-col justify-start items-center bg-theme-white-lighter">
+    <div className="h-full w-full p-4 md:p-20 space-y-4 flex flex-col justify-start items-center bg-theme-white-lighter">
       <h3 className="font-sans font-medium text-lg">
         Perguntas Frequentes - FAQ
       </h3>
-      <div className="h-full w-1/3 flex flex-col justify-start items-center">
+      <div className="h-full w-full max-w-3xl flex flex-col justify-start items-center">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="font-normal text-base font-sans">
