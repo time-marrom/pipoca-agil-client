@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -54,11 +55,11 @@ const mock = [
 
 export function PartnersGrid(): JSX.Element {
   return (
-    <div className="w-full h-80 flex flex-col items-start justify-between text-start p-12">
+    <div className="w-full h-full p-4 md:p-20 flex flex-col items-start justify-between text-start">
       <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
         Parceiros
       </h3>
-      <ul className="grid grid-rows-1 grid-cols-6 gap-4">
+      <ul className="grid grid-rows-2 grid-cols-3 md:grid-rows-1 md:grid-cols-6 gap-4 my-6">
         {mock.map((item) => (
           <li key={item.id}>
             <Image
@@ -72,12 +73,11 @@ export function PartnersGrid(): JSX.Element {
           </li>
         ))}
       </ul>
-      <Link
-        href="/pipoca-indica"
-        className="h-10 max-w-max my-1 px-4 py-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
-      >
-        Seja parceiro
-      </Link>
+      <Button variant="default" size="sm" asChild>
+        <Link href="/pipoca-indica" className="font-sans text-base">
+          Seja parceiro
+        </Link>
+      </Button>
     </div>
   );
 }
