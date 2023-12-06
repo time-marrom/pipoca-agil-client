@@ -21,7 +21,7 @@ export function UserConsentTerms() {
   }
 
   return (
-    <div className="w-full h-80 flex flex-col justify-start items-start px-4 my-2 gap-4">
+    <div className="w-full h-full flex flex-col justify-start items-start px-4 my-2 gap-4">
       <hr className="w-full h-1 bg-theme-secondary-base" />
       <h3 className="font-sans font-medium text-lg">
         Pré-requisitos e Regras para participar do projeto
