@@ -1,5 +1,5 @@
-import { Footer } from "@/components/Footer"
-import { Navbar } from "@/components/Navbar"
+// import { Footer } from "@/components/Footer"
+// import { Navbar } from "@/components/Navbar"
 import { ScrollToTopButton } from "@/components/ScrollToTopButton"
 import { cn } from "@/lib/utils"
 import { RootProviders } from "@/providers/rootProvider"
@@ -21,15 +21,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="pt-BR">
       <body
         className={cn(
-          "min-h-screen w-screen flex-col items-center justify-between",
+          "min-h-screen w-full flex-col items-center justify-between",
           openSans.variable,
           fredoka.variable
         )}
       >
-        <Navbar />
+        {/* <Navbar /> */}
         <RootProviders>{children}</RootProviders>
         <ScrollToTopButton />
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   )
