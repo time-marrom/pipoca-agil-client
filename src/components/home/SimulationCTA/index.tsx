@@ -1,5 +1,9 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { GlobalContext } from "@/contexts/GlobalContext";
 import Link from "next/link";
+import { useContext } from "react";
 
 const mock = [
   "45 grupos ativos hoje",
@@ -9,6 +13,8 @@ const mock = [
 ];
 
 export function SimulationCTA(): JSX.Element {
+  const { setRole } = useContext(GlobalContext);
+
   return (
     <div className="w-full h-full p-4 md:p-20 flex flex-col items-start justify-between text-start">
       <h3 className="text-grayscale-black text-2xl font-bold font-title mb-4">
@@ -20,15 +26,28 @@ export function SimulationCTA(): JSX.Element {
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Distinctio, voluptatem sunt? Repellat non et in adipisci soluta
             vitae doloremque nemo error, sed tenetur ad blanditiis deserunt
-            deleniti repudiandae saepe praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci earum nemo iure ipsum. Vel dicta tenetur molestias ad aliquid, iusto quo dolores quas ullam? Atque, ducimus! Corrupti vero odio officiis.
+            deleniti repudiandae saepe praesentium. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Adipisci earum nemo iure ipsum. Vel
+            dicta tenetur molestias ad aliquid, iusto quo dolores quas ullam?
+            Atque, ducimus! Corrupti vero odio officiis.
           </p>
           <div className="w-full h-full flex flex-row justify-start items-center gap-4">
-            <Button variant="default" size="sm" asChild>
+            <Button
+              asChild
+              variant="default"
+              size="sm"
+              onClick={() => setRole("VOLUNTÁRIO")}
+            >
               <Link href="/simulacao/inscricao" className="font-sans text-base">
                 Quero ser voluntário
               </Link>
             </Button>
-            <Button variant="default" size="sm" asChild>
+            <Button
+              asChild
+              variant="default"
+              size="sm"
+              onClick={() => setRole("MENTOR")}
+            >
               <Link href="/simulacao/inscricao" className="font-sans text-base">
                 Quero ser mentor
               </Link>
