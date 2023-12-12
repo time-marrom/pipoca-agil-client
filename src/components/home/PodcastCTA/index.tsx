@@ -54,21 +54,21 @@ export function PodcastCTA(): JSX.Element {
             Episódios recentes
           </h4>
           <ul className="w-full h-full flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start gap-2">
-            {mock.map((item) => (
+            {mock.map(({ id, thumbnailUrl, title }) => (
               <li
-                key={item.id}
+                key={id}
                 className="flex md:flex-col items-center justify-start gap-2 bg-theme-white-lighter p-4 rounded-md shadow-md h-36 lg:h-52 w-80 lg:w-52"
               >
                 <Image
-                  src={item.thumbnailUrl}
-                  alt={item.title}
+                  src={thumbnailUrl}
+                  alt={title}
                   width={150}
                   height={150}
                   priority
                   className="w-40 h-20 rounded-md object-cover object-center"
                 />
                 <h5 className="w-1/2 md:w-full text-grayscale-black text-sm font-sans break-all text-ellipsis">
-                  {item.title}
+                  {title}
                 </h5>
               </li>
             ))}

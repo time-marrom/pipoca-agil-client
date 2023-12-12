@@ -20,7 +20,9 @@ export function SimulationCTA() {
                 priority
                 className="w-10 h-10 rounded-full object-cover object-center"
               />
-              <span>{testimony}</span>
+              <span className="text-theme-grayscale-darkest text-start font-sans font-normal text-base">
+                {testimony}
+              </span>
             </li>
           ))}
         </ul>

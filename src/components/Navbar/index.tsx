@@ -7,7 +7,7 @@ import Link from "next/link";
 export function Navbar(): JSX.Element {
   return (
     <nav className="w-screen h-20 flex flex-row items-center justify-between font-title bg-theme-primary-base">
-      <h1 className="max-w-max mx-4 text-xl font-bold text-grayscale-black">
+      <h1 className="max-w-max mx-4 text-xl font-bold text-theme-grayscale-black">
         logo_pipoca.jpg
       </h1>
       <div className="w-3/4 flex flex-row items-center justify-between">

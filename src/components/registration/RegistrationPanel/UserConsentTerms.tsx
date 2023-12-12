@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { GlobalContext } from "@/contexts/GlobalContext"
-import { useContext } from "react"
-import { ConsentTerms } from "./ConsentTerms"
+import { GlobalContext } from "@/contexts/GlobalContext";
+import { useContext } from "react";
+import { ConsentTerms } from "./ConsentTerms";
 
 const mockRules = [
   "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -10,14 +10,14 @@ const mockRules = [
   "dolorem quidem consequuntur mollitia quos, id natus asperiores, nam dolores quasi doloribus.",
   "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   "Quisquam, accusamus exercitationem porro sed numquam molestias debitis quis?",
-  "Nobis eum ratione quae perspiciatis, quia incidunt asperiores, porro necessitatibus dolor ipsam voluptas?"
-]
+  "Nobis eum ratione quae perspiciatis, quia incidunt asperiores, porro necessitatibus dolor ipsam voluptas?",
+];
 
 export function UserConsentTerms() {
-  const { isAcceptedTerms, setIsAcceptedTerms } = useContext(GlobalContext)
+  const { isAcceptedTerms, setIsAcceptedTerms } = useContext(GlobalContext);
 
   function handleCheckboxChange(): void {
-    setIsAcceptedTerms(!isAcceptedTerms)
+    setIsAcceptedTerms(!isAcceptedTerms);
   }
 
   return (
@@ -50,5 +50,5 @@ export function UserConsentTerms() {
         </div>
       </div>
     </div>
-  )
+  );
 }

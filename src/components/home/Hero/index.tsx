@@ -23,13 +23,13 @@ const metrics = [
 
 export function Hero(): JSX.Element {
   return (
-    <div className="w-full min-h-[50vh] p-4 md:p-20 flex flex-col items-start justify-between text-start font-sans gap-2 bg-theme-white-light">
-      <h1 className="text-grayscale-black text-4xl font-bold font-title mb-4">
-        Sobre o Pipoca Ágil
-      </h1>
-      <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-8 mb-8">
-        <div className="w-full md:w-2/3 h-full flex flex-col justify-between items-start gap-4">
-          <p className="font-sans text-base">
+    <div className="w-full min-h-[50vh] flex flex-col items-start justify-between text-start font-sans p-12 gap-12 bg-theme-white-light">
+      <div className="flex flex-row justify-between items-start gap-8">
+        <div className="w-2/3 h-full flex flex-col justify-between items-start gap-4">
+          <h1 className="text-theme-grayscale-black text-4xl font-bold font-title mb-4">
+            Sobre o Pipoca Ágil
+          </h1>
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
             hic vel aliquid voluptate! Delectus, ab! Iure officiis natus nemo,
             labore deleniti quae et magnam suscipit error quibusdam aspernatur
@@ -61,17 +61,15 @@ export function Hero(): JSX.Element {
       </div>
       <div className="w-full h-1/3">
         <ul className="grid grid-cols-2 lg:grid-cols-4 grid-rows-2 lg:grid-rows-1 gap-3 md:gap-6">
-          {metrics.map((metric) => (
+          {metrics.map(({ label, value }) => (
             <li
-              key={metric.label}
+              key={label}
               className="flex flex-col text-center items-center justify-center w-full max-w-xs h-28 rounded-md p-1 bg-theme-primary-light"
             >
               <h3 className="font-sans text-lg md:text-2xl font-semibold">
-                +{Number(metric.value).toLocaleString("pt-BR")}
+                +{Number(value).toLocaleString("pt-BR")}
               </h3>
-              <span className="font-sans text-lg font-semibold">
-                {metric.label}
-              </span>
+              <span className="font-sans text-lg font-semibold">{label}</span>
             </li>
           ))}
         </ul>

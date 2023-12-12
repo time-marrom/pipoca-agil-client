@@ -59,7 +59,7 @@ export function SimulationTestimony(): JSX.Element {
               className="w-20 h-20 rounded-full object-cover object-center"
             />
             <p className="font-sans font-semibold text-base">{item.name}</p>
-            <p className="font-sans font-normal text-base italic">
+            <p className="text-theme-grayscale-darkest text-start font-sans font-normal text-base italic">
               {item.testimony}
             </p>
           </div>
