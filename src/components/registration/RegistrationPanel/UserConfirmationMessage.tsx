@@ -3,7 +3,6 @@ import { FaCheckCircle } from "react-icons/fa";
 export function UserConfirmationMessage() {
   return (
     <div className="flex flex-col justify-center items-center w-full h-full p-2 mx-auto space-y-8">
-      <hr className="w-full h-1 bg-theme-secondary-base" />
       <h3 className="font-sans font-medium text-lg">Tudo Pronto!</h3>
       <div className="flex flex-col justify-center items-center w-full h-full gap-4">
         <FaCheckCircle className="text-theme-status-success h-40 w-40" />

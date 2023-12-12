@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { GlobalContext } from "@/contexts/GlobalContext"
-import { useContext } from "react"
-import { ConsentTerms } from "./ConsentTerms"
+import { GlobalContext } from "@/contexts/GlobalContext";
+import { useContext } from "react";
+import { ConsentTerms } from "./ConsentTerms";
 
 const mockRules = [
   "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -10,19 +10,18 @@ const mockRules = [
   "dolorem quidem consequuntur mollitia quos, id natus asperiores, nam dolores quasi doloribus.",
   "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   "Quisquam, accusamus exercitationem porro sed numquam molestias debitis quis?",
-  "Nobis eum ratione quae perspiciatis, quia incidunt asperiores, porro necessitatibus dolor ipsam voluptas?"
-]
+  "Nobis eum ratione quae perspiciatis, quia incidunt asperiores, porro necessitatibus dolor ipsam voluptas?",
+];
 
 export function UserConsentTerms() {
-  const { isAcceptedTerms, setIsAcceptedTerms } = useContext(GlobalContext)
+  const { isAcceptedTerms, setIsAcceptedTerms } = useContext(GlobalContext);
 
   function handleCheckboxChange(): void {
-    setIsAcceptedTerms(!isAcceptedTerms)
+    setIsAcceptedTerms(!isAcceptedTerms);
   }
 
   return (
-    <div className="w-full h-80 flex flex-col justify-start items-start px-4 my-2 gap-4">
-      <hr className="w-full h-1 bg-theme-secondary-base" />
+    <div className="w-full h-full flex flex-col justify-start items-start px-4 my-2 gap-4">
       <h3 className="font-sans font-medium text-lg">
         Pré-requisitos e Regras para participar do projeto
       </h3>
@@ -41,7 +40,6 @@ export function UserConsentTerms() {
             id="terms"
             checked={isAcceptedTerms}
             onChange={handleCheckboxChange}
-            className="peer h-4 w-4 border-gray-300 rounded text-theme-secondary-base focus:ring-theme-secondary-base disabled:cursor-not-allowed disabled:opacity-70"
           />
           <label
             htmlFor="terms"
@@ -52,5 +50,5 @@ export function UserConsentTerms() {
         </div>
       </div>
     </div>
-  )
+  );
 }

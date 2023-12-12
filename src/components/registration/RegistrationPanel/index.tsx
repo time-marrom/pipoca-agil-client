@@ -1,10 +1,11 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { GlobalContext } from "@/contexts/GlobalContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Steps } from "./Steps";
@@ -51,8 +52,7 @@ const formSchema = z.object({
 export type FormValues = z.infer<typeof formSchema>;
 
 export function RegistrationPanel() {
-  const { isAcceptedTerms, profile, setIsAcceptedTerms } =
-    useContext(GlobalContext);
+  const { isAcceptedTerms, role } = useContext(GlobalContext);
   const [currentStep, setCurrentStep] = useState(0);
 
   const {
@@ -67,7 +67,7 @@ export function RegistrationPanel() {
   function onSubmit(data: FormValues) {
     console.log("data", data);
     setCurrentStep(currentStep + 1);
-    setIsAcceptedTerms(false);
+    console.log("currentStep", currentStep);
   }
 
   function nextStep() {
@@ -80,17 +80,19 @@ export function RegistrationPanel() {
     console.log("currentStep", currentStep);
   }
 
-  useEffect(() => {
-    setCurrentStep(0);
-    setIsAcceptedTerms(false);
-  }, []);
-
   return (
     <div className="w-full h-full min-h-[65vh] flex flex-col justify-start items-center py-2 mx-auto bg-theme-white-base">
-      <div className="bg-theme-white-light w-4/5 min-h-[600px] flex flex-col justify-start items-center mx-auto rounded-md shadow-md gap-4 py-4">
-        <h3 className="font-sans font-medium text-lg">Cadastro - {profile}</h3>
+      <div className="bg-theme-white-light w-4/5 max-w-3xl h-full flex flex-col justify-start items-center mx-auto rounded-md shadow-md">
+        <div className="w-full h-full flex flex-col items-center justify-center text-center my-2">
+          <h2 className="w-full h-full text-2xl font-bold font-title text-theme-grayscale-black p-4">
+            {role === "VOLUNTÁRIO"
+              ? "Inscrição para voluntário"
+              : "Inscrição para mentor"}
+          </h2>
+        </div>
         {<Steps currentStep={currentStep} />}
-        <div>
+        <hr className="w-full h-0.5 bg-[#FBBB18]" />
+        <div className="w-full h-full">
           {currentStep === 0 && (
             <div className="w-full h-full flex flex-col justify-center items-center">
               <UserConsentTerms />
@@ -105,24 +107,19 @@ export function RegistrationPanel() {
             </div>
           )}
           {currentStep === 1 && (
-            <div className="w-96 h-full flex flex-col justify-center items-center space-y-1">
+            <div className="w-full h-full flex flex-col justify-center items-center space-y-1">
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="w-full h-full flex flex-col justify-center items-center space-y-1"
+                className="w-[80%] h-full flex flex-col justify-center items-center space-y-1 my-4"
               >
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
-                  <label
-                    htmlFor="name"
-                    className="text-theme-grayscale-black text-start font-sans font-normal text-base"
-                  >
-                    Nome
-                  </label>
+                  <label htmlFor="name">Nome</label>
                   <Input
                     type="text"
                     id="name"
                     {...register("name")}
-                    placeholder="Ex.: Maria da Silva"
-                    className="text-sm font-light font-sans placeholder:text-sm"
+                    placeholder="Ex: Maria da Silva"
+                    className="text-xs font-light font-sans placeholder:italic"
                   />
                   {errors.name && (
                     <span className="text-xs font-normal font-sans text-theme-status-error">
@@ -131,18 +128,13 @@ export function RegistrationPanel() {
                   )}
                 </div>
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
-                  <label
-                    htmlFor="role"
-                    className="text-theme-grayscale-black text-start font-sans font-normal text-base"
-                  >
-                    Função
-                  </label>
+                  <label htmlFor="role">Função</label>
                   <Input
                     type="text"
                     id="role"
                     {...register("role")}
-                    placeholder="Ex.: Desenvolvedor Front-End"
-                    className="text-sm font-light font-sans placeholder:text-sm"
+                    placeholder="Ex: Mentor"
+                    className="text-xs font-light font-sans placeholder:italic"
                   />
                   {errors.role && (
                     <span className="text-xs font-normal font-sans text-theme-status-error">
@@ -151,18 +143,13 @@ export function RegistrationPanel() {
                   )}
                 </div>
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
-                  <label
-                    htmlFor="email"
-                    className="text-theme-grayscale-black text-start font-sans font-normal text-base"
-                  >
-                    E-mail
-                  </label>
+                  <label htmlFor="email">E-mail</label>
                   <Input
                     type="email"
                     id="email"
                     {...register("email")}
-                    placeholder="Ex.: email@exemplo.com"
-                    className="text-sm font-light font-sans placeholder:text-sm"
+                    placeholder="Ex: email@exemplo.com"
+                    className="text-xs font-light font-sans placeholder:italic"
                   />
                   {errors.email && (
                     <span className="text-xs font-normal font-sans text-theme-status-error">
@@ -171,18 +158,13 @@ export function RegistrationPanel() {
                   )}
                 </div>
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
-                  <label
-                    htmlFor="country"
-                    className="text-theme-grayscale-black text-start font-sans font-normal text-base"
-                  >
-                    País
-                  </label>
+                  <label htmlFor="country">País</label>
                   <Input
                     type="text"
                     id="country"
                     {...register("country")}
                     placeholder="Ex.: Brasil"
-                    className="text-sm font-light font-sans placeholder:text-sm"
+                    className="text-xs font-light font-sans placeholder:italic"
                   />
                   {errors.country && (
                     <span className="text-xs font-normal font-sans text-theme-status-error">
@@ -191,18 +173,13 @@ export function RegistrationPanel() {
                   )}
                 </div>
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
-                  <label
-                    htmlFor="experience"
-                    className="text-theme-grayscale-black text-start font-sans font-normal text-base"
-                  >
-                    Experiência (em meses)
-                  </label>
+                  <label htmlFor="experience">Experiência (em meses)</label>
                   <Input
                     type="number"
                     id="experience"
                     {...register("experience")}
                     placeholder="Ex.: 12"
-                    className="text-sm font-light font-sans placeholder:text-sm"
+                    className="text-xs font-light font-sans placeholder:italic"
                   />
                   {errors.experience && (
                     <span className="text-xs font-normal font-sans text-theme-status-error">
@@ -211,18 +188,13 @@ export function RegistrationPanel() {
                   )}
                 </div>
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
-                  <label
-                    htmlFor="availability"
-                    className="text-theme-grayscale-black text-start font-sans font-normal text-base"
-                  >
-                    Disponibilidade
-                  </label>
+                  <label htmlFor="availability">Disponibilidade</label>
                   <Input
                     type="text"
                     id="availability"
                     {...register("availability")}
                     placeholder="Ex.: Noite"
-                    className="text-sm font-light font-sans placeholder:text-sm"
+                    className="text-xs font-light font-sans placeholder:italic"
                   />
                   {errors.availability && (
                     <span className="text-xs font-normal font-sans text-theme-status-error">
@@ -231,18 +203,13 @@ export function RegistrationPanel() {
                   )}
                 </div>
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
-                  <label
-                    htmlFor="whatsApp"
-                    className="text-theme-grayscale-black text-start font-sans font-normal text-base"
-                  >
-                    WhatsApp
-                  </label>
+                  <label htmlFor="whatsApp">WhatsApp</label>
                   <Input
                     type="text"
                     id="whatsApp"
                     {...register("whatsApp")}
                     placeholder="Ex.: 5511999999999"
-                    className="text-sm font-light font-sans placeholder:text-sm"
+                    className="text-xs font-light font-sans placeholder:italic"
                   />
                   {errors.whatsApp && (
                     <span className="text-xs font-normal font-sans text-theme-status-error">
@@ -251,18 +218,13 @@ export function RegistrationPanel() {
                   )}
                 </div>
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
-                  <label
-                    htmlFor="linkedIn"
-                    className="text-theme-grayscale-black text-start font-sans font-normal text-base"
-                  >
-                    LinkedIn
-                  </label>
+                  <label htmlFor="linkedIn">LinkedIn</label>
                   <Input
                     type="text"
                     id="linkedIn"
                     {...register("linkedIn")}
                     placeholder="Ex.: https://www.linkedin.com/in/fulano-de-tal/"
-                    className="text-sm font-light font-sans placeholder:text-sm"
+                    className="text-xs font-light font-sans placeholder:italic"
                   />
                   {errors.linkedIn && (
                     <span className="text-xs font-normal font-sans text-theme-status-error">
@@ -271,18 +233,13 @@ export function RegistrationPanel() {
                   )}
                 </div>
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
-                  <label
-                    htmlFor="note"
-                    className="text-theme-grayscale-black text-start font-sans font-normal text-base"
-                  >
-                    Observação
-                  </label>
+                  <label htmlFor="note">Observação</label>
                   <Input
                     type="text"
                     id="note"
                     {...register("note")}
                     placeholder="Ex.: Não tenho disponibilidade para atender aos sábados"
-                    className="text-sm font-light font-sans placeholder:text-sm"
+                    className="text-xs font-light font-sans placeholder:italic"
                   />
                   {errors.note && (
                     <span className="text-xs font-normal font-sans text-theme-status-error">
@@ -312,18 +269,22 @@ export function RegistrationPanel() {
             <div>
               <UserConfirmationMessage />
               <div className="flex flex-row justify-center items-center w-full h-full py-2 mx-auto space-x-8">
-                <Link
-                  href="/"
-                  className="w-full max-w-max h-10 p-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
+                <Button
+                  variant="default"
+                  size="sm"
+                  asChild
+                  className="font-sans"
                 >
-                  Ir para a Home
-                </Link>
-                <Link
-                  href="/simulacao"
-                  className="w-full max-w-max h-10 p-2 text-base font-medium font-sans rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
+                  <Link href="/">Ir para a Home</Link>
+                </Button>
+                <Button
+                  variant="default"
+                  size="sm"
+                  asChild
+                  className="font-sans"
                 >
-                  Ir para a Simulação
-                </Link>
+                  <Link href="/simulacao">Ir para a Simulação</Link>
+                </Button>
               </div>
             </div>
           )}
