@@ -52,7 +52,7 @@ const formSchema = z.object({
 export type FormValues = z.infer<typeof formSchema>;
 
 export function RegistrationPanel() {
-  const { isAcceptedTerms } = useContext(GlobalContext);
+  const { isAcceptedTerms, role } = useContext(GlobalContext);
   const [currentStep, setCurrentStep] = useState(0);
 
   const {
@@ -83,7 +83,15 @@ export function RegistrationPanel() {
   return (
     <div className="w-full h-full min-h-[65vh] flex flex-col justify-start items-center py-2 mx-auto bg-theme-white-base">
       <div className="bg-theme-white-light w-4/5 max-w-3xl h-full flex flex-col justify-start items-center mx-auto rounded-md shadow-md">
+        <div className="w-full h-full flex flex-col items-center justify-center text-center my-2">
+          <h2 className="w-full h-full text-2xl font-bold font-title text-theme-grayscale-black p-4">
+            {role === "VOLUNTÁRIO"
+              ? "Inscrição para voluntário"
+              : "Inscrição para mentor"}
+          </h2>
+        </div>
         {<Steps currentStep={currentStep} />}
+        <hr className="w-full h-0.5 bg-[#FBBB18]" />
         <div className="w-full h-full">
           {currentStep === 0 && (
             <div className="w-full h-full flex flex-col justify-center items-center">
@@ -92,7 +100,7 @@ export function RegistrationPanel() {
                 type="button"
                 onClick={() => nextStep()}
                 disabled={!isAcceptedTerms}
-                className="w-20 h-10 p-2 text-base font-medium rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-20 h-10 p-2 text-base font-medium rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed font-sans"
               >
                 Próximo
               </button>
@@ -102,7 +110,7 @@ export function RegistrationPanel() {
             <div className="w-full h-full flex flex-col justify-center items-center space-y-1">
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="w-full h-full flex flex-col justify-center items-center space-y-1"
+                className="w-[80%] h-full flex flex-col justify-center items-center space-y-1 my-4"
               >
                 <div className="w-full flex flex-col justify-center items-start space-y-1">
                   <label htmlFor="name">Nome</label>
@@ -243,13 +251,13 @@ export function RegistrationPanel() {
                   <button
                     type="button"
                     onClick={() => prevStep()}
-                    className="w-20 h-10 p-2 text-base font-medium rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-20 h-10 p-2 text-base font-medium rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed font-sans"
                   >
                     Anterior
                   </button>
                   <button
                     type="submit"
-                    className="w-20 h-10 p-2 text-base font-medium rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-20 h-10 p-2 text-base font-medium rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed font-sans"
                   >
                     Enviar
                   </button>
@@ -261,10 +269,20 @@ export function RegistrationPanel() {
             <div>
               <UserConfirmationMessage />
               <div className="flex flex-row justify-center items-center w-full h-full py-2 mx-auto space-x-8">
-                <Button variant="default" size="sm" asChild>
+                <Button
+                  variant="default"
+                  size="sm"
+                  asChild
+                  className="font-sans"
+                >
                   <Link href="/">Ir para a Home</Link>
                 </Button>
-                <Button variant="default" size="sm" asChild>
+                <Button
+                  variant="default"
+                  size="sm"
+                  asChild
+                  className="font-sans"
+                >
                   <Link href="/simulacao">Ir para a Simulação</Link>
                 </Button>
               </div>
