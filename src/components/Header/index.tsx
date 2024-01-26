@@ -1,14 +1,18 @@
 "use client";
 
+import React, { useCallback, useState } from "react";
+import Link from "next/link";
 import { menuOptions } from "@/utils/menu";
 import { socialMedias } from "@/utils/social";
-import Link from "next/link";
-import { useCallback, useState } from "react";
 import { MenuIcon } from "../icons/MenuIcon";
 import { Button } from "../ui/button";
 import { Menu } from "./Menu";
 
-export function Header() {
+interface HeaderProps {
+  background: string;
+}
+
+export function Header({ background }: HeaderProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const openMenu = useCallback(() => {
@@ -23,12 +27,18 @@ export function Header() {
     .slice(0, 3)
     .sort((a, b) => a.order - b.order);
 
+  const headerOptions = menuOptions.filter(
+    (option) => option.name !== "Clube do Pipoca"
+  );
+
   return (
-    <header className="flex justify-between items-center text-sm py-3 px-5 bg-[#FCCF5C]">
+    <header
+      className={`flex justify-between items-center text-sm py-3 px-5 ${background}`}
+    >
       <h1>Logo_do_pipoca.png</h1>
       <nav className="hidden lg:flex items-center gap-10 text-md">
         <ul className="flex flex-row gap-4">
-          {menuOptions.map(({ name, path }) => (
+          {headerOptions.map(({ name, path }) => (
             <li key={name} className="font-sans font-semibold">
               <Link href={path}>{name}</Link>
             </li>

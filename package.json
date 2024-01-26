@@ -19,6 +19,8 @@
     "@sanity/image-url": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "google-spreadsheet": "^4.1.1",
+    "googleapis": "^131.0.0",
     "lucide-react": "^0.292.0",
     "next": "latest",
     "next-sanity": "^5.5.4",

@@ -7,7 +7,7 @@ import { SimulationTestimony } from "@/components/simulation/SimulationTestimony
 
 export default function SimulationPage() {
   return (
-    <PageContainer>
+    <PageContainer background="red">
       <SimulationHero />
       <SimulationDescription />
       <SimulationCTA />

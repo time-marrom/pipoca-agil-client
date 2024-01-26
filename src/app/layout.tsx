@@ -7,6 +7,11 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Fredoka, Open_Sans } from "next/font/google";
 
+interface RootLayoutProps {
+  children: React.ReactNode;
+  background: string;
+}
+
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -20,7 +25,7 @@ export const metadata: Metadata = {
     "Um podcast descontraído sobre Agilidade e os Desafios desta Jornada! Um podcast demográfico e orgânico! Um podcast para o Mundo Ágil.",
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children, background }: RootLayoutProps) {
   return (
     <html lang="pt-BR">
       <body
@@ -29,8 +34,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           openSans.variable,
           fredoka.variable
         )}
+        style={{ background }}
       >
-        <Header />
+        <Header background={background} />
         <RootProviders>{children}</RootProviders>
         <ScrollToTopButton />
         <Footer />
