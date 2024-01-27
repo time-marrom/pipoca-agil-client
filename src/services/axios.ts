@@ -2,7 +2,7 @@ import { queries } from "@/utils/sanity/queries"
 import axios from "axios"
 
 const api = axios.create({
-  baseURL: "https://ejoo37fg.api.sanity.io/v2023-05-03/data/query/production?query="
+  baseURL: "https://ejoo37fg.api.sanity.io/"
 })
 
 export function getSanitySimulationContent(): Promise<SimulationContent> {
