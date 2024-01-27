@@ -1,10 +1,13 @@
 import { MaintenanceContent } from "@/components/MaintenanceContent"
 import { PageContainer } from "@/components/PageContainer"
+import { getSanityMaintenanceContent } from "@/services/axios"
 
-export default function AgileTrail() {
+export default async function AgileTrail() {
+  const content = await getSanityMaintenanceContent()
+
   return (
     <PageContainer>
-      <MaintenanceContent pageName="Trilha Ágil" />
+      <MaintenanceContent path="Trilha Ágil" content={content} />
     </PageContainer>
   )
 }

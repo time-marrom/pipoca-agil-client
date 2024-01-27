@@ -5,6 +5,7 @@ type RootLayoutProps = {
 type SanityQueries = {
   maintenance: string
   home: string
+  simulation: string
 }
 
 type MaintenanceContent = {
@@ -56,7 +57,14 @@ type Social = {
 }
 
 type MaintenanceContentProps = {
-  pageName: string
+  path: string
+  content: MaintenanceContent
 }
 
 type PageContainerProps = RootLayoutProps
+
+type SimulationContent = {
+  heroTitle: string
+  heroSubtitle: string
+  heroLabelButton: string
+}

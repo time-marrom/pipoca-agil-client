@@ -1,12 +1,13 @@
-import { createClient } from "next-sanity"
+import { env } from "@/utils/env";
+import { createClient } from "next-sanity";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!.toString()
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!.toString()
-const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION!.toString()
+const projectId = env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = env.NEXT_PUBLIC_SANITY_DATASET;
+const apiVersion = env.NEXT_PUBLIC_SANITY_API_VERSION;
 
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true
-})
+  useCdn: true,
+});

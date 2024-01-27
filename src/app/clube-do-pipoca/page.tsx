@@ -1,10 +1,13 @@
 import { MaintenanceContent } from "@/components/MaintenanceContent"
 import { PageContainer } from "@/components/PageContainer"
+import { getSanityMaintenanceContent } from "@/services/axios"
 
-export default function PopcornClub() {
+export default async function PopcornClub() {
+  const content = await getSanityMaintenanceContent()
+
   return (
     <PageContainer>
-      <MaintenanceContent pageName="Clube do Pipoca" />
+      <MaintenanceContent path="Clube do Pipoca" content={content} />
     </PageContainer>
   )
 }

@@ -4,11 +4,14 @@ import { SimulationDescription } from "@/components/simulation/SimulationDescrip
 import { SimulationFAQ } from "@/components/simulation/SimulationFAQ";
 import { SimulationHero } from "@/components/simulation/SimulationHero";
 import { SimulationTestimony } from "@/components/simulation/SimulationTestimony";
+import { getSanitySimulationContent } from "@/services/axios";
 
-export default function SimulationPage() {
+export default async function SimulationPage() {
+  const content = await getSanitySimulationContent();
+
   return (
     <PageContainer>
-      <SimulationHero />
+      <SimulationHero content={content} />
       <SimulationDescription />
       <SimulationCTA />
       <SimulationTestimony />

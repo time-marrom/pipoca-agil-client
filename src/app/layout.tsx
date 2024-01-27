@@ -2,6 +2,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import { cn } from "@/lib/utils";
+import ReactQueryProvider from "@/providers/react-query";
 import { RootProviders } from "@/providers/rootProvider";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
@@ -31,7 +32,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <Header />
-        <RootProviders>{children}</RootProviders>
+        <ReactQueryProvider>
+          <RootProviders>{children}</RootProviders>
+        </ReactQueryProvider>
         <ScrollToTopButton />
         <Footer />
       </body>
