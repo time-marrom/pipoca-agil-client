@@ -1,10 +1,12 @@
 import { MaintenanceContent } from "@/components/MaintenanceContent"
 import { PageContainer } from "@/components/PageContainer"
+import { getSanityMaintenanceContent } from "@/services/axios"
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const content = await getSanityMaintenanceContent()
   return (
     <PageContainer>
-      <MaintenanceContent pageName="Contato" />
+      <MaintenanceContent path="Contato" content={content} />
     </PageContainer>
   )
 }
