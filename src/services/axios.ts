@@ -1,15 +1,15 @@
-import { queries } from "@/utils/sanity/queries";
-import axios from "axios";
+import { queries } from "@/utils/sanity/queries"
+import axios from "axios"
 
 const api = axios.create({
-  baseURL: "https://ejoo37fg.api.sanity.io/v2023-05-03/data/query/production",
-});
+  baseURL: "https://ejoo37fg.api.sanity.io/v2023-05-03/data/query/production?query="
+})
 
 export function getSanitySimulationContent(): Promise<SimulationContent> {
   const response = api
     .get(queries.simulation)
     .then((response) => response.data.result)
-    .catch((error) => console.error(error));
+    .catch((error) => console.error(error))
 
-  return response;
+  return response
 }
