@@ -1,13 +1,13 @@
-import { PageContainer } from "@/components/PageContainer";
-import { SimulationCTA } from "@/components/simulation/SimulationCTA";
-import { SimulationDescription } from "@/components/simulation/SimulationDescription";
-import { SimulationFAQ } from "@/components/simulation/SimulationFAQ";
-import { SimulationHero } from "@/components/simulation/SimulationHero";
-import { SimulationTestimony } from "@/components/simulation/SimulationTestimony";
-import { getSanitySimulationContent } from "@/services/axios";
+import { PageContainer } from "@/components/PageContainer"
+import { SimulationCTA } from "@/components/simulation/SimulationCTA"
+import { SimulationDescription } from "@/components/simulation/SimulationDescription"
+import { SimulationFAQ } from "@/components/simulation/SimulationFAQ"
+import { SimulationHero } from "@/components/simulation/SimulationHero"
+import { SimulationTestimony } from "@/components/simulation/SimulationTestimony"
+import { getSanitySimulationContent } from "@/services/axios"
 
 export default async function SimulationPage() {
-  const content = await getSanitySimulationContent();
+  const content = await getSanitySimulationContent()
 
   return (
     <PageContainer>
@@ -17,5 +17,5 @@ export default async function SimulationPage() {
       <SimulationTestimony />
       <SimulationFAQ />
     </PageContainer>
-  );
+  )
 }
