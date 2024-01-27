@@ -1,11 +1,13 @@
+"use client"
+
 import { getSanityMaintenanceContent } from "@/services/axios"
 import { useQuery } from "@tanstack/react-query"
 import Image from "next/image"
 
-export async function MaintenanceContent({
+export function MaintenanceContent({
   path,
   content
-}: MaintenanceContentProps): Promise<JSX.Element> {
+}: MaintenanceContentProps): JSX.Element {
   const { data } = useQuery({
     queryKey: ["maintenance"],
     queryFn: getSanityMaintenanceContent,

@@ -4,6 +4,7 @@ import { getSanityMaintenanceContent } from "@/services/axios"
 
 export default async function ContactPage() {
   const content = await getSanityMaintenanceContent()
+
   return (
     <PageContainer>
       <MaintenanceContent path="Contato" content={content} />
