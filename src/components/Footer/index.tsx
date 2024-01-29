@@ -12,13 +12,13 @@ export function Footer(): JSX.Element {
     .sort((a, b) => a.order - b.order);
 
   return (
-    <footer className="bg-[#F6F6F6] py-4 px-36 w-full h-full flex flex-col justify-between items-center gap-8  ">
-      <div className="w-full h-full flex flex-col lg:flex-row-reverse justify-between items-start gap-2 font-sans text-[#3A3A3A]">
-        <div className="flex flex-col items-end mb-20 gap-8  ">
+    <footer className="bg-[#F6F6F6] py-10 lg:py-4 px-6 lg:px-36 w-full h-full flex flex-col justify-between items-center  gap-12 lg:gap-8 ">
+      <div className=" w-full h-full flex flex-col lg:flex-row-reverse justify-between items-start gap-8 lg:gap-2 font-sans text-[#3A3A3A]">
+        <div className="w-full flex flex-col items-center lg:items-end lg:mb-20 gap-4 lg:gap-8">
           <h4 className="font-title font-semibold text-base text-[#3A3A3A] ">
             Siga o Pipoca Ágil
           </h4>
-          <ul className="flex flex-row gap-4  ">
+          <ul className="flex flex-row gap-10  lg:gap-4">
             {orderSocialMedias.map(({ name, path, icon: Icon }) => (
               <li key={name}>
                 <Link href={path} target="_blank">
@@ -28,24 +28,22 @@ export function Footer(): JSX.Element {
             ))}
           </ul>
         </div>
-        <div className="w-full h-full flex flex-col justify-between items-start gap-2 my-4 py-2">
+        <div className="w-full h-full flex flex-col justify-between items-center lg:items-start gap-2 lg:my-4 py-2">
           <p className="block lg:hidden my-2">Navegação</p>
-          <ul className="w-2/3 h-full flex flex-col lg:flex-row gap-20">
+          <ul className="w-2/3 h-full flex flex-col lg:flex-row lg:gap-20 items-center text-center">
             {footerOptions.map(({ name, path, options }) => (
-              <li key={name} className="flex-row items-center">
+              <li key={name} className="flex-row items-center py-4">
                 <Link href={path}>
-                  <span className="flex-row hover:text-[#b667f3] underline text-base font-semibold font-title">
+                  <span className="flex-row hover:text-[#b667f3] underline text-base font-semibold font-title ">
                     {name}
                   </span>
                 </Link>
                 {options && options.length > 0 && (
-                  <ul>
+                  <ul className="flex flex-col ">
                     {options.map((option: string) => (
-                      <li className="mb-8 mt-8 text-[12px]" key={option}>
-                        <span>
-                          <span className="flex flex-col font-sans text-sm font-normal">
-                            {option}
-                          </span>
+                      <li className=" lg:my-8 text-[12px] " key={option}>
+                        <span className="flex flex-col font-sans text-sm font-normal py-4">
+                          {option}
                         </span>
                       </li>
                     ))}
@@ -57,7 +55,7 @@ export function Footer(): JSX.Element {
         </div>
       </div>
       <hr className=" w-full h-0.5 bg-[#431B61]" />
-      <div className="w-full h-full flex flex-col justify-between items-center gap-4 font-sans text-xs font-light text-[#3A3A3A] px-4">
+      <div className="w-full h-full flex flex-col justify-between items-center gap-4 font-sans text-xs font-light text-center text-[#3A3A3A] lg:px-4">
         <p className="font-sans text-sm font-normal">
           &copy;Time Marrom 2023. Todos os direitos reservados
         </p>
