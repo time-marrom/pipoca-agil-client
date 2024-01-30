@@ -1,14 +1,20 @@
 "use client";
 
+import React, { useCallback, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { menuOptions } from "@/utils/menu";
 import { socialMedias } from "@/utils/social";
-import Link from "next/link";
-import { useCallback, useState } from "react";
 import { MenuIcon } from "../icons/MenuIcon";
 import { Button } from "../ui/button";
 import { Menu } from "./Menu";
+import icon from "@/assets/icon-popCorn.svg";
 
-export function Header() {
+interface HeaderProps {
+  background: string;
+}
+
+export function Header({ background }: HeaderProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const openMenu = useCallback(() => {
@@ -23,29 +29,40 @@ export function Header() {
     .slice(0, 3)
     .sort((a, b) => a.order - b.order);
 
+  const headerOptions = menuOptions.filter(
+    (option) => option.name !== "Sobre os criadores"
+  );
+
   return (
-    <header className="flex justify-between items-center text-sm py-3 px-5 bg-[#FCCF5C]">
-      <h1>Logo_do_pipoca.png</h1>
+    <header
+      className={`flex justify-between items-center text-sm py-3 px-5 ${background}`}
+    >
+      <Image src={icon} alt="icone de um microfone - pipoca ágil" />
       <nav className="hidden lg:flex items-center gap-10 text-md">
-        <ul className="flex flex-row gap-4">
-          {menuOptions.map(({ name, path }) => (
+        <ul className="flex flex-row gap-12 text-base">
+          {headerOptions.map(({ name, path }) => (
             <li key={name} className="font-sans font-semibold">
               <Link href={path}>{name}</Link>
             </li>
           ))}
+
+          <Button
+            className="border-2 border-[#5A0C94] text-[#5A0C94] rounded-2xl"
+            variant="outline"
+            asChild
+          >
+            <Link href="/clube-pipoca" className="font-title">
+              Quero voluntariar
+            </Link>
+          </Button>
         </ul>
       </nav>
       <div className="hidden md:flex flex-row justify-center items-center gap-10">
-        <Button variant="default" asChild>
-          <Link href="/clube-pipoca" className="font-sans">
-            Clube do Pipoca
-          </Link>
-        </Button>
         <ul className="flex flex-row gap-4">
           {orderSocialMedias.map(({ name, path, icon: Icon }) => (
             <li key={name}>
               <Link href={path} target="_blank">
-                <Icon className="h-6 w-6 fill-theme-grayscale-black" />
+                <Icon className="h-8 w-8 fill-theme-grayscale-black" />
               </Link>
             </li>
           ))}

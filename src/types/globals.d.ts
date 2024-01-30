@@ -68,3 +68,4 @@ type SimulationContent = {
   heroSubtitle: string
   heroLabelButton: string
 }
+

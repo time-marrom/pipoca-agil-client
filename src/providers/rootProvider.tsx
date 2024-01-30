@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { GlobalContextProvider } from "../contexts/GlobalContext"
+import { GlobalContextProvider } from "../contexts/GlobalContext";
 
 type RootProvidersProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export function RootProviders({ children }: RootProvidersProps) {
-  return <GlobalContextProvider>{children}</GlobalContextProvider>
+  return <GlobalContextProvider>{children}</GlobalContextProvider>;
 }
