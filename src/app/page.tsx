@@ -10,7 +10,7 @@ import { SimulationCTA } from "@/components/home/SimulationCTA";
 
 export default function Home() {
   return (
-    <PageContainer background="red">
+    <PageContainer>
       <Hero />
       <SimulationCTA />
       <PodcastCTA />
