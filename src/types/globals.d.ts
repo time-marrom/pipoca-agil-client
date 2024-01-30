@@ -47,6 +47,7 @@ type MenuOption = {
   icon?: string
   text: string
   order: number
+  options?: string[]
 }
 
 type Social = {
@@ -68,4 +69,3 @@ type SimulationContent = {
   heroSubtitle: string
   heroLabelButton: string
 }
-
