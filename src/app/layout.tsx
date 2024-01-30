@@ -2,14 +2,14 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import { cn } from "@/lib/utils";
+import ReactQueryProvider from "@/providers/react-query";
 import { RootProviders } from "@/providers/rootProvider";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Fredoka, Open_Sans } from "next/font/google";
 
 interface RootLayoutProps {
-  children: React.ReactNode;
-  background: string;
+  children: React.ReactNode; 
 }
 
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-sans" });
@@ -34,10 +34,11 @@ export default function RootLayout({ children, background }: RootLayoutProps) {
           openSans.variable,
           fredoka.variable
         )}
-        style={{ background }}
       >
-        <Header background={background} />
-        <RootProviders>{children}</RootProviders>
+        <Header />
+        <ReactQueryProvider>
+          <RootProviders>{children}</RootProviders>
+        </ReactQueryProvider>
         <ScrollToTopButton />
         <Footer />
       </body>
