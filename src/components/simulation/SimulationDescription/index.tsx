@@ -1,50 +1,26 @@
-"use client";
+"use client"
 
-import iconCheck from "@/assets/IconCheck.svg";
-import { CheckIcon } from "@/components/icons/CheckIcon";
-import { getSanitySimulationContent } from "@/services/axios";
-import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
+import iconCheck from "@/assets/IconCheck.svg"
+import { CheckIcon } from "@/components/icons/CheckIcon"
+import { getSanitySimulationContent } from "@/services/axios"
+import { useQuery } from "@tanstack/react-query"
 
 interface List {
-  text: string;
-  icon: string;
-  alt: string;
+  text: string
+  icon: string
+  alt: string
 }
 
 interface SimulationDescriptionProps {
-  content: SimulationContent;
+  content: SimulationContent
 }
 
 export function SimulationDescription({ content }: SimulationDescriptionProps) {
   const { data } = useQuery({
     queryKey: ["simulation"],
     queryFn: getSanitySimulationContent,
-    initialData: content,
-  });
-
-  const list: List[] = [
-    {
-      text: "Trabalhe em um grupo multidisciplinar",
-      icon: iconCheck,
-      alt: "icone de check",
-    },
-    {
-      text: "Participe de todo o processo - do problema à solução ",
-      icon: iconCheck,
-      alt: "icone de check",
-    },
-    {
-      text: "Aprenda agilidade na prática",
-      icon: iconCheck,
-      alt: "icone de check",
-    },
-    {
-      text: "Incremente seu currículo e portfólio",
-      icon: iconCheck,
-      alt: "icone de check",
-    },
-  ];
+    initialData: content
+  })
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center text-center py-20 px-8 md:px-8 md:py-20 gap-2 rounded-t-[90px] lg:px-32 lg:py-40 bg-[#FCFCFC] ">
@@ -60,10 +36,7 @@ export function SimulationDescription({ content }: SimulationDescriptionProps) {
         <div className="w-full lg:w-1/2 flex flex-col">
           <ul className="w-full font-sans grid grid-flow-col grid-cols-1 grid-rows-4 lg:grid-cols-1 lg:grid-rows-4 md:grid-cols-2 md:grid-rows-2 ">
             {data.overviewPanelTopics.map((item, index) => (
-              <li
-                key={index}
-                className="flex items-center text-lg mb-4 md:mb-6"
-              >
+              <li key={index} className="flex items-center text-lg mb-4 md:mb-6">
                 <CheckIcon className="fill-[#252525] hover:fill-purple-500 hover:scale-110 transition-all ease-in-out delay-100" />
                 <span className="ml-4">{item}</span>
               </li>
@@ -72,5 +45,5 @@ export function SimulationDescription({ content }: SimulationDescriptionProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
