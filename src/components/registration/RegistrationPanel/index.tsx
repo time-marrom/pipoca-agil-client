@@ -100,9 +100,9 @@ export function RegistrationPanel() {
                 type="button"
                 onClick={() => nextStep()}
                 disabled={!isAcceptedTerms}
-                className="w-20 h-10 p-2 text-base font-medium rounded-md text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed font-sans"
+                className="w-22 h-10 p-4 flex items-center text-base font-medium rounded-2xl text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed font-sans"
               >
-                Próximo
+                Continuar
               </button>
             </div>
           )}
