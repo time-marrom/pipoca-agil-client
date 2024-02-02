@@ -4,7 +4,7 @@ import { SimulationDescription } from "@/components/simulation/SimulationDescrip
 import { SimulationFAQ } from "@/components/simulation/SimulationFAQ";
 import { SimulationHero } from "@/components/simulation/SimulationHero";
 import { SimulationHowItWorks } from "@/components/simulation/SimulationHowItWorks";
-import { SimulationTestimony } from "@/components/simulation/SimulationTestimony";
+import { SimulationWorthIt } from "@/components/simulation/SimulationWorthIt";
 import { getSanitySimulationContent } from "@/services/axios";
 
 export default async function SimulationPage() {
@@ -16,7 +16,7 @@ export default async function SimulationPage() {
       <SimulationDescription content={content} />
       <SimulationHowItWorks content={content} />
       <SimulationCTA />
-      <SimulationTestimony />
+      <SimulationWorthIt content={content} />
       <SimulationFAQ />
     </PageContainer>
   );
