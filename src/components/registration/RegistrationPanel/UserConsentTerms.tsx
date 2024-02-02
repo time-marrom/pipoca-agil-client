@@ -38,21 +38,7 @@ export function UserConsentTerms() {
       </ul>
       <div className="w-full h-full flex flex-col justify-center items-center gap-4">
         <ConsentTerms />
-        {/* <div className="flex items-center space-x-2 ">
-          <input
-            type="checkbox"
-            className="h-5 w-5 rounded-md checked:touch-pan-up checked:accent-[#5A0C94] caret-theme-secondary-light"
-            id="terms"
-            checked={isAcceptedTerms}
-            onChange={handleCheckboxChange}
-          />
-          <label
-            htmlFor="terms"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-sans py-6  "
-          >
-            Li e concordo com os termos e regras
-          </label>
-        </div> */}
+
         <div className="inline-flex items-center">
           <label
             className="relative flex items-center p-3 rounded-full cursor-pointer"
