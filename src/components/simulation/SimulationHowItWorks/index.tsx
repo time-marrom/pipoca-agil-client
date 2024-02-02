@@ -1,14 +1,13 @@
 "use client";
 
-import { CheckIcon } from "@/components/icons/CheckIcon";
 import { getSanitySimulationContent } from "@/services/axios";
 import { useQuery } from "@tanstack/react-query";
 
-interface SimulationHowItWorksProps {
+interface SimulationWorthItProps {
   content: SimulationContent;
 }
 
-export function SimulationHowItWorks({ content }: SimulationHowItWorksProps) {
+export function SimulationWorthIt({ content }: SimulationWorthItProps) {
   const { data } = useQuery({
     queryKey: ["simulation"],
     queryFn: getSanitySimulationContent,
@@ -16,30 +15,27 @@ export function SimulationHowItWorks({ content }: SimulationHowItWorksProps) {
   });
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center text-start py-20 px-8 md:px-8 md:py-20 gap-2 rounded-t-[90px] lg:px-32 lg:py-40 bg-[#FCCF5C]">
-      <div className="flex flex-col lg:flex-row lg:gap-12 md:gap-12 w-full justify-between ">
-        <div className="w-full lg:w-1/3 flex flex-col gap-8 lg:justify-center ">
-          <h3 className="text-theme-grayscale-black text-4xl font-semibold font-title mb-4 text-center md:text-left">
-            {data.howToPanelTitle}
-          </h3>
-          <p className="lg:w-3/4 font-sans font-normal text-base mb-6 md:mb-10 lg:pr-4 text-start md:text-left">
-            {data.howToPanelSubtitle}
-          </p>
-        </div>
-        <div className="w-full lg:w-1/2 flex flex-col">
-          <ul className="w-full font-sans grid grid-flow-col grid-cols-1 grid-rows-4 lg:grid-cols-1 lg:grid-rows-4 md:grid-cols-2 md:grid-rows-2 ml:pr-8 ">
-            {data.howToPanelTopics.map((item, index) => (
-              <li
-                key={index}
-                className="flex items-center text-base mb-4 md:mb-6"
-              >
-                <CheckIcon className="fill-[#252525] hover:fill-purple-500 hover:scale-110 transition-all ease-in-out delay-100" />
-                <span className="ml-4">{item}</span>
-              </li>
-            ))}
-          </ul>
+    <div className="w-full h-full flex flex-col items-center justify-center text-center py-20 px-8 md:px-8 md:py-20 gap-2 rounded-t-[90px] lg:px-32 lg:py-40 bg-[#FCCF5C]">
+      {/* <div className=""> */}
+      <div className="w-full flex flex-col lg:flex-col gap-8 md:text-center md:items-center">
+        <h3 className="w-full flex justify-center items-center text-theme-grayscale-black text-5xl font-medium font-title mb-10 text-center">
+          {data.metricsPanelTitle}
+        </h3>
+        <div className="w-full font-sans grid grid-flow-col grid-cols-1 grid-rows-4 lg:grid-cols-4 lg:grid-rows-1 md:grid-cols-2 md:grid-rows-2 md:gap-x-28 ">
+          {data.metricsPanelObject.map((item, index) => (
+            <p
+              key={index}
+              className="flex flex-col font-title font-medium text-6xl text-center mb-10 md:mb-10 lg:pr-4  md:text-center gap-4"
+            >
+              +{item.number}
+              <span className="w-full text-2xl font-sans font-normal text-theme-grayscale-black">
+                {item.metric}
+              </span>
+            </p>
+          ))}
         </div>
       </div>
     </div>
+    // </div>
   );
 }
