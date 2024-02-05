@@ -1,7 +1,7 @@
-import { SVGProps } from "react";
+import { SVGProps } from "react"
 
 interface HeroSumulationProps extends SVGProps<SVGSVGElement> {
-  title?: string;
+  title?: string
 }
 
 export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
@@ -22,16 +22,16 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M504.945 250.548H199.17C193.537 250.548 188.97 255.115 188.97 260.748V446.073C188.97 451.706 193.537 456.273 199.17 456.273H504.945C510.578 456.273 515.145 451.706 515.145 446.073V260.748C515.145 255.115 510.578 250.548 504.945 250.548Z"
         stroke="#EDEDED"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M495.278 260.141H208.845C203.212 260.141 198.645 264.707 198.645 270.341V436.466C198.645 442.099 203.212 446.666 208.845 446.666H495.278C500.911 446.666 505.478 442.099 505.478 436.466V270.341C505.478 264.707 500.911 260.141 495.278 260.141Z"
         stroke="#DEDEDE"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M199.028 395.582C188.25 396.879 186.923 389.807 183 379.749C179.078 369.692 179.768 360.249 177.105 344.784C173.993 326.784 195.855 326.379 200.355 351.617C200.543 352.637 200.745 353.822 200.963 355.119C201.6 358.772 202.403 363.369 203.558 367.929C203.85 369.077 204.165 370.224 204.495 371.357C206.67 378.624 209.828 394.277 199.028 395.582Z"
@@ -64,9 +64,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M231.983 452.859C231.143 428.237 228.78 408.744 226.155 394.592"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M180.143 368.454C175.643 370.224 175.643 372.204 175.643 374.357C175.643 376.509 179.678 388.254 187.568 396.594C189.105 398.222 191.393 388.179 193.65 387.594C195.908 387.009 197.933 388.044 198.983 387.894C200.033 387.744 202.815 384.984 204.623 386.237C206.43 387.489 210.255 393.737 211.005 393.902C211.755 394.067 211.83 379.104 210.105 373.847C209.653 372.361 208.804 371.027 207.651 369.987C206.497 368.947 205.082 368.241 203.558 367.944C203.558 367.944 204.803 378.804 201.165 382.029C193.605 388.749 185.828 380.282 180.143 368.454Z"
@@ -79,16 +79,16 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M173.955 344.575C173.73 342.813 175.86 340.03 179.205 342.67"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M177.855 345.729C174.368 345.639 175.395 341.882 178.545 342.212"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M205.267 342.902L203.377 343.449L184.86 348.804C184.86 348.804 184.365 348.324 183.615 347.492C181.169 344.8 179.221 341.694 177.862 338.319C177.455 337.23 177.17 336.098 177.015 334.944C176.1 327.767 183.562 314.319 195.982 320.529C199.995 324.354 202.275 331.149 202.86 333.144L203.055 333.819C203.767 336.482 205.267 342.902 205.267 342.902Z"
@@ -122,9 +122,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
         d="M192.652 341.979C194.955 342.119 197.265 342.119 199.567 341.979C199.567 341.979 198.645 345.032 195.817 344.769C195.053 344.729 194.324 344.432 193.749 343.925C193.175 343.419 192.788 342.733 192.652 341.979Z"
         fill="#FCFCFC"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M191.693 326.162C192.158 327.999 187.53 331.247 186.375 329.912C185.22 328.577 190.988 323.402 191.693 326.162Z"
@@ -137,9 +137,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M194.91 327.534C194.37 329.432 194.025 331.899 195.848 332.784C197.67 333.669 200.138 333.324 200.385 336.939"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M128.25 451.232C127.208 463.09 127.178 487.907 139.5 494.207C159.803 504.58 164.1 477.76 163.208 451.232H128.25Z"
@@ -156,9 +156,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M170.783 409.75C170.4 425.433 163.635 455.582 163.635 455.582"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M242.805 425.5C242.805 425.5 245.055 427.15 242.663 431.665C242.663 431.665 245.16 433.968 241.815 437.83C242.27 438.722 242.392 439.747 242.158 440.721C241.925 441.694 241.351 442.552 240.54 443.14C237.161 446.097 233.571 448.804 229.8 451.24C228.045 452.32 225.63 453.903 221.82 456.603C220.32 457.668 218.58 458.913 216.57 460.353C212.07 463.63 206.205 467.988 198.48 473.853C167.168 497.598 148.47 500.853 137.595 493.03C128.955 486.82 139.845 458.815 173.198 447.61C190.365 441.835 200.903 438.813 207.353 436.998C209.97 436.248 211.92 435.723 213.353 435.288C215.258 434.703 216.285 434.298 216.848 433.825C218.858 432.1 219.788 430.075 220.763 427.645C221.738 425.215 224.033 416.11 224.603 413.62C225.173 411.13 229.485 409.69 228.765 423.768C228.765 423.768 241.103 419.748 243.338 419.17C245.573 418.593 246.458 423.49 242.805 425.5Z"
@@ -172,44 +172,44 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
         d="M212.468 452.86C215.603 452.86 218.145 450.318 218.145 447.182C218.145 444.047 215.603 441.505 212.468 441.505C209.332 441.505 206.79 444.047 206.79 447.182C206.79 450.318 209.332 452.86 212.468 452.86Z"
         fill="#FCFCFC"
         stroke="#683F1D"
-        stroke-width="0.9"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M220.792 427.653C221.76 425.215 224.062 416.118 224.632 413.628C225.202 411.138 229.515 409.698 228.795 423.775C228.795 423.775 241.132 419.755 243.367 419.178C245.602 418.6 246.457 423.49 242.805 425.5C242.805 425.5 245.055 427.15 242.662 431.665C242.662 431.665 245.16 433.968 241.815 437.83C242.27 438.722 242.392 439.747 242.158 440.721C241.924 441.695 241.351 442.553 240.54 443.14"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M242.805 425.5C240.555 426.535 235.98 428.418 235.98 428.418"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M242.662 431.665C241.297 432.558 238.11 434.155 238.11 434.155"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M241.815 437.83C241.162 438.209 240.48 438.535 239.775 438.805"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M228.795 423.775C226.703 424.39 225.045 425.013 225.045 425.013"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M375.795 396.858C375.709 398.41 375.541 399.957 375.293 401.493C373.35 414.13 366.368 432.288 358.62 443.38C357.069 445.666 355.279 447.781 353.28 449.688C347.19 455.29 337.493 456.348 330.72 452.425C328.676 451.247 326.933 449.608 325.632 447.64C324.33 445.672 323.504 443.428 323.22 441.085C322.925 439.055 322.902 436.994 323.153 434.958C324.45 423.475 332.273 403.795 341.715 389.598C342.788 387.963 343.898 386.395 345.015 384.933C350.348 377.943 355.995 373.068 361.155 372.543C362.221 372.417 363.301 372.502 364.335 372.79C372.885 375.25 376.568 381.94 375.795 396.858Z"
@@ -230,8 +230,8 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M417.323 476.035C419.67 481.285 425.948 487.443 428.07 488.845"
         stroke="#9940DC"
-        stroke-width="0.9"
-        stroke-miterlimit="10"
+        strokeWidth="0.9"
+        strokeMiterlimit="10"
       />
       <path
         d="M396.165 384.678C386.505 385.856 384.42 378.116 384.36 367.053C384.36 364.451 384.45 361.661 384.593 358.751C384.67 357.043 384.853 355.343 385.14 353.658C388.433 334.811 404.033 337.091 404.835 348.198C405.143 352.413 408.113 383.223 396.165 384.678Z"
@@ -256,9 +256,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M361.425 394.66C361.401 396.785 361.19 398.903 360.795 400.99C360.615 401.883 360.405 402.79 360.15 403.713C357.558 412.626 356.518 421.919 357.075 431.185C357.374 435.275 357.889 439.345 358.62 443.38C358.853 444.768 359.108 446.193 359.37 447.633C360.165 451.953 361.058 456.385 361.905 460.285C363.263 466.57 364.5 471.475 364.95 472.285"
         stroke="#FBBB18"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M432.09 435.018C429.323 453.513 429.135 470.628 428.948 472.405C428.76 474.183 412.23 473.755 399.93 473.275C395.138 473.088 388.943 473.223 383.1 473.328C387.9 469.33 397.83 462.76 407.355 466.915C420.578 472.683 426.81 454.488 418.74 452.86C410.67 451.233 410.25 442.053 408.675 434.628L415.275 431.95L432.09 435.018Z"
@@ -271,9 +271,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M381.855 374.966C381.773 376.397 381.773 377.832 381.855 379.263"
         stroke="#FBBB18"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M408.675 375.288C408.57 378.108 408.443 379.946 408.443 379.946L408.675 375.288Z"
@@ -282,9 +282,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M408.675 375.288C408.57 378.108 408.443 379.946 408.443 379.946"
         stroke="#FBBB18"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M388.26 379.638C391.89 380.68 397.47 380.74 400.665 379.638H388.26Z"
@@ -293,9 +293,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M388.26 379.638C391.89 380.68 397.47 380.74 400.665 379.638"
         stroke="#FBBB18"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M466.778 445.893C463.028 450.656 452.835 451.571 444.54 444.948C442.226 443.08 440.246 440.833 438.682 438.303C437.767 436.848 436.59 434.643 435.278 432.048C434.7 430.893 434.085 429.663 433.463 428.388C429.975 421.248 425.963 412.593 423.428 407.643C422.156 405.142 421.203 402.491 420.593 399.753C420.338 398.666 420.135 397.563 419.978 396.453C418.065 383.126 422.85 369.131 435.773 374.793H435.81C438.383 375.926 441.12 378.378 443.873 381.596C450.548 389.426 457.253 401.846 461.528 411.183C462.503 413.306 463.343 415.271 464.033 416.988C469.028 429.408 471.45 439.908 466.778 445.893Z"
@@ -316,9 +316,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M438.683 438.303C437.768 436.848 436.59 434.643 435.278 432.048C434.7 430.893 434.085 429.663 433.463 428.388C429.975 421.248 425.963 412.593 423.428 407.643C422.156 405.142 421.203 402.492 420.593 399.753C420.338 398.666 420.135 397.563 419.978 396.453"
         stroke="#FBBB18"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M466.778 445.893C463.028 450.655 452.835 451.57 444.54 444.948C446.585 444.291 448.752 444.109 450.878 444.415C459.323 445.645 467.655 442.165 461.16 432.333C455.91 424.36 459.66 414.333 461.528 411.205C462.503 413.328 463.343 415.293 464.033 417.01C469.028 429.408 471.45 439.908 466.778 445.893Z"
@@ -359,23 +359,23 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M402.578 347.44C402.765 345.378 405.12 342.535 407.663 344.635"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M402.668 346.93C404.43 343.93 407.978 348.048 403.845 348.873"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M379.335 345.04C378.285 344.553 377.873 343.6 377.963 343.368C378.053 343.135 381.338 340.713 380.708 336.985"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M383.408 332.328C383.108 334.27 387.825 336.168 388.553 334.945C389.175 333.895 383.843 329.5 383.408 332.328Z"
@@ -389,9 +389,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
         d="M379.83 347.005C381.585 346.544 383.298 345.937 384.953 345.19C384.953 345.19 385.478 348.43 383.408 349.023C383.04 349.129 382.655 349.16 382.276 349.116C381.896 349.071 381.529 348.952 381.196 348.764C380.863 348.576 380.571 348.324 380.336 348.022C380.102 347.72 379.93 347.375 379.83 347.005Z"
         fill="#FCFCFC"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M406.5 311.988C405.75 314.403 402.908 311.905 402.683 315.355C402.458 318.805 395.573 317.838 393.465 314.485C391.74 311.725 386.85 312.76 383.978 315.678C383.685 314.928 382.425 314.215 382.748 313.338C383.16 312.22 384.248 312.033 385.583 311.988C386.918 311.943 386.625 308.238 386.01 307.233C385.395 306.228 385.868 303.79 387.96 303.933C390.053 304.075 390.848 303.655 391.035 302.673C391.161 302.331 391.357 302.018 391.609 301.755C391.861 301.492 392.165 301.283 392.501 301.142C392.837 301.002 393.199 300.932 393.564 300.937C393.928 300.942 394.288 301.022 394.62 301.173C396.248 302.02 397.62 301.083 398.625 300.153C398.682 300.094 398.745 300.042 398.813 299.995C399.615 302.245 400.2 305.38 403.313 305.658C407.655 306.055 407.25 309.565 406.5 311.988Z"
@@ -409,51 +409,51 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M322.275 360.25C322.043 356.808 322.223 353.133 326.28 351.46C326.28 351.46 326.28 348.273 330.908 347.71C330.908 347.71 330.323 344.853 334.193 344.928C334.185 344.66 334.239 344.395 334.351 344.151C334.463 343.908 334.629 343.694 334.838 343.526C335.047 343.359 335.291 343.241 335.553 343.184C335.814 343.126 336.085 343.13 336.345 343.195C338.88 343.638 339.698 345.19 339.698 345.19C343.058 344.44 344.948 347.958 344.768 350.83"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M339.697 345.19C336.24 346.893 333.697 350.088 334.74 351.655C335.782 353.223 339.705 351.258 340.237 350.755"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M333.9 344.936C335.205 345.108 337.778 346.556 337.778 346.556"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M330.907 347.71C332.423 347.772 333.909 348.155 335.265 348.835"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M334.672 356.103C335.827 355.226 336.825 353.681 336.525 352.248"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M326.25 351.49C329.01 350.358 331.815 349.075 332.647 350.958C333.48 352.84 333.937 358.638 332.647 359.425C331.357 360.213 329.198 359.56 328.83 358.045C328.463 356.53 328.185 354.453 328.185 354.453"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M331.402 359.756C332.565 361.188 332.152 366.258 330.907 367.953"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M340.5 447.251C338.25 451.518 335.025 453.843 330.705 452.396C322.568 449.636 319.328 441.828 318.143 434.201C316.898 426.243 317.873 418.451 317.835 416.831C317.753 413.598 316.868 378.318 316.868 378.318C318.278 378.881 320.415 378.896 323.003 378.408C324.974 378.017 326.908 377.46 328.785 376.743C332.718 375.236 336.462 373.272 339.938 370.893L340.088 370.788C340.088 370.788 340.793 379.533 341.745 389.583C342.548 398.193 343.538 407.756 344.423 413.583C345.818 423.078 345 438.911 340.5 447.251Z"
@@ -470,9 +470,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M340.065 370.811C340.065 370.811 342.495 400.946 344.4 413.628C345.438 421.694 345.185 429.874 343.65 437.861"
         stroke="#FBBB18"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M426.105 407.067L397.17 394.982C394.888 394.028 392.266 395.106 391.313 397.387L374.131 438.523C373.178 440.805 374.255 443.427 376.537 444.38L405.471 456.466C407.753 457.419 410.376 456.342 411.329 454.061L428.511 412.925C429.464 410.643 428.387 408.021 426.105 407.067Z"
@@ -482,9 +482,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
         d="M422.85 405.701L397.168 394.974C394.886 394.021 392.264 395.098 391.311 397.38L374.128 438.515C373.175 440.797 374.253 443.42 376.534 444.373L402.216 455.1C404.498 456.053 407.121 454.976 408.074 452.694L425.256 411.558C426.209 409.277 425.132 406.654 422.85 405.701Z"
         fill="#F9F9F9"
         stroke="#DEDEDE"
-        stroke-width="0.9"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M398.873 401.823C398.873 402.209 398.758 402.586 398.544 402.906C398.33 403.227 398.025 403.477 397.669 403.625C397.312 403.772 396.92 403.811 396.542 403.736C396.164 403.66 395.816 403.475 395.544 403.202C395.271 402.929 395.085 402.582 395.01 402.203C394.935 401.825 394.973 401.433 395.121 401.077C395.269 400.721 395.518 400.416 395.839 400.202C396.16 399.987 396.537 399.873 396.923 399.873C397.179 399.872 397.433 399.922 397.67 400.019C397.907 400.117 398.122 400.261 398.304 400.442C398.485 400.623 398.628 400.839 398.726 401.076C398.824 401.313 398.874 401.567 398.873 401.823Z"
@@ -506,16 +506,16 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M380.94 422.846L379.605 425.328C379.605 425.328 376.98 422.493 376.605 419.936C376.23 417.378 377.265 417.296 377.88 416.748C378.495 416.201 378.113 415.391 378.075 414.071C378.038 412.751 379.163 412.481 379.515 412.016C379.868 411.551 379.553 410.343 379.478 408.716C379.403 407.088 381.338 407.006 381.645 406.076C381.953 405.146 382.23 402.153 384.87 402.933"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M380.94 422.846C379.628 421.743 379.358 421.563 379.358 421.563"
         stroke="#934735"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M468.248 443.914C465.84 451.309 456.863 457.864 436.395 450.124L435.278 449.689C414 441.251 400.658 436.091 400.658 436.091C402.497 428.311 402.497 420.209 400.658 412.429C412.875 415.849 445.185 422.479 456.66 425.846C457.41 426.071 458.16 426.304 458.828 426.596C468.458 430.151 470.573 436.751 468.248 443.914Z"
@@ -528,9 +528,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M435.278 449.689C414 441.251 400.665 436.099 400.665 436.099"
         stroke="#FBBB18"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M400.665 412.429C411.75 415.534 439.395 421.279 452.985 424.834L400.665 412.429Z"
@@ -539,9 +539,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M400.665 412.429C411.75 415.534 439.395 421.279 452.985 424.834"
         stroke="#FBBB18"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M468.248 443.913C465.84 451.308 456.863 457.863 436.395 450.123C436.395 450.123 442.395 443.185 450.878 444.415C459.36 445.645 467.655 442.165 461.16 432.333C460.009 430.583 459.217 428.623 458.828 426.565C468.458 430.15 470.573 436.75 468.248 443.913Z"
@@ -558,23 +558,23 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M521.04 346.787C523.388 349.42 523.733 352.735 522.765 356.47C521.798 360.205 520.298 365.665 522.158 371.057"
         stroke="#CC5E0D"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M531.825 343.465C531.705 348.467 530.198 351.91 529.77 356.62C529.343 361.33 532.253 364.045 535.935 365.492C537.463 366.129 538.676 367.345 539.31 368.874C539.944 370.403 539.947 372.121 539.318 373.652"
         stroke="#CC5E0D"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M529.238 373.067C525.698 368.957 525.008 365.949 527.123 365.634C529.238 365.319 533.4 367.134 532.98 368.957C532.56 370.779 529.868 370.007 529.98 369.114"
         stroke="#CC5E0D"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M512.67 397.12C502.62 402.37 495.308 397.353 494.363 391.788C493.748 388.143 494.108 379.743 494.318 371.013C494.423 366.445 494.498 361.773 494.363 357.663C494.363 357.018 494.363 356.395 494.363 355.78C494.363 329.8 514.208 335.823 515.82 345.88C516.84 352.263 518.408 364.975 519.173 371.68C519.938 378.385 522.75 391.87 512.67 397.12Z"
@@ -599,16 +599,16 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M552.75 497.553C550.208 505.69 552.915 513.783 557.835 516.438"
         stroke="#5A0C94"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M458.797 431.95L463.365 439.93L476.955 463.675"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M553.8 469.615C551.85 470.013 540.975 470.365 528.593 470.515C509.843 470.71 487.643 470.328 487.643 468.595C487.643 465.88 488.828 463.345 485.438 457.398C482.048 451.45 476.438 446.808 475.935 435.985C475.433 425.163 477.968 413.118 477.968 413.118L472.65 418.368L458.798 431.95L463.365 439.93L476.955 463.675C476.955 463.675 458.633 470.8 458.798 486.58C458.798 486.58 433.695 455.365 426.233 444.678C418.77 433.99 427.245 421.773 439.29 409.218C445.29 402.948 451.883 394.503 458.468 387.393C465.053 380.283 471.69 374.523 477.803 373.645C481.26 373.15 486.053 372.723 491.213 372.378C492.218 372.303 493.23 372.235 494.258 372.175C493.98 382.773 497.04 384.73 497.04 384.73C498.54 385.615 498.698 385.203 498.833 386.98C498.968 388.758 499.793 393.798 501.24 393.798C503.243 393.798 504.533 390.513 506.228 385.758C507.345 380.073 514.365 377.853 516.63 374.763C517.415 373.651 517.964 372.39 518.243 371.058H519.075C520.388 371.38 521.97 371.748 523.703 372.1C528.203 373.015 533.73 373.855 538.215 373.645C544.163 373.375 561.578 373.728 566.76 387.475C566.76 387.475 566.76 387.513 566.76 387.535C566.978 388.12 567.173 388.735 567.353 389.373C567.488 389.875 567.608 390.43 567.713 391.03C570.788 409 558.563 468.625 553.8 469.615Z"
@@ -629,9 +629,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M500.378 396.498C500.843 400.713 499.538 408.153 498.54 415.676C497.543 423.198 495.165 433.548 498.54 444.176C501.915 454.803 502.673 458.066 502.763 459.363C502.913 461.666 501.158 464.298 505.523 466.113"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M497.04 384.73C492.87 383.74 489.9 388.825 488.31 393.123C488.152 380.703 489.652 374.995 491.212 372.378C492.772 369.76 494.34 370.255 494.34 370.255C494.295 370.93 494.272 371.568 494.257 372.175C493.98 382.75 497.04 384.73 497.04 384.73Z"
@@ -644,23 +644,23 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M455.43 476.035C456.255 471.58 461.933 463.795 470.94 459.7"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M447.165 421.878C448.488 421.955 449.768 422.376 450.878 423.1C453.128 424.413 455.88 427.015 458.798 431.95"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M477.968 413.118L479.31 407.373"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M472.65 418.345L458.798 431.95C455.88 427.015 453.098 424.413 450.878 423.1C454.47 421.488 456.24 422.958 457.98 424.24C462.285 427.435 466.343 414.79 472.65 418.345Z"
@@ -681,9 +681,9 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M530.843 454.39C533.018 439.39 536.093 419.327 538.133 406.135C538.665 402.53 539.488 398.973 540.593 395.5C541.416 392.867 542.565 390.348 544.013 388"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M467.34 516.43C463.395 517.18 459.398 511.292 458.078 507.67C456.758 504.047 467.295 502.42 467.295 502.42C467.295 502.42 470.723 513.617 467.34 516.43Z"
@@ -696,44 +696,44 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M426.878 510.768C426.765 511.765 425.595 522.018 427.515 522.678C429.435 523.338 430.403 519.078 430.83 516.438C431.237 514.476 431.885 512.571 432.758 510.768C432.758 510.768 431.588 514.915 433.298 516.438C434.288 517.323 436.5 516.438 436.5 516.438C436.5 516.438 437.04 519.145 440.573 517.863C440.573 517.863 440.363 520.735 442.688 521.298C445.013 521.86 447.188 519.265 448.11 517.735C448.44 517.218 447.608 515.703 446.528 515.703"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M446.955 515.778C446.368 515.692 445.77 515.733 445.2 515.898"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M445.748 514C445.17 515.5 444.45 517.795 444.735 518.455"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M440.58 518.425C440.528 515.373 441.306 512.363 442.83 509.718"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M436.5 516.437C435.938 514.187 437.67 508.465 439.058 506.8"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M432.75 510.768C432.967 509.268 433.275 505.165 435.518 503.268"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M550.552 488.5C547.215 490.255 539.212 493.27 529.417 496.69C504.315 505.443 467.437 516.835 467.34 516.43C467.205 515.868 463.965 501.093 452.85 491.245C452.85 491.245 504.42 466.6 520.943 458.883C530.865 454.248 546.045 446.373 554.22 453.865C554.52 454.135 554.805 454.42 555.075 454.713C563.887 463.99 562.065 482.433 550.552 488.5Z"
@@ -746,16 +746,16 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M452.85 491.245C452.85 491.245 504.42 466.6 520.943 458.882C525.683 456.67 531.623 453.715 537.443 452.05"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M463.672 489.505C469.905 497.147 475.065 510.767 475.065 510.767"
         stroke="#431B61"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M519.832 325.315C524.505 327.565 528.368 337.398 520.095 343.465C511.823 349.533 515.595 335.043 515.797 334.765C516 334.488 516.262 325.653 519.832 325.315Z"
@@ -772,23 +772,23 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M490.793 322.36C491.963 321.085 494.355 321.138 497.91 324.835"
         stroke="#CC5E0D"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M498.668 316.532C501.342 317.091 503.869 318.205 506.085 319.802"
         stroke="#CC5E0D"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M512.633 321.25C513.233 321.993 513.737 322.81 514.133 323.68"
         stroke="#CC5E0D"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M514.5 348.768C506.603 359.883 496.403 365.943 490.245 360.768C485.7 356.965 485.67 349.398 486.743 343.3C487.052 341.526 487.471 339.773 487.995 338.05C488.04 337.9 488.093 337.758 488.138 337.615C490.065 331.615 492.915 322.615 497.505 324.483C497.505 324.483 501.09 327.693 507.885 326.313C507.885 326.313 504.398 339.063 512.295 340.563C512.295 340.563 515.783 336.063 519.795 338.455C523.808 340.848 523.853 348.67 514.5 348.768Z"
@@ -805,23 +805,23 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M512.25 340.593C511.529 341.405 511.041 342.398 510.84 343.465"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M513.3 343.87C514.965 340.12 518.55 339.895 520.613 341.568"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M514.148 342.43C517.335 340.308 519.203 345.88 515.033 345.88"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M489.548 331.397C489.795 332.192 494.918 331.735 494.798 329.942C494.603 327.535 489.083 329.89 489.548 331.397Z"
@@ -834,17 +834,17 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M492.292 340.892C492.142 339.392 492.937 337.705 494.017 337.322C495.097 336.94 496.77 335.897 496.395 332.005"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M493.44 343.87C495.36 343.87 498.353 342.415 498.833 341.822C498.833 341.822 499.058 346.435 496.448 346.765C494.25 347.05 493.44 343.87 493.44 343.87Z"
         fill="#FCFCFC"
         stroke="#EF8A66"
-        stroke-width="0.68"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.68"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M515.153 351.325C516.805 351.325 518.145 349.985 518.145 348.332C518.145 346.68 516.805 345.34 515.153 345.34C513.5 345.34 512.16 346.68 512.16 348.332C512.16 349.985 513.5 351.325 515.153 351.325Z"
@@ -862,16 +862,16 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
         d="M390.938 537.551L428.798 528.851L462.158 540.266L429.6 551.388L390.938 537.551Z"
         fill="#F6F6F6"
         stroke="#DEDEDE"
-        stroke-width="0.9"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M412.86 530.448V537.551C412.86 539.913 418.935 541.826 426.435 541.826C433.935 541.826 440.018 539.913 440.018 537.551V530.448H412.86Z"
         fill="#DEDEDE"
         stroke="#DEDEDE"
-        stroke-width="0.9"
-        stroke-miterlimit="10"
+        strokeWidth="0.9"
+        strokeMiterlimit="10"
       />
       <path
         d="M426.435 534.386C418.515 534.386 413.198 532.353 413.198 530.448C413.198 528.543 418.515 526.511 426.435 526.511C434.355 526.511 439.672 528.551 439.672 530.448C439.672 532.346 434.355 534.386 426.435 534.386Z"
@@ -896,25 +896,25 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
       <path
         d="M62.8575 506.447C89.79 505.607 119.25 505.09 150 505C177.66 504.925 206.37 505.21 235.185 505.952C241.22 506.102 247.263 506.277 253.313 506.477C289.41 507.655 325.418 509.575 359.535 512.44C365.29 512.91 370.988 513.41 376.628 513.94C395.753 515.762 415.725 518.44 435.735 521.852C452.025 524.597 468.338 527.785 484.238 531.31C517.5 538.66 548.925 547.442 574.478 556.532C600.908 565.945 621.053 575.702 630.435 584.597"
         stroke="#EDEDED"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M393.15 546.251C381.038 552.521 309.945 571.001 309.945 571.001L303.435 564.558L261.885 523.466C261.885 523.466 301.538 515.501 308.933 516.393C315.113 517.143 370.56 531.926 388.275 540.768C391.74 542.538 394.043 545.793 393.15 546.251Z"
         fill="#F6F6F6"
         stroke="#EDEDED"
-        stroke-width="0.9"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M263.685 529.848C293.212 524.853 304.845 521.598 309.015 522.738C313.185 523.878 369.532 539.868 368.587 540.115C342.135 547.045 294.982 558.078 294.982 558.078L263.685 529.848Z"
         fill="#F6F6F6"
         stroke="#DEDEDE"
-        stroke-width="0.9"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M393.15 546.251C381.037 552.521 309.945 571.001 309.945 571.001L303.435 564.558L388.275 540.813C391.74 542.538 394.042 545.793 393.15 546.251Z"
@@ -924,48 +924,48 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
         d="M220.793 502.435C213.428 488.755 217.853 466.3 230.258 464.62C242.663 462.94 259.11 478.99 265.508 471.025C272.453 462.348 266.805 420.475 266.858 412.907L297.975 409.75C297.975 409.75 292.043 466.637 300.173 473.26C304.935 477.137 310.508 476.598 313.845 469.593C316.845 463.233 321.083 458.11 328.68 464.005C328.68 464.005 332.94 454.097 349.44 458.005C365.94 461.912 356.4 480.94 352.56 483.505C352.56 483.505 360.06 490.127 357.683 498.505C355.305 506.882 343.208 510.73 343.208 510.73C343.208 510.73 348.225 522.167 338.19 525.812C328.155 529.457 321.645 528.175 315.053 525.812C308.46 523.45 297.053 517.562 290.633 526.6C284.213 535.637 239.64 537.467 220.793 502.435Z"
         fill="#F9F9F9"
         stroke="#DEDEDE"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M263.685 428.417C257.58 430.15 254.482 436.667 252.862 443.125C251.242 449.582 251.887 450.662 250.087 449.08C248.16 447.385 243.982 435.332 246.225 416.942C247.89 403.285 254.032 396.977 257.572 394.442C258.586 405.73 260.616 416.903 263.64 427.825C263.666 428.021 263.681 428.219 263.685 428.417Z"
         fill="#C3C3C3"
         stroke="#C3C3C3"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M314.108 449.08C312.308 450.663 312.93 449.568 311.325 443.125C309.72 436.683 306.615 430.15 300.51 428.418C300.512 428.222 300.525 428.027 300.548 427.833C303.582 416.905 305.615 405.724 306.623 394.428C310.163 396.985 316.305 403.293 317.97 416.928C320.205 435.333 316.043 447.385 314.108 449.08Z"
         fill="#C3C3C3"
         stroke="#C3C3C3"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M306.622 394.42C305.615 405.716 303.582 416.898 300.547 427.825C300.262 428.8 299.985 429.76 299.692 430.69H264.495C264.202 429.753 263.917 428.785 263.64 427.803C260.616 416.881 258.586 405.708 257.572 394.42C255.952 377.17 256.297 357.895 260.062 339.408C260.55 337.03 261.075 334.75 261.637 332.583C268.942 304.263 282.097 292.638 282.097 292.638C282.097 292.638 295.26 304.263 302.557 332.583C303.12 334.75 303.652 337.03 304.132 339.408C307.897 357.895 308.25 377.14 306.622 394.42Z"
         fill="#FCFCFC"
         stroke="#C3C3C3"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M302.558 332.583H261.638C268.943 304.263 282.098 292.638 282.098 292.638C282.098 292.638 295.26 304.263 302.558 332.583Z"
         fill="#C3C3C3"
         stroke="#C3C3C3"
-        stroke-width="0.9"
-        stroke-miterlimit="10"
+        strokeWidth="0.9"
+        strokeMiterlimit="10"
       />
       <path
         d="M291.878 366.76C290.595 368.048 289.071 369.07 287.393 369.767C285.715 370.465 283.915 370.824 282.098 370.824C280.28 370.824 278.48 370.465 276.802 369.767C275.124 369.07 273.6 368.048 272.318 366.76C269.735 364.162 268.285 360.647 268.285 356.984C268.285 353.32 269.735 349.806 272.318 347.207C273.6 345.919 275.124 344.897 276.802 344.2C278.48 343.503 280.28 343.144 282.098 343.144C283.915 343.144 285.715 343.503 287.393 344.2C289.071 344.897 290.595 345.919 291.878 347.207C292.715 348.043 293.441 348.983 294.038 350.005C295.577 352.645 296.2 355.719 295.809 358.75C295.418 361.781 294.036 364.597 291.878 366.76Z"
         fill="#DEDEDE"
         stroke="#F9F9F9"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M294.038 350.005L275.115 368.928C274.094 368.327 273.154 367.598 272.318 366.76C271.482 365.922 270.758 364.979 270.165 363.955L289.08 345.04C290.101 345.641 291.041 346.369 291.878 347.208C292.715 348.043 293.441 348.983 294.038 350.005Z"
@@ -975,43 +975,43 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
         d="M282.098 391.48C276.188 399.325 273.098 439.008 282.098 449.725C291.113 439 288 399.325 282.098 391.48Z"
         fill="#C3C3C3"
         stroke="#C3C3C3"
-        stroke-width="0.9"
-        stroke-miterlimit="10"
+        strokeWidth="0.9"
+        strokeMiterlimit="10"
       />
       <path
         d="M291.878 366.76C290.595 368.048 289.071 369.07 287.393 369.767C285.715 370.465 283.915 370.824 282.098 370.824C280.28 370.824 278.48 370.465 276.802 369.767C275.124 369.07 273.6 368.048 272.318 366.76C269.735 364.162 268.285 360.647 268.285 356.984C268.285 353.32 269.735 349.806 272.318 347.207C273.6 345.919 275.124 344.897 276.802 344.2C278.48 343.503 280.28 343.144 282.098 343.144C283.915 343.144 285.715 343.503 287.393 344.2C289.071 344.897 290.595 345.919 291.878 347.207C292.715 348.043 293.441 348.983 294.038 350.005C295.577 352.645 296.2 355.719 295.809 358.75C295.418 361.781 294.036 364.597 291.878 366.76Z"
         stroke="#C3C3C3"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M352.56 483.513C351.056 484.633 349.483 485.658 347.85 486.58"
         stroke="#DEDEDE"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M339.803 488.845C335.888 484.862 326.355 486.64 324.848 495.812C323.34 504.985 331.388 512.995 343.208 510.767"
         stroke="#DEDEDE"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M277.238 452.08C278.738 462.7 278.138 481.143 278.048 482.313"
         stroke="#DEDEDE"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M297 497.605C291.15 491.485 288.36 487.525 288.36 461.53"
         stroke="#DEDEDE"
-        stroke-width="1.81"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.81"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M190.2 455.357L273.983 488.177L314.55 569.072L224.378 529.307L185.595 457.33L190.2 455.357Z"
@@ -1021,10 +1021,10 @@ export function HeroSumulation({ title, ...props }: HeroSumulationProps) {
         d="M185.595 457.33L269.378 490.15L309.945 571.045L219.78 531.28L185.595 457.33Z"
         fill="#F9F9F9"
         stroke="#DEDEDE"
-        stroke-width="0.9"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
-  );
+  )
 }
