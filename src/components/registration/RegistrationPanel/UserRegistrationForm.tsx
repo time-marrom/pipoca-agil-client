@@ -85,7 +85,9 @@ export function UserRegistrationForm({
 
   return (
     <Form {...form}>
-      <h4 className="font-sans text-lg mt-14 mb-6 mx-2">Preencha seus dados com atenção:</h4>
+      <h4 className="font-sans text-lg mt-14 mb-6 mx-2">
+        Preencha seus dados com atenção:
+      </h4>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col justify-center items-center space-y-6 mx-2"
