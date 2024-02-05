@@ -1,24 +1,21 @@
-import { PageContainer } from "@/components/PageContainer";
-import { AgileTrailCTA } from "@/components/home/AgileTrailCTA";
-import { Hero } from "@/components/home/Hero";
-import { IndicatesPopcornCTA } from "@/components/home/IndicatesPopcornCTA";
-import { NewsletterBox } from "@/components/home/NewsletterBox";
-import { PartnersGrid } from "@/components/home/PartnersGrid";
-import { PodcastCTA } from "@/components/home/PodcastCTA";
-import { PopcornClubCTA } from "@/components/home/PopcornClubCTA";
-import { SimulationCTA } from "@/components/home/SimulationCTA";
+import { PageContainer } from "@/components/PageContainer"
+import { SimulationDescription } from "@/components/simulation/SimulationDescription"
+import { SimulationHero } from "@/components/simulation/SimulationHero"
+import { SimulationHowItWorks } from "@/components/simulation/SimulationHowItWorks"
+import { SimulationWhoIsItFor } from "@/components/simulation/SimulationWhoIsItFor"
+import { SimulationWorthIt } from "@/components/simulation/SimulationWorthIt"
+import { getSanitySimulationContent } from "@/services/axios"
 
-export default function Home() {
+export default async function Home() {
+  const content = await getSanitySimulationContent()
+
   return (
     <PageContainer>
-      <Hero />
-      <SimulationCTA />
-      <PodcastCTA />
-      <PopcornClubCTA />
-      <AgileTrailCTA />
-      <IndicatesPopcornCTA />
-      <NewsletterBox />
-      <PartnersGrid />
+      <SimulationHero content={content} />
+      <SimulationDescription content={content} />
+      <SimulationHowItWorks content={content} />
+      <SimulationWhoIsItFor content={content} />
+      <SimulationWorthIt content={content} />
     </PageContainer>
-  );
+  )
 }
