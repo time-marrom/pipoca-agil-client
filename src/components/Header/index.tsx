@@ -24,7 +24,8 @@ export function Header() {
   const orderSocialMedias = socialMedias.slice(0, 3).sort((a, b) => a.order - b.order)
 
   const headerOptions = menuOptions.filter(
-    (option) => option.name !== "Sobre os criadores"
+    (option) =>
+      option.name !== "Sobre os criadores" && option.name !== "Quero voluntariar"
   )
 
   return (
@@ -43,7 +44,7 @@ export function Header() {
           variant="outline"
           asChild
         >
-          <Link href="/clube-pipoca" className="font-title">
+          <Link href="/simulacao/inscricao" className="font-title">
             Quero voluntariar
           </Link>
         </Button>
