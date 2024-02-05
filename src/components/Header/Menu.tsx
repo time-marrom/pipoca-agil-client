@@ -1,7 +1,5 @@
-import { menuOptions } from "@/utils/menu";
+"use client";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import { MenuIcon } from "../icons/MenuIcon";
 
 interface MenuProps {
   isVisible: boolean;
@@ -17,33 +15,38 @@ export function Menu({ isVisible, onClose }: MenuProps) {
       onClick={onClose}
     >
       <div
-        className="w-60 md:w-80 bg-[#FDE3A0] h-[70vh] md:h-[60vh] shadow-md p-4 rounded-md"
+        className="flex flex-col gap-5 w-[75vw] md:w-[45vw] bg-[#F6EBCF] h-[40vh] md:h-[35vh] shadow-md p-4 rounded-3xl"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex justify-between items-center mb-2">
-          <h1>Logo_do_pipoca.png</h1>
-          <Button size="icon" variant="ghost" onClick={onClose}>
-            <MenuIcon className="h-4 w-4 fill-theme-grayscale-black" />
-          </Button>
-        </div>
-        <nav className="w-full h-full flex flex-col gap-4 text-xl p-5 items-center">
-          <ul className="flex flex-col gap-4 text-xl p-5 items-center">
-            {menuOptions.map((menuOption) => (
-              <li key={menuOption.name} onClick={onClose}>
-                <Link
-                  href={menuOption.path}
-                  className="font-sans font-semibold"
-                >
-                  {menuOption.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Button variant="default" asChild>
-            <Link href="/clube-pipoca" className="font-sans">
-              Clube do Pipoca
+        <nav className="w-full h-full flex flex-col justify-evenly text-xl  md:my-5 items-center ">
+          <Link
+            href="/"
+            className="font-title font-semibold hover:text-theme-secondary-light"
+          >
+            Início
+          </Link>
+
+          <button className="w-9/12 h-1/5 p-2 font-medium rounded-2xl text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed font-title">
+            <Link
+              href="/simulacao/inscricao"
+              className="font-title text-lg font-semibold hover:text-theme-secondary-light"
+            >
+              Quero voluntariar
             </Link>
-          </Button>
+          </button>
+
+          <Link
+            href="/simulacao/inscricao"
+            className="font-title font-semibold hover:text-theme-secondary-light"
+          >
+            Quero Mentorar
+          </Link>
+          <Link
+            href="/simulacao/inscricao"
+            className="font-title font-semibold hover:text-theme-secondary-light"
+          >
+            Emitir certificado
+          </Link>
         </nav>
       </div>
     </div>
