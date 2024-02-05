@@ -1,15 +1,11 @@
-import { menuOptions } from "@/utils/menu";
-import { socialMedias } from "@/utils/social";
-import Link from "next/link";
+import { menuOptions } from "@/utils/menu"
+import { socialMedias } from "@/utils/social"
+import Link from "next/link"
 
 export function Footer(): JSX.Element {
-  const footerOptions = menuOptions.filter(
-    (option) => option.name !== "Quero mentorar"
-  );
+  const footerOptions = menuOptions.slice().sort((a, b) => a.order - b.order)
 
-  const orderSocialMedias = socialMedias
-    .slice()
-    .sort((a, b) => a.order - b.order);
+  const orderSocialMedias = socialMedias.slice().sort((a, b) => a.order - b.order)
 
   return (
     <footer className="bg-[#F6F6F6] py-10  md:py-2 lg:py-4  px-6 md:px-16 lg:px-36 w-full h-full flex flex-col justify-between items-center  gap-12 lg:gap-8 md:gap-4">
@@ -30,28 +26,17 @@ export function Footer(): JSX.Element {
         </div>
         <div className="w-full h-full flex flex-col  justify-between items-center lg:items-start gap-2 lg:my-4 py-2">
           <p className="block md:hidden my-2">Navegação</p>
-          <ul className=" h-full w-full flex flex-col md:flex-row lg:gap-20 md:gap-4 md:items-start items-center text-center md:text-start">
-            {footerOptions.map(({ name, path, options }) => (
+          <ul className="h-full w-full flex flex-col md:flex-row lg:gap-8 md:gap-4 md:items-start items-center text-center md:text-start">
+            {footerOptions.map(({ name, path }) => (
               <li
                 key={name}
-                className="flex-row items-center md:items-start  md:py-2 py-4 "
+                className="flex flex-row items-center md:items-start md:py-2 py-4 "
               >
                 <Link href={path}>
-                  <span className="flex-row hover:text-[#b667f3] underline text-base font-semibold font-title ">
+                  <span className="flex flex-row hover:text-[#b667f3] underline text-base font-semibold font-title">
                     {name}
                   </span>
                 </Link>
-                {options && options.length > 0 && (
-                  <ul className="flex flex-col ">
-                    {options.map((option: string) => (
-                      <li className=" lg:my-2 text-[12px] " key={option}>
-                        <span className="flex flex-col font-sans text-sm font-normal py-2">
-                          {option}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </li>
             ))}
           </ul>
@@ -69,5 +54,5 @@ export function Footer(): JSX.Element {
         </div>
       </div>
     </footer>
-  );
+  )
 }
