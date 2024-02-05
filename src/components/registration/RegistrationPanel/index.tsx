@@ -47,10 +47,7 @@ export function RegistrationPanel() {
               <UserConfirmationMessage />
               <div className="flex flex-row justify-center items-center w-full h-full py-2 mx-auto space-x-8">
                 <Button variant="default" size="sm" asChild className="font-sans">
-                  <Link href="/">Ir para a Home</Link>
-                </Button>
-                <Button variant="default" size="sm" asChild className="font-sans">
-                  <Link href="/simulacao">Ir para a Simulação</Link>
+                  <Link href="/">Voltar para o Início</Link>
                 </Button>
               </div>
             </div>
