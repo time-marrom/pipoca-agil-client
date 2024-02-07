@@ -1,20 +1,19 @@
-"use client";
+"use client"
 
-import iconCheck from "@/assets/IconCheck.svg";
-import { CheckIcon } from "@/components/icons/CheckIcon";
-import { getSanitySimulationContent } from "@/services/axios";
-import { useQuery } from "@tanstack/react-query";
+import { CheckIcon } from "@/components/icons/CheckIcon"
+import { getSanitySimulationContent } from "@/services/axios"
+import { useQuery } from "@tanstack/react-query"
 
 interface SimulationDescriptionProps {
-  content: SimulationContent;
+  content: SimulationContent
 }
 
 export function SimulationDescription({ content }: SimulationDescriptionProps) {
   const { data } = useQuery({
     queryKey: ["simulation"],
     queryFn: getSanitySimulationContent,
-    initialData: content,
-  });
+    initialData: content
+  })
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center text-start py-20 px-8 md:px-8 md:py-20 gap-2 rounded-t-[90px] lg:px-32 lg:py-40 bg-[#FCFCFC]">
@@ -30,17 +29,14 @@ export function SimulationDescription({ content }: SimulationDescriptionProps) {
         <div className="w-full lg:w-1/2 flex flex-col">
           <ul className="w-full font-sans grid grid-flow-col grid-cols-1 grid-rows-4 lg:grid-cols-1 lg:grid-rows-4 md:grid-cols-2 md:grid-rows-2 ml:pr-8 ">
             {data.overviewPanelTopics.map((item, index) => (
-              <li
-                key={index}
-                className="flex items-center text-lg mb-4 md:mb-6"
-              >
+              <li key={index} className="flex items-center text-base mb-4 md:mb-6">
                 <CheckIcon className="fill-[#252525] hover:fill-purple-500 hover:scale-110 transition-all ease-in-out delay-100" />
-                <span className="ml-4">{item}</span>
+                <span className="ml-4 w-full">{item}</span>
               </li>
             ))}
           </ul>
         </div>
       </div>
     </div>
-  );
+  )
 }
