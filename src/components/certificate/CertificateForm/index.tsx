@@ -96,45 +96,50 @@ export function CertificateForm() {
           Emissão de Certificado
         </h1>
       </div>
-      <div className="my-4 px-4 w-full h-full flex flex-col items-start justify-center text-start space-y-10">
-        <div className="border-[#FCCF5C] p-4 my-4 w-full space-y-4 border-2 rounded-2xl">
-          <h2 className="font-sans text-2xl font-normal flex flex-row items-center justify-start text-start gap-4 w-full">
-            <WarningIcon className="w-7 h-7" /> Atenção
-          </h2>
-          <p className="font-sans text-base font-normal">
-            Este formulário é para membros que já concluíram sua participação na
-            Simulação de Projetos Ágeis do Pipoca Ágil.
-          </p>
-          <p className="font-sans text-base font-normal">
-            Se você foi uma de nossas pessoas voluntárias ou mentoras, pode
-            solicitar o seu certificado de participação na Simulação de Projetos
-            Ágeis preenchendo as informações abaixo. Faremos uma confirmação dos
-            dados enviados, e assim que possível enviaremos o seu certificado
-            por e-mail.
-          </p>
+      <div className="my-4 px-4 w-full h-full flex flex-col items-start justify-center  text-start space-y-10 ">
+        <div className="md:w-full md:flex md:flex-col md:items-center ">
+          <div className="border-[#FCCF5C] p-4 my-4 w-full  md:w-1/3  space-y-4 border-2 rounded-2xl ">
+            <h2 className="font-sans text-2xl font-normal flex flex-row items-center justify-start gap-4 ">
+              <WarningIcon className="w-7 h-7" /> Atenção
+            </h2>
+            <p className="font-sans text-base font-normal">
+              Este formulário é para membros que já concluíram sua participação
+              na Simulação de Projetos Ágeis do Pipoca Ágil.
+            </p>
+            <p className="font-sans text-base font-normal">
+              Se você foi uma de nossas pessoas voluntárias ou mentoras, pode
+              solicitar o seu certificado de participação na Simulação de
+              Projetos Ágeis preenchendo as informações abaixo. Faremos uma
+              confirmação dos dados enviados, e assim que possível enviaremos o
+              seu certificado por e-mail.
+            </p>
+          </div>
+          <div className="md:flex md:flex-col">
+            <h3 className="font-sans text-2xl font-normal ">
+              Preencha os dados abaixo com atenção.
+            </h3>
+            <span className="font-sans text-base font-normal ">
+              *Campos Obrigatórios
+            </span>
+          </div>
         </div>
-        <h3 className="font-sans text-2xl font-normal">
-          Preencha os dados abaixo com atenção.
-        </h3>
-        <span className="font-sans text-base font-normal">
-          *Campos Obrigatórios
-        </span>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="w-full flex flex-col justify-center items-center space-y-8"
           >
+            {/* NOME COMPLETO */}
             <FormField
               control={form.control}
               name="fullname"
               render={({ field }) => (
-                <FormItem className="space-y-2">
-                  <FormLabel className="font-sans text-base font-normal">
+                <FormItem className="space-y-2 md:w-2/6">
+                  <FormLabel className="font-sans text-base font-normal ">
                     *Nome Completo
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="w-full focus:outline-none font-sans text-base font-normal focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]"
+                      className="w-full focus:outline-none font-sans text-base font-normal  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]"
                       placeholder="Nome e sobrenome"
                       type="text"
                       {...field}
@@ -153,7 +158,7 @@ export function CertificateForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="space-y-2">
+                <FormItem className="space-y-2 md:w-2/6">
                   <FormLabel className="font-sans text-base font-normal">
                     *E-mail
                   </FormLabel>
@@ -178,7 +183,7 @@ export function CertificateForm() {
               control={form.control}
               name="role"
               render={({ field }) => (
-                <FormItem className="space-y-2">
+                <FormItem className="space-y-2 md:w-2/6">
                   <FormLabel className="font-sans text-base font-normal">
                     *Qual foi a sua participação na Simulação?
                   </FormLabel>
@@ -213,7 +218,7 @@ export function CertificateForm() {
               control={form.control}
               name="office"
               render={({ field }) => (
-                <FormItem className="space-y-2 ">
+                <FormItem className="space-y-2 md:w-2/6">
                   <FormLabel className="font-sans text-base font-normal">
                     *Qual função você desempenhou ou mentorou no projeto?
                   </FormLabel>
@@ -257,7 +262,7 @@ export function CertificateForm() {
               control={form.control}
               name="date"
               render={({ field }) => (
-                <FormItem className="w-full flex flex-col space-y-2">
+                <FormItem className="w-full flex flex-col space-y-2 md:w-2/6">
                   <FormLabel className="font-sans text-base font-normal">
                     *Informe a data em que você finalizou o projeto.
                   </FormLabel>
@@ -302,10 +307,12 @@ export function CertificateForm() {
                 </FormItem>
               )}
             />
-            <span className="flex flex-row items-center justify-start text-start gap-4 w-full mb-4 mt-10 font-normal font-sans">
+
+            <span className="flex flex-row items-center justify-start text-start gap-4 w-full mb-4 mt-10 font-normal font-sans md:flex med:flex-row  md:w-1/3 md:justify-start">
               <WarningIcon className="w-7 h-7" /> Verifique suas informações
               antes de enviar.
             </span>
+
             <Button
               type="submit"
               className="font-title rounded-xl disabled:text-[#727272] disabled:bg-[#dedede] disabeld:cursor-not-allowed"
