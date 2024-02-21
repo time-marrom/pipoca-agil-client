@@ -35,7 +35,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { WarningIcon } from "@/components/icons/warningIcon";
+import { WarningIcon } from "@/components/icons/WarningIcon";
 
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
 
