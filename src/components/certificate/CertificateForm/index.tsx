@@ -14,20 +14,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
 import * as React from "react";
-import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
-
 import { cn } from "@/lib/utils";
-
 import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
 import {
   Select,
   SelectContent,
@@ -35,7 +30,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import * as Dialog from "@radix-ui/react-dialog";
 import { WarningIcon } from "@/components/icons/WarningIcon";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
 
@@ -64,6 +62,7 @@ const formSchema = z.object({
 
 export function CertificateForm() {
   const [date, setDate] = React.useState<Date>();
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -71,12 +70,12 @@ export function CertificateForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    // console.log(values);
   }
 
   function handle() {
-    console.log("handle: ", date);
-    console.log("SURTO: ", form.getValues());
+    // console.log("handle: ", date);
+    // console.log("SURTO: ", form.getValues());
   }
 
   function formatDate(date: Date) {
@@ -88,6 +87,22 @@ export function CertificateForm() {
     });
     return formattedDate;
   }
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    setIsLargeScreen(mediaQuery.matches);
+
+    const handleResize = (event: MediaQueryListEvent) => {
+      setIsLargeScreen(event.matches);
+      console.log("Tamanho da tela alterado:", event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleResize);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleResize);
+    };
+  }, []);
 
   return (
     <div className="w-full h-full mb-16">
@@ -312,15 +327,79 @@ export function CertificateForm() {
               <WarningIcon className="w-7 h-7" /> Verifique suas informações
               antes de enviar.
             </span>
+            <Dialog.Root>
+              <Dialog.DialogTrigger asChild>
+                <Button
+                  type="submit"
+                  className="font-title rounded-xl disabled:text-[#727272] disabled:bg-[#dedede] disabeld:cursor-not-allowed"
+                  onClick={() => handle()}
+                  // disabled={!form.formState.isValid}
+                >
+                  Solicitar Certificado
+                </Button>
+              </Dialog.DialogTrigger>
 
-            <Button
-              type="submit"
-              className="font-title rounded-xl disabled:text-[#727272] disabled:bg-[#dedede] disabeld:cursor-not-allowed"
-              onClick={() => handle()}
-              disabled={!form.formState.isValid}
-            >
-              Solicitar Certificado
-            </Button>
+              <Dialog.Portal>
+                <Dialog.Overlay className="fixed inset-0 bg-black/70" />
+                <Dialog.Content className="fixed inset-0 p-4 md:p-10 md:h-5/6">
+                  <div className=" flex flex-col items-center justify-evenly bg-[#F6F6F6] rounded-2xl md:max-w-3xl w-full h-full md:h-4/5 overflow-auto p-4">
+                    {/* <div className="p-4 flex flex-col items-center justify-center bg-blue-300"> */}
+                    <Dialog.Title className="font-title text-2xl w-2/3 font-medium text-center mb-4">
+                      Solicitação enviada com sucesso!
+                    </Dialog.Title>
+                    <Dialog.Description className="font-sans text-base px-3 ">
+                      {isLargeScreen ? (
+                        <>
+                          <p>
+                            Vamos verificar os seus dados, e se estiver tudo
+                            correto vamos emitir o seu certificado de
+                            participação na Simulação de Projetos Ágeis.
+                            Poderemos entrar em contato com você caso haja
+                            alguma pendência ou dúvida de nossa parte.
+                          </p>
+                          <p>
+                            Se estiver tudo certo, assim que finalizado você
+                            receberá o seu certificado no endereço de e-mail que
+                            você nos indicou. Não hesite em entrar em contato
+                            conosco caso tenha alguma dúvida também. Agradecemos
+                            pela sua participação!
+                          </p>
+                          <p>
+                            O Pipoca Ágil tem orgulho de você! Te desejamos
+                            muito sucesso,
+                          </p>
+                          <p>Equipe Pipoca Ágil</p>
+                        </>
+                      ) : (
+                        <>
+                          Vamos verificar os seus dados, e se estiver tudo
+                          correto vamos emitir o seu certificado de participação
+                          na Simulação de Projetos Ágeis. Poderemos entrar em
+                          contato com você caso haja alguma pendência ou dúvida
+                          de nossa parte. Se estiver tudo certo, assim que
+                          finalizado você receberá o seu certificado no endereço
+                          de e-mail que você nos indicou. Não hesite em entrar
+                          em contato conosco caso tenha alguma dúvida também.
+                          Agradecemos pela sua participação! O Pipoca Ágil tem
+                          orgulho de você! Te desejamos muito sucesso, Equipe
+                          Pipoca Ágil
+                        </>
+                      )}
+                    </Dialog.Description>
+                    <Dialog.Close>
+                      <div className="flex justify-center">
+                        <Link href={"/"}>
+                          <Button className="rounded-xl font-title font-normal text-base">
+                            Voltar para o Início
+                          </Button>
+                        </Link>
+                      </div>
+                    </Dialog.Close>
+                    {/* </div> */}
+                  </div>
+                </Dialog.Content>
+              </Dialog.Portal>
+            </Dialog.Root>
           </form>
         </Form>
       </div>
