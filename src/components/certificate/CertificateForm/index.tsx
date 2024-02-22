@@ -341,13 +341,12 @@ export function CertificateForm() {
 
               <Dialog.Portal>
                 <Dialog.Overlay className="fixed inset-0 bg-black/70" />
-                <Dialog.Content className="fixed inset-0 p-4 md:p-10 md:h-5/6">
-                  <div className=" flex flex-col items-center justify-evenly bg-[#F6F6F6] rounded-2xl md:max-w-3xl w-full h-full md:h-4/5 overflow-auto p-4">
-                    {/* <div className="p-4 flex flex-col items-center justify-center bg-blue-300"> */}
+                <Dialog.Content className="fixed top-0 left-0 w-full h-full flex items-center justify-center p-4 md:p-10">
+                  <div className="bg-[#F6F6F6] rounded-2xl md:max-w-3xl w-full h-full md:h-3/5 overflow-auto p-4 relative flex flex-col items-center justify-evenly">
                     <Dialog.Title className="font-title text-2xl w-2/3 font-medium text-center mb-4">
                       Solicitação enviada com sucesso!
                     </Dialog.Title>
-                    <Dialog.Description className="font-sans text-base px-3 ">
+                    <Dialog.Description className="font-sans text-base px-3">
                       {isLargeScreen ? (
                         <>
                           <p>
@@ -395,7 +394,6 @@ export function CertificateForm() {
                         </Link>
                       </div>
                     </Dialog.Close>
-                    {/* </div> */}
                   </div>
                 </Dialog.Content>
               </Dialog.Portal>
