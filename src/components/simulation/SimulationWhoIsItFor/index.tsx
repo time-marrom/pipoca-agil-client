@@ -38,7 +38,7 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
         <div className="w-full h-full  flex flex-col justify-center items-center gap-4 md:items-start ">
           <div className="flex flex-col items-center justify-center gap-8 w-full ">
             <h3 className="text-theme-grayscale-black text-4xl md:text-5xl font-semibold font-title mb-8 text-center ">
-              Posso me inscrever?
+              {data.whoIsPanelTitle}
             </h3>
             <p className="text-theme-grayscale-darker font-sans text-[16px] md:text-[24px] text-center lg:w-[70%] ">
               Você está estudando e/ou buscando emprego em alguma das áreas
@@ -71,10 +71,7 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
           <div className="w-full flex flex-col items-center py-4 gap-12 md:gap-20 md:flex-row">
             <div className=" flex flex-col items-center  md:items-start gap-4 md:gap-8 md:w-2/3">
               <p className=" font-sans font-normal text-base mb-2 md:text-2xl  md:w-full">
-                {/* {data.volunteerText} */}
-                Se você está em transição de carreira para alguma das áreas
-                acima e quer finalmente ter aquela experiência prática, o
-                projeto de Simulação é para você.
+                {data.volunteerText}
               </p>
               <Link
                 href="/simulacao/inscricao"
@@ -85,10 +82,7 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
             </div>
             <div className="flex flex-col items-center md:items-start gap-4 md:gap-8 md:w-2/3">
               <p className="font-sans font-normal text-base  mb-2 md:text-2xl md:w-full ">
-                {/* {data.mentorText} */}
-                Caso você já tenha uma bagagem sólida em alguma dessas áreas,
-                pode se juntar a nós para orientar e ajudar quem está dando seus
-                primeiros passos nos nossos times.
+                {data.mentorText}
               </p>
               <Link
                 href="/simulacao/inscricao"
