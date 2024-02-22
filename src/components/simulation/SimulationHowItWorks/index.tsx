@@ -57,16 +57,19 @@ export function SimulationHowItWorks({ content }: SimulationHowItWorksProps) {
           </p>
         </div>
         <div className="w-full  2xl:w-[80%] sm:w-[100%] gap-4 flex  items-center justify-center md:flex-row flex-col">
-          {mapped.map(({ icon: Icon, text, rounded }: MappedArray) => (
-            <div
-              className={`flex flex-col gap-6 items-center flex-shrink bg-[#FCFCFC] p-6 md:p-8 ${rounded} `}
-            >
-              <div className=" flex items-center justify-center flex-col gap-6 w-[90%] ">
-                <Icon className="w-[64px] md:w-[120px] h-[64px]  md:h-[120px] fill-[#FCCF5C]" />
-                <p className="text-base font-sans text-center">{text}</p>
+          {mapped.map(
+            ({ icon: Icon, text, rounded }: MappedArray, index: number) => (
+              <div
+                key={index}
+                className={`flex flex-col gap-6 items-center flex-shrink bg-[#FCFCFC] p-6 md:p-8 ${rounded} `}
+              >
+                <div className=" flex items-center justify-center flex-col gap-6 w-[90%] ">
+                  <Icon className="w-[64px] md:w-[120px] h-[64px]  md:h-[120px] fill-[#FCCF5C]" />
+                  <p className="text-base font-sans text-center">{text}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </div>
