@@ -131,7 +131,7 @@ export function CertificateForm() {
               control={form.control}
               name="fullname"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-3/4 lg-1/3">
+                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3 ">
                   <FormLabel
                     className={`font-sans text-base font-normal ${
                       form.formState.errors.fullname ? "text-red-500" : ""
@@ -164,7 +164,7 @@ export function CertificateForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-3/4 lg-1/3">
+                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3">
                   <FormLabel
                     className={`font-sans text-base font-normal ${
                       form.formState.errors.email ? "text-red-500" : ""
@@ -197,7 +197,7 @@ export function CertificateForm() {
               control={form.control}
               name="role"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-3/4 lg-1/3">
+                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3">
                   <FormLabel
                     className={`font-sans text-base font-normal ${
                       form.formState.errors.role ? "text-red-500" : ""
@@ -242,7 +242,7 @@ export function CertificateForm() {
               control={form.control}
               name="office"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-3/4 lg-1/3">
+                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3">
                   <FormLabel
                     className={`font-sans text-base font-normal ${
                       form.formState.errors.office ? "text-red-500" : ""
@@ -296,7 +296,7 @@ export function CertificateForm() {
               control={form.control}
               name="date"
               render={({ field }) => (
-                <FormItem className="w-full flex flex-col space-y-2 md:w-3/4 lg-1/3">
+                <FormItem className="w-full flex flex-col space-y-2 md:w-3/4 lg:w-1/3">
                   <FormLabel className="font-sans text-base font-normal">
                     *Informe a data em que você finalizou o projeto.
                   </FormLabel>
@@ -342,7 +342,7 @@ export function CertificateForm() {
               )}
             />
 
-            <span className="flex flex-row items-center justify-start text-start gap-4 w-full mb-4 mt-10 font-normal font-sans md:flex med:flex-row md:w-3/4 lg-1/3 md:justify-start">
+            <span className="flex flex-row items-center justify-start text-start gap-4 w-full mb-4 mt-10 font-normal font-sans md:flex med:flex-row md:w-3/4 lg:w-1/3 md:justify-start">
               <WarningIcon className="w-7 h-7" /> Verifique suas informações
               antes de enviar.
             </span>
