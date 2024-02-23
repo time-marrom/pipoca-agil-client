@@ -75,7 +75,7 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
               </p>
               <Link
                 href="/simulacao/inscricao"
-                className="flex h-12 max-w-max  p-4  text-base font-medium font-title rounded-2xl text-center items-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
+                className="flex h-12 max-w-max  p-4  text-base font-medium font-title rounded-2xl text-center items-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
               >
                 {data.volunteerLabelButton}
               </Link>
@@ -86,7 +86,7 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
               </p>
               <Link
                 href="/simulacao/inscricao"
-                className="flex h-12 max-w-max  p-4 text-base font-medium font-title rounded-2xl text-center items-center text-theme-secondary-base cursor-pointer transition duration-300 bg-theme-white-base border-2 border-theme-secondary-base hover:bg-theme-white-light"
+                className="flex h-12 max-w-max  p-4 text-base font-medium font-title rounded-2xl text-center items-center text-theme-secondary-base cursor-pointer transition duration-300 bg-theme-white-base border-2 border-theme-secondary-base hover:bg-theme-white-light hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
               >
                 {data.mentorLabelButton}
               </Link>
