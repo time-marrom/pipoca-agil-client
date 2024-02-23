@@ -34,7 +34,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { WarningIcon } from "@/components/icons/WarningIcon";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import { Error } from "@/components/icons/Error";
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
 
 const formSchema = z.object({
@@ -62,7 +62,6 @@ const formSchema = z.object({
 
 export function CertificateForm() {
   const [date, setDate] = React.useState<Date>();
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -88,32 +87,16 @@ export function CertificateForm() {
     return formattedDate;
   }
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
-    setIsLargeScreen(mediaQuery.matches);
-
-    const handleResize = (event: MediaQueryListEvent) => {
-      setIsLargeScreen(event.matches);
-      console.log("Tamanho da tela alterado:", event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleResize);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleResize);
-    };
-  }, []);
-
   return (
     <div className="w-full h-full mb-16">
-      <div className="w-full py-10 px-2 bg-[#FCCF5C] flex text-center items-center justify-center rounded-b-[70px]">
+      <div className="w-full md:h-40 py-10 px-2 bg-[#FCCF5C] flex text-center items-center justify-center rounded-b-[70px] ">
         <h1 className="font-title text-3xl font-medium w-2/3">
           Emissão de Certificado
         </h1>
       </div>
       <div className="my-4 px-4 w-full h-full flex flex-col items-start justify-center  text-start space-y-10 ">
-        <div className="md:w-full md:flex md:flex-col md:items-center ">
-          <div className="border-[#FCCF5C] p-4 my-4 w-full  md:w-1/3  space-y-4 border-2 rounded-2xl ">
+        <div className="md:w-full md:flex md:flex-col md:items-center">
+          <div className="border-[#FCCF5C] p-4 my-4 w-full  md:w-3/4 lg:w-1/3  space-y-4 border-2 rounded-2xl">
             <h2 className="font-sans text-2xl font-normal flex flex-row items-center justify-start gap-4 ">
               <WarningIcon className="w-7 h-7" /> Atenção
             </h2>
@@ -129,12 +112,12 @@ export function CertificateForm() {
               seu certificado por e-mail.
             </p>
           </div>
-          <div className="md:flex md:flex-col">
-            <h3 className="font-sans text-2xl font-normal ">
+          <div className="md:flex md:flex-col md:justify-start md:w-3/4 lg:w-1/3">
+            <h3 className="font-sans text-2xl font-normal my-8">
               Preencha os dados abaixo com atenção.
             </h3>
-            <span className="font-sans text-base font-normal ">
-              *Campos Obrigatórios
+            <span className="font-sans text-base font-normal mt-4">
+              *Campos Obrigatórios.
             </span>
           </div>
         </div>
@@ -148,13 +131,21 @@ export function CertificateForm() {
               control={form.control}
               name="fullname"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-2/6">
-                  <FormLabel className="font-sans text-base font-normal ">
+                <FormItem className="space-y-2 md:w-3/4 lg-1/3">
+                  <FormLabel
+                    className={`font-sans text-base font-normal ${
+                      form.formState.errors.fullname ? "text-red-500" : ""
+                    }`}
+                  >
                     *Nome Completo
                   </FormLabel>
-                  <FormControl>
+                  <FormControl className="relative">
                     <Input
-                      className="w-full focus:outline-none font-sans text-base font-normal  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]"
+                      className={`w-full focus:outline-none font-sans text-base ${
+                        form.formState.errors.fullname
+                          ? "text-red-500 border-red-500 border-2"
+                          : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
+                      }`}
                       placeholder="Nome e sobrenome"
                       type="text"
                       {...field}
@@ -164,7 +155,7 @@ export function CertificateForm() {
                     Digite como você quer que seu nome e sobrenome apareçam no
                     certificado.
                   </FormDescription>
-                  <FormMessage />
+                  <FormMessage className="font-sans text-sm" />
                 </FormItem>
               )}
             />
@@ -173,15 +164,23 @@ export function CertificateForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-2/6">
-                  <FormLabel className="font-sans text-base font-normal">
+                <FormItem className="space-y-2 md:w-3/4 lg-1/3">
+                  <FormLabel
+                    className={`font-sans text-base font-normal ${
+                      form.formState.errors.email ? "text-red-500" : ""
+                    }`}
+                  >
                     *E-mail
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="exemplo@gmail.com"
                       type="email"
-                      className="w-full font-sans text-base font-normal focus:outline-none focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]"
+                      className={`w-full font-sans text-base font-normal focus:outline-none focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]  ${
+                        form.formState.errors.email
+                          ? "text-red-500 border-red-500 border-2"
+                          : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
+                      }`}
                       {...field}
                     />
                   </FormControl>
@@ -189,7 +188,7 @@ export function CertificateForm() {
                     Digite como você quer que seu nome e sobrenome apareçam no
                     certificado.
                   </FormDescription>
-                  <FormMessage />
+                  <FormMessage className="font-sans text-sm" />
                 </FormItem>
               )}
             />
@@ -198,8 +197,12 @@ export function CertificateForm() {
               control={form.control}
               name="role"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-2/6">
-                  <FormLabel className="font-sans text-base font-normal">
+                <FormItem className="space-y-2 md:w-3/4 lg-1/3">
+                  <FormLabel
+                    className={`font-sans text-base font-normal ${
+                      form.formState.errors.role ? "text-red-500" : ""
+                    }`}
+                  >
                     *Qual foi a sua participação na Simulação?
                   </FormLabel>
                   <Select
@@ -207,7 +210,13 @@ export function CertificateForm() {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger
+                        className={`${
+                          form.formState.errors.role
+                            ? "text-red-500 border-red-500 border-2"
+                            : " "
+                        }`}
+                      >
                         <SelectValue placeholder="Selecione uma opção" />
                       </SelectTrigger>
                     </FormControl>
@@ -224,7 +233,7 @@ export function CertificateForm() {
                     Selecione a que mais se encaixa com a sua atuação no
                     projeto.
                   </FormDescription>
-                  <FormMessage />
+                  <FormMessage className="font-sans text-sm" />
                 </FormItem>
               )}
             />
@@ -233,8 +242,12 @@ export function CertificateForm() {
               control={form.control}
               name="office"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-2/6">
-                  <FormLabel className="font-sans text-base font-normal">
+                <FormItem className="space-y-2 md:w-3/4 lg-1/3">
+                  <FormLabel
+                    className={`font-sans text-base font-normal ${
+                      form.formState.errors.office ? "text-red-500" : ""
+                    }`}
+                  >
                     *Qual função você desempenhou ou mentorou no projeto?
                   </FormLabel>
                   <Select
@@ -242,7 +255,13 @@ export function CertificateForm() {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger
+                        className={`${
+                          form.formState.errors.role
+                            ? "text-red-500 border-red-500 border-2"
+                            : " "
+                        }`}
+                      >
                         <SelectValue placeholder="Selecione uma opção" />
                       </SelectTrigger>
                     </FormControl>
@@ -268,7 +287,7 @@ export function CertificateForm() {
                     Selecione a que mais se encaixa com a sua atuação no
                     projeto.
                   </FormDescription>
-                  <FormMessage />
+                  <FormMessage className="font-sans text-sm" />
                 </FormItem>
               )}
             />
@@ -277,7 +296,7 @@ export function CertificateForm() {
               control={form.control}
               name="date"
               render={({ field }) => (
-                <FormItem className="w-full flex flex-col space-y-2 md:w-2/6">
+                <FormItem className="w-full flex flex-col space-y-2 md:w-3/4 lg-1/3">
                   <FormLabel className="font-sans text-base font-normal">
                     *Informe a data em que você finalizou o projeto.
                   </FormLabel>
@@ -318,12 +337,12 @@ export function CertificateForm() {
                   <FormDescription className="font-sans text-base font-normal">
                     Certifique-se de que a data está correta.
                   </FormDescription>
-                  <FormMessage />
+                  <FormMessage className="font-sans text-sm" />
                 </FormItem>
               )}
             />
 
-            <span className="flex flex-row items-center justify-start text-start gap-4 w-full mb-4 mt-10 font-normal font-sans md:flex med:flex-row  md:w-1/3 md:justify-start">
+            <span className="flex flex-row items-center justify-start text-start gap-4 w-full mb-4 mt-10 font-normal font-sans md:flex med:flex-row md:w-3/4 lg-1/3 md:justify-start">
               <WarningIcon className="w-7 h-7" /> Verifique suas informações
               antes de enviar.
             </span>
@@ -333,7 +352,7 @@ export function CertificateForm() {
                   type="submit"
                   className="font-title rounded-xl disabled:text-[#727272] disabled:bg-[#dedede] disabeld:cursor-not-allowed"
                   onClick={() => handle()}
-                  // disabled={!form.formState.isValid}
+                  disabled={!form.formState.isValid}
                 >
                   Solicitar Certificado
                 </Button>
@@ -347,43 +366,16 @@ export function CertificateForm() {
                       Solicitação enviada com sucesso!
                     </Dialog.Title>
                     <Dialog.Description className="font-sans text-base px-3">
-                      {isLargeScreen ? (
-                        <>
-                          <p>
-                            Vamos verificar os seus dados, e se estiver tudo
-                            correto vamos emitir o seu certificado de
-                            participação na Simulação de Projetos Ágeis.
-                            Poderemos entrar em contato com você caso haja
-                            alguma pendência ou dúvida de nossa parte.
-                          </p>
-                          <p>
-                            Se estiver tudo certo, assim que finalizado você
-                            receberá o seu certificado no endereço de e-mail que
-                            você nos indicou. Não hesite em entrar em contato
-                            conosco caso tenha alguma dúvida também. Agradecemos
-                            pela sua participação!
-                          </p>
-                          <p>
-                            O Pipoca Ágil tem orgulho de você! Te desejamos
-                            muito sucesso,
-                          </p>
-                          <p>Equipe Pipoca Ágil</p>
-                        </>
-                      ) : (
-                        <>
-                          Vamos verificar os seus dados, e se estiver tudo
-                          correto vamos emitir o seu certificado de participação
-                          na Simulação de Projetos Ágeis. Poderemos entrar em
-                          contato com você caso haja alguma pendência ou dúvida
-                          de nossa parte. Se estiver tudo certo, assim que
-                          finalizado você receberá o seu certificado no endereço
-                          de e-mail que você nos indicou. Não hesite em entrar
-                          em contato conosco caso tenha alguma dúvida também.
-                          Agradecemos pela sua participação! O Pipoca Ágil tem
-                          orgulho de você! Te desejamos muito sucesso, Equipe
-                          Pipoca Ágil
-                        </>
-                      )}
+                      Vamos verificar os seus dados, e se estiver tudo correto
+                      vamos emitir o seu certificado de participação na
+                      Simulação de Projetos Ágeis. Poderemos entrar em contato
+                      com você caso haja alguma pendência ou dúvida de nossa
+                      parte. Se estiver tudo certo, assim que finalizado você
+                      receberá o seu certificado no endereço de e-mail que você
+                      nos indicou. Não hesite em entrar em contato conosco caso
+                      tenha alguma dúvida também. Agradecemos pela sua
+                      participação! O Pipoca Ágil tem orgulho de você! Te
+                      desejamos muito sucesso, Equipe Pipoca Ágil
                     </Dialog.Description>
                     <Dialog.Close>
                       <div className="flex justify-center">
