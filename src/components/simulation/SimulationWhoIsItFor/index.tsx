@@ -1,35 +1,35 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import whoIsItFor_1 from "@/assets/whoIsItFor_1.svg";
-import whoIsItFor_2 from "@/assets/whoIsItFor_2.svg";
-import whoIsItFor_lg from "@/assets/whoIsItFor_lg.svg";
-import { useEffect, useState } from "react";
-import { getSanitySimulationContent } from "@/services/axios";
-import { useQuery } from "@tanstack/react-query";
+"use client"
+import whoIsItFor_1 from "@/assets/whoIsItFor_1.svg"
+import whoIsItFor_2 from "@/assets/whoIsItFor_2.svg"
+import whoIsItFor_lg from "@/assets/whoIsItFor_lg.svg"
+import { getSanitySimulationContent } from "@/services/axios"
+import { useQuery } from "@tanstack/react-query"
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useState } from "react"
 
 interface SimulationWhoIsItForProps {
-  content: SimulationContent;
+  content: SimulationContent
 }
 
 export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
   const { data } = useQuery({
     queryKey: ["simulation"],
     queryFn: getSanitySimulationContent,
-    initialData: content,
-  });
+    initialData: content
+  })
 
-  const [windowWidth, setWindowWidth] = useState<number>(0);
-  const isSmaller = windowWidth < 768;
+  const [windowWidth, setWindowWidth] = useState<number>(0)
+  const isSmaller = windowWidth < 768
 
   useEffect(() => {
     function handleResize() {
-      setWindowWidth(window.innerWidth);
+      setWindowWidth(window.innerWidth)
     }
-    window.addEventListener("resize", handleResize);
-    setWindowWidth(window.innerWidth);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    window.addEventListener("resize", handleResize)
+    setWindowWidth(window.innerWidth)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center text-start py-20 px-8  md:px-8 md:py-20 gap- rounded-t-[90px] lg:px-32 lg:py-40 bg-[#FCFCFC] ">
@@ -67,7 +67,7 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
               {data.volunteerText}
             </p>
             <Link
-              href="/simulacao/inscricao"
+              href="/inscricao/voluntario"
               className="flex h-12 max-w-max my-1 px-4 py-2 text-base font-medium font-title rounded-2xl text-center items-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark"
             >
               {data.volunteerLabelButton}
@@ -78,7 +78,7 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
               {data.mentorText}
             </p>
             <Link
-              href="/simulacao/inscricao"
+              href="/inscricao/mentor"
               className="flex h-12 max-w-max my-1 px-4 py-2 text-base font-medium font-title rounded-2xl text-center items-center text-theme-secondary-base cursor-pointer transition duration-300 bg-theme-white-base border-2 border-theme-secondary-base hover:bg-theme-white-light"
             >
               {data.mentorLabelButton}
@@ -87,5 +87,5 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

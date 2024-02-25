@@ -6,7 +6,7 @@ export const menuOptions: MenuOption[] = [
   },
   {
     name: "Emitir certificado",
-    path: "/certificado",
+    path: "/inscricao/certificado",
     order: 2
   },
   {
@@ -16,12 +16,12 @@ export const menuOptions: MenuOption[] = [
   },
   {
     name: "Quero mentorar",
-    path: "/simulacao/inscricao",
+    path: "/inscricao/voluntario",
     order: 4
   },
   {
     name: "Quero voluntariar",
-    path: "/simulacao/inscricao",
+    path: "/inscricao/mentor",
     order: 5
   }
 ]
