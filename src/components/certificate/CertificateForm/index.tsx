@@ -33,8 +33,7 @@ import {
 import * as Dialog from "@radix-ui/react-dialog";
 import { WarningIcon } from "@/components/icons/WarningIcon";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Error } from "@/components/icons/Error";
+
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
 
 const formSchema = z.object({
@@ -185,8 +184,7 @@ export function CertificateForm() {
                     />
                   </FormControl>
                   <FormDescription className="font-sans text-base font-normal">
-                    Digite como você quer que seu nome e sobrenome apareçam no
-                    certificado.
+                    Insira seu melhor email.
                   </FormDescription>
                   <FormMessage className="font-sans text-sm" />
                 </FormItem>
@@ -330,6 +328,7 @@ export function CertificateForm() {
                             field.onChange(date);
                           }}
                           initialFocus
+                          disabled={{ after: new Date() }}
                         />
                       </PopoverContent>
                     </Popover>
