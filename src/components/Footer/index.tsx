@@ -1,11 +1,13 @@
-import { menuOptions } from "@/utils/menu"
-import { socialMedias } from "@/utils/social"
-import Link from "next/link"
+import { menuOptions } from "@/utils/menu";
+import { socialMedias } from "@/utils/social";
+import Link from "next/link";
 
 export function Footer(): JSX.Element {
-  const footerOptions = menuOptions.slice().sort((a, b) => a.order - b.order)
+  const footerOptions = menuOptions.slice().sort((a, b) => a.order - b.order);
 
-  const orderSocialMedias = socialMedias.slice().sort((a, b) => a.order - b.order)
+  const orderSocialMedias = socialMedias
+    .slice()
+    .sort((a, b) => a.order - b.order);
 
   return (
     <footer className="bg-[#F6F6F6] py-10  md:py-2 lg:py-4  px-6 md:px-16 lg:px-36 w-full h-full flex flex-col justify-between items-center  gap-12 lg:gap-8 md:gap-4">
@@ -54,5 +56,5 @@ export function Footer(): JSX.Element {
         </div>
       </div>
     </footer>
-  )
+  );
 }
