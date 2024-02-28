@@ -93,3 +93,7 @@ interface FaqQuestion {
   question: string;
   answer: string;
 }
+
+type StepsProps = {
+  currentStep: number
+}
