@@ -1,13 +1,16 @@
+import { Footer } from "../Footer"
+import { Header } from "../Header"
+
 interface PageContainerProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export function PageContainer({ children }: PageContainerProps) {
   return (
-    <main
-      className="flex w-full min-h-screen flex-col items-center justify-between"
-    >
+    <main className="flex w-full min-h-screen flex-col items-center justify-between">
+      <Header />
       {children}
+      <Footer />
     </main>
-  );
+  )
 }
