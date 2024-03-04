@@ -38,7 +38,7 @@ export function SimulationCTA(): JSX.Element {
               size="sm"
               onClick={() => setRole("VOLUNTÁRIO")}
             >
-              <Link href="/simulacao/inscricao" className="font-sans text-base">
+              <Link href="/inscricao/voluntario" className="font-sans text-base">
                 Quero ser voluntário
               </Link>
             </Button>
@@ -48,7 +48,7 @@ export function SimulationCTA(): JSX.Element {
               size="sm"
               onClick={() => setRole("MENTOR")}
             >
-              <Link href="/simulacao/inscricao" className="font-sans text-base">
+              <Link href="/inscricao/mentor" className="font-sans text-base">
                 Quero ser mentor
               </Link>
             </Button>

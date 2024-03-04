@@ -93,3 +93,11 @@ interface FaqQuestion {
   question: string;
   answer: string;
 }
+
+type StepsProps = {
+  currentStep: number
+}
+
+interface IRegistrationContainerProps {
+  children: React.ReactNode
+}

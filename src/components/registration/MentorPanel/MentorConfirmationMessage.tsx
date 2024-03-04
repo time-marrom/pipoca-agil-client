@@ -1,7 +1,7 @@
 import IconConfMessage from "@/assets/iconConfMessage.svg"
 import Image from "next/image"
 
-export function UserConfirmationMessage() {
+export function MentorConfirmationMessage() {
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="w-full max-w-xs h-full flex items-center justify-center my-12 gap-8 py-8 bg-theme-white-base">

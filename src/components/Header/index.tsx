@@ -44,7 +44,7 @@ export function Header() {
           variant="outline"
           asChild
         >
-          <Link href="/simulacao/inscricao" className="font-title">
+          <Link href="/inscricao/voluntario" className="font-title">
             Quero voluntariar
           </Link>
         </Button>

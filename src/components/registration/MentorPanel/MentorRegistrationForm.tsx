@@ -22,7 +22,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-interface UserRegistrationFormProps {
+interface MentorRegistrationFormProps {
   setCurrentStep: (currentStep: number) => void
   currentStep: number
 }
@@ -66,10 +66,10 @@ const formSchema = z.object({
 
 export type FormValues = z.infer<typeof formSchema>
 
-export function UserRegistrationForm({
+export function MentorRegistrationForm({
   currentStep,
   setCurrentStep
-}: UserRegistrationFormProps) {
+}: MentorRegistrationFormProps) {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     mode: "onChange"

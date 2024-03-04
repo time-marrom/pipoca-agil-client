@@ -1,5 +1,3 @@
-import { Footer } from "@/components/Footer"
-import { Header } from "@/components/Header"
 import { ScrollToTopButton } from "@/components/ScrollToTopButton"
 import { cn } from "@/lib/utils"
 import ReactQueryProvider from "@/providers/react-query"
@@ -35,12 +33,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fredoka.variable
         )}
       >
-        <Header />
         <ReactQueryProvider>
           <RootProviders>{children}</RootProviders>
         </ReactQueryProvider>
         <ScrollToTopButton />
-        <Footer />
       </body>
     </html>
   )

@@ -28,7 +28,7 @@ export function Menu({ isVisible, onClose }: MenuProps) {
 
           <button className="w-9/12 h-1/5 p-2 font-medium rounded-2xl text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed font-title">
             <Link
-              href="/simulacao/inscricao"
+              href="/inscricao/voluntario"
               className="font-title text-lg font-semibold hover:text-theme-secondary-light"
             >
               Quero voluntariar
@@ -36,13 +36,13 @@ export function Menu({ isVisible, onClose }: MenuProps) {
           </button>
 
           <Link
-            href="/simulacao/inscricao"
+            href="/inscricao/mentor"
             className="font-title font-semibold hover:text-theme-secondary-light"
           >
             Quero Mentorar
           </Link>
           <Link
-            href="/simulacao/inscricao"
+            href="/inscricao/certificado"
             className="font-title font-semibold hover:text-theme-secondary-light"
           >
             Emitir certificado

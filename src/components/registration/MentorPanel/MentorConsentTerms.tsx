@@ -14,7 +14,7 @@ const mockRules = [
   "Estar ciente de que o projeto, por ter apenas pessoas voluntárias envolvidas na sua organização e participação, poderá ser interrompido a qualquer momento."
 ]
 
-export function UserConsentTerms() {
+export function MentorConsentTerms() {
   return (
     <div className="w-full h-full flex flex-col justify-start items-center px-8  my-2 gap-4 bg-[#FCFCFC]">
       <h3 className="font-sans font-medium text-lg items-center text-center mt-16 mb-4">

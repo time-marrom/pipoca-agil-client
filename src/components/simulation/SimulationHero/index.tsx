@@ -35,7 +35,7 @@ export function SimulationHero({ content }: SimulationHeroProps) {
           asChild
         >
           <Link
-            href="/simulacao/inscricao"
+            href="/inscricao/voluntario"
             className="font-title text-2xl font-[600]"
           >
             Quero voluntariar
