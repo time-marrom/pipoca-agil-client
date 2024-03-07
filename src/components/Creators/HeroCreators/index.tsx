@@ -30,16 +30,16 @@ export function HeroCreators() {
           <span className="font-sans text-base font-normal ">
             <p className="mb-6">
               Ibson é um facilitador e entusiasta da transformação ágil e
-              digital. Com o objetivo de criar um podcast "chão de fábrica",
-              para contar casos reais e soluções práticas para a implementação
-              da agilidade na transformação digital das empresas, ele criou o
-              Pipoca Ágil.
+              digital. Com o objetivo de criar um podcast &quot;chão de
+              fábrica&quot;, para contar casos reais e soluções práticas para a
+              implementação da agilidade na transformação digital das empresas,
+              ele criou o Pipoca Ágil.
             </p>
             <p>
-              Além disso, em 2023, ele criou a iniciativa "Simulação de Projetos
-              Ágeis", com o objetivo de oferecer um ambiente seguro para que
-              pessoas em transição de carreira possam colocar em pártica seus
-              conhecimentos.
+              Além disso, em 2023, ele criou a iniciativa &quot;Simulação de
+              Projetos Ágeis&quot;, com o objetivo de oferecer um ambiente
+              seguro para que pessoas em transição de carreira possam colocar em
+              pártica seus conhecimentos.
             </p>
           </span>
         </div>
