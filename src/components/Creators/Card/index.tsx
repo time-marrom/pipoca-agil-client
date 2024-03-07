@@ -14,29 +14,31 @@ import ricardo from "@/components/Photos/ricardo.svg";
 
 import iconLinkedin from "@/assets/iconLinkedin.svg";
 import iconGlobo from "@/assets/iconGlobo.svg";
-import { socialMedias } from "@/utils/social";
 
 const team = [
   {
     photo: adelia,
     name: "Adélia Volpato",
     role: "Product Owner",
-    linkedin: " ",
+    linkedin: "https://www.linkedin.com/in/adeliavolpato ",
     portfolio: "",
+    alt: "Foto de uma mulher com braços cruzados. Ela sorri, possui cabelo castanho claro e está num fundo amarelo",
   },
   {
     photo: anna,
     name: "Anna Lopes",
     role: "Analista QA",
-    linkedin: " ",
-    portfolio: "",
+    linkedin: "https://www.linkedin.com/in/annagabrieleribeirolopes",
+    portfolio: "https://www.behance.net/annagrl",
+    alt: "Foto de uma mulher com as mãos na cintura. Ela sorri, possui cabelo castanho e usa óculos. Ao fundo tem um quadro azul com letras e nomes",
   },
   {
     photo: danilo,
     name: "Danilo Oliveira",
     role: "Scrum Master",
-    linkedin: " ",
+    linkedin: "https://www.linkedin.com/in/danilo-pacheco-de-oliveira",
     portfolio: "",
+    alt: "Foto de um homem que sorri. Ele possui cabelo curto e preto, usa uma blusa azul e está num fundo branco",
   },
   {
     photo: gabi,
@@ -44,63 +46,72 @@ const team = [
     role: "Dev Front-end",
     linkedin: "https://www.linkedin.com/in/gabrielle-oliveira-08855919a/ ",
     portfolio: "",
+    alt: "Foto de rosto de uma mulher. Ela faz uma expressão um pouco séria, possui cabelo castanho, olhos castanho escuros e está num fundo branco e marrom",
   },
   {
     photo: gisa,
     name: "Gislaine Vieira",
     role: "Scrum Master",
-    linkedin: " ",
+    linkedin: "https://www.linkedin.com/in/gislaine-cardoso-vieira",
     portfolio: "",
+    alt: "Foto de uma mulher que sorri. Ela possui cabelo preto e liso, usa uma blusa preta e está num fundo branco",
   },
   {
     photo: josi,
     name: "Josiemerson Teixeira",
     role: "Dev Front-end",
-    linkedin: " ",
+    linkedin: "https://www.linkedin.com/in/josiemerson-teixeira-bb6422255/",
     portfolio: "",
+    alt: "Foto de um homem com a mão na lateral do rosto. Ele possui cabelo preto, barba e bigode e ao fundo se vê uma porta marrom numa parede branca",
   },
   {
     photo: luyara,
     name: "Luyara Marinho",
     role: "Analista QA",
-    linkedin: " ",
+    linkedin:
+      "https://www.linkedin.com/in/luyara-karoline-marinho-paiva-43472849",
     portfolio: "",
+    alt: "Foto de uma mulher que faz uma expressão mais séria. Ela possui cabelo preto na altura dos ombros e usa uma blusa branca com detalhes pretos",
   },
   {
     photo: monique,
     name: "Monique Barboza",
     role: "UX/UI Designer",
-    linkedin: " ",
+    linkedin: "https://www.linkedin.com/in/moniquebarboza",
     portfolio: "",
+    alt: "Foto de rosto de uma mulher que sorri. Ela possui cabelo ruivo, usa um colar prata, blusa preta e está num fundo branco",
   },
   {
     photo: nathalia,
     name: "Nathalia Marcelo",
     role: "UX/UI Designer",
-    linkedin: " ",
-    portfolio: "",
+    linkedin: "https://www.linkedin.com/in/nathaliamarcello",
+    portfolio: "https://nathaliamarcello.framer.website/",
+    alt: "Foto de uma mulher que sorri. Ela possui cabelo castanho claro na altura dos ombros e ao fundo há plantas e árvores",
   },
   {
     photo: paulo,
     name: "Paulo Ruan",
     role: "Dev Full-stack",
-    linkedin: " ",
+    linkedin: "https://www.linkedin.com/in/pauloruan",
     portfolio: "",
+    alt: "Foto de um homem que sorri. Ele possui cabelo curto e preto, barba e bigode, usa óculos e camisa cinza clara e está num fundo branco",
   },
   {
     photo: ricardo,
     name: "Ricardo Lobato",
     role: "Product Owner",
-    linkedin: " ",
+    linkedin: "https://www.linkedin.com/in/ricardolobato18",
     portfolio: "",
+    alt: "Foto de um homem que sorri. Ele não possui cabelo, usa uma blusa social azul escura e está num fundo branco",
   },
 ];
 
 export function Card(): JSX.Element {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6">
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-4">
       {team.map((member, index) => (
-        <div className=" h-6/6 w-5/6">
+        <div className="h-6/6 w-6/6 gap-4">
           <div
             key={index}
             className="bg-white shadow-lg rounded-2xl my-4  flex flex-col justify-between "
@@ -108,7 +119,7 @@ export function Card(): JSX.Element {
             <div className="relative overflow-hidden rounded-t-2xl ">
               <Image
                 src={member.photo}
-                alt={member.name}
+                alt={member.alt}
                 width={300}
                 height={300}
               />
@@ -124,20 +135,20 @@ export function Card(): JSX.Element {
                   </p>
                 </div>
                 <div className="flex flex-row gap-2">
-                  <Link href={member.linkedin}>
+                  <Link href={member.linkedin} target="_blank">
                     <Image
                       src={iconLinkedin}
                       alt="Icon linkedin"
-                      width={23}
-                      height={23}
+                      width={22}
+                      height={22}
                     />
                   </Link>
                   <Link href={member.portfolio}>
                     <Image
                       src={iconGlobo}
                       alt="Icon Globo"
-                      width={23}
-                      height={23}
+                      width={22}
+                      height={22}
                     />
                   </Link>
                 </div>

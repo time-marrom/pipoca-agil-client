@@ -46,7 +46,7 @@ export function SimulationHowItWorks({ content }: SimulationHowItWorksProps) {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center  md:py-[104px] py-12 px-4 2xl:px-80 xl:px-36 gap-2 rounded-t-[90px]  bg-[#FCCF5C]">
+    <div className="w-full h-full flex flex-col items-center justify-center  md:py-[104px] py-12 2xl:px-80 xl:px-36 px-8 rounded-t-[90px]  bg-[#FCCF5C]">
       <div className="flex flex-col items-center gap-10 md:gap-14   w-full justify-between ">
         <div className="w-full flex flex-col gap-8 justify-center items-center">
           <h3 className="text-[#252525] text-[32px] md:text-5xl font-semibold font-title mb-4 text-center  ">
