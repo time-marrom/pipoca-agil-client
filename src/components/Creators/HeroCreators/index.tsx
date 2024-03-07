@@ -1,17 +1,13 @@
 "use client";
 
-import { HeroSVG } from "@/components/icons/HeroSVG";
-import { Button } from "@/components/ui/button";
-import { getSanitySimulationContent } from "@/services/axios";
-import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import Image from "next/image";
 import ibson from "@/components/Photos/ibson.svg";
 import iconLinkedin from "@/assets/iconLinkedin.svg";
 
-interface SimulationHeroProps {
-  content: SimulationContent;
-}
+// interface SimulationHeroProps {
+//   content: SimulationContent;
+// }
 
 export function HeroCreators() {
   return (
@@ -34,7 +30,7 @@ export function HeroCreators() {
           <span className="font-sans text-base font-normal ">
             <p className="mb-6">
               Ibson é um facilitador e entusiasta da transformação ágil e
-              digital. Com o objetivo de criar um podcast “chão de fábrica”,
+              digital. Com o objetivo de criar um podcast "chão de fábrica",
               para contar casos reais e soluções práticas para a implementação
               da agilidade na transformação digital das empresas, ele criou o
               Pipoca Ágil.

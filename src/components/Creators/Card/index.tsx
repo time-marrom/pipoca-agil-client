@@ -110,10 +110,10 @@ const team = [
 export function Card(): JSX.Element {
   return (
     <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-4">
-      {team.map((member, index) => (
+      {team.map((member) => (
         <div className="h-6/6 w-6/6 gap-4">
           <div
-            key={index}
+            key={member.name}
             className="bg-white shadow-lg rounded-2xl my-4  flex flex-col justify-between "
           >
             <div className="relative overflow-hidden rounded-t-2xl ">
