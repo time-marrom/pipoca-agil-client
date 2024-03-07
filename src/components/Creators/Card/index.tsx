@@ -17,6 +17,7 @@ import iconGlobo from "@/assets/iconGlobo.svg";
 
 const team = [
   {
+    id: 1,
     photo: adelia,
     name: "Adélia Volpato",
     role: "Product Owner",
@@ -25,6 +26,7 @@ const team = [
     alt: "Foto de uma mulher com braços cruzados. Ela sorri, possui cabelo castanho claro e está num fundo amarelo",
   },
   {
+    id: 2,
     photo: anna,
     name: "Anna Lopes",
     role: "Analista QA",
@@ -33,6 +35,7 @@ const team = [
     alt: "Foto de uma mulher com as mãos na cintura. Ela sorri, possui cabelo castanho e usa óculos. Ao fundo tem um quadro azul com letras e nomes",
   },
   {
+    id: 3,
     photo: danilo,
     name: "Danilo Oliveira",
     role: "Scrum Master",
@@ -41,6 +44,7 @@ const team = [
     alt: "Foto de um homem que sorri. Ele possui cabelo curto e preto, usa uma blusa azul e está num fundo branco",
   },
   {
+    id: 4,
     photo: gabi,
     name: "Gabrielle Oliveira",
     role: "Dev Front-end",
@@ -49,6 +53,7 @@ const team = [
     alt: "Foto de rosto de uma mulher. Ela faz uma expressão um pouco séria, possui cabelo castanho, olhos castanho escuros e está num fundo branco e marrom",
   },
   {
+    id: 5,
     photo: gisa,
     name: "Gislaine Vieira",
     role: "Scrum Master",
@@ -57,6 +62,7 @@ const team = [
     alt: "Foto de uma mulher que sorri. Ela possui cabelo preto e liso, usa uma blusa preta e está num fundo branco",
   },
   {
+    id: 6,
     photo: josi,
     name: "Josiemerson Teixeira",
     role: "Dev Front-end",
@@ -65,6 +71,7 @@ const team = [
     alt: "Foto de um homem com a mão na lateral do rosto. Ele possui cabelo preto, barba e bigode e ao fundo se vê uma porta marrom numa parede branca",
   },
   {
+    id: 7,
     photo: luyara,
     name: "Luyara Marinho",
     role: "Analista QA",
@@ -74,6 +81,7 @@ const team = [
     alt: "Foto de uma mulher que faz uma expressão mais séria. Ela possui cabelo preto na altura dos ombros e usa uma blusa branca com detalhes pretos",
   },
   {
+    id: 8,
     photo: monique,
     name: "Monique Barboza",
     role: "UX/UI Designer",
@@ -82,6 +90,7 @@ const team = [
     alt: "Foto de rosto de uma mulher que sorri. Ela possui cabelo ruivo, usa um colar prata, blusa preta e está num fundo branco",
   },
   {
+    id: 9,
     photo: nathalia,
     name: "Nathalia Marcelo",
     role: "UX/UI Designer",
@@ -90,6 +99,7 @@ const team = [
     alt: "Foto de uma mulher que sorri. Ela possui cabelo castanho claro na altura dos ombros e ao fundo há plantas e árvores",
   },
   {
+    id: 10,
     photo: paulo,
     name: "Paulo Ruan",
     role: "Dev Full-stack",
@@ -98,6 +108,7 @@ const team = [
     alt: "Foto de um homem que sorri. Ele possui cabelo curto e preto, barba e bigode, usa óculos e camisa cinza clara e está num fundo branco",
   },
   {
+    id: 11,
     photo: ricardo,
     name: "Ricardo Lobato",
     role: "Product Owner",
@@ -111,11 +122,8 @@ export function Card(): JSX.Element {
   return (
     <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-4">
       {team.map((member) => (
-        <div className="h-6/6 w-6/6 gap-4">
-          <div
-            key={member.name}
-            className="bg-white shadow-lg rounded-2xl my-4  flex flex-col justify-between "
-          >
+        <div key={member.id} className="h-6/6 w-6/6 gap-4">
+          <div className="bg-white shadow-lg rounded-2xl my-4  flex flex-col justify-between ">
             <div className="relative overflow-hidden rounded-t-2xl ">
               <Image
                 src={member.photo}
