@@ -2,26 +2,26 @@ export const menuOptions: MenuOption[] = [
   {
     name: "Início",
     path: "/",
-    order: 1
+    order: 1,
   },
   {
     name: "Emitir certificado",
     path: "/inscricao/certificado",
-    order: 2
+    order: 2,
   },
   {
     name: "Sobre os criadores",
-    path: "/time-marrom",
-    order: 3
+    path: "/criadores",
+    order: 3,
   },
   {
     name: "Quero mentorar",
     path: "/inscricao/voluntario",
-    order: 4
+    order: 4,
   },
   {
     name: "Quero voluntariar",
     path: "/inscricao/mentor",
-    order: 5
-  }
-]
+    order: 5,
+  },
+];
