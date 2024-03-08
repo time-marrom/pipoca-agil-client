@@ -95,9 +95,9 @@ interface FaqQuestion {
 }
 
 type StepsProps = {
-  currentStep: number
-}
+  currentStep: number;
+};
 
 interface IRegistrationContainerProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }

@@ -33,6 +33,7 @@ import {
 import * as Dialog from "@radix-ui/react-dialog";
 import { WarningIcon } from "@/components/icons/WarningIcon";
 import Link from "next/link";
+import { Steps } from "@/components/certificate/Steps";
 
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
 
@@ -88,11 +89,8 @@ export function CertificateForm() {
 
   return (
     <div className="w-full h-full mb-16">
-      <div className="w-full md:h-40 py-10 px-2 bg-[#FCCF5C] flex text-center items-center justify-center rounded-b-[70px] ">
-        <h1 className="font-title text-3xl font-medium w-2/3">
-          Emissão de Certificado
-        </h1>
-      </div>
+      <Steps />
+
       <div className="my-4 px-4 w-full h-full flex flex-col items-start justify-center  text-start space-y-10 ">
         <div className="md:w-full md:flex md:flex-col md:items-center">
           <div className="border-[#FCCF5C] p-4 my-4 w-full  md:w-3/4 lg:w-1/3  space-y-4 border-2 rounded-2xl">

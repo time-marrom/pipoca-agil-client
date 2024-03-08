@@ -86,7 +86,7 @@ const team = [
     name: "Monique Barboza",
     role: "UX/UI Designer",
     linkedin: "https://www.linkedin.com/in/moniquebarboza",
-    portfolio: "",
+    portfolio: "https://moniquebarboza.super.site/",
     alt: "Foto de rosto de uma mulher que sorri. Ela possui cabelo ruivo, usa um colar prata, blusa preta e está num fundo branco",
   },
   {
@@ -133,7 +133,7 @@ export function Card(): JSX.Element {
               />
             </div>
             <div className="flex flex-col justify-between bg-[#FCCF5C] p-3 rounded-b-2xl h-[140px]  md:h-1/2 lg:h-[140px]">
-              <h2 className="text-xl font-semibold font-title">
+              <h2 className="text-xl font-semibold font-title truncate">
                 {member.name}
               </h2>
               <div className="flex flex-row justify-between  mt-4">
@@ -151,14 +151,16 @@ export function Card(): JSX.Element {
                       height={22}
                     />
                   </Link>
-                  <Link href={member.portfolio}>
-                    <Image
-                      src={iconGlobo}
-                      alt="Icon Globo"
-                      width={22}
-                      height={22}
-                    />
-                  </Link>
+                  {member.portfolio && (
+                    <Link href={member.portfolio}>
+                      <Image
+                        src={iconGlobo}
+                        alt="Icon Globo"
+                        width={22}
+                        height={22}
+                      />
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
