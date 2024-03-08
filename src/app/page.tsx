@@ -1,5 +1,7 @@
 import { PageContainer } from "@/components/PageContainer"
+import { Depositions } from "@/components/simulation/Depositions"
 import { SimulationDescription } from "@/components/simulation/SimulationDescription"
+import { SimulationFAQ } from "@/components/simulation/SimulationFAQ"
 import { SimulationHero } from "@/components/simulation/SimulationHero"
 import { SimulationHowItWorks } from "@/components/simulation/SimulationHowItWorks"
 import { SimulationWhoIsItFor } from "@/components/simulation/SimulationWhoIsItFor"
@@ -16,6 +18,8 @@ export default async function Home() {
       <SimulationHowItWorks content={content} />
       <SimulationWhoIsItFor content={content} />
       <SimulationWorthIt content={content} />
+      <Depositions />
+      <SimulationFAQ />
     </PageContainer>
   )
 }
