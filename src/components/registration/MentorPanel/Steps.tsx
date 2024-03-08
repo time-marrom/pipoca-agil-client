@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { StepOneIcon } from "@/components/icons/StepOneIcon"
-import { StepTwoIcon } from "@/components/icons/StepTwoIcon"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { StepOneIcon } from "@/components/icons/StepOneIcon";
+import { StepTwoIcon } from "@/components/icons/StepTwoIcon";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function Steps({ currentStep }: StepsProps) {
   return (
@@ -37,7 +37,9 @@ export function Steps({ currentStep }: StepsProps) {
             data-current-step={currentStep}
             className="text-lg mb-1 h-12 w-12 fill-[#FCCF5C] data-[current-step='1']:fill-[#FCFCFC]"
           />
-          <p className="font-medium text-xs md:text-sm font-title">Formulário</p>
+          <p className="font-medium text-xs md:text-sm font-title">
+            Formulário
+          </p>
         </div>
         {/* <div className="w-24 flex flex-col items-center justify-center text-center p-1">
           <StepThreeIcon
@@ -48,5 +50,5 @@ export function Steps({ currentStep }: StepsProps) {
         </div> */}
       </div>
     </div>
-  )
+  );
 }

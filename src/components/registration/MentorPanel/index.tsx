@@ -1,22 +1,16 @@
-"use client"
+"use client";
 
-import { GlobalContext } from "@/contexts/GlobalContext"
-import { useContext } from "react"
-import { Steps } from "./Steps"
-import { MentorConfirmationMessage } from "./MentorConfirmationMessage"
-import { MentorConsentTerms } from "./MentorConsentTerms"
-import { MentorRegistrationForm } from "./MentorRegistrationForm"
+import { GlobalContext } from "@/contexts/GlobalContext";
+import { useContext } from "react";
+import { Steps } from "./Steps";
+import { MentorConfirmationMessage } from "./MentorConfirmationMessage";
+import { MentorConsentTerms } from "./MentorConsentTerms";
+import { MentorRegistrationForm } from "./MentorRegistrationForm";
 
 export function MentorPanel() {
-  const { mentorCurrentStep, setMentorCurrentStep } = useContext(GlobalContext)
-
-  // function nextStep() {
-  //   setCurrentStep(currentStep + 1)
-  //   console.log("currentStep", currentStep)
-  // }
+  const { mentorCurrentStep, setMentorCurrentStep } = useContext(GlobalContext);
 
   return (
-    // <div className="w-full h-full min-h-[65vh] flex flex-col justify-start items-center bg-theme-white-base">
     <div className="w-full h-full min-h-[65vh] flex flex-col justify-start items-center">
       <div className="w-full h-full flex flex-col justify-start items-center">
         {<Steps currentStep={mentorCurrentStep} />}
@@ -40,5 +34,5 @@ export function MentorPanel() {
         </div>
       </div>
     </div>
-  )
+  );
 }

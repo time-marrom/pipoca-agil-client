@@ -91,7 +91,7 @@ export function ContactForm() {
           <h1 className="font-title font-semibold text-[32px] md:text-5xl text-center md:text-start">
             Fale com a gente
           </h1>
-          <p className="text-base   font-normal font-sans">
+          <p className="text-base font-normal font-sans">
             Caso tenha dúvidas, sugestões, críticas ou qualquer outro assunto
             para falar, preencha os campos abaixo e entraremos em contato com
             você assim que possível.
