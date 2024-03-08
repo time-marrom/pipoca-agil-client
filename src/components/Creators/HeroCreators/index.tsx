@@ -44,7 +44,7 @@ export function HeroCreators() {
               Além disso, em 2023, ele criou a iniciativa &quot;Simulação de
               Projetos Ágeis&quot;, com o objetivo de oferecer um ambiente
               seguro para que pessoas em transição de carreira possam colocar em
-              pártica seus conhecimentos.
+              prática seus conhecimentos.
             </p>
             <div className="flex flex-row text-start items-start justify-center py-2 my-6 ">
               <Image src={iconLinkedin} alt="icone linkedin" />
