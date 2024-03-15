@@ -124,7 +124,7 @@ export function Card(): JSX.Element {
       {team.map((member) => (
         <div key={member.id} className="h-6/6 w-6/6 gap-4">
           <div className="bg-white shadow-lg rounded-2xl my-4  flex flex-col justify-between ">
-            <div className="relative overflow-hidden rounded-t-2xl ">
+            <div className="overflow-hidden rounded-t-2xl ">
               <Image
                 src={member.photo}
                 alt={member.alt}
@@ -132,11 +132,11 @@ export function Card(): JSX.Element {
                 height={300}
               />
             </div>
-            <div className="flex flex-col justify-between bg-[#FCCF5C] p-3 rounded-b-2xl h-[140px]  md:h-1/2 lg:h-[140px]">
+            <div className="flex flex-col justify-between bg-[#FCCF5C] p-3 rounded-b-2xl h-[100px]  ">
               <h2 className="text-xl font-semibold font-title truncate">
                 {member.name}
               </h2>
-              <div className="flex flex-row justify-between  mt-4">
+              <div className="flex flex-row justify-between">
                 <div>
                   <p className="text-[#5A0C94] font-sans font-normal text-sm ">
                     {member.role}
