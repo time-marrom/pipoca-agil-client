@@ -2,7 +2,6 @@
 
 import icon from "@/assets/icon-popCorn.svg";
 import { menuOptions } from "@/utils/menu";
-import { socialMedias } from "@/utils/social";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useState } from "react";
@@ -40,7 +39,7 @@ export function Header() {
       </nav>
       <div className="hidden lg:flex justify-between w-[330px]">
         <Button
-          className="bg-[#FCFCFC] border-4 border-[#5A0C94] text-[#5A0C94] rounded-2xl p-5 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC] "
+          className="bg-[#FCFCFC] border-2 border-[#5A0C94] text-[#5A0C94] rounded-2xl p-5 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC] "
           variant="default"
           asChild
         >
