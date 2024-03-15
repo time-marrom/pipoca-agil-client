@@ -20,7 +20,7 @@ export function Steps({ currentStep }: StepsProps) {
         </Button>
       </div>
       <h2 className="w-full h-full text-2xl font-bold font-title text-theme-grayscale-black my-1">
-        Inscrição de pessoa voluntária
+        Inscrição de pessoa mentora
       </h2>
       <div className="w-full flex flex-row justify-center items-start text-center mx-auto mb-2 gap-1 md:gap-6">
         <div className="w-24 flex flex-col items-center justify-center text-center p-1">
