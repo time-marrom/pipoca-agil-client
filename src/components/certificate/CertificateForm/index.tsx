@@ -161,7 +161,7 @@ export function CertificateForm() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3">
+                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3 w-full">
                   <FormLabel
                     className={`font-sans text-base font-normal ${
                       form.formState.errors.email ? "text-red-500" : ""
@@ -193,7 +193,7 @@ export function CertificateForm() {
               control={form.control}
               name="role"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3">
+                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3 w-full">
                   <FormLabel
                     className={`font-sans text-base font-normal ${
                       form.formState.errors.role ? "text-red-500" : ""
