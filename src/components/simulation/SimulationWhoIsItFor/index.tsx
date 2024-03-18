@@ -1,35 +1,35 @@
-"use client"
-import whoIsItFor_1 from "@/assets/whoIsItFor_1.svg"
-import whoIsItFor_2 from "@/assets/whoIsItFor_2.svg"
-import whoIsItFor_lg from "@/assets/whoIsItFor_lg.svg"
-import { getSanitySimulationContent } from "@/services/axios"
-import { useQuery } from "@tanstack/react-query"
-import Image from "next/image"
-import Link from "next/link"
-import { useEffect, useState } from "react"
+"use client";
+import whoIsItFor_1 from "@/assets/whoIsItFor_1.svg";
+import whoIsItFor_2 from "@/assets/whoIsItFor_2.svg";
+import whoIsItFor_lg from "@/assets/whoIsItFor_lg.svg";
+import { getSanitySimulationContent } from "@/services/axios";
+import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface SimulationWhoIsItForProps {
-  content: SimulationContent
+  content: SimulationContent;
 }
 
 export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
   const { data } = useQuery({
     queryKey: ["simulation"],
     queryFn: getSanitySimulationContent,
-    initialData: content
-  })
+    initialData: content,
+  });
 
-  const [windowWidth, setWindowWidth] = useState<number>(0)
-  const isSmaller = windowWidth < 768
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+  const isSmaller = windowWidth < 768;
 
   useEffect(() => {
     function handleResize() {
-      setWindowWidth(window.innerWidth)
+      setWindowWidth(window.innerWidth);
     }
-    window.addEventListener("resize", handleResize)
-    setWindowWidth(window.innerWidth)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    window.addEventListener("resize", handleResize);
+    setWindowWidth(window.innerWidth);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="bg-[#FCCF5C]">
@@ -41,8 +41,8 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
               {data.whoIsPanelTitle}
             </h3>
             <p className="text-theme-grayscale-darker font-sans text-[16px] md:text-[24px] text-center lg:w-[70%] ">
-              Você está estudando e/ou buscando emprego em alguma das áreas abaixo? Sim?
-              Então você está no lugar certo!
+              Você está estudando e/ou buscando emprego em alguma das áreas
+              abaixo? Sim? Então você está no lugar certo!
             </p>
           </div>
           {isSmaller && (
@@ -86,7 +86,7 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
               </p>
               <Link
                 href="/inscricao/mentor"
-                className="flex h-12 max-w-max  p-4 text-base font-medium font-title rounded-2xl text-center items-center text-theme-secondary-base cursor-pointer transition duration-300 bg-theme-white-base border-2 border-theme-secondary-base hover:bg-theme-white-light hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
+                className="flex h-12 max-w-max  p-4 text-base font-medium font-title rounded-2xl text-center items-center text-theme-secondary-base cursor-pointer transition duration-300 bg-[#FCFCFC] border-2 border-theme-secondary-base  hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC]"
               >
                 {data.mentorLabelButton}
               </Link>
@@ -95,5 +95,5 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

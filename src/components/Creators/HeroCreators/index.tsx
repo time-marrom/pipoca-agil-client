@@ -20,7 +20,7 @@ export function HeroCreators() {
         />
       </div>
       <div className=" h-full py-20 lg:w-[50%] lg:rounded-t-none px-4 md:px-8 xl:px-10 flex flex-col flex-nowrap md:justify-center justify-center items-center lg:items-start md:gap-2 lg:gap-3 ">
-        <h3 className=" text-theme-grayscale-black text-5xl lg:text-5xl font-[500] font-title leading-[62px] xl:text-start mb-4">
+        <h3 className=" text-theme-grayscale-black text-[32px]  md:text-5xl lg:text-[64px] font-medium font-title leading-[62px] xl:text-start mb-4">
           Ibson Cabral
         </h3>
         <div className="w-full flex flex-col justify-center items-center lg:items-start space-y-2">
@@ -44,7 +44,7 @@ export function HeroCreators() {
               Além disso, em 2023, ele criou a iniciativa &quot;Simulação de
               Projetos Ágeis&quot;, com o objetivo de oferecer um ambiente
               seguro para que pessoas em transição de carreira possam colocar em
-              pártica seus conhecimentos.
+              prática seus conhecimentos.
             </p>
             <div className="flex flex-row text-start items-start justify-center py-2 my-6 ">
               <Image src={iconLinkedin} alt="icone linkedin" />
