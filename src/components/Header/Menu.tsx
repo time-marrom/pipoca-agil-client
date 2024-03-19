@@ -36,7 +36,7 @@ export function Menu({ isVisible, onClose }: MenuProps) {
           </Link>
 
           <Link
-            href="/mentor"
+            href="/inscricao/mentor"
             className="font-title text-xl bg-[#FCFCFC] border-4 border-[#5A0C94] text-[#5A0C94] w-9/12 h-1/5 p-2 font-medium rounded-2xl text-center cursor-pointer transition duration-300  disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Quero Mentorar
