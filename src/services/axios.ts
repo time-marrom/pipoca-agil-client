@@ -22,3 +22,12 @@ export function getSanityMaintenanceContent(): Promise<MaintenanceContent> {
 
   return response
 }
+
+export function getSanityHomeContent(): Promise<HomeContent> {
+  const response = api
+    .get(queries.home)
+    .then((response) => response.data.result)
+    .catch((error) => console.error(error))
+
+  return response
+}

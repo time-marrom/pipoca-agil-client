@@ -13,34 +13,6 @@ type MaintenanceContent = {
   description: string;
 };
 
-type HomeContent = {
-  title: string;
-  description: string;
-  imageURL: string;
-  imageAlt: string;
-  heroButtonLabel: string;
-  heroTopics: string[];
-  simulationSectionTitle: string;
-  simulationSectionDescription: string;
-  simulationSectionTopics: string[];
-  simulationSectionMemberButtonLabel: string;
-  simulationSectionMentorButtonLabel: string;
-  podcastSectionTitle: string;
-  podcastSectionDescription: string;
-  popcornClubSectionTitle: string;
-  popcornClubSectionDescription: string;
-  popcornClubSectionButtonLabel: string;
-  agileTrailSectionTitle: string;
-  agileTrailSectionDescription: string;
-  agileTrailSectionButtonLabel: string;
-  popcornIndicationSectionTitle: string;
-  popcornIndicationSectionDescription: string;
-  popcornIndicationSectionButtonLabel: string;
-  newsletterSectionTitle: string;
-  newsletterSectionDescription: string;
-  newsletterSectionButtonLabel: string;
-};
-
 type MenuOption = {
   name: string;
   path: string;
@@ -101,3 +73,45 @@ type StepsProps = {
 interface IRegistrationContainerProps {
   children: React.ReactNode;
 }
+
+// Validados
+
+interface WorthItTopic {
+  number: number;
+  metric: string;
+}
+
+interface DepositionTopic {
+  deposition: string;
+  author: string;
+}
+
+interface FAQTopic {
+  question: string;
+  answer: string;
+}
+
+interface HomeContent {
+  heroTitle: string;
+  heroSubtitle: string;
+  heroLabelButton: string;
+  descriptionTitle: string;
+  descriptionFirstParagraph: string;
+  descriptionSecondParagraph: string;
+  howItWorksTitle: string;
+  howItWorksSubtitle: string;
+  howItWorksTopics: string[];
+  howIsItForTitle: string;
+  howIsItForSubtitle: string;
+  howIsItForVolunteerText: string;
+  howIsItForVolunteerLabelButton: string;
+  howIsItForMentorText: string;
+  howIsItForMentorLabelButton: string;
+  worthItTitle: string;
+  worthItTopics: WorthItTopic[];
+  depositionsTitle: string;
+  depositionsTopics: DepositionTopic[];
+  faqTitle: string;
+  faqTopics: FAQTopic[];
+}
+

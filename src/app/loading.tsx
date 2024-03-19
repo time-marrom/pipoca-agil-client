@@ -1,9 +1,9 @@
 export default function Loading() {
   return (
-    <div className="h-full w-full flex text-center items-center justify-center">
-      <p className="font-title text-4xl font-bold text-center animate-pulse">
+    <div className="h-screen w-screen flex text-center items-center justify-center">
+      <h1 className="font-title text-4xl font-bold text-center animate-pulse">
         Carregando...
-      </p>
+      </h1>
     </div>
   )
 }
