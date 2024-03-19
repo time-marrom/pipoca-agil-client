@@ -1,25 +1,25 @@
 import { PageContainer } from "@/components/PageContainer"
-import { Depositions } from "@/components/simulation/Depositions"
-import { SimulationDescription } from "@/components/simulation/SimulationDescription"
-import { SimulationFAQ } from "@/components/simulation/SimulationFAQ"
-import { SimulationHero } from "@/components/simulation/SimulationHero"
-import { SimulationHowItWorks } from "@/components/simulation/SimulationHowItWorks"
-import { SimulationWhoIsItFor } from "@/components/simulation/SimulationWhoIsItFor"
-import { SimulationWorthIt } from "@/components/simulation/SimulationWorthIt"
-import { getSanitySimulationContent } from "@/services/axios"
+import { getSanityHomeContent } from "@/services/axios"
+import { Description } from "./_components/Description"
+import { Hero } from "./_components/Hero"
+import { HowItWorks } from "./_components/HowItWorks"
+import { WhoIsItFor } from "./_components/WhoIsItFor"
+import { WorthIt } from "./_components/WorthIt"
+import { Depositions } from "./_components/Depositions"
+import { FAQ } from "./_components/FAQ"
 
 export default async function Home() {
-  const content = await getSanitySimulationContent()
+  const content = await getSanityHomeContent()
 
   return (
     <PageContainer>
-      <SimulationHero content={content} />
-      <SimulationDescription content={content} />
-      <SimulationHowItWorks content={content} />
-      <SimulationWhoIsItFor content={content} />
-      <SimulationWorthIt content={content} />
-      <Depositions />
-      <SimulationFAQ />
+      <Hero content={content} />
+      <Description content={content} />
+      <HowItWorks content={content} />
+      <WhoIsItFor content={content} />
+      <WorthIt content={content} />
+      <Depositions content={content} />
+      <FAQ content={content} />
     </PageContainer>
   )
 }

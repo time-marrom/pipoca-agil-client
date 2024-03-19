@@ -1,26 +1,27 @@
-"use client";
+"use client"
+
 import whoIsItFor_1 from "@/assets/whoIsItFor_1.svg";
 import whoIsItFor_2 from "@/assets/whoIsItFor_2.svg";
 import whoIsItFor_lg from "@/assets/whoIsItFor_lg.svg";
-import { getSanitySimulationContent } from "@/services/axios";
+import { getSanityHomeContent } from "@/services/axios";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-interface SimulationWhoIsItForProps {
-  content: SimulationContent;
+interface WhoIsItForProps {
+  content: HomeContent;
 }
 
-export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
+export function WhoIsItFor({ content }: WhoIsItForProps) {
   const { data } = useQuery({
-    queryKey: ["simulation"],
-    queryFn: getSanitySimulationContent,
+    queryKey: ["home"],
+    queryFn: getSanityHomeContent,
     initialData: content,
-  });
+  })
 
-  const [windowWidth, setWindowWidth] = useState<number>(0);
-  const isSmaller = windowWidth < 768;
+  const [windowWidth, setWindowWidth] = useState<number>(0)
+  const isSmaller = windowWidth < 768
 
   useEffect(() => {
     function handleResize() {
@@ -38,11 +39,10 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
         <div className="w-full h-full  flex flex-col justify-center items-center gap-4 md:items-start ">
           <div className="flex flex-col items-center justify-center gap-8 w-full ">
             <h3 className="text-theme-grayscale-black text-4xl md:text-5xl font-semibold font-title mb-8 text-center ">
-              {data.whoIsPanelTitle}
+              {data.howIsItForTitle}
             </h3>
             <p className="text-theme-grayscale-darker font-sans text-[16px] md:text-[24px] text-center lg:w-[70%] ">
-              Você está estudando e/ou buscando emprego em alguma das áreas
-              abaixo? Sim? Então você está no lugar certo!
+              {data.howIsItForSubtitle}
             </p>
           </div>
           {isSmaller && (
@@ -71,24 +71,24 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
           <div className="w-full flex flex-col items-center py-4 gap-12 md:gap-20 md:flex-row">
             <div className=" flex flex-col items-center  md:items-start gap-4 md:gap-8 md:w-2/3">
               <p className=" font-sans font-normal text-base mb-2 md:text-2xl  md:w-full">
-                {data.volunteerText}
+                {data.howIsItForVolunteerText}
               </p>
               <Link
                 href="/inscricao/voluntario"
                 className="flex h-12 max-w-max  p-4  text-base font-medium font-title rounded-2xl text-center items-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
               >
-                {data.volunteerLabelButton}
+                {data.howIsItForVolunteerLabelButton}
               </Link>
             </div>
             <div className="flex flex-col items-center md:items-start gap-4 md:gap-8 md:w-2/3">
               <p className="font-sans font-normal text-base  mb-2 md:text-2xl md:w-full ">
-                {data.mentorText}
+                {data.howIsItForMentorText}
               </p>
               <Link
                 href="/inscricao/mentor"
                 className="flex h-12 max-w-max  p-4 text-base font-medium font-title rounded-2xl text-center items-center text-theme-secondary-base cursor-pointer transition duration-300 bg-[#FCFCFC] border-2 border-theme-secondary-base  hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC]"
               >
-                {data.mentorLabelButton}
+                {data.howIsItForMentorLabelButton}
               </Link>
             </div>
           </div>
@@ -97,3 +97,4 @@ export function SimulationWhoIsItFor({ content }: SimulationWhoIsItForProps) {
     </div>
   );
 }
+

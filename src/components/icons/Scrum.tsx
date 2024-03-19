@@ -1,13 +1,8 @@
-import { SVGProps } from "react";
+import { SVGProps } from "react"
 
-interface SimulationScrunIConProps extends SVGProps<SVGSVGElement> {
-  title?: string;
-}
+interface ScrumProps extends SVGProps<SVGSVGElement> {}
 
-export function SimulationScrunIcon({
-  title,
-  ...props
-}: SimulationScrunIConProps) {
+export function Scrum({ ...props }: ScrumProps) {
   return (
     <svg
       width={554}
@@ -17,7 +12,6 @@ export function SimulationScrunIcon({
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {title && <title>{title}</title>}
       <path
         d="M178.082 131.921c1.6-1.2 3.21-2.38 4.85-3.53"
         stroke="#DEDEDE"
@@ -104,7 +98,7 @@ export function SimulationScrunIcon({
       <mask
         id="a"
         style={{
-          maskType: "luminance",
+          maskType: "luminance"
         }}
         maskUnits="userSpaceOnUse"
         x={1}
@@ -298,10 +292,7 @@ export function SimulationScrunIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M205.482 275.381h-13.32l-1.57-12.07h13.32l1.57 12.07z"
-        fill="#EDEDED"
-      />
+      <path d="M205.482 275.381h-13.32l-1.57-12.07h13.32l1.57 12.07z" fill="#EDEDED" />
       <path
         d="M229.412 273.561c.28 4.59 9-.46 8.4-4.48-.6-4.02-8.73-.84-8.4 4.48z"
         fill="#FEBD9D"
@@ -471,7 +462,7 @@ export function SimulationScrunIcon({
       <mask
         id="b"
         style={{
-          maskType: "luminance",
+          maskType: "luminance"
         }}
         maskUnits="userSpaceOnUse"
         x={295}
@@ -771,7 +762,7 @@ export function SimulationScrunIcon({
       <mask
         id="c"
         style={{
-          maskType: "luminance",
+          maskType: "luminance"
         }}
         maskUnits="userSpaceOnUse"
         x={218}
@@ -835,10 +826,7 @@ export function SimulationScrunIcon({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M346.392 325.1a1.3 1.3 0 100-2.6 1.3 1.3 0 000 2.6z"
-        fill="#5C1A55"
-      />
+      <path d="M346.392 325.1a1.3 1.3 0 100-2.6 1.3 1.3 0 000 2.6z" fill="#5C1A55" />
       <path
         d="M347.522 313.281c2.58-1.79 7.11 8.63 3.83 8.59-1.32 0-6.97-6.41-3.83-8.59z"
         fill="#BF8228"
@@ -895,5 +883,5 @@ export function SimulationScrunIcon({
         fill="#5A0C94"
       />
     </svg>
-  );
+  )
 }
