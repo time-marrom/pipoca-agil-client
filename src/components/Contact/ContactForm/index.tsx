@@ -35,6 +35,7 @@ import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { ArrobaIcon } from "@/components/icons/ArrobaIcon";
 
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
+let whatsappRegex = /^[0-9\s]+$/;
 
 const formSchema = z.object({
   name: z
@@ -57,7 +58,8 @@ const formSchema = z.object({
     .string({
       required_error: "Você precisa preencher o seu e-mail.",
     })
-    .email({ message: "E-mail inválido" }),
+    .min(8, { message: "Telefone precisar ter no minimo 8 digitos." })
+    .regex(whatsappRegex, { message: "Você so pode usar numeros." }),
 
   subject: z
     .string({ required_error: "Você precisa selecionar uma opção." })
