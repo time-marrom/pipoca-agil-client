@@ -120,7 +120,7 @@ export function ContactForm() {
                     >
                       Nome Completo
                     </FormLabel>
-                    <FormControl className="relative">
+                    <FormControl>
                       <Input
                         className={`w-full focus:outline-none font-sans text-base ${
                           form.formState.errors.name
@@ -143,7 +143,7 @@ export function ContactForm() {
                 control={form.control}
                 name="contactWith"
                 render={({ field }) => (
-                  <FormItem className="space-y-2flex-shrink">
+                  <FormItem className="space-y-2 flex-shrink">
                     <FormLabel
                       className={`font-sans text-base font-normal ${
                         form.formState.errors.contactWith ? "text-red-500" : ""
@@ -193,7 +193,7 @@ export function ContactForm() {
                       >
                         *E-mail para contato
                       </FormLabel>
-                      <FormControl className="relative">
+                      <FormControl>
                         <Input
                           placeholder="Escreva sua mensagem aqui."
                           className={`w-full  focus:outline-none font-sans text-base placeholder:align-top ${
@@ -228,7 +228,7 @@ export function ContactForm() {
                       >
                         *Número de WhatsApp
                       </FormLabel>
-                      <FormControl className="relative">
+                      <FormControl>
                         <Input
                           placeholder="Escreva sua mensagem aqui."
                           className={`w-full  focus:outline-none font-sans text-base placeholder:align-top ${
@@ -308,7 +308,7 @@ export function ContactForm() {
                     >
                       Sua mensagem
                     </FormLabel>
-                    <FormControl className="">
+                    <FormControl>
                       <Input
                         placeholder="Escreva sua mensagem aqui."
                         className={`w-full h-[160px] focus:outline-none font-sans text-base placeholder:align-top ${
@@ -333,7 +333,6 @@ export function ContactForm() {
                     <Button
                       type="submit"
                       className="font-title rounded-xl bg-[#431B61] hover:bg-[#5A0C94]  p-4   text-base font-semibold"
-                      // onClick={() => handle()}
                     >
                       Enviar mensagem
                     </Button>
