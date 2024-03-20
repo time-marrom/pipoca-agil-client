@@ -37,9 +37,9 @@ export function Header() {
           ))}
         </ul>
       </nav>
-      <div className="hidden lg:flex justify-between w-[330px]">
+      <div className="hidden lg:flex justify-between w-[330px] gap-4">
         <Button
-          className="bg-[#FCFCFC] border-2 border-[#5A0C94] text-[#5A0C94] rounded-2xl p-5 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC] "
+          className="h-12 w-40 bg-[#FCFCFC] border-2 border-[#5A0C94] text-[#5A0C94] rounded-2xl p-5 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC]"
           variant="default"
           asChild
         >
@@ -49,7 +49,7 @@ export function Header() {
         </Button>
 
         <Button
-          className="border-none border-[#5A0C94] text-white rounded-2xl p-6 xl:m-0  hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
+          className="h-12 w-40 border-none bg-[#5A0C94] text-white rounded-2xl p-2 xl:m-0 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
           variant="default"
           asChild
         >

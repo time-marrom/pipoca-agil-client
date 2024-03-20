@@ -1,23 +1,23 @@
 "use client"
 
-import whoIsItFor_1 from "@/assets/whoIsItFor_1.svg";
-import whoIsItFor_2 from "@/assets/whoIsItFor_2.svg";
-import whoIsItFor_lg from "@/assets/whoIsItFor_lg.svg";
-import { getSanityHomeContent } from "@/services/axios";
-import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import whoIsItFor_1 from "@/assets/whoIsItFor_1.svg"
+import whoIsItFor_2 from "@/assets/whoIsItFor_2.svg"
+import whoIsItFor_lg from "@/assets/whoIsItFor_lg.svg"
+import { getSanityHomeContent } from "@/services/axios"
+import { useQuery } from "@tanstack/react-query"
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useState } from "react"
 
 interface WhoIsItForProps {
-  content: HomeContent;
+  content: HomeContent
 }
 
 export function WhoIsItFor({ content }: WhoIsItForProps) {
   const { data } = useQuery({
     queryKey: ["home"],
     queryFn: getSanityHomeContent,
-    initialData: content,
+    initialData: content
   })
 
   const [windowWidth, setWindowWidth] = useState<number>(0)
@@ -25,12 +25,12 @@ export function WhoIsItFor({ content }: WhoIsItForProps) {
 
   useEffect(() => {
     function handleResize() {
-      setWindowWidth(window.innerWidth);
+      setWindowWidth(window.innerWidth)
     }
-    window.addEventListener("resize", handleResize);
-    setWindowWidth(window.innerWidth);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    window.addEventListener("resize", handleResize)
+    setWindowWidth(window.innerWidth)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   return (
     <div className="bg-[#FCCF5C]">
@@ -75,7 +75,7 @@ export function WhoIsItFor({ content }: WhoIsItForProps) {
               </p>
               <Link
                 href="/inscricao/voluntario"
-                className="flex h-12 max-w-max  p-4  text-base font-medium font-title rounded-2xl text-center items-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base hover:bg-theme-secondary-dark hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
+                className="flex h-12 w-48 border-none p-2 text-base font-medium font-title rounded-2xl text-center items-center justify-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-dark hover:bg-theme-secondary-base hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
               >
                 {data.howIsItForVolunteerLabelButton}
               </Link>
@@ -86,7 +86,7 @@ export function WhoIsItFor({ content }: WhoIsItForProps) {
               </p>
               <Link
                 href="/inscricao/mentor"
-                className="flex h-12 max-w-max  p-4 text-base font-medium font-title rounded-2xl text-center items-center text-theme-secondary-base cursor-pointer transition duration-300 bg-[#FCFCFC] border-2 border-theme-secondary-base  hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC]"
+                className="flex h-12 w-48 p-2 text-base font-medium font-title rounded-2xl text-center items-center justify-center text-theme-secondary-base cursor-pointer transition duration-300 bg-[#FCFCFC] border-2 border-theme-secondary-base  hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC]"
               >
                 {data.howIsItForMentorLabelButton}
               </Link>
@@ -95,6 +95,5 @@ export function WhoIsItFor({ content }: WhoIsItForProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
-

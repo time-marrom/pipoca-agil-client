@@ -30,7 +30,7 @@ export function Hero({ content }: HeroProps) {
           {data.heroSubtitle}
         </p>
         <Button
-          className="border-none border-[#5A0C94] text-white rounded-xl hover:translate-y-[-10px] hover:duration-500 hover:transition-all ease-in-out hover:shadow-lg hover:shadow-[#858585]"
+          className="h-12 w-40 border-none bg-[#5A0C94] text-white rounded-xl hover:translate-y-[-10px] hover:duration-500 hover:transition-all ease-in-out hover:shadow-lg hover:shadow-[#858585]"
           variant="default"
           asChild
         >
