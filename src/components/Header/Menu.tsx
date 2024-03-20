@@ -29,7 +29,7 @@ export function Menu({ isVisible, onClose }: MenuProps) {
           </Link>
 
           <Link
-            href="/voluntario"
+            href="/inscricao/voluntario"
             className="font-title text-xl w-9/12 h-1/5 p-2 font-medium rounded-2xl text-center text-theme-white-base cursor-pointer transition duration-300 bg-theme-secondary-base disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Quero voluntariar
