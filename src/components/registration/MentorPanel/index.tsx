@@ -9,6 +9,7 @@ import { MentorRegistrationForm } from "./MentorRegistrationForm";
 
 export function MentorPanel() {
   const { mentorCurrentStep, setMentorCurrentStep } = useContext(GlobalContext);
+  console.log("mentorCurrentStep", mentorCurrentStep)
 
   return (
     <div className="w-full h-full min-h-[65vh] flex flex-col justify-start items-center">

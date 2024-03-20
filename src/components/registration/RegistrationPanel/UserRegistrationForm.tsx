@@ -77,8 +77,16 @@ export function UserRegistrationForm({
 
   function onSubmit(values: FormValues) {
     console.log("values: ", values)
-    setCurrentStep(currentStep + 1)
     console.log("currentStep", currentStep)
+    const body = { name: values.name, email: values.email}
+    fetch("https://sending-emails-api.onrender.com/mail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    })
+    setCurrentStep(currentStep + 1)
   }
 
   return (

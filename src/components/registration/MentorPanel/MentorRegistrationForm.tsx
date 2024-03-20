@@ -55,8 +55,13 @@ const formSchema = z.object({
     })
     .min(1, { message: "Função é obrigatório" })
     .min(3, { message: "Função deve conter no mínimo 3 caracteres" }),
+  exp: z
+    .string({
+      invalid_type_error: "Experiência deve ser um texto válido"
+    })
+    .min(1, { message: "Experiência é obrigatório" }),
   dispo: z.string({
-    invalid_type_error: "Disponibilidade deve ser um texto válido"
+    invalid_type_error: "Selecione pelo menos um horário"
   }),
   linkedIn: z.string({
     invalid_type_error: "LinkedIn deve ser um texto válido"
@@ -77,8 +82,16 @@ export function MentorRegistrationForm({
 
   function onSubmit(values: FormValues) {
     console.log("values: ", values)
-    setCurrentStep(currentStep + 1)
     console.log("currentStep", currentStep)
+    const body = { name: values.name, email: values.email}
+    fetch("https://sending-emails-api.onrender.com/mail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    })
+    setCurrentStep(currentStep + 1)
   }
 
   return (
@@ -92,6 +105,7 @@ export function MentorRegistrationForm({
             onSubmit={form.handleSubmit(onSubmit)}
             className="w-full flex flex-col justify-center items-center space-y-8"
           >
+            {/* NOME */}
             <FormField
               control={form.control}
               name="name"
@@ -185,7 +199,9 @@ export function MentorRegistrationForm({
               name="role"
               render={({ field }) => (
                 <FormItem className="flex flex-col gap-1 my-1 w-full">
-                  <FormLabel className="font-title text-sm">*Função pretendida</FormLabel>
+                  <FormLabel className="font-title text-sm">
+                    *Selecione a sua área de atuação
+                  </FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -229,7 +245,65 @@ export function MentorRegistrationForm({
                     </SelectContent>
                   </Select>
                   <FormDescription className="font-sans text-xs font-medium">
-                    Em qual área você pretende atuar no projeto?
+                    Em qual área você atua e pretende mentorar no projeto?
+                  </FormDescription>
+                  <FormMessage className="font-sans text-xs font-medium" />
+                </FormItem>
+              )}
+            />
+            {/* TEMPO DE EXPERIENCIA */}
+            <FormField
+              control={form.control}
+              name="role"
+              render={({ field }) => (
+                <FormItem className="flex flex-col gap-1 my-1 w-full">
+                  <FormLabel className="font-title text-sm">
+                    *Tempo de experiência
+                  </FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue
+                          placeholder="Entre 1 e 2 anos"
+                          className="w-full font-sans text-sm placeholder:text-sm"
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem
+                        value="Entre 1 e 2 anos"
+                        className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
+                      >
+                        Entre 1 e 2 anos
+                      </SelectItem>
+                      <SelectItem
+                        value="Entre 2 e 5 anos"
+                        className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
+                      >
+                        Entre 2 e 5 anos
+                      </SelectItem>
+                      <SelectItem
+                        value="Entre 5 e 10 anos"
+                        className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
+                      >
+                        Entre 5 e 10 anos
+                      </SelectItem>
+                      <SelectItem
+                        value="Entre 10 e 15 anos"
+                        className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
+                      >
+                        Entre 10 e 15 anos
+                      </SelectItem>
+                      <SelectItem
+                        value="Mais de 15 anos"
+                        className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
+                      >
+                        Mais de 15 anos
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormDescription className="font-sans text-xs font-medium">
+                    Há quanto tempo você trabalha nessa área?
                   </FormDescription>
                   <FormMessage className="font-sans text-xs font-medium" />
                 </FormItem>
@@ -242,40 +316,42 @@ export function MentorRegistrationForm({
               render={({ field }) => (
                 <FormItem className="flex flex-col gap-1 my-1 w-full">
                   <FormLabel className="font-title text-sm">
-                    *Disponibilidade de horários
+                    *Disponibilidade de períodos (considerar horário de Brasília):
                   </FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
+                  <FormControl>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <SelectTrigger>
                         <SelectValue
                           placeholder="Manhã"
                           className="w-full font-sans text-sm placeholder:text-sm"
                         />
                       </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem
-                        value="manha"
-                        className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
-                      >
-                        Manhã
-                      </SelectItem>
-                      <SelectItem
-                        value="tarde"
-                        className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
-                      >
-                        Tarde
-                      </SelectItem>
-                      <SelectItem
-                        value="noite"
-                        className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
-                      >
-                        Noite
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
+                      <SelectContent>
+                        <SelectItem
+                          value="manha"
+                          className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
+                        >
+                          Manhã
+                        </SelectItem>
+                        <SelectItem
+                          value="tarde"
+                          className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
+                        >
+                          Tarde
+                        </SelectItem>
+                        <SelectItem
+                          value="noite"
+                          className="w-full font-sans text-sm placeholder:font-sans placeholder:text-sm"
+                        >
+                          Noite
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+
                   <FormDescription className="font-sans text-xs font-medium">
-                    Em qual turno você está disponível para participar de reuniões?
+                    Em qual ou quais turnos você está disponível para participar de
+                    reuniões?
                   </FormDescription>
                   <FormMessage className="font-sans text-xs font-medium" />
                 </FormItem>
@@ -336,7 +412,6 @@ export function MentorRegistrationForm({
               type="submit"
               title="Enviar"
               className="font-title text-sm mt-10"
-              onClick={() => setCurrentStep(currentStep + 1)}
             >
               Enviar dados
             </Button>
