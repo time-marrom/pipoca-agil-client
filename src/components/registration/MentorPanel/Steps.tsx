@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { StepOneIcon } from "@/components/icons/StepOneIcon";
-import { StepTwoIcon } from "@/components/icons/StepTwoIcon";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { StepOneIcon } from "@/components/icons/StepOneIcon"
+import { StepTwoIcon } from "@/components/icons/StepTwoIcon"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function Steps({ currentStep }: StepsProps) {
   return (
@@ -20,7 +20,7 @@ export function Steps({ currentStep }: StepsProps) {
         </Button>
       </div>
       <h2 className="w-full h-full text-2xl font-bold font-title text-theme-grayscale-black my-1">
-        Inscrição de pessoa voluntária
+        Inscrição de pessoa mentora
       </h2>
       <div className="w-full flex flex-row justify-center items-start text-center mx-auto mb-2 gap-1 md:gap-6">
         <div className="w-24 flex flex-col items-center justify-center text-center p-1">
@@ -37,18 +37,9 @@ export function Steps({ currentStep }: StepsProps) {
             data-current-step={currentStep}
             className="text-lg mb-1 h-12 w-12 fill-[#FCCF5C] data-[current-step='1']:fill-[#FCFCFC]"
           />
-          <p className="font-medium text-xs md:text-sm font-title">
-            Formulário
-          </p>
+          <p className="font-medium text-xs md:text-sm font-title">Dados pessoais</p>
         </div>
-        {/* <div className="w-24 flex flex-col items-center justify-center text-center p-1">
-          <StepThreeIcon
-            data-current-step={currentStep}
-            className="text-lg mb-1 h-12 w-12 fill-[#FCCF5C] data-[current-step='2']:fill-[#FCFCFC]"
-          />
-          <p className="font-medium text-xs md:text-sm font-title">Conclusão</p>
-        </div> */}
       </div>
     </div>
-  );
+  )
 }

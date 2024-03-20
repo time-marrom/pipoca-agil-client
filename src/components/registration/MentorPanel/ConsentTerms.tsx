@@ -12,7 +12,7 @@ import { GlobalContext } from "@/contexts/GlobalContext"
 import { useContext } from "react"
 
 export function ConsentTerms() {
-  const { isAcceptedTerms, setIsAcceptedTerms, setCurrentStep } =
+  const { isAcceptedTerms, setIsAcceptedTerms, setMentorCurrentStep } =
     useContext(GlobalContext)
 
   function handleCheckboxChange(): void {
@@ -257,7 +257,7 @@ export function ConsentTerms() {
             <AlertDialogAction
               className=" w-1/3 h-full font-semibold text-base font-title bg-theme-secondary-base rounded-2xl text-theme-white-base hover:bg-theme-secondary-dark"
               disabled={!isAcceptedTerms}
-              onClick={() => setCurrentStep(1)}
+              onClick={() => setMentorCurrentStep(1)}
             >
               Continuar
             </AlertDialogAction>

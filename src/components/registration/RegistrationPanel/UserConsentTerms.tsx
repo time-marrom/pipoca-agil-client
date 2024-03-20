@@ -8,7 +8,7 @@ const mockRules = [
   "Compromisso e responsabilidade com o trabalho;",
   "Cumprir prazos de entrega de tarefas;",
   "Trabalhar de forma colaborativa;",
-  "Trabalhar de forma colaborativa;",
+  // "Trabalhar de forma colaborativa;",
   "Disposição para aprender e compartilhar habilidades;",
   "Respeitar pessoas da equipe;",
   "Estar ciente de que o projeto, por ter apenas pessoas voluntárias envolvidas na sua organização e participação, poderá ser interrompido a qualquer momento."
