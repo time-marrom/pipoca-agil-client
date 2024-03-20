@@ -38,7 +38,7 @@ export function Hero({ content }: HeroProps) {
             href="/inscricao/voluntario"
             className="font-title text-2xl font-semibold"
           >
-            Quero voluntariar
+            {data.heroLabelButton}
           </Link>
         </Button>
       </div>
