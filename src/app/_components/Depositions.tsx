@@ -1,5 +1,6 @@
 "use client";
 
+import { QuotationMark } from "@/components/icons/QuotationMarks";
 import {
   Carousel,
   CarouselContent,
@@ -33,7 +34,7 @@ export function Depositions({ content }: DepositionsProps) {
         </h3>
 
         <Carousel
-          className="w-[70vw] md:w-[70vw] lg:w-full max-w-5xl"
+          className="w-[70vw] md:w-[70vw] lg:w-full max-w-3xl"
           opts={{
             align: "center",
             loop: true,
@@ -44,9 +45,14 @@ export function Depositions({ content }: DepositionsProps) {
         >
           <CarouselContent className="-ml-1">
             {data.depositionsTopics.map(({ author, deposition }, index) => (
-              <CarouselItem key={index} className="">
-                <div className=" w-full h-full flex flex-col items-start justify-center text-start gap-4">
-                  <p className="text-theme-grayscale-black font-sans text-sm md:text-base text-start md:text-start lg:w-[70%]">
+              <CarouselItem
+                key={index}
+                className="flex flex-col items-center justify-center"
+              >
+                <div className="  w-full h-full flex flex-col  justify-center text-center items-center gap-4 ">
+                  <QuotationMark />
+
+                  <p className="text-theme-grayscale-black font-sans text-sm md:text-base text-center items-center md:text-center lg:w-[70%]">
                     {deposition}
                   </p>
                   <p className="text-theme-secondary-base font-title text-sm md:text-base text-start font-medium md:text-start lg:w-[70%]">
