@@ -148,7 +148,7 @@ export function CertificateForm() {
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="font-sans text-base font-normal">
+                  <FormDescription className="font-sans text-sm font-normal">
                     Digite como você quer que seu nome e sobrenome apareçam no
                     certificado.
                   </FormDescription>
@@ -181,7 +181,7 @@ export function CertificateForm() {
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="font-sans text-base font-normal">
+                  <FormDescription className="font-sans text-sm font-normal">
                     Insira seu melhor email.
                   </FormDescription>
                   <FormMessage className="font-sans text-sm" />
@@ -225,7 +225,7 @@ export function CertificateForm() {
                       </SelectItem>
                     </SelectContent>
                   </Select>
-                  <FormDescription className="font-sans text-base font-normal">
+                  <FormDescription className="font-sans text-sm font-normal">
                     Selecione a que mais se encaixa com a sua atuação no
                     projeto.
                   </FormDescription>
@@ -279,7 +279,7 @@ export function CertificateForm() {
                       </SelectItem>
                     </SelectContent>
                   </Select>
-                  <FormDescription className="font-sans text-base font-normal">
+                  <FormDescription className="font-sans text-sm font-normal">
                     Selecione a que mais se encaixa com a sua atuação no
                     projeto.
                   </FormDescription>
@@ -331,7 +331,7 @@ export function CertificateForm() {
                       </PopoverContent>
                     </Popover>
                   </FormControl>
-                  <FormDescription className="font-sans text-base font-normal">
+                  <FormDescription className="font-sans text-sm font-normal">
                     Certifique-se de que a data está correta.
                   </FormDescription>
                   <FormMessage className="font-sans text-sm" />
