@@ -1,29 +1,29 @@
-"use client"
+"use client";
 
-import icon from "@/assets/icon-popCorn.svg"
-import { menuOptions } from "@/utils/menu"
-import Image from "next/image"
-import Link from "next/link"
-import { useCallback, useState } from "react"
-import { MenuIcon } from "../icons/MenuIcon"
-import { Button } from "../ui/button"
-import { Menu } from "./Menu"
+import icon from "@/assets/icon-popCorn.svg";
+import { menuOptions } from "@/utils/menu";
+import Image from "next/image";
+import Link from "next/link";
+import { useCallback, useState } from "react";
+import { MenuIcon } from "../icons/MenuIcon";
+import { Button } from "../ui/button";
+import { Menu } from "./Menu";
 
 export function Header() {
-  const [menuIsOpen, setMenuIsOpen] = useState(false)
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const openMenu = useCallback(() => {
-    setMenuIsOpen(true)
-  }, [])
+    setMenuIsOpen(true);
+  }, []);
 
   const closeMenu = useCallback(() => {
-    setMenuIsOpen(false)
-  }, [])
+    setMenuIsOpen(false);
+  }, []);
 
-  const headerOptions = menuOptions.filter((option) => option.name)
+  const headerOptions = menuOptions.filter((option) => option.name);
 
   return (
-    <header className="w-full flex justify-between md:justify-between items-center text-sm py-3 px-5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white w-full flex justify-between md:justify-between items-center text-sm py-3 px-5">
       <Image src={icon} alt="icone de um microfone - pipoca ágil" />
       <nav className="hidden lg:flex items-center gap-10 text-md ">
         <ul className="flex flex-row gap-12 text-base ">
@@ -43,7 +43,10 @@ export function Header() {
           variant="default"
           asChild
         >
-          <Link href="/inscricao/mentor" className="font-title text-2xl font-[600]">
+          <Link
+            href="/inscricao/mentor"
+            className="font-title text-2xl font-[600]"
+          >
             Quero Mentorar
           </Link>
         </Button>
@@ -53,16 +56,24 @@ export function Header() {
           variant="default"
           asChild
         >
-          <Link href="/inscricao/voluntario" className="font-title text-2xl font-[600]">
+          <Link
+            href="/inscricao/voluntario"
+            className="font-title text-2xl font-[600]"
+          >
             Quero me voluntariar
           </Link>
         </Button>
       </div>
 
-      <Button size="icon" variant="ghost" className="p-1 lg:hidden" onClick={openMenu}>
+      <Button
+        size="icon"
+        variant="ghost"
+        className="p-1 lg:hidden"
+        onClick={openMenu}
+      >
         <MenuIcon className="h-6 w-6 fill-theme-grayscale-black" />
       </Button>
       <Menu isVisible={menuIsOpen} onClose={closeMenu} />
     </header>
-  )
+  );
 }
