@@ -138,10 +138,10 @@ export function CertificateForm() {
                   </FormLabel>
                   <FormControl className="relative">
                     <Input
-                      className={`w-full focus:outline-none font-sans text-base ${
+                      className={`w-full focus:outline-none font-sans text-base hover:ring-1 hover:ring-[#5A0C94] ${
                         form.formState.errors.fullname
                           ? "text-red-500 border-red-500 border-2"
-                          : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
+                          : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]  border-2"
                       }`}
                       placeholder="Nome e sobrenome"
                       type="text"
@@ -163,7 +163,7 @@ export function CertificateForm() {
               render={({ field }) => (
                 <FormItem className="space-y-2 md:w-3/4 lg:w-1/3 w-full">
                   <FormLabel
-                    className={`font-sans text-base font-normal ${
+                    className={`font-sans text-base font-normal  ${
                       form.formState.errors.email ? "text-red-500" : ""
                     }`}
                   >
@@ -173,10 +173,10 @@ export function CertificateForm() {
                     <Input
                       placeholder="exemplo@gmail.com"
                       type="email"
-                      className={`w-full font-sans text-base font-normal focus:outline-none focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]  ${
+                      className={`w-full font-sans text-base font-normal focus:outline-none  hover:ring-1 hover:ring-[#5A0C94]  ${
                         form.formState.errors.email
                           ? "text-red-500 border-red-500 border-2"
-                          : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
+                          : "focus:ring-1 focus:ring-[#5A0C94] "
                       }`}
                       {...field}
                     />
@@ -207,10 +207,10 @@ export function CertificateForm() {
                   >
                     <FormControl>
                       <SelectTrigger
-                        className={`${
+                        className={`hover:ring-1 hover:ring-[#5A0C94] ${
                           form.formState.errors.role
                             ? "text-red-500 border-red-500 border-2"
-                            : " "
+                            : "focus:ring-1 focus:ring-[#5A0C94] border-none"
                         }`}
                       >
                         <SelectValue placeholder="Selecione uma opção" />
@@ -252,10 +252,10 @@ export function CertificateForm() {
                   >
                     <FormControl>
                       <SelectTrigger
-                        className={`${
+                        className={`hover:ring-1 hover:ring-[#5A0C94] ${
                           form.formState.errors.role
                             ? "text-red-500 border-red-500 border-2"
-                            : " "
+                            : "focus:ring-1 focus:ring-[#5A0C94] border-none"
                         }`}
                       >
                         <SelectValue placeholder="Selecione uma opção" />
@@ -302,7 +302,7 @@ export function CertificateForm() {
                         <Button
                           variant={"outline"}
                           className={cn(
-                            "w-full justify-start text-left font-normal font-sans",
+                            "w-full justify-start text-left font-normal font-sans hover:ring-1 hover:ring-[#5A0C94] hover:text-black",
                             !date && "text-muted-foreground"
                           )}
                         >
