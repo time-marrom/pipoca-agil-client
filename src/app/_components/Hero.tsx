@@ -36,7 +36,7 @@ export function Hero({ content }: HeroProps) {
         >
           <Link
             href="/inscricao/voluntario"
-            className="font-title text-[24px] md:text-[16px] lg:text-[24px]   font-semibold"
+            className="font-title text-[24px] md:text-[16px] lg:text-[24px]  font-semibold"
           >
             {data.heroLabelButton}
           </Link>
