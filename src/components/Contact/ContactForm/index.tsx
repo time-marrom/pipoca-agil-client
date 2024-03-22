@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -8,52 +8,52 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from "@/components/ui/select"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as Dialog from "@radix-ui/react-dialog"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+  SelectValue,
+} from "@/components/ui/select";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as Dialog from "@radix-ui/react-dialog";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
-import { ArrobaIcon } from "@/components/icons/ArrobaIcon"
-import { FacebookIcon } from "@/components/icons/FacebookIcon"
-import { InstagramIcon } from "@/components/icons/InstagramIcon"
-import { LinkedInIcon } from "@/components/icons/LinkedInIcon"
-import { SpotifyIcon } from "@/components/icons/SpotifyIcon"
-import { YouTubeIcon } from "@/components/icons/YouTubeIcon"
-import Link from "next/link"
+import { ArrobaIcon } from "@/components/icons/ArrobaIcon";
+import { FacebookIcon } from "@/components/icons/FacebookIcon";
+import { InstagramIcon } from "@/components/icons/InstagramIcon";
+import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
+import { SpotifyIcon } from "@/components/icons/SpotifyIcon";
+import { YouTubeIcon } from "@/components/icons/YouTubeIcon";
+import Link from "next/link";
 
-let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/
-let whatsappRegex = /^[0-9\s]+$/
+let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
+let whatsappRegex = /^[0-9\s]+$/;
 
 const formSchema = z.object({
   name: z
     .string({
       required_error: "Você precisa preencher o seu nome",
-      invalid_type_error: "Name must be a string"
+      invalid_type_error: "Name must be a string",
     })
     .regex(regex, {
-      message: "Nome deve conter apenas caracteres válidos."
+      message: "Nome deve conter apenas caracteres válidos.",
     }),
   contactWith: z
     .string({ required_error: "Você precisa selecionar uma opção." })
     .min(1, { message: "Você precisa selecionar uma opção." }),
   email: z
     .string({
-      required_error: "Você precisa preencher o seu e-mail."
+      required_error: "Você precisa preencher o seu e-mail.",
     })
     .email({ message: "E-mail inválido" }),
   whatsapp: z
     .string({
-      required_error: "Você precisa preencher o seu e-mail."
+      required_error: "Você precisa preencher o seu e-mail.",
     })
     .min(8, { message: "Telefone precisar ter no minimo 8 digitos." })
     .regex(whatsappRegex, { message: "Você so pode usar numeros." }),
@@ -62,23 +62,24 @@ const formSchema = z.object({
     .string({ required_error: "Você precisa selecionar uma opção." })
     .min(1, { message: "Você precisa selecionar uma opção." }),
   message: z.string({
-    required_error: "1002 caracteres Você ultrapassou o limite de 1000 caracteres"
-  })
-})
+    required_error:
+      "1002 caracteres Você ultrapassou o limite de 1000 caracteres",
+  }),
+});
 
 export function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    mode: "onChange"
-  })
+    mode: "onChange",
+  });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    console.log(values);
     // form.reset();
   }
 
   function handle() {
-    console.log("SURTO: ", form.getValues())
+    console.log("SURTO: ", form.getValues());
     // form.reset();
   }
 
@@ -90,8 +91,9 @@ export function ContactForm() {
             Fale com a gente
           </h1>
           <p className="text-base font-normal font-sans">
-            Caso tenha dúvidas, sugestões, críticas ou qualquer outro assunto para falar,
-            preencha os campos abaixo e entraremos em contato com você assim que possível.
+            Caso tenha dúvidas, sugestões, críticas ou qualquer outro assunto
+            para falar, preencha os campos abaixo e entraremos em contato com
+            você assim que possível.
           </p>
           <p className="text-base font-normal font-sans">
             Todos os campos são obrigatórios.
@@ -117,7 +119,8 @@ export function ContactForm() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className={`w-full focus:outline-none font-sans text-base ${
+                        placeholder="Nome e sobrenome"
+                        className={`w-full focus:outline-none font-sans text-base placeholder:text-[#DEDEDE] ${
                           form.formState.errors.name
                             ? "text-red-500 border-red-500 border-2"
                             : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
@@ -140,16 +143,19 @@ export function ContactForm() {
                 render={({ field }) => (
                   <FormItem className="space-y-2 flex-shrink">
                     <FormLabel
-                      className={`font-sans text-base font-normal ${
+                      className={`font-sans text-base font-normal  ${
                         form.formState.errors.contactWith ? "text-red-500" : ""
                       }`}
                     >
                       Como você prefere que a gente entre em contato com você?
                     </FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger
-                          className={`${
+                          className={`text-[#DEDEDE] ${
                             form.formState.errors.contactWith
                               ? "text-red-500 border-red-500 border-2"
                               : " "
@@ -179,7 +185,7 @@ export function ContactForm() {
                   render={({ field }) => (
                     <FormItem className="space-y-2 flex-shrink ">
                       <FormLabel
-                        className={`font-sans text-base font-normal ${
+                        className={`font-sans text-base font-normal  ${
                           form.formState.errors.email ? "text-red-500" : ""
                         }`}
                       >
@@ -188,7 +194,7 @@ export function ContactForm() {
                       <FormControl>
                         <Input
                           placeholder="Escreva sua mensagem aqui."
-                          className={`w-full  focus:outline-none font-sans text-base placeholder:align-top ${
+                          className={`w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] ${
                             form.formState.errors.email
                               ? "text-red-500 border-red-500 border-2"
                               : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
@@ -223,7 +229,7 @@ export function ContactForm() {
                       <FormControl>
                         <Input
                           placeholder="Escreva sua mensagem aqui."
-                          className={`w-full  focus:outline-none font-sans text-base placeholder:align-top ${
+                          className={`w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] ${
                             form.formState.errors.whatsapp
                               ? "text-red-500 border-red-500 border-2"
                               : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
@@ -253,10 +259,13 @@ export function ContactForm() {
                     >
                       Assunto
                     </FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger
-                          className={`${
+                          className={`text-[#DEDEDE] ${
                             form.formState.errors.subject
                               ? "text-red-500 border-red-500 border-2"
                               : " "
@@ -272,7 +281,9 @@ export function ContactForm() {
                         <SelectItem value="duvida">Dúvida</SelectItem>
                         <SelectItem value="Sugestão">Sugestão</SelectItem>
                         <SelectItem value="Crítica">Crítica</SelectItem>
-                        <SelectItem value="Outro assunto">Outro assunto</SelectItem>
+                        <SelectItem value="Outro assunto">
+                          Outro assunto
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                     <FormDescription className="font-sans text-sm font-normal text-[#252525]">
@@ -298,7 +309,7 @@ export function ContactForm() {
                     <FormControl>
                       <Input
                         placeholder="Escreva sua mensagem aqui."
-                        className={`w-full h-[160px] focus:outline-none font-sans text-base placeholder:align-top ${
+                        className={`w-full h-[160px] focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] ${
                           form.formState.errors.message
                             ? "text-red-500 border-red-500 border-2"
                             : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
@@ -333,8 +344,8 @@ export function ContactForm() {
       <div className="w-full md:w-[380px] flex flex-col justify-center items-center gap-4 md:gap-10 my-16 px-4 ">
         <div>
           <p className="text-center md:text-end font-sans text-2xl ">
-            Você também pode entrar em contato através de nossas redes sociais ou nos
-            enviar um e-mail:
+            Você também pode entrar em contato através de nossas redes sociais
+            ou nos enviar um e-mail:
           </p>
         </div>
         <div className="flex justify-center items-center xl:hidden">
@@ -358,7 +369,10 @@ export function ContactForm() {
           <Link target="_blank" href="https://www.facebook.com/pipocaagil">
             <FacebookIcon className="fill-[#5A0C94] w-8 h-8" />
           </Link>
-          <Link target="_blank" href="https://br.linkedin.com/company/pipoca-%C3%A1gil">
+          <Link
+            target="_blank"
+            href="https://br.linkedin.com/company/pipoca-%C3%A1gil"
+          >
             <LinkedInIcon className="fill-[#5A0C94] w-8 h-8" />
           </Link>
           <Link target="_blank" href="mailto:pipocaagil@gmail.com">
@@ -367,5 +381,5 @@ export function ContactForm() {
         </div>
       </div>
     </div>
-  )
+  );
 }
