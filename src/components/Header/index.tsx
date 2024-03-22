@@ -23,7 +23,7 @@ export function Header() {
   const headerOptions = menuOptions.filter((option) => option.name);
 
   return (
-    <header className="w-full h-20 flex justify-between md:justify-between items-center text-sm py-3 px-5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white w-full flex justify-between md:justify-between items-center text-sm py-3 px-5">
       <Image src={icon} alt="icone de um microfone - pipoca ágil" />
       <nav className="hidden lg:flex items-center gap-10 text-md ">
         <ul className="flex flex-row gap-12 text-base ">
