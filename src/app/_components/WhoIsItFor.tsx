@@ -1,40 +1,40 @@
-"use client"
+"use client";
 
-import whoIsItFor_1 from "@/assets/whoIsItFor_1.svg"
-import whoIsItFor_2 from "@/assets/whoIsItFor_2.svg"
-import whoIsItFor_lg from "@/assets/whoIsItFor_lg.svg"
-import { getSanityHomeContent } from "@/services/axios"
-import { useQuery } from "@tanstack/react-query"
-import Image from "next/image"
-import Link from "next/link"
-import { useEffect, useState } from "react"
+import whoIsItFor_1 from "@/assets/whoIsItFor_1.svg";
+import whoIsItFor_2 from "@/assets/whoIsItFor_2.svg";
+import whoIsItFor_lg from "@/assets/whoIsItFor_lg.svg";
+import { getSanityHomeContent } from "@/services/axios";
+import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface WhoIsItForProps {
-  content: HomeContent
+  content: HomeContent;
 }
 
 export function WhoIsItFor({ content }: WhoIsItForProps) {
   const { data } = useQuery({
     queryKey: ["home"],
     queryFn: getSanityHomeContent,
-    initialData: content
-  })
+    initialData: content,
+  });
 
-  const [windowWidth, setWindowWidth] = useState<number>(0)
-  const isSmaller = windowWidth < 768
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+  const isSmaller = windowWidth < 768;
 
   useEffect(() => {
     function handleResize() {
-      setWindowWidth(window.innerWidth)
+      setWindowWidth(window.innerWidth);
     }
-    window.addEventListener("resize", handleResize)
-    setWindowWidth(window.innerWidth)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    window.addEventListener("resize", handleResize);
+    setWindowWidth(window.innerWidth);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="bg-[#FCCF5C]">
-      <div className="w-full h-full flex flex-col items-center justify-center text-start py-20 px-8  md:px-8 md:py-20 gap- rounded-t-[90px]  lg:px-32 lg:py-40 bg-[#FCFCFC]">
+      <div className="w-full h-full flex flex-col items-center justify-center text-start py-20 px-8  md:px-8 md:py-20 gap- rounded-t-[90px]  lg:px-32 lg:py-24 bg-[#FCFCFC]">
         <div className="w-full lg:w-1/2"></div>
         <div className="w-full h-full  flex flex-col justify-center items-center gap-4 md:items-start ">
           <div className="flex flex-col items-center justify-center gap-8 w-full ">
@@ -95,5 +95,5 @@ export function WhoIsItFor({ content }: WhoIsItForProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

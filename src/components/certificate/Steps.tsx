@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ArrowLeftIcon } from "../icons/ArrowLeftIcon";
 
 export function Steps() {
   return (
@@ -10,12 +11,17 @@ export function Steps() {
           aria-label="Voltar"
           variant="link"
           asChild
-          className="w-12 h-12 flex items-center justify-center rounded-full text-theme-grayscale-black font-normal font-sans text-base mx-2"
+          className=" h-12 flex items-center justify-center  rounded-full text-theme-grayscale-black font-normal font-sans text-base mx-2"
         >
-          <Link href="/">Voltar</Link>
+          <Link
+            href="/"
+            className="flex items-center gap-6 hover:no-underline "
+          >
+            <ArrowLeftIcon /> Voltar para o Início
+          </Link>
         </Button>
       </div>
-      <h2 className="w-full h-full text-2xl font-bold font-title text-theme-grayscale-black my-1">
+      <h2 className="w-full h-full text-[32px] lg:text-[48px]   font-medium font-title text-theme-grayscale-black my-1">
         Emissão de Certificado
       </h2>
     </div>

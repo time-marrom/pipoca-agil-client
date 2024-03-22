@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { HeroSVG } from "@/components/icons/HeroSVG"
-import { Button } from "@/components/ui/button"
-import { getSanityHomeContent } from "@/services/axios"
-import { useQuery } from "@tanstack/react-query"
-import Link from "next/link"
+import { HeroSVG } from "@/components/icons/HeroSVG";
+import { Button } from "@/components/ui/button";
+import { getSanityHomeContent } from "@/services/axios";
+import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 
 interface HeroProps {
-  content: HomeContent
+  content: HomeContent;
 }
 
 export function Hero({ content }: HeroProps) {
   const { data } = useQuery({
     queryKey: ["home"],
     queryFn: getSanityHomeContent,
-    initialData: content
-  })
+    initialData: content,
+  });
 
   return (
     <div className="w-full h-full lg:h-[80vh] lg:px-0 lg:pb-10 flex flex-col md:flex-row justify-between md:justify-start items-center md:bg-[#FCCF5C]">
@@ -30,18 +30,18 @@ export function Hero({ content }: HeroProps) {
           {data.heroSubtitle}
         </p>
         <Button
-          className="h-12 w-40 border-none bg-[#5A0C94] text-white rounded-xl hover:translate-y-[-10px] hover:duration-500 hover:transition-all ease-in-out hover:shadow-lg hover:shadow-[#858585]"
+          className="w-[283px] h-[72px] md:w-[188px] md:h-[48px] lg:w-[283px] lg:h-[72px] border-none bg-[#5A0C94] text-white rounded-xl hover:translate-y-[-10px] hover:duration-500 hover:transition-all ease-in-out hover:shadow-lg hover:shadow-[#858585]"
           variant="default"
           asChild
         >
           <Link
             href="/inscricao/voluntario"
-            className="font-title text-2xl font-semibold"
+            className="font-title text-[24px] md:text-[16px] lg:text-[24px]  font-semibold"
           >
             {data.heroLabelButton}
           </Link>
         </Button>
       </div>
     </div>
-  )
+  );
 }
