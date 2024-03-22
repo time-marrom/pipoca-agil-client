@@ -30,13 +30,13 @@ export function Hero({ content }: HeroProps) {
           {data.heroSubtitle}
         </p>
         <Button
-          className="p-6 w-[236px]  border-none bg-[#5A0C94] text-white rounded-xl hover:translate-y-[-10px] hover:duration-500 hover:transition-all ease-in-out hover:shadow-lg hover:shadow-[#858585]"
+          className="w-[283px] h-[72px] md:w-[188px] md:h-[48px] lg:w-[283px] lg:h-[72px] border-none bg-[#5A0C94] text-white rounded-xl hover:translate-y-[-10px] hover:duration-500 hover:transition-all ease-in-out hover:shadow-lg hover:shadow-[#858585]"
           variant="default"
           asChild
         >
           <Link
             href="/inscricao/voluntario"
-            className="font-title text-2xl font-semibold"
+            className="font-title text-[24px] md:text-[16px] lg:text-[24px]   font-semibold"
           >
             {data.heroLabelButton}
           </Link>
