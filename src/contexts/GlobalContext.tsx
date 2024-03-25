@@ -35,7 +35,7 @@ export function GlobalContextProvider({
   const [isAcceptedTerms, setIsAcceptedTerms] = React.useState<boolean>(false);
   const [role, setRole] = React.useState<string>("VOLUNTÁRIO");
   const [currentStep, setCurrentStep] = React.useState<number>(0);
-  const [mentorCurrentStep, setMentorCurrentStep] = React.useState<number>(1);
+  const [mentorCurrentStep, setMentorCurrentStep] = React.useState<number>(0);
 
   const memoizedValue = React.useMemo(
     () => ({

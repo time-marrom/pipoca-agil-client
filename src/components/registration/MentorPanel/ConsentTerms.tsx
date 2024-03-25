@@ -260,16 +260,16 @@ export function ConsentTerms() {
           </label>
         </div>
         <AlertDialogFooter className="w-full h-full flex justify-center items-center">
-          <div className="h-full w-full flex flex-row justify-center items-center">
-            <AlertDialogAction className=" w-1/3 h-full font-semibold text-base font-title bg-transparent border-2 border-theme-secondary-base rounded-2xl text-theme-secondary-base hover:border-theme-secondary-light hover:text-theme-secondary-light hover:bg-theme-white-base">
-              Voltar
-            </AlertDialogAction>
+          <div className="h-full w-full flex flex-row justify-center items-center ">
             <AlertDialogAction
-              className=" w-1/3 h-full font-semibold text-base font-title bg-theme-secondary-base rounded-2xl text-theme-white-base hover:bg-theme-secondary-dark"
+              className=" w-1/3 h-full font-semibold text-base font-title bg-[#DEDEDE] rounded-2xl text-[#727272] hover:bg-theme-secondary-dark hover:text-[#F6F6F6]"
               disabled={!isAcceptedTerms}
               onClick={() => setMentorCurrentStep(1)}
             >
               Continuar
+            </AlertDialogAction>
+            <AlertDialogAction className=" w-1/3 h-full font-semibold text-base font-title mx-4 bg-transparent border-2 border-theme-secondary-base rounded-2xl text-theme-secondary-base hover:border-theme-secondary-light hover:text-theme-secondary-light hover:bg-theme-white-base">
+              Voltar
             </AlertDialogAction>
           </div>
         </AlertDialogFooter>
