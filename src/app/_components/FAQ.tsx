@@ -25,7 +25,7 @@ export function FAQ({ content }: FAQProps) {
   const [active, setActive] = useState<boolean>(false);
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center text-center py-20 px-8 md:px-8 md:py-20 gap-2 rounded-t-[90px] lg:px-16 lg:py-20 bg-[#FCCF5C] space-y-6">
+    <div className="w-full h-full flex flex-col items-center justify-center text-center py-20 px-8 md:px-8 md:py-20 gap-2 rounded-t-[90px]  lg:px-14 lg:py-10 bg-[#FCCF5C] space-y-6">
       <h3 className="text-[#252525] text-5xl md:text-5xl font-medium font-title mb-4 text-center">
         {data.faqTitle}
       </h3>

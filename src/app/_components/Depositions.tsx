@@ -28,8 +28,8 @@ export function Depositions({ content }: DepositionsProps) {
 
   return (
     <div className="h-full w-full bg-[#FCCF5C]">
-      <div className=" w-full h-full flex flex-col items-center justify-center text-center py-20 px-8  md:px-8 md:py-20 rounded-t-[90px]  lg:px-32 lg:py-40 bg-[#FCFCFC]">
-        <h3 className=" text-theme-grayscale-black text-4xl md:text-5xl font-semibold font-title mb-8 text-center">
+      <div className=" w-full h-full flex flex-col items-center justify-center text-center py-20 px-8  md:px-8 md:py-20 rounded-t-[90px] lg:px-14 lg:py-10 bg-[#FCFCFC]">
+        <h3 className=" text-theme-grayscale-black text-[32px] lg:text-5xl font-medium font-title mb-8 text-center">
           {data.depositionsTitle}
         </h3>
 

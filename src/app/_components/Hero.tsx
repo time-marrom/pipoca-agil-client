@@ -23,7 +23,7 @@ export function Hero({ content }: HeroProps) {
         <HeroSVG className="lg:h-[80%] lg:w-[80%] " />
       </div>
       <div className="w-full  lg:w-1/2 py-10 rounded-t-[90px] md:rounded-t-none px-4 md:px-8 xl:px-10 flex flex-col justify-center items-center md:justify-start md:items-start gap-6 bg-[#FCCF5C]">
-        <h3 className="lg:w-1/2 text-theme-grayscale-black text-6xl md:text-5xl lg:text-6xl font-medium font-title leading-[62px] text-center md:text-start mb-4">
+        <h3 className="w-3/4 lg:w-1/2 text-theme-grayscale-black text-5xl md:text-5xl lg:text-[64px] font-medium font-title leading-[62px] text-center md:text-start mb-4">
           {data.heroTitle}
         </h3>
         <p className="w-full lg:w-1/2 text-lg text-center md:text-start font-sans mb-6 text-[#3A3A3A]">

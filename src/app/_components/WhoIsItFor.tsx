@@ -34,11 +34,11 @@ export function WhoIsItFor({ content }: WhoIsItForProps) {
 
   return (
     <div className="bg-[#FCCF5C]">
-      <div className="w-full h-full flex flex-col items-center justify-center text-start py-20 px-8  md:px-8 md:py-20 gap- rounded-t-[90px]  lg:px-32 lg:py-24 bg-[#FCFCFC]">
+      <div className="w-full h-full flex flex-col items-center justify-center text-start py-20 px-8  md:px-8 md:py-20 gap- rounded-t-[90px]  lg:px-14 lg:py-10 bg-[#FCFCFC]">
         <div className="w-full lg:w-1/2"></div>
         <div className="w-full h-full  flex flex-col justify-center items-center gap-4 md:items-start ">
           <div className="flex flex-col items-center justify-center gap-8 w-full ">
-            <h3 className="text-theme-grayscale-black text-4xl md:text-5xl font-semibold font-title mb-8 text-center ">
+            <h3 className="text-theme-grayscale-black text-[32px] lg:text-5xl font-medium font-title mb-8 text-center ">
               {data.howIsItForTitle}
             </h3>
             <p className="text-theme-grayscale-darker font-sans text-[16px] md:text-[24px] text-center lg:w-[70%] ">
