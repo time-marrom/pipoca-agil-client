@@ -18,12 +18,12 @@ export function Hero({ content }: HeroProps) {
   });
 
   return (
-    <div className="w-full h-full lg:h-[80vh] lg:px-0 lg:pb-10 flex flex-col md:flex-row justify-between md:justify-start items-center md:bg-[#FCCF5C]">
-      <div className="w-full md:w-[55vw] h-full bg-white md:rounded-r-[600px] flex justify-center items-center">
-        <HeroSVG className="h-[80%] w-[80%]" />
+    <div className="w-full h-full mt-20 md:h-[55vh] md:w-full lg:h-[80vh] lg:px-0 lg:pb-10 flex flex-col md:flex-row justify-between md:justify-start items-center md:bg-[#FCCF5C]">
+      <div className="w-full h-full md:w-2/3 lg:w-1/2 bg-white md:rounded-r-full flex justify-center items-center">
+        <HeroSVG className="lg:h-[80%] lg:w-[80%] " />
       </div>
-      <div className="w-full md:w-1/2 py-20 rounded-t-[90px] md:rounded-t-none px-4 md:px-8 xl:px-10 flex flex-col justify-center items-center md:justify-start md:items-start gap-6 bg-[#FCCF5C]">
-        <h3 className="text-theme-grayscale-black text-6xl lg:text-5xl font-medium font-title leading-[62px] text-center md:text-start mb-4">
+      <div className="w-full  lg:w-1/2 py-10 rounded-t-[90px] md:rounded-t-none px-4 md:px-8 xl:px-10 flex flex-col justify-center items-center md:justify-start md:items-start gap-6 bg-[#FCCF5C]">
+        <h3 className="lg:w-1/2 text-theme-grayscale-black text-6xl md:text-5xl lg:text-6xl font-medium font-title leading-[62px] text-center md:text-start mb-4">
           {data.heroTitle}
         </h3>
         <p className="w-full lg:w-1/2 text-lg text-center md:text-start font-sans mb-6 text-[#3A3A3A]">

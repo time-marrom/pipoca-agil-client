@@ -24,7 +24,7 @@ export function ConsentTerms() {
       <AlertDialogTrigger className="h-12 px-4 border-none bg-[#5A0C94] text-white font-title text-base font-medium rounded-2xl p-2 xl:m-0 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]">
         Acessar o termo completo
       </AlertDialogTrigger>
-      <AlertDialogContent className="w-96 h-3/5 overflow-y-auto  bg-[#F6F6F6]">
+      <AlertDialogContent className="w-96 h-3/5 lg:w-max lg:h-3/5 overflow-y-auto  bg-[#F6F6F6]">
         <AlertDialogHeader>
           <AlertDialogTitle className="font-normal text-2xl font-sans text-start ">
             Termos e condições para participar do projeto de simulação do Pipoca
