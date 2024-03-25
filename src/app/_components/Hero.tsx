@@ -23,14 +23,14 @@ export function Hero({ content }: HeroProps) {
         <HeroSVG className="h-[80%] w-[80%]" />
       </div>
       <div className="w-full md:w-1/2 py-20 rounded-t-[90px] md:rounded-t-none px-4 md:px-8 xl:px-10 flex flex-col justify-center items-center md:justify-start md:items-start gap-6 bg-[#FCCF5C]">
-        <h3 className="text-theme-grayscale-black text-5xl lg:text-5xl font-medium font-title leading-[62px] text-center md:text-start mb-4">
+        <h3 className="text-theme-grayscale-black text-6xl lg:text-5xl font-medium font-title leading-[62px] text-center md:text-start mb-4">
           {data.heroTitle}
         </h3>
-        <p className="w-full lg:w-1/2 text-center md:text-start font-sans mb-6 text-[#3A3A3A]">
+        <p className="w-full lg:w-1/2 text-lg text-center md:text-start font-sans mb-6 text-[#3A3A3A]">
           {data.heroSubtitle}
         </p>
         <Button
-          className="w-[283px] h-[72px] md:w-[188px] md:h-[48px] lg:w-[283px] lg:h-[72px] border-none bg-[#5A0C94] text-white rounded-xl hover:translate-y-[-10px] hover:duration-500 hover:transition-all ease-in-out hover:shadow-lg hover:shadow-[#858585]"
+          className="w-[283px] h-[72px] text-4xl md:w-[188px] md:h-[48px] lg:w-[283px] lg:h-[72px] border-none bg-[#5A0C94] text-white rounded-xl hover:translate-y-[-10px] hover:duration-500 hover:transition-all ease-in-out hover:shadow-lg hover:shadow-[#858585]"
           variant="default"
           asChild
         >
