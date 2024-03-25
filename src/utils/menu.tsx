@@ -19,4 +19,14 @@ export const menuOptions: MenuOption[] = [
     path: "/contato",
     order: 4,
   },
+  {
+    name: "Quero voluntariar",
+    path: "/inscricao/voluntario",
+    order: 4,
+  },
+  {
+    name: "Quero mentorar",
+    path: "/inscricao/mentor",
+    order: 4,
+  },
 ];
