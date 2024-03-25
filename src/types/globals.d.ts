@@ -115,3 +115,52 @@ interface HomeContent {
   faqTopics: FAQTopic[];
 }
 
+interface CreatorSocialNetwork {
+  name: string;
+  path: string;
+}
+
+interface Creator {
+  name: string
+  role: string
+  image: string
+  socialNetworks: CreatorSocialNetwork[]
+}
+
+interface CreatorsContent {
+  creatorsHeroTitle: string
+  creatorsHeroSubtitle: string
+  creatorsHeroFirstParagraph: string
+  creatorsHeroSecondParagraph: string
+  creatorsGridTitle: string
+  creatorsGridSubtitle: string
+  creatorsGridFirstParagraph: string
+  creatorsGridSecondParagraph: string
+  creators: Creator[]
+}
+
+interface SubscriptionSteps {
+  step: number
+  description: string
+}
+
+interface SubscriptionTerms {
+  order: number
+  term: string
+}
+
+interface SubscriptionContent {
+  title: string
+  steps: SubscriptionSteps[]
+  warningTitle: string
+  warning: string
+  titleOfRules: string
+  rules: string[]
+  LGPDWarningTitle: string
+  LGPDWarning: string
+  buttonToOpenTerms: string
+  terms: SubscriptionTerms[]
+  acceptTheTerms: string
+  buttonToSubmit: string
+  buttonToCancel: string
+}
