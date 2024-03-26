@@ -1,12 +1,14 @@
-import { ContactForm } from "@/components/Contact/ContactForm";
-import { Card } from "@/components/Creators/Card";
 import { DescriptionTeam } from "@/components/Creators/DescriptionTeam";
+import { HeroCreators } from "@/components/Creators/HeroCreators";
 import { PageContainer } from "@/components/PageContainer";
+import { getSanityCreatorsContent } from "@/services/axios";
 
-export default function Contact(): JSX.Element {
+export default async function Contact() {
+  const content = await getSanityCreatorsContent();
   return (
     <PageContainer>
-      <DescriptionTeam />
+      <HeroCreators content={content} />
+      <DescriptionTeam content={content} />
     </PageContainer>
   );
 }

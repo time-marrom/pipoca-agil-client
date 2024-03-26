@@ -1,13 +1,13 @@
-import { env } from "@/utils/env";
+import "dotenv/config";
 import { createClient } from "next-sanity";
 
-const projectId = env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-const dataset = env.NEXT_PUBLIC_SANITY_DATASET;
-const apiVersion = env.NEXT_PUBLIC_SANITY_API_VERSION;
+// const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
+// const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
+// const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION!;
 
 export const client = createClient({
-  projectId,
-  dataset,
-  apiVersion,
+  projectId: String(process.env.NEXT_PUBLIC_SANITY_PROJECT_ID),
+  dataset: String(process.env.NEXT_PUBLIC_SANITY_DATASET),
+  apiVersion: String(process.env.NEXT_PUBLIC_SANITY_API_VERSION),
   useCdn: true,
 });

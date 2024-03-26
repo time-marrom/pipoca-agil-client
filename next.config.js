@@ -6,22 +6,28 @@ const nextConfig = {
         protocol: "https",
         hostname: "media.tenor.com",
         port: "",
-        pathname: "/**"
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "static.wixstatic.com",
         port: "",
-        pathname: "/media/**"
+        pathname: "/media/**",
       },
       {
         protocol: "https",
         hostname: "via.placeholder.com",
         port: "",
-        pathname: "/**"
-      }
-    ]
-  }
-}
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/images/**",
+      },
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
