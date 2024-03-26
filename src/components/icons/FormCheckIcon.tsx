@@ -1,4 +1,4 @@
-import { SVGProps } from "react"
+import { SVGProps } from "react";
 
 interface FormCheckIconProps extends SVGProps<SVGSVGElement> {}
 
@@ -17,5 +17,5 @@ export function FormCheckIcon({ ...props }: FormCheckIconProps) {
         fill="#252525"
       />
     </svg>
-  )
+  );
 }
