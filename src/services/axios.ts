@@ -31,3 +31,13 @@ export function getSanityHomeContent(): Promise<HomeContent> {
 
   return response
 }
+
+// creators
+export function getSanityCreatorsContent(): Promise<CreatorsContent> {
+  const response = api
+    .get(queries.creators)
+    .then((response) => response.data.result)
+    .catch((error) => console.error(error))
+
+  return response
+}
