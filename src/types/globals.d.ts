@@ -6,6 +6,7 @@ type SanityQueries = {
   maintenance: string;
   home: string;
   simulation: string;
+  creators: string;
 };
 
 type MaintenanceContent = {
