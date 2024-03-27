@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { GlobalContext } from "@/contexts/GlobalContext"
-import { useContext } from "react"
-import { Steps } from "./Steps"
-import { UserConsentTerms } from "./UserConsentTerms"
-import { UserRegistrationForm } from "./UserRegistrationForm"
-import { UserConfirmationMessage } from "./UserConfirmationMessage"
+import { GlobalContext } from "@/contexts/GlobalContext";
+import { useContext } from "react";
+import { Steps } from "./Steps";
+// import { UserConsentTerms } from "./UserConsentTerms";
+// import { UserConfirmationMessage } from "./UserConfirmationMessage";
+import { VolunteerForm } from "@/app/inscricao/voluntario/_components/Form";
 
 export function RegistrationPanel() {
-  const { currentStep, setCurrentStep } = useContext(GlobalContext)
+  const { currentStep, setCurrentStep } = useContext(GlobalContext);
 
   // function nextStep() {
   //   setCurrentStep(currentStep + 1)
@@ -21,13 +21,13 @@ export function RegistrationPanel() {
       <div className="w-full h-full flex flex-col justify-start items-center">
         {<Steps currentStep={currentStep} />}
         <div className="w-full h-full">
-          {currentStep === 0 && (
+          {/* {currentStep === 0 && (
             <div className="w-full h-full flex flex-col justify-center items-center">
               <UserConsentTerms />
             </div>
           )}
           {currentStep === 1 && (
-            <UserRegistrationForm
+            <VolunteerForm
               currentStep={currentStep}
               setCurrentStep={setCurrentStep}
             />
@@ -36,9 +36,13 @@ export function RegistrationPanel() {
             <div>
               <UserConfirmationMessage />
             </div>
-          )}
+          )} */}
+          <VolunteerForm
+            currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
+          />
         </div>
       </div>
     </div>
-  )
+  );
 }
