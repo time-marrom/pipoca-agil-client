@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ErrorMessage } from "@hookform/error-message";
 import * as z from "zod";
+import { WarningIcon } from "@/components/icons/WarningIcon";
 
 interface FormProps {
   setCurrentStep: (currentStep: number) => void;
@@ -64,15 +65,18 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
     <div className="my-4 px-4 w-full h-full flex flex-col items-center justify-center text-start space-y-10 mb-10">
       <div className="md:flex md:flex-col md:justify-start md:w-3/4 lg:w-1/3">
         <div className="w-full space-y-8">
-          <h2 className="font-sans font-medium text-2xl">
+          <h2 className="font-sans font-medium text-2xl mt-16">
             Vamos fazer sua inscrição!
           </h2>
           <h2 className="font-sans font-medium text-2xl">
             Preencha os dados abaixo com atenção.
           </h2>
           <p className="text-base font-bold font-sans">*Campos obrigatórios.</p>
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-2">
-            <div>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-full space-y-2  "
+          >
+            <div className="flex flex-col justify-between gap-10">
               {/* NOME */}
               <div className="w-full space-y-2">
                 <label
@@ -88,6 +92,12 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                   className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("name")}
                 />
+                <p
+                  data-error={errors.name}
+                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                >
+                  Digite seu nome e sobrenome.
+                </p>
                 <ErrorMessage
                   errors={errors}
                   name="name"
@@ -114,6 +124,12 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                   className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("email")}
                 />
+                <p
+                  data-error={errors.email}
+                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                >
+                  Insira o seu melhor e-mail.
+                </p>
                 <ErrorMessage
                   errors={errors}
                   name="email"
@@ -137,9 +153,15 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                   type="text"
                   data-error={errors.number}
                   placeholder="(99) 99 9 9999-9999"
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("number")}
                 />
+                <p
+                  data-error={errors.number}
+                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                >
+                  Por lá acontecem os grupos e maior parte da comunicação.
+                </p>
                 <ErrorMessage
                   errors={errors}
                   name="number"
@@ -161,7 +183,7 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                 </label>
                 <select
                   data-error={errors.country}
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans text-[#dedede] focus:text-black border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("country")}
                 >
                   <option value="">Selecione o país</option>
@@ -173,6 +195,12 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                   <option value="Inglaterra">Inglaterra</option>
                   <option value="Espanha">Espanha</option>
                 </select>
+                <p
+                  data-error={errors.country}
+                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                >
+                  Onde você vive atualmente?
+                </p>
                 <ErrorMessage
                   errors={errors}
                   name="country"
@@ -195,7 +223,7 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                 <select
                   data-error={errors.role}
                   {...register("role")}
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-base font-medium font-sans text-[#dedede] focus:text-black border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                 >
                   <option value="">Selecione uma opção.</option>
                   <option value="QA">
@@ -206,6 +234,12 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                   <option value="SM">Scrum Master</option>
                   <option value="UX/UI">UX/UI Designer</option>
                 </select>
+                <p
+                  data-error={errors.role}
+                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                >
+                  Em qual área você pretende atuar no projeto?
+                </p>
                 <ErrorMessage
                   errors={errors}
                   name="role"
@@ -227,47 +261,58 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                 </label>
                 <p
                   data-error={errors.period}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Em qual ou quais turnos você está disponível para participar
                   de reuniões? Selecione pelo menos um. Pode selecionar mais de
                   um, se quiser.
                 </p>
-                <div>
-                  <input
-                    type="checkbox"
-                    id="manha"
-                    value="manha"
-                    {...register("period", { required: true })}
-                    data-error={errors.period}
-                    className="border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
-                  />
-                  <label htmlFor="manha" className="mr-4">
-                    Manhã
-                  </label>
-
-                  <label htmlFor="tarde">
-                    Tarde
+                <div className="flex flex-col">
+                  <div className="flex flex-row items-center gap-2">
+                    <input
+                      type="checkbox"
+                      id="manha"
+                      value="manha"
+                      {...register("period", { required: true })}
+                      data-error={errors.period}
+                      className="w-6 h-6  border border-[#5A0C94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
+                    />
+                    <label
+                      htmlFor="manha"
+                      className="font-sans font-medium text-base leading-[35px]"
+                    >
+                      Manhã
+                    </label>
+                  </div>
+                  <div className="flex flex-row items-center gap-2">
                     <input
                       type="checkbox"
                       id="tarde"
                       value="tarde"
                       {...register("period", { required: true })}
                       data-error={errors.period}
-                      className="border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
+                      className="w-6 h-6 border  border-[#5A0C94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
                     />
-                  </label>
-                  <label>
-                    Noite
+                    <label
+                      htmlFor="tarde"
+                      className="font-sans font-medium text-base leading-[35px]"
+                    >
+                      Tarde
+                    </label>
+                  </div>
+                  <div className="flex flex-row items-center gap-2">
                     <input
                       type="checkbox"
                       id="noite"
                       value="noite"
                       {...register("period", { required: true })}
                       data-error={errors.period}
-                      className="border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
+                      className="w-6 h-6 border border-[#5A0C94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
                     />
-                  </label>
+                    <label className="font-sans font-medium text-base leading-[35px]">
+                      Noite
+                    </label>
+                  </div>
 
                   <ErrorMessage
                     errors={errors}
@@ -296,6 +341,13 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                   className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("LinkedIn")}
                 />
+
+                <p
+                  data-error={errors.LinkedIn}
+                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                >
+                  Insira o link completo.
+                </p>
                 <ErrorMessage
                   errors={errors}
                   name="LinkedIn"
@@ -322,6 +374,12 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                   className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("comment")}
                 />
+                <p
+                  data-error={errors.comment}
+                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                >
+                  Limite de até 500 caracteres.
+                </p>
                 <ErrorMessage
                   errors={errors}
                   name="comment"
@@ -333,114 +391,21 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
                 />
               </div>
 
-              <button
-                type="submit"
-                className="h-full max-w-max p-2 bg-red-500"
-                // disabled={!isDirty || !isValid}
-              >
-                Clica ai macho
-              </button>
+              <p className="flex flex-row text-base font-normal font-sans leading-[24px] text-black gap-2">
+                <WarningIcon /> Atenção: Verifique suas informações antes de
+                enviar!
+              </p>
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="h-full max-w-max font-title text-base font-medium text-[#727272] p-3 rounded-2xl bg-[#DEDEDE]"
+                  // disabled={!isDirty || !isValid}
+                >
+                  Enviar dados
+                </button>
+              </div>
             </div>
           </form>
-
-          {/* <Form.Root className="w-full">
-            <Form.Field className="space-y-2" name="name">
-              <div className="flex items-baseline justify-between">
-                <Form.Label className="text-base font-medium font-sans leading-[35px] text-black">
-                  *Nome Completo
-                </Form.Label>
-                <Form.Message
-                  className="text-sm font-normal font-sans text-[#e70000]"
-                  match="valueMissing"
-                >
-                  DIGITA TEU NOME AI CORNO
-                </Form.Message>
-              </div>
-              <Form.Control asChild>
-                <input
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent"
-                  type="text"
-                  placeholder="Nome e sobrenome"
-                  required
-                />
-              </Form.Control>
-            </Form.Field>
-
-
-            <Form.Field className="space-y-2" name="e-mail">
-              <div className="flex items-baseline justify-between">
-                <Form.Label className="text-base font-medium font-sans leading-[35px] text-black">
-                  *E-mail para contato
-                </Form.Label>
-                <Form.Message
-                  className="text-sm font-normal font-sans text-[#e70000]"
-                  match="valueMissing"
-                >
-                  DIGITA TEU NOME AI CORNO
-                </Form.Message>
-              </div>
-              <Form.Control asChild>
-                <input
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent"
-                  type="email"
-                  placeholder="exemplo@exemplo.com"
-                  required
-                />
-              </Form.Control>
-            </Form.Field>
-
-
-            <Form.Field className="space-y-2" name="number">
-              <div className="flex items-baseline justify-between">
-                <Form.Label className="text-base font-medium font-sans leading-[35px] text-black">
-                  *Número de WhatsApp
-                </Form.Label>
-                <Form.Message
-                  className="text-sm font-normal font-sans text-[#e70000]"
-                  match="valueMissing"
-                >
-                  DIGITA TEU NOME AI CORNO
-                </Form.Message>
-              </div>
-              <Form.Control asChild>
-                <input
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent"
-                  type="text"
-                  placeholder="(99) 99 9 9999-9999"
-                  required
-                />
-              </Form.Control>
-            </Form.Field>
-
-            <Form.Field
-              className="text-base font-medium font-sans leading-[35px] text-black"
-              name="role"
-            >
-              <Form.Label>*País</Form.Label>
-              <Form.Control asChild>
-                <select
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent"
-                  required
-                >
-                  <option value="null"></option>…
-                  <option value="br">Brasil</option>…
-                  <option value="ar">Argentina</option>…
-                  <option value="pt">Portugal</option>…
-                  <option value="us">Estados Unidos</option>…
-                  <option value="ca">Canadá</option>…
-                  <option value="uk">Inglaterra</option>…
-                  <option value="es">Espanha</option>…
-                </select>
-              </Form.Control>
-            </Form.Field>
-
-            <span>{currentStep}</span>
-            <Form.Submit asChild>
-              <button className="h-full max-w-max p-2 bg-red-500">
-                Clica ai macho
-              </button>
-            </Form.Submit>
-          </Form.Root> */}
         </div>
       </div>
     </div>
