@@ -14,8 +14,6 @@ export function DescriptionTeam({ content }: DescriptionTeamProps) {
     initialData: content,
   });
 
-  console.log("oi", data);
-
   return (
     <>
       <div className="bg-[#FCCF5C] w-full">

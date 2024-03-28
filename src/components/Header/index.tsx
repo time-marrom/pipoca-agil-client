@@ -8,9 +8,22 @@ import { useCallback, useState } from "react";
 import { MenuIcon } from "../icons/MenuIcon";
 import { Button } from "../ui/button";
 import { Menu } from "./Menu";
+import { getSanityHomeContent } from "@/services/axios";
+import { useQuery } from "@tanstack/react-query";
 
-export function Header() {
+interface HeaderProps {
+  content: HomeContent;
+}
+
+export function Header({ content }: HeaderProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  const { data } = useQuery({
+    queryKey: ["home"],
+    queryFn: getSanityHomeContent,
+    initialData: content,
+  });
+  console.log(content);
 
   const openMenu = useCallback(() => {
     setMenuIsOpen(true);
@@ -53,7 +66,7 @@ export function Header() {
             href="/inscricao/mentor"
             className="font-title text-2xl font-[600]"
           >
-            Quero Mentorar
+            {data.howIsItForMentorLabelButton}
           </Link>
         </Button>
 
@@ -66,7 +79,7 @@ export function Header() {
             href="/inscricao/voluntario"
             className="font-title text-2xl font-[600]"
           >
-            Quero me voluntariar
+            {data.howIsItForVolunteerLabelButton}
           </Link>
         </Button>
       </div>

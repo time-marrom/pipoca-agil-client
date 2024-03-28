@@ -1,10 +1,12 @@
-import { MentorPanel } from "@/components/registration/MentorPanel"
-import { RegistrationContainer } from "@/components/registration/RegistrationContainer"
+import { MentorPanel } from "@/components/registration/MentorPanel";
+import { RegistrationContainer } from "@/components/registration/RegistrationContainer";
+import { getSanityMentorContent } from "@/services/axios";
 
-export default function MentorRegistration(): JSX.Element {
+export default async function MentorRegistration() {
+  const content = await getSanityMentorContent();
   return (
     <RegistrationContainer>
-      <MentorPanel />
+      <MentorPanel content={content} />
     </RegistrationContainer>
-  )
+  );
 }

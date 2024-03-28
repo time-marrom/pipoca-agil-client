@@ -6,8 +6,20 @@ import { Steps } from "./Steps";
 import { MentorConfirmationMessage } from "./MentorConfirmationMessage";
 import { MentorConsentTerms } from "./MentorConsentTerms";
 import { MentorRegistrationForm } from "./MentorRegistrationForm";
+import { getSanityMentorContent } from "@/services/axios";
+import { useQuery } from "@tanstack/react-query";
 
-export function MentorPanel() {
+interface MentorPanelProps {
+  content: SubscriptionContent;
+}
+
+export function MentorPanel({ content }: MentorPanelProps) {
+  const { data } = useQuery({
+    queryKey: ["mentor"],
+    queryFn: getSanityMentorContent,
+    initialData: content,
+  });
+
   const { mentorCurrentStep, setMentorCurrentStep } = useContext(GlobalContext);
   console.log("mentorCurrentStep", mentorCurrentStep);
 
@@ -18,7 +30,7 @@ export function MentorPanel() {
         <div className="w-full h-full">
           {mentorCurrentStep === 0 && (
             <div className="w-full h-full flex flex-col justify-center items-center">
-              <MentorConsentTerms />
+              <MentorConsentTerms content={data} />
             </div>
           )}
           {mentorCurrentStep === 1 && (

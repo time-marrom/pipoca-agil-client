@@ -24,7 +24,8 @@ export function ConsentTerms() {
       <AlertDialogTrigger className="h-12 px-4 border-none bg-[#5A0C94] text-white font-title text-base font-medium rounded-2xl p-2 xl:m-0 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]">
         Acessar o termo completo
       </AlertDialogTrigger>
-      <AlertDialogContent className="w-96 h-3/5 overflow-y-auto  bg-[#F6F6F6]">
+
+      <AlertDialogContent className="w-96 h-3/5 overflow-y-auto">
         <AlertDialogHeader>
           <AlertDialogTitle className="font-normal text-2xl font-sans text-start ">
             Termos e condições para participar do projeto de simulação do Pipoca
@@ -262,7 +263,12 @@ export function ConsentTerms() {
         <AlertDialogFooter className="w-full h-full flex justify-center items-center ">
           <div className="h-full w-full flex flex-row justify-center items-center ">
             <AlertDialogAction
-              className=" w-1/3 h-full font-semibold text-base font-title bg-[#DEDEDE] rounded-2xl text-[#727272] hover:bg-theme-secondary-dark hover:text-[#F6F6F6]"
+              className={` w-1/3 h-full font-semibold text-base font-title rounded-2xl
+              ${
+                isAcceptedTerms
+                  ? "bg-[#5A0C94] hover:bg-theme-secondary-dark hover:text-[#F6F6F6]"
+                  : "bg-[#DEDEDE] hover:bg-theme-white-base"
+              }`}
               disabled={!isAcceptedTerms}
               onClick={() => setCurrentStep(1)}
             >

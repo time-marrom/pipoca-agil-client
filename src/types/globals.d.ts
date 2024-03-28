@@ -7,6 +7,7 @@ type SanityQueries = {
   home: string;
   simulation: string;
   creators: string;
+  mentor: string;
 };
 
 type MaintenanceContent = {
@@ -122,46 +123,47 @@ interface CreatorSocialNetwork {
 }
 
 interface Creator {
-  name: string
-  role: string
-  image: string
-  socialNetworks: CreatorSocialNetwork[]
+  name: string;
+  role: string;
+  image: string;
+  socialNetworks: CreatorSocialNetwork[];
 }
 
 interface CreatorsContent {
-  creatorsHeroTitle: string
-  creatorsHeroSubtitle: string
-  creatorsHeroFirstParagraph: string
-  creatorsHeroSecondParagraph: string
-  creatorsGridTitle: string
-  creatorsGridSubtitle: string
-  creatorsGridFirstParagraph: string
-  creatorsGridSecondParagraph: string
-  creators: Creator[]
+  creatorsHeroTitle: string;
+  creatorsHeroSubtitle: string;
+  creatorsHeroFirstParagraph: string;
+  creatorsHeroSecondParagraph: string;
+  creatorsGridTitle: string;
+  creatorsGridSubtitle: string;
+  creatorsGridFirstParagraph: string;
+  creatorsGridSecondParagraph: string;
+  creators: Creator[];
 }
 
 interface SubscriptionSteps {
-  step: number
-  description: string
+  step: number;
+  description: string;
 }
 
 interface SubscriptionTerms {
-  order: number
-  term: string
+  order: number;
+  term: string;
 }
 
 interface SubscriptionContent {
-  title: string
-  steps: SubscriptionSteps[]
-  warningTitle: string
-  warning: string
-  titleOfRules: string
-  rules: string[]
-  LGPDWarningTitle: string
-  LGPDWarning: string
-  buttonToOpenTerms: string
-  terms: SubscriptionTerms[]
-  acceptTheTerms: string
-  buttonToSubmit: string
-  buttonToCancel: string
+  title: string;
+  steps: SubscriptionSteps[];
+  warningTitle: string;
+  warning: string;
+  titleOfRules: string;
+  rules: string[];
+  LGPDWarningTitle: string;
+  LGPDWarning: string;
+  buttonToOpenTerms: string;
+  termsTitle: string;
+  terms: SubscriptionTerms[];
+  acceptTheTerms: string;
+  buttonToSubmit: string;
+  buttonToCancel: string;
 }
