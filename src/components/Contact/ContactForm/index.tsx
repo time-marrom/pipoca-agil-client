@@ -355,28 +355,28 @@ export function ContactForm() {
         </div>
         <div className="hidden xl:flex  justify-end gap-4 w-full ">
           <Link target="_blank" href="https://www.youtube.com/@PipocaAgil">
-            <YouTubeIcon className="fill-[#5A0C94] w-8 h-8" />
+            <YouTubeIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
           </Link>
           <Link
             target="_blank"
             href="https://open.spotify.com/show/5J1scP1l7m7kXK6v5RZS7J"
           >
-            <SpotifyIcon className="fill-[#5A0C94] w-8 h-8" />
+            <SpotifyIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
           </Link>
           <Link target="_blank" href="https://www.instagram.com/pipocaagil">
-            <InstagramIcon className="fill-[#5A0C94] w-8 h-8" />
+            <InstagramIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
           </Link>
           <Link target="_blank" href="https://www.facebook.com/pipocaagil">
-            <FacebookIcon className="fill-[#5A0C94] w-8 h-8" />
+            <FacebookIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
           </Link>
           <Link
             target="_blank"
             href="https://br.linkedin.com/company/pipoca-%C3%A1gil"
           >
-            <LinkedInIcon className="fill-[#5A0C94] w-8 h-8" />
+            <LinkedInIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
           </Link>
           <Link target="_blank" href="mailto:pipocaagil@gmail.com">
-            <ArrobaIcon className="fill-[#5A0C94] w-8 h-8" />
+            <ArrobaIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
           </Link>
         </div>
       </div>
