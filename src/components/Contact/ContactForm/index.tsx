@@ -364,7 +364,7 @@ export function ContactForm() {
             <SpotifyIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
           </Link>
           <Link target="_blank" href="https://www.instagram.com/pipocaagil">
-            <InstagramIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
+            <InstagramIcon className="fill-[#5A0C94] w-9 h-9 hover:fill-[#9747FF]" />
           </Link>
           <Link target="_blank" href="https://www.facebook.com/pipocaagil">
             <FacebookIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
