@@ -87,7 +87,7 @@ export function ContactForm() {
     <div className="w-full h-full flex justify-center items-center xl:items-start flex-col xl:flex-row pt-4 md:py-[104px] md:gap-10">
       <div className="w-full md:max-w-2xl rounded-[80px] bg-[#FCCF5C] px-4 py-12 md:p-[80px] flex flex-col gap-10">
         <div className="flex flex-col gap-4">
-          <h1 className="font-title font-semibold text-[32px] md:text-5xl text-center md:text-start">
+          <h1 className="font-title font-medium text-[32px] md:text-5xl text-center md:text-start">
             Fale com a gente
           </h1>
           <p className="text-base font-normal font-sans">
