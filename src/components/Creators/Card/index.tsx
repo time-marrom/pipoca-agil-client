@@ -28,9 +28,9 @@ export function Card({ content }: CardProps) {
   });
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-4">
+    <div className=" grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
       {orderedCreators.map((creator) => (
-        <div key={creator.name} className="h-6/6 w-6/6 gap-4">
+        <div key={creator.name} className="md:w-40 md:h-56 gap-4 ">
           <div className="bg-white shadow-lg rounded-2xl my-4  flex flex-col justify-between ">
             <div className="overflow-hidden rounded-t-2xl ">
               <Image
@@ -41,23 +41,23 @@ export function Card({ content }: CardProps) {
                 priority
               />
             </div>
-            <div className="flex flex-col justify-between bg-[#FCCF5C] p-3 rounded-b-2xl h-[100px]  ">
-              <h2 className="text-xl font-semibold font-title truncate">
+            <div className="flex flex-col  bg-[#FCCF5C] p-3 rounded-b-2xl ">
+              <h2 className="text-sm font-medium font-title truncate">
                 {creator.name}
               </h2>
-              <div className="flex flex-row justify-between">
+              <div className="flex flex-row justify-between ">
                 <div>
-                  <p className="text-[#5A0C94] font-sans font-normal text-sm ">
+                  <p className="text-[#5A0C94] font-sans font-normal text-xs  ">
                     {creator.role}
                   </p>
                 </div>
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row ">
                   {creator.socialNetworks.map((social) => (
                     <Link href={social.path} key={social.path} target="_blank">
                       {social.name === "LinkedIn" ? (
-                        <LinkedInIcon className="fill-[#5A0C94] h-6 w-6" />
+                        <LinkedInIcon className="fill-[#5A0C94] h-5 w-h-5" />
                       ) : (
-                        <GlobeIcon className="fill-[#5A0C94] h-6 w-6" />
+                        <GlobeIcon className="fill-[#5A0C94] h-5 w-h-5" />
                       )}
                     </Link>
                   ))}
