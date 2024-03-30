@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { Steps } from "./Steps";
 // import { UserConsentTerms } from "./UserConsentTerms";
 // import { UserConfirmationMessage } from "./UserConfirmationMessage";
-import { VolunteerForm } from "@/app/inscricao/voluntario/_components/Form";
+import { Form } from "@/app/inscricao/voluntario/_components/Form";
 
 export function RegistrationPanel() {
   const { currentStep, setCurrentStep } = useContext(GlobalContext);
@@ -37,10 +37,7 @@ export function RegistrationPanel() {
               <UserConfirmationMessage />
             </div>
           )} */}
-          <VolunteerForm
-            currentStep={currentStep}
-            setCurrentStep={setCurrentStep}
-          />
+          <Form currentStep={currentStep} setCurrentStep={setCurrentStep} />
         </div>
       </div>
     </div>

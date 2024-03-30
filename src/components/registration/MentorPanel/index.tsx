@@ -21,7 +21,6 @@ export function MentorPanel({ content }: MentorPanelProps) {
   });
 
   const { mentorCurrentStep, setMentorCurrentStep } = useContext(GlobalContext);
-  console.log("mentorCurrentStep", mentorCurrentStep);
 
   return (
     <div className="w-full h-full min-h-[65vh] flex flex-col justify-start items-center">

@@ -21,8 +21,6 @@ export function MentorConsentTerms({ content }: MentorConsentTermsProps) {
     return keyA - keyB; // Retorna a diferença entre as chaves para ordenação
   });
 
-  console.log(orderedRules);
-
   return (
     <div className="w-full h-full flex flex-col justify-start items-center md:items-start md:justify-center lg:items-center px-8 my-2 gap-4 bg-[#FCFCFC]">
       <div className="w-full max-w-md flex items-center text-start  ">

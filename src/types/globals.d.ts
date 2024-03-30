@@ -146,11 +146,6 @@ interface SubscriptionSteps {
   description: string;
 }
 
-interface SubscriptionTerms {
-  order: number;
-  term: string;
-}
-
 interface SubscriptionContent {
   title: string;
   steps: SubscriptionSteps[];
@@ -162,8 +157,22 @@ interface SubscriptionContent {
   LGPDWarning: string;
   buttonToOpenTerms: string;
   termsTitle: string;
-  terms: SubscriptionTerms[];
+  terms: Term[];
   acceptTheTerms: string;
   buttonToSubmit: string;
   buttonToCancel: string;
+}
+
+interface Term {
+  _type: string;
+  style: string;
+  _key: string;
+  markDefs: any[];
+  children: Span[];
+}
+
+interface Span {
+  _type: string;
+  marks: any[];
+  text: string;
 }

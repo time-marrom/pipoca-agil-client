@@ -16,7 +16,6 @@ export function NewsletterBox(): JSX.Element {
   } = useForm<Inputs>();
 
   function onSubmit(data: Inputs) {
-    console.log(data.email);
     resetField("email");
   }
 

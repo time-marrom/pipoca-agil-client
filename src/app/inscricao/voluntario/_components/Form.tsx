@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ErrorMessage } from "@hookform/error-message";
 import * as z from "zod";
 import { WarningIcon } from "@/components/icons/WarningIcon";
+import { sendVolunteerConfirmation } from "@/services/email";
 
 interface FormProps {
   setCurrentStep: (currentStep: number) => void;
@@ -36,7 +37,7 @@ const schema = z.object({
       message: "Você precisa selecionar pelo menos um período.",
     }),
 
-  LinkedIn: z.string().min(3, {
+  LinkedIn: z.string().url({
     message:
       "Verifique o formato do seu link. Você pode abrir uma aba com seu perfil, copiar do endereço do navegador, e colar aqui.",
   }),
@@ -47,17 +48,19 @@ const schema = z.object({
 
 type Schema = z.infer<typeof schema>;
 
-export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
+export function Form({ setCurrentStep, currentStep }: FormProps) {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors, isValid, isDirty },
+
+    formState: { errors },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
   });
 
   function onSubmit(data: Schema) {
+    sendVolunteerConfirmation({ to: data.email, name: data.name });
+
     alert(JSON.stringify(data, null, 2));
   }
 
@@ -398,8 +401,7 @@ export function VolunteerForm({ setCurrentStep, currentStep }: FormProps) {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="h-full max-w-max font-title text-base font-medium text-[#727272] p-3 rounded-2xl bg-[#DEDEDE]"
-                  // disabled={!isDirty || !isValid}
+                  className="h-full max-w-max font-title text-base font-medium text-[#727272] p-3 rounded-2xl bg-[#DEDEDE]  hover:bg-[#5A0C94] hover:text-white "
                 >
                   Enviar dados
                 </button>

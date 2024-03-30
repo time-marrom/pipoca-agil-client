@@ -12,6 +12,8 @@ import { GlobalContext } from "@/contexts/GlobalContext";
 import { getSanityMentorContent } from "@/services/axios";
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
+import { PortableText } from "@portabletext/react";
+import { sanityComponents } from "@/components/registration/MentorPanel/PortableText";
 
 interface ConsentTermsProps {
   content: SubscriptionContent;
@@ -31,6 +33,7 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
     setIsAcceptedTerms(!isAcceptedTerms);
   }
 
+  console.log("data.terms", data.terms);
   return (
     <AlertDialog>
       <AlertDialogTrigger className="h-12 px-4 border-none bg-[#5A0C94] text-white font-title text-base font-medium rounded-2xl p-2 xl:m-0 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]">
@@ -43,7 +46,9 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
             {data.termsTitle}
           </AlertDialogTitle>
           <AlertDialogDescription className="font-normal text-base font-sans overflow:scroll text-start text-theme-grayscale-black">
-            {data.terms.map(({ term }) => term)}
+            <div className="w-full h-full flex flex-col justify-center items-start text-start font-sans text-black space-y-2">
+              <PortableText value={data.terms} components={sanityComponents} />
+            </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="w-full flex items-center space-x-2">
@@ -56,7 +61,7 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
           />
           <label
             htmlFor="terms"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-sans py-6  "
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-sans py-6 bg-red-400 "
           >
             {data.acceptTheTerms}
           </label>

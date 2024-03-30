@@ -23,7 +23,6 @@ export function Header({ content }: HeaderProps) {
     queryFn: getSanityHomeContent,
     initialData: content,
   });
-  console.log(content);
 
   const openMenu = useCallback(() => {
     setMenuIsOpen(true);
