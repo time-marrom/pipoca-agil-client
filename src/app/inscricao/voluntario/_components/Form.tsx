@@ -18,7 +18,7 @@ const schema = z.object({
     message:
       "Verifique o formato do seu e-mail, como: exemplo@gmail.com. Ou, talvez o seu e-mail já esteja cadastrado. Entre em contato conosco caso precise modificar algum dado da sua inscrição, se já a realizou.",
   }),
-  number: z.string().min(11, {
+  whatsApp: z.string().min(11, {
     message:
       "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
   }),
@@ -37,7 +37,7 @@ const schema = z.object({
       message: "Você precisa selecionar pelo menos um período.",
     }),
 
-  LinkedIn: z.string().url({
+  linkedIn: z.string().url({
     message:
       "Verifique o formato do seu link. Você pode abrir uma aba com seu perfil, copiar do endereço do navegador, e colar aqui.",
   }),
@@ -149,28 +149,28 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               {/* WHATS  */}
               <div className="w-full space-y-2">
                 <label
-                  data-error={errors.number}
+                  data-error={errors.whatsApp}
                   className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Número de WhatsApp
                 </label>
                 <input
                   type="text"
-                  data-error={errors.number}
-                  data-filled={!!watch("number")}
+                  data-error={errors.whatsApp}
+                  data-filled={!!watch("whatsApp")}
                   placeholder="(99) 99 9 9999-9999"
                   className="w-full h-10 px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
-                  {...register("number")}
+                  {...register("whatsApp")}
                 />
                 <p
-                  data-error={errors.number}
+                  data-error={errors.whatsApp}
                   className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Por lá acontecem os grupos e maior parte da comunicação.
                 </p>
                 <ErrorMessage
                   errors={errors}
-                  name="number"
+                  name="whatsApp"
                   render={({ message }) => (
                     <p className="text-sm font-normal font-sans text-[#e70000]">
                       {message}
@@ -337,29 +337,29 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               {/* LinkedIn  */}
               <div className="w-full space-y-2">
                 <label
-                  data-error={errors.LinkedIn}
+                  data-error={errors.linkedIn}
                   className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Perfil do LinkedIn
                 </label>
                 <input
                   type="text"
-                  data-error={errors.LinkedIn}
-                  data-filled={!!watch("LinkedIn")}
+                  data-error={errors.linkedIn}
+                  data-filled={!!watch("linkedIn")}
                   placeholder="https://linkedin.com/in/seulink"
                   className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
-                  {...register("LinkedIn")}
+                  {...register("linkedIn")}
                 />
 
                 <p
-                  data-error={errors.LinkedIn}
+                  data-error={errors.linkedIn}
                   className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Insira o link completo.
                 </p>
                 <ErrorMessage
                   errors={errors}
-                  name="LinkedIn"
+                  name="linkedIn"
                   render={({ message }) => (
                     <p className="text-sm font-normal font-sans text-[#e70000]">
                       {message}
