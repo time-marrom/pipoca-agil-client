@@ -52,7 +52,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
   const {
     register,
     handleSubmit,
-
+    watch,
     formState: { errors },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
@@ -84,15 +84,16 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.name}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-medium font-sans leading-[35px] border  text-black data-[error]:text-[#e70000]"
                 >
                   *Nome Completo
                 </label>
                 <input
                   type="text"
                   data-error={errors.name}
+                  data-filled={!!watch("name")}
                   placeholder="Nome e sobrenome"
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("name")}
                 />
                 <p
@@ -123,8 +124,9 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 <input
                   type="email"
                   data-error={errors.email}
+                  data-filled={!!watch("email")}
                   placeholder="exemplo@exemplo.com"
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("email")}
                 />
                 <p
@@ -155,8 +157,9 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 <input
                   type="text"
                   data-error={errors.number}
+                  data-filled={!!watch("number")}
                   placeholder="(99) 99 9 9999-9999"
-                  className="w-full h-10 px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("number")}
                 />
                 <p
@@ -180,13 +183,14 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.country}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-medium font-sans leading-[35px]  text-black data-[error]:text-[#e70000]"
                 >
                   *País
                 </label>
                 <select
                   data-error={errors.country}
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans text-[#dedede] focus:text-black border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  data-filled={!!watch("country")}
+                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans data-[filled=true]:text-black  text-[#dedede] focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("country")}
                 >
                   <option value="">Selecione o país</option>
@@ -225,8 +229,9 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 </label>
                 <select
                   data-error={errors.role}
+                  data-filled={!!watch("role")}
                   {...register("role")}
-                  className="w-full h-10 px-4 text-base font-medium font-sans text-[#dedede] focus:text-black border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-base font-medium font-sans data-[filled=true]:text-black text-[#dedede] focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                 >
                   <option value="">Selecione uma opção.</option>
                   <option value="QA">
@@ -340,8 +345,9 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 <input
                   type="text"
                   data-error={errors.LinkedIn}
+                  data-filled={!!watch("LinkedIn")}
                   placeholder="https://linkedin.com/in/seulink"
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("LinkedIn")}
                 />
 
@@ -373,8 +379,9 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 <input
                   type="textarea"
                   data-error={errors.comment}
+                  data-filled={!!watch("comment")}
                   placeholder="Conte pra gente!"
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("comment")}
                 />
                 <p
