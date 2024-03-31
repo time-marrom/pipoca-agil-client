@@ -24,7 +24,7 @@ export function MentorConsentTerms({ content }: MentorConsentTermsProps) {
   return (
     <div className="w-full h-full flex flex-col justify-start items-center md:items-start md:justify-center lg:items-center px-8 my-2 gap-4 bg-[#FCFCFC]">
       <div className="w-full max-w-md flex items-center text-start  ">
-        <h3 className="font-sans font-medium text-lg items-center text-center mt-16 mb-4">
+        <h3 className="font-sans font-normal text-base md:text-2xl items-center text-center mt-16 mb-4">
           {data.titleOfRules}
         </h3>
       </div>
@@ -35,7 +35,7 @@ export function MentorConsentTerms({ content }: MentorConsentTermsProps) {
           </li>
         ))}
       </ul>
-      <div className="w-full h-full flex flex-col justify-center items-center gap-4 mb-40">
+      <div className=" w-full h-full flex flex-col justify-center items-center gap-4 mb-40">
         <div className="my-4 px-4 w-full h-full flex flex-col items-start justify-center  text-start  ">
           <div className="md:w-full md:flex md:flex-col md:items-start lg:items-center">
             <div className="border-[#FCCF5C] p-4 my-4 w-full  md:w-full lg:w-1/3   space-y-4 border-2 rounded-2xl">
