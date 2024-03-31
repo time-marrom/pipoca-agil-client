@@ -26,7 +26,7 @@ export function Hero({ content }: HeroProps) {
         <h3 className="w-3/4 lg:w-1/2 text-theme-grayscale-black text-5xl md:text-5xl lg:text-[64px] font-medium font-title leading-[62px] text-center md:text-start mb-4">
           {data.heroTitle}
         </h3>
-        <p className="w-full lg:w-1/2 text-lg text-center md:text-start font-sans mb-6 text-[#3A3A3A]">
+        <p className="w-full lg:w-3/5 text-base lg:text-2xl text-center md:text-start font-sans mb-6 text-[#3A3A3A]">
           {data.heroSubtitle}
         </p>
         <Button

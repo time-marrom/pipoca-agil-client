@@ -83,7 +83,7 @@ export function ContactForm() {
 
   return (
     <div className="w-full h-full flex justify-center items-center xl:items-start flex-col xl:flex-row pt-4 md:py-[104px] md:gap-10">
-      <div className="w-full md:max-w-2xl rounded-[80px] bg-[#FCCF5C] px-4 py-12 md:p-[80px] flex flex-col gap-10">
+      <div className="w-full lg:w-2/5 rounded-[80px] bg-[#FCCF5C] px-4 py-12 m-14 md:p-[80px] md:m-1 flex flex-col gap-10">
         <div className="flex flex-col gap-4">
           <h1 className="font-title font-medium text-[32px] md:text-5xl text-center md:text-start">
             Fale com a gente
@@ -328,7 +328,7 @@ export function ContactForm() {
                   <div className="w-full flex justify-center">
                     <Button
                       type="submit"
-                      className="font-title rounded-xl bg-[#431B61] hover:bg-[#5A0C94]  p-4   text-base font-semibold"
+                      className="font-title rounded-xl bg-[#431B61] hover:bg-[#5A0C94] p-6 text-base font-medium"
                     >
                       Enviar mensagem
                     </Button>
@@ -339,19 +339,20 @@ export function ContactForm() {
           </Form>
         </div>
       </div>
-      <div className="w-full md:w-[380px] flex flex-col justify-center items-center gap-4 md:gap-10 my-16 px-4 ">
-        <div>
-          <p className="text-center md:text-end font-sans text-2xl ">
+      <div className="w-full lg:w-1/4 flex flex-col justify-center items-center md:gap-10 px-4 lg:mt-32">
+        <div className="w-4/5 px-8 md:w-full lg:w-11/12">
+          <p className="text-center md:text-start lg:text-right font-sans text-2xl ">
             Você também pode entrar em contato através de nossas redes sociais
             ou nos enviar um e-mail:
           </p>
         </div>
         <div className="flex justify-center items-center xl:hidden">
-          <Button className="border-[2px] border-[#5A0C94] bg-white  text-[#5A0C94] font-title text-base font-semibold">
-            <ArrobaIcon className="mr-2" /> Enviar e-mail para o Pipoca
+          <Button className="border-[2px] rounded-2xl p-6 m-4 border-[#5A0C94] bg-white text-[#5A0C94] font-title text-base font-semibold">
+            <ArrobaIcon className="mr-2 fill-[#5A0C94]" /> Enviar e-mail para o
+            Pipoca
           </Button>
         </div>
-        <div className="hidden xl:flex  justify-end gap-4 w-full ">
+        <div className="hidden xl:flex  justify-center gap-4 w-full ">
           <Link target="_blank" href="https://www.youtube.com/@PipocaAgil">
             <YouTubeIcon className="fill-[#5A0C94] w-8 h-8 hover:fill-[#9747FF]" />
           </Link>
