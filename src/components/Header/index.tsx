@@ -55,43 +55,45 @@ export function Header({ content }: HeaderProps) {
           ))}
         </ul>
       </nav>
-      <div className="hidden lg:flex justify-between w-[330px] gap-4">
-        <Button
-          className="h-12 w-40 bg-[#FCFCFC] border-2 border-[#5A0C94] text-[#5A0C94] rounded-2xl p-5 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC]"
-          variant="default"
-          asChild
-        >
-          <Link
-            href="/inscricao/mentor"
-            className="font-title text-2xl font-[600]"
+      <div className="w-1/2 max-w-max h-full flex items-center justify-end md:flex md:justify-end ">
+        <div className="hidden md:flex justify-between w-[330px] gap-4 ">
+          <Button
+            className="h-12 w-40 bg-[#FCFCFC] border-2 border-[#5A0C94] text-[#5A0C94] rounded-2xl p-5 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:bg-[#FCFCFC]"
+            variant="default"
+            asChild
           >
-            {data.howIsItForMentorLabelButton}
-          </Link>
-        </Button>
+            <Link
+              href="/inscricao/mentor"
+              className="font-title text-2xl font-[600]"
+            >
+              {data.howIsItForMentorLabelButton}
+            </Link>
+          </Button>
+
+          <Button
+            className="h-12 w-40 border-none bg-[#5A0C94] text-white rounded-2xl p-2 xl:m-0 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
+            variant="default"
+            asChild
+          >
+            <Link
+              href="/inscricao/voluntario"
+              className="font-title text-2xl font-[600]"
+            >
+              {data.howIsItForVolunteerLabelButton}
+            </Link>
+          </Button>
+        </div>
 
         <Button
-          className="h-12 w-40 border-none bg-[#5A0C94] text-white rounded-2xl p-2 xl:m-0 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]"
-          variant="default"
-          asChild
+          size="icon"
+          variant="ghost"
+          className="p-1  py-3 lg:hidden"
+          onClick={openMenu}
         >
-          <Link
-            href="/inscricao/voluntario"
-            className="font-title text-2xl font-[600]"
-          >
-            {data.howIsItForVolunteerLabelButton}
-          </Link>
+          <MenuIcon className="h-6 w-6 fill-theme-grayscale-black" />
         </Button>
+        <Menu isVisible={menuIsOpen} onClose={closeMenu} />
       </div>
-
-      <Button
-        size="icon"
-        variant="ghost"
-        className="p-1  py-3 lg:hidden"
-        onClick={openMenu}
-      >
-        <MenuIcon className="h-6 w-6 fill-theme-grayscale-black" />
-      </Button>
-      <Menu isVisible={menuIsOpen} onClose={closeMenu} />
     </header>
   );
 }

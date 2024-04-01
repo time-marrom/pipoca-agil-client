@@ -13,7 +13,7 @@ import { getSanityMentorContent } from "@/services/axios";
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { PortableText } from "@portabletext/react";
-import { sanityComponents } from "@/components/registration/MentorPanel/PortableText";
+import { sanityComponents } from "@/components/PortableText";
 
 interface ConsentTermsProps {
   content: SubscriptionContent;
@@ -40,9 +40,9 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
         {data.buttonToOpenTerms}
       </AlertDialogTrigger>
       {/* <AlertDialogContent className="w-96 h-3/5 lg:w-max lg:h-3/5 overflow-y-auto  bg-[#F6F6F6]"> */}
-      <AlertDialogContent className="max-w-3xl w-96 h-3/5 lg:w-max lg:h-3/5 overflow-y-auto  bg-rose-300">
+      <AlertDialogContent className="max-w-3xl w-96 h-3/5 lg:w-max lg:h-3/5 overflow-y-auto">
         <AlertDialogHeader>
-          <AlertDialogTitle className="font-normal text-2xl font-sans text-start ">
+          <AlertDialogTitle className="font-normal text-2xl font-sans text-start py-8 ">
             {data.termsTitle}
           </AlertDialogTitle>
           <AlertDialogDescription className="font-normal text-base font-sans overflow:scroll text-start text-theme-grayscale-black">
@@ -61,7 +61,7 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
           />
           <label
             htmlFor="terms"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-sans py-6 bg-red-400 "
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-sans py-6 "
           >
             {data.acceptTheTerms}
           </label>
@@ -69,7 +69,7 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
         <AlertDialogFooter className="w-full h-full flex justify-center items-center">
           <div className="h-full w-full flex flex-row justify-center items-center ">
             <AlertDialogAction
-              className={` w-1/3 h-full font-semibold text-base font-title rounded-2xl
+              className={` w-[104px] h-12 font-semibold text-base font-title rounded-2xl
               ${
                 isAcceptedTerms
                   ? "bg-[#5A0C94] hover:bg-theme-secondary-dark hover:text-[#F6F6F6]"
@@ -80,7 +80,7 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
             >
               {data.buttonToSubmit}
             </AlertDialogAction>
-            <AlertDialogAction className=" w-1/3 h-full font-semibold text-base font-title mx-4 bg-transparent border-2 border-theme-secondary-base rounded-2xl text-theme-secondary-base hover:border-theme-secondary-light hover:text-theme-secondary-light hover:bg-theme-white-base">
+            <AlertDialogAction className=" w-[77px] h-12 font-semibold text-base font-title mx-4 bg-transparent border-2 border-theme-secondary-base rounded-2xl text-theme-secondary-base hover:border-theme-secondary-light hover:text-theme-secondary-light hover:bg-theme-white-base">
               {data.buttonToCancel}
             </AlertDialogAction>
           </div>

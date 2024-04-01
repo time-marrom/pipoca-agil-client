@@ -10,7 +10,7 @@ import Link from "next/link";
 export function Steps({ currentStep }: StepsProps) {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center text-center pb-10 gap-2 rounded-b-[90px] bg-[#FCCF5C]">
-      <div className="p-2 w-full h-full flex flex-row items-center justify-start ">
+      <div className="p-2 w-full h-full flex flex-row items-center justify-start">
         <Link
           href="/"
           className="p-2 w-full h-full flex flex-row items-center justify-start text-theme-grayscale-black font-normal font-sans text-base"

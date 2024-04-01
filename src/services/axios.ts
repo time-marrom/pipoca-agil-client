@@ -51,3 +51,13 @@ export function getSanityMentorContent(): Promise<SubscriptionContent> {
 
   return response;
 }
+
+//voluntary
+export function getSanityVoluntaryContent(): Promise<SubscriptionContent> {
+  const response = api
+    .get(queries.voluntary)
+    .then((response) => response.data.result)
+    .catch((error) => console.error(error));
+
+  return response;
+}

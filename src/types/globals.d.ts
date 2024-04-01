@@ -8,6 +8,7 @@ type SanityQueries = {
   simulation: string;
   creators: string;
   mentor: string;
+  voluntary: string;
 };
 
 type MaintenanceContent = {
