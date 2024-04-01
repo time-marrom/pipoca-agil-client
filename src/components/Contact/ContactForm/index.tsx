@@ -347,10 +347,14 @@ export function ContactForm() {
           </p>
         </div>
         <div className="flex justify-center items-center xl:hidden">
-          <Button className="border-[2px] rounded-2xl p-6 m-4 border-[#5A0C94] bg-white text-[#5A0C94] font-title text-base font-semibold">
+          <Link
+            href="mailto:pipocaagil@gmail.com"
+            target="_blank"
+            className="w-[263px] h-[53px] flex flex-row border-[2px] rounded-2xl text-center items-center justify-center p-2 m-4 border-[#5A0C94] bg-white text-[#5A0C94] font-title text-base font-semibold"
+          >
             <ArrobaIcon className="mr-2 fill-[#5A0C94]" /> Enviar e-mail para o
             Pipoca
-          </Button>
+          </Link>
         </div>
         <div className="hidden xl:flex  justify-center gap-4 w-full ">
           <Link target="_blank" href="https://www.youtube.com/@PipocaAgil">
