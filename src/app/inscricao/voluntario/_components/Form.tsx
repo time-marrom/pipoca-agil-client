@@ -93,7 +93,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.name}
-                  className="text-base font-medium font-sans leading-[35px] border  text-black data-[error]:text-[#e70000]"
+                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Nome Completo
                 </label>
