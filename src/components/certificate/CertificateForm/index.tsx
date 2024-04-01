@@ -141,14 +141,16 @@ export function CertificateForm() {
                       className={`w-full focus:outline-none font-sans text-base hover:ring-1 hover:ring-[#5A0C94] ${
                         form.formState.errors.fullname
                           ? "text-red-500 border-red-500 border-2"
-                          : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]  border-2"
+                          : !form.formState.dirtyFields.fullname
+                          ? "text-[#C3C3C3] border-[#C3C3C3] focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]"
+                          : "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
                       }`}
                       placeholder="Nome e sobrenome"
                       type="text"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="font-sans text-sm font-normal">
+                  <FormDescription className="font-sans text-sm font-normal text-[#252525]">
                     Digite como você quer que seu nome e sobrenome apareçam no
                     certificado.
                   </FormDescription>
@@ -176,12 +178,14 @@ export function CertificateForm() {
                       className={`w-full font-sans text-base font-normal focus:outline-none  hover:ring-1 hover:ring-[#5A0C94]  ${
                         form.formState.errors.email
                           ? "text-red-500 border-red-500 border-2"
-                          : "focus:ring-1 focus:ring-[#5A0C94] "
+                          : form.formState.dirtyFields.fullname
+                          ? "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
+                          : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
                       }`}
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="font-sans text-sm font-normal">
+                  <FormDescription className="font-sans text-sm font-normal text-[#252525]">
                     Insira seu melhor email.
                   </FormDescription>
                   <FormMessage className="font-sans text-sm" />
@@ -210,7 +214,9 @@ export function CertificateForm() {
                         className={`hover:ring-1 hover:ring-[#5A0C94] ${
                           form.formState.errors.role
                             ? "text-red-500 border-red-500 border-2"
-                            : "focus:ring-1 focus:ring-[#5A0C94] border-none"
+                            : form.formState.dirtyFields.fullname
+                            ? "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
+                            : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
                         }`}
                       >
                         <SelectValue placeholder="Selecione uma opção" />
@@ -225,7 +231,7 @@ export function CertificateForm() {
                       </SelectItem>
                     </SelectContent>
                   </Select>
-                  <FormDescription className="font-sans text-sm font-normal">
+                  <FormDescription className="font-sans text-sm font-normal  text-[#252525]">
                     Selecione a que mais se encaixa com a sua atuação no
                     projeto.
                   </FormDescription>
@@ -255,7 +261,9 @@ export function CertificateForm() {
                         className={`hover:ring-1 hover:ring-[#5A0C94] ${
                           form.formState.errors.role
                             ? "text-red-500 border-red-500 border-2"
-                            : "focus:ring-1 focus:ring-[#5A0C94] border-none"
+                            : form.formState.dirtyFields.fullname
+                            ? "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
+                            : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
                         }`}
                       >
                         <SelectValue placeholder="Selecione uma opção" />
@@ -279,7 +287,7 @@ export function CertificateForm() {
                       </SelectItem>
                     </SelectContent>
                   </Select>
-                  <FormDescription className="font-sans text-sm font-normal">
+                  <FormDescription className="font-sans text-sm font-normal  text-[#252525]">
                     Selecione a que mais se encaixa com a sua atuação no
                     projeto.
                   </FormDescription>
@@ -303,7 +311,9 @@ export function CertificateForm() {
                           variant={"outline"}
                           className={cn(
                             "w-full justify-start text-left font-normal font-sans hover:ring-1 hover:ring-[#5A0C94] hover:text-black",
-                            !date && "text-muted-foreground"
+                            !date && "text-muted-foreground",
+                            field.value &&
+                              "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
                           )}
                         >
                           <CalendarIcon className="mr-2 h-4 w-4" />
@@ -331,7 +341,7 @@ export function CertificateForm() {
                       </PopoverContent>
                     </Popover>
                   </FormControl>
-                  <FormDescription className="font-sans text-sm font-normal">
+                  <FormDescription className="font-sans text-sm font-normal  text-[#252525]">
                     Certifique-se de que a data está correta.
                   </FormDescription>
                   <FormMessage className="font-sans text-sm" />
