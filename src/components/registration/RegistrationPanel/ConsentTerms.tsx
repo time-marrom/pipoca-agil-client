@@ -50,40 +50,42 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <div className="w-full flex items-center space-x-2">
-          <input
-            type="checkbox"
-            className="h-5 w-5 rounded-md checked:touch-pan-up checked:accent-[#5A0C94] caret-theme-secondary-light"
-            id="terms"
-            checked={isAcceptedTerms}
-            onChange={handleCheckboxChange}
-          />
-          <label
-            htmlFor="terms"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-sans py-6  "
-          >
-            {data.acceptTheTerms}
-          </label>
-        </div>
-        <AlertDialogFooter className="w-full h-full flex justify-center items-center ">
-          <div className="h-full w-full flex flex-row justify-center items-center ">
-            <AlertDialogAction
-              className={` w-[104px] h-12 font-semibold text-base font-title rounded-2xl
+        <div className="w-full h-2/4  bg-[#FCFCFC] sticky bottom-8">
+          <div className="w-full flex items-center justify-center space-x-2  bg-[#FCFCFC]">
+            <input
+              type="checkbox"
+              className="h-5 w-5 rounded-md checked:touch-pan-up checked:accent-[#5A0C94] caret-theme-secondary-light"
+              id="terms"
+              checked={isAcceptedTerms}
+              onChange={handleCheckboxChange}
+            />
+            <label
+              htmlFor="terms"
+              className="text-base font-normal leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-sans py-6  "
+            >
+              {data.acceptTheTerms}
+            </label>
+          </div>
+          <AlertDialogFooter className="w-full h-full flex justify-center items-center ">
+            <div className="h-full w-full flex flex-row justify-center items-center py-4 bg-[#FCFCFC] ">
+              <AlertDialogAction
+                className={` w-[104px] h-12 font-semibold text-base font-title rounded-2xl
               ${
                 isAcceptedTerms
                   ? "bg-[#5A0C94] hover:bg-theme-secondary-dark hover:text-[#F6F6F6]"
                   : "bg-[#DEDEDE] hover:bg-theme-white-base"
               }`}
-              disabled={!isAcceptedTerms}
-              onClick={() => setCurrentStep(1)}
-            >
-              {data.buttonToSubmit}
-            </AlertDialogAction>
-            <AlertDialogAction className=" w-[77px] h-12 font-semibold text-base font-title mx-4 bg-transparent border-2 border-theme-secondary-base rounded-2xl text-theme-secondary-base hover:border-theme-secondary-light hover:text-theme-secondary-light hover:bg-theme-white-base">
-              {data.buttonToCancel}
-            </AlertDialogAction>
-          </div>
-        </AlertDialogFooter>
+                disabled={!isAcceptedTerms}
+                onClick={() => setCurrentStep(1)}
+              >
+                {data.buttonToSubmit}
+              </AlertDialogAction>
+              <AlertDialogAction className=" w-[77px] h-12 font-semibold text-base font-title mx-4 bg-transparent border-2 border-theme-secondary-base rounded-2xl text-theme-secondary-base hover:border-theme-secondary-light hover:text-theme-secondary-light hover:bg-theme-white-base">
+                {data.buttonToCancel}
+              </AlertDialogAction>
+            </div>
+          </AlertDialogFooter>
+        </div>
       </AlertDialogContent>
     </AlertDialog>
   );

@@ -40,7 +40,7 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
         {data.buttonToOpenTerms}
       </AlertDialogTrigger>
       {/* <AlertDialogContent className="w-96 h-3/5 lg:w-max lg:h-3/5 overflow-y-auto  bg-[#F6F6F6]"> */}
-      <AlertDialogContent className="max-w-3xl w-96 h-3/5 lg:w-max lg:h-3/5 overflow-y-auto">
+      <AlertDialogContent className="max-w-3xl w-96 h-3/5 md:w-4/5 md:h-[70vh] lg:w-max lg:h-3/5 overflow-y-auto  md:px-10">
         <AlertDialogHeader>
           <AlertDialogTitle className="font-normal md:font-medium text-2xl md:text-[32px] font-title text-start py-8">
             {data.termsTitle}
@@ -51,8 +51,8 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <div className="w-full h-2/4  bg-[#FCFCFC] sticky bottom-8">
-          <div className="w-full flex items-center justify-center space-x-2  bg-[#FCFCFC]">
+        <div className="w-full h-2/4 bg-[#FCFCFC] sticky bottom-8">
+          <div className="w-full flex items-center justify-center space-x-2 bg-[#FCFCFC]">
             <input
               type="checkbox"
               className="h-5 w-5 rounded-md checked:touch-pan-up checked:accent-[#5A0C94] caret-theme-secondary-light"
@@ -62,12 +62,12 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
             />
             <label
               htmlFor="terms"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-sans py-6 "
+              className="text-base font-normal leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-sans py-6 "
             >
               {data.acceptTheTerms}
             </label>
           </div>
-          <AlertDialogFooter className="w-full h-full flex justify-center items-center bg-sky-400">
+          <AlertDialogFooter className="w-full h-full flex justify-center items-center ">
             <div className="h-full w-full flex flex-row justify-center items-center py-4 bg-[#FCFCFC]">
               <AlertDialogAction
                 className={` w-[104px] h-12 font-semibold text-base font-title rounded-2xl
