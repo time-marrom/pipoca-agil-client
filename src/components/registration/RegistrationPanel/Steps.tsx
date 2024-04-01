@@ -29,7 +29,7 @@ export function Steps({ currentStep }: StepsProps) {
           <p className="font-bold text-sm font-sans">Termo de Consentimento</p>
         </div>
         <div className="w-[110px] h-[2px] " />
-        <div className="absolute top-[26px] w-[200px] h-[2px] bg-[#3A3A3A]" />
+        <div className="absolute top-[26px] w-[150px] md:w-[200px] h-[2px] bg-[#3A3A3A]" />
         <div className="w-24 flex flex-col items-center justify-center text-center p-1">
           <StepTwoIcon
             data-current-step={currentStep}

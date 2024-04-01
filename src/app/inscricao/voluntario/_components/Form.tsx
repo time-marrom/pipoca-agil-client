@@ -12,16 +12,25 @@ interface FormProps {
   currentStep: number;
 }
 
+const regexWhatsApp =
+  /(?:(?:\+|00)\d{1,3})?\s?\(?(\d{2,4})\)?[\s.-]?\d{2,5}[\s.-]?\d{2,5}[\s.-]?\d{2,5}/;
+
 const schema = z.object({
   name: z.string().min(3, { message: "Você precisa preencher o seu nome." }),
   email: z.string().email({
     message:
       "Verifique o formato do seu e-mail, como: exemplo@gmail.com. Ou, talvez o seu e-mail já esteja cadastrado. Entre em contato conosco caso precise modificar algum dado da sua inscrição, se já a realizou.",
   }),
-  whatsApp: z.string().min(11, {
-    message:
-      "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
-  }),
+  whatsApp: z
+    .string()
+    .min(11, {
+      message:
+        "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
+    })
+    .regex(regexWhatsApp, {
+      message:
+        "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
+    }),
   country: z.string().nonempty({
     message: "Você precisa selecionar uma opção.",
   }),
