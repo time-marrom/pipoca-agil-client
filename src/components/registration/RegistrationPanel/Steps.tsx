@@ -26,16 +26,22 @@ export function Steps({ currentStep }: StepsProps) {
             data-current-step={currentStep}
             className="text-lg mb-1 h-12 w-12 fill-[#FCCF5C] data-[current-step='0']:fill-[#FCFCFC]"
           />
-          <p className="font-bold text-sm font-sans">Termo de Consentimento</p>
+          <p className="font-medium text-xs md:text-sm font-title">
+            Termo de Consentimento
+          </p>
         </div>
         <div className="w-[110px] h-[2px] " />
-        <div className="absolute top-[26px] w-[150px] md:w-[200px] h-[2px] bg-[#3A3A3A]" />
+        <div className="absolute top-[26px] w-[180px] md:w-[210px] h-[2px] bg-[#3A3A3A]" />
         <div className="w-24 flex flex-col items-center justify-center text-center p-1">
           <StepTwoIcon
             data-current-step={currentStep}
             className="text-lg mb-1 h-12 w-12 fill-[#FCCF5C] data-[current-step='1']:fill-[#FCFCFC]"
           />
-          <p className="font-normal text-sm font-sans">Dados pessoais</p>
+          <div className="w-32">
+            <p className="font-medium text-xs md:text-sm font-title">
+              Dados pessoais
+            </p>
+          </div>
         </div>
       </div>
     </div>
