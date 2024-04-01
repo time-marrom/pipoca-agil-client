@@ -1,6 +1,7 @@
 import { menuOptions } from "@/utils/menu";
 import { socialMedias } from "@/utils/social";
 import Link from "next/link";
+import { Item } from "./components/item";
 
 export function Footer(): JSX.Element {
   const footerOptions = menuOptions.slice().sort((a, b) => a.order - b.order);
@@ -10,13 +11,13 @@ export function Footer(): JSX.Element {
     .sort((a, b) => a.order - b.order);
 
   return (
-    <footer className="bg-[#F6F6F6] py-10  md:py-2 lg:py-4  px-6 md:px-16 lg:px-36 w-full h-full flex flex-col justify-between items-center  gap-12 lg:gap-8 md:gap-4">
-      <div className=" w-full h-full flex flex-col md:flex-row-reverse justify-between items-start gap-8 lg:gap-2 font-sans text-[#3A3A3A]">
-        <div className="w-full md:w-2/3 flex flex-col items-center md:items-end lg:mb-20 gap-4 lg:gap-8">
+    <footer className="bg-[#F6F6F6] py-10  md:py-2 lg:py-4  px-6 md:px-16 lg:px-36 w-full h-full flex flex-col gap-12 lg:gap-8 md:gap-4">
+      <div className=" w-full h-full flex flex-col justify-center items-center md:flex-row  gap-8  font-sans text-[#3A3A3A]  bg-red-500">
+        <div className="max-w-max md:w-2/3 lg:w-1/5 flex flex-col justify-center items-center md:items-start  gap-4 bg-green-300 ">
           <h4 className="font-title font-semibold text-base text-[#3A3A3A] ">
-            Siga o Pipoca Ágil
+            Siga o Pipoca Ágil nas redes sociais
           </h4>
-          <ul className="flex flex-row gap-10  md:gap-4 ">
+          <ul className="w-full flex flex-row gap-10 justify-center items-center md:justify-between  bg-violet-500 ">
             {orderSocialMedias.map(({ name, path, icon: Icon }) => (
               <li key={name}>
                 <Link href={path} target="_blank">
@@ -26,34 +27,25 @@ export function Footer(): JSX.Element {
             ))}
           </ul>
         </div>
-        <div className="w-full h-full flex flex-col  justify-between items-center lg:items-start gap-2 lg:my-4 py-2">
-          <p className="block md:hidden my-2">Navegação</p>
-          <ul className="h-full w-full flex flex-col md:flex-row lg:gap-8 md:gap-4 md:items-start items-center text-center md:text-start">
-            {footerOptions.map(({ name, path }) => (
-              <li
-                key={name}
-                className="flex flex-row items-center md:items-start md:py-2 py-4 "
-              >
-                <Link href={path}>
-                  <span className="flex flex-row hover:text-[#b667f3] underline text-base font-semibold font-title">
-                    {name}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* <div className="w-full h-full flex flex-col  items-center gap-2 lg:my-4 py-2 bg-slate-500"> */}
+        <ul className="h-full w-full flex flex-col  md:grid md:grid-cols-3 md:grid-rows-3 lg:flex-row lg:justify-evenly lg:gap-4 items-center lg:items-end text-center lg:text-end  bg-pink-400">
+          {footerOptions.map(({ name, path }, index) => (
+            <li
+              key={name}
+              className="flex flex-row text-base  items-center md:py-2 py-4  bg-blue-300 md:w-1/3"
+            >
+              <Item name={name} path={path} order={index} />
+            </li>
+          ))}
+        </ul>
+        {/* </div> */}
       </div>
       <hr className=" w-full h-0.5 bg-[#431B61]" />
-      <div className="w-full h-full flex flex-col justify-between items-center gap-4 font-sans text-xs font-light text-center text-[#3A3A3A] lg:px-4">
+      <div className="w-full h-full flex flex-col justify-between items-center  font-sans text-xs font-light text-center text-[#3A3A3A] lg:px-4">
+        <p className="font-sans text-sm font-normal">&copy;2024 Time Marrom</p>
         <p className="font-sans text-sm font-normal">
-          &copy;Time Marrom 2023. Todos os direitos reservados
+          Todos os direitos reservados
         </p>
-        <div className="w-full h-full flex flex-col justify-between items-center font-sans text-xs font-light text-[#3A3A3A]">
-          <p className="font-sans text-sm font-normal">Ibson Cabral</p>
-          <p className="font-sans text-sm font-normal">pipocaagil@gmail.com</p>
-          <p className="font-sans text-sm font-normal">Rio de Janeiro - RJ</p>
-        </div>
       </div>
     </footer>
   );
