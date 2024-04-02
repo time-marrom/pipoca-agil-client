@@ -14,8 +14,7 @@ interface FormProps {
   currentStep: number;
 }
 
-const regexWhatsApp =
-  /(?:(?:\+|00)\d{1,3})?\s?\(?(\d{2,4})\)?[\s.-]?\d{2,5}[\s.-]?\d{2,5}[\s.-]?\d{2,5}/;
+const regexWhatsApp = /^\d+$/;
 
 const schema = z.object({
   name: z.string().min(3, { message: "Você precisa preencher o seu nome." }),
@@ -30,8 +29,7 @@ const schema = z.object({
         "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
     })
     .regex(regexWhatsApp, {
-      message:
-        "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
+      message: "  Apenas Números",
     }),
   country: z.string().nonempty({
     message: "Você precisa selecionar uma opção.",
@@ -184,6 +182,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 <div className="relative">
                   <input
                     type="text"
+                    maxLength={18}
                     data-error={errors.whatsApp}
                     data-filled={!!watch("whatsApp")}
                     placeholder="(99) 99 9 9999-9999"
