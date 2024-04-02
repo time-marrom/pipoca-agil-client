@@ -138,13 +138,9 @@ export function CertificateForm() {
                   </FormLabel>
                   <FormControl className="relative">
                     <Input
-                      className={`w-full focus:outline-none font-sans text-base hover:ring-1 hover:ring-[#5A0C94] ${
-                        form.formState.errors.fullname
-                          ? "text-red-500 border-red-500 border-2"
-                          : !form.formState.dirtyFields.fullname
-                          ? "text-[#C3C3C3] border-[#C3C3C3] focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94]"
-                          : "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
-                      }`}
+                      data-error={!!form.formState.errors.fullname}
+                      data-filled={!!form.watch("fullname")}
+                      className="w-full focus:outline-none font-sans text-base border-2 text-[#DEDEDE] hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94] "
                       placeholder="Nome e sobrenome"
                       type="text"
                       {...field}
@@ -173,15 +169,11 @@ export function CertificateForm() {
                   </FormLabel>
                   <FormControl>
                     <Input
+                      data-error={!!form.formState.errors.email}
+                      data-filled={!!form.watch("email")}
+                      className="w-full focus:outline-none font-sans text-base border-2 text-[#DEDEDE] hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94]"
                       placeholder="exemplo@gmail.com"
                       type="email"
-                      className={`w-full font-sans text-base font-normal focus:outline-none  hover:ring-1 hover:ring-[#5A0C94]  ${
-                        form.formState.errors.email
-                          ? "text-red-500 border-red-500 border-2"
-                          : form.formState.dirtyFields.fullname
-                          ? "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
-                          : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
-                      }`}
                       {...field}
                     />
                   </FormControl>
@@ -211,15 +203,11 @@ export function CertificateForm() {
                   >
                     <FormControl>
                       <SelectTrigger
-                        className={`hover:ring-1 hover:ring-[#5A0C94] ${
-                          form.formState.errors.role
-                            ? "text-red-500 border-red-500 border-2"
-                            : form.formState.dirtyFields.fullname
-                            ? "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
-                            : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
-                        }`}
+                        className="hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94] "
+                        data-error={!!form.formState.errors.role}
+                        data-filled={!!form.watch("role")}
                       >
-                        <SelectValue placeholder="Selecione uma opção" />
+                        <SelectValue placeholder="Selecione uma opção " />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -258,13 +246,9 @@ export function CertificateForm() {
                   >
                     <FormControl>
                       <SelectTrigger
-                        className={`hover:ring-1 hover:ring-[#5A0C94] ${
-                          form.formState.errors.role
-                            ? "text-red-500 border-red-500 border-2"
-                            : form.formState.dirtyFields.fullname
-                            ? "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
-                            : "focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2"
-                        }`}
+                        className="hover:ring-1 hover:ring-[#5A0C94]  data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94]  "
+                        data-error={!!form.formState.errors.office}
+                        data-filled={!!form.watch("office")}
                       >
                         <SelectValue placeholder="Selecione uma opção" />
                       </SelectTrigger>

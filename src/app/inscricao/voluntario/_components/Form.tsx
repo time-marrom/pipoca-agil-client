@@ -6,6 +6,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import * as z from "zod";
 import { WarningIcon } from "@/components/icons/WarningIcon";
 import { sendVolunteerConfirmation } from "@/services/email";
+import Link from "next/link";
 
 interface FormProps {
   setCurrentStep: (currentStep: number) => void;
@@ -102,7 +103,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                   data-error={errors.name}
                   data-filled={!!watch("name")}
                   placeholder="Nome e sobrenome"
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000] "
                   {...register("name")}
                 />
                 <p
@@ -148,8 +149,14 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                   errors={errors}
                   name="email"
                   render={({ message }) => (
-                    <p className="text-sm font-normal font-sans text-[#e70000]">
+                    <p className="flex flex-col text-sm font-normal font-sans text-[#e70000]">
                       {message}
+                      <Link
+                        href="/contato"
+                        className="text-base font-medium font-title text-[#5a0c94] hover:text-[#5a0c94] underline py-4"
+                      >
+                        Fale conosco
+                      </Link>
                     </p>
                   )}
                 />

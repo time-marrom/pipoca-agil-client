@@ -429,6 +429,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ErrorMessage } from "@hookform/error-message";
 import * as z from "zod";
 import { WarningIcon } from "@/components/icons/WarningIcon";
+import Link from "next/link";
 
 interface FormProps {
   setCurrentStep: (currentStep: number) => void;
@@ -566,8 +567,14 @@ export function MentorRegistrationForm({
                   errors={errors}
                   name="email"
                   render={({ message }) => (
-                    <p className="text-sm font-normal font-sans text-[#e70000]">
+                    <p className="flex flex-col text-sm font-normal font-sans text-[#e70000]">
                       {message}
+                      <Link
+                        href="/contato"
+                        className="text-base font-medium font-title text-[#5a0c94] hover:text-[#5a0c94] underline py-4"
+                      >
+                        Fale conosco
+                      </Link>
                     </p>
                   )}
                 />
