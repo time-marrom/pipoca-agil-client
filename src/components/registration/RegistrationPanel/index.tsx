@@ -1,25 +1,24 @@
-"use client";
+"use client"
 
-import { GlobalContext } from "@/contexts/GlobalContext";
-import { useContext } from "react";
-import { Steps } from "./Steps";
-import { UserConsentTerms } from "./UserConsentTerms";
-import { UserConfirmationMessage } from "./UserConfirmationMessage";
-import { Form } from "@/app/inscricao/voluntario/_components/Form";
-import { getSanityVoluntaryContent } from "@/services/axios";
-import { useQuery } from "@tanstack/react-query";
+import { Form } from "@/app/inscricao/voluntario/_components/Form"
+import { GlobalContext } from "@/contexts/GlobalContext"
+import { getSanityVoluntaryContent } from "@/services/axios"
+import { useQuery } from "@tanstack/react-query"
+import { useContext } from "react"
+import { Steps } from "./Steps"
+import { UserConsentTerms } from "./UserConsentTerms"
 
 interface RegistrationPanelProps {
-  content: SubscriptionContent;
+  content: SubscriptionContent
 }
 
 export function RegistrationPanel({ content }: RegistrationPanelProps) {
   const { data } = useQuery({
     queryKey: ["voluntary"],
     queryFn: getSanityVoluntaryContent,
-    initialData: content,
-  });
-  const { currentStep, setCurrentStep } = useContext(GlobalContext);
+    initialData: content
+  })
+  const { currentStep } = useContext(GlobalContext)
 
   return (
     <div className="w-full h-full min-h-[65vh] flex flex-col justify-start items-center">
@@ -31,11 +30,9 @@ export function RegistrationPanel({ content }: RegistrationPanelProps) {
               <UserConsentTerms content={data} />
             </div>
           )}
-          {currentStep === 1 && (
-            <Form currentStep={currentStep} setCurrentStep={setCurrentStep} />
-          )}
+          {currentStep === 1 && <Form />}
         </div>
       </div>
     </div>
-  );
+  )
 }
