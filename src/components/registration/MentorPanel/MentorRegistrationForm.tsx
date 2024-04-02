@@ -430,6 +430,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import * as z from "zod";
 import { WarningIcon } from "@/components/icons/WarningIcon";
 import Link from "next/link";
+import { Error } from "@/components/icons/Error";
 
 interface FormProps {
   setCurrentStep: (currentStep: number) => void;
@@ -521,14 +522,19 @@ export function MentorRegistrationForm({
                 >
                   *Nome Completo
                 </label>
-                <input
-                  type="text"
-                  data-error={errors.name}
-                  placeholder="Nome e sobrenome"
-                  data-filled={!!watch("name")}
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
-                  {...register("name")}
-                />
+                <div className="relative">
+                  <input
+                    type="text"
+                    data-error={errors.name}
+                    placeholder="Nome e sobrenome"
+                    data-filled={!!watch("name")}
+                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    {...register("name")}
+                  />
+                  {errors.name && (
+                    <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                  )}
+                </div>
                 <p
                   data-error={errors.name}
                   className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
@@ -554,14 +560,19 @@ export function MentorRegistrationForm({
                 >
                   *E-mail para contato
                 </label>
-                <input
-                  type="email"
-                  data-error={errors.email}
-                  placeholder="exemplo@exemplo.com"
-                  data-filled={!!watch("email")}
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
-                  {...register("email")}
-                />
+                <div className="relative">
+                  <input
+                    type="email"
+                    data-error={errors.email}
+                    placeholder="exemplo@exemplo.com"
+                    data-filled={!!watch("email")}
+                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    {...register("email")}
+                  />
+                  {errors.email && (
+                    <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                  )}
+                </div>
                 <p
                   data-error={errors.email}
                   className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
@@ -593,15 +604,20 @@ export function MentorRegistrationForm({
                 >
                   *Número de WhatsApp
                 </label>
-                <input
-                  type="text"
-                  maxLength={18}
-                  data-error={errors.number}
-                  data-filled={!!watch("number")}
-                  placeholder="(99) 99 9 9999-9999"
-                  className="w-full h-10 px-4 text-black text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
-                  {...register("number")}
-                />
+                <div className="relative">
+                  <input
+                    maxLength={18}
+                    type="text"
+                    data-error={errors.number}
+                    data-filled={!!watch("number")}
+                    placeholder="(99) 99 9 9999-9999"
+                    className="w-full h-10 px-4 text-black text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    {...register("number")}
+                  />
+                  {errors.number && (
+                    <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                  )}
+                </div>
                 <p
                   data-error={errors.number}
                   className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
@@ -820,15 +836,19 @@ export function MentorRegistrationForm({
                 >
                   *Perfil do LinkedIn
                 </label>
-                <input
-                  type="text"
-                  data-error={errors.LinkedIn}
-                  data-filled={!!watch("LinkedIn")}
-                  placeholder="https://linkedin.com/in/seulink"
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
-                  {...register("LinkedIn")}
-                />
-
+                <div className="relative">
+                  <input
+                    type="text"
+                    data-error={errors.LinkedIn}
+                    data-filled={!!watch("LinkedIn")}
+                    placeholder="https://linkedin.com/in/seulink"
+                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    {...register("LinkedIn")}
+                  />
+                  {errors.LinkedIn && (
+                    <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                  )}
+                </div>
                 <p
                   data-error={errors.LinkedIn}
                   className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
@@ -854,14 +874,19 @@ export function MentorRegistrationForm({
                 >
                   *Tem alguma observação a fazer?
                 </label>
-                <input
-                  type="textarea"
-                  data-error={errors.comment}
-                  data-filled={!!watch("comment")}
-                  placeholder="Conte pra gente!"
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
-                  {...register("comment")}
-                />
+                <div className="relative">
+                  <input
+                    type="textarea"
+                    data-error={errors.comment}
+                    data-filled={!!watch("comment")}
+                    placeholder="Conte pra gente!"
+                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    {...register("comment")}
+                  />
+                  {errors.comment && (
+                    <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                  )}
+                </div>
                 <p
                   data-error={errors.comment}
                   className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
