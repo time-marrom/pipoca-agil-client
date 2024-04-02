@@ -98,7 +98,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.name}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Nome Completo
                 </label>
@@ -108,7 +108,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                     data-error={errors.name}
                     data-filled={!!watch("name")}
                     placeholder="Nome e sobrenome"
-                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000] "
+                    className="w-full h-[58px] px-4 text-[15px] text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000] "
                     {...register("name")}
                   />
                   {errors.name && (
@@ -117,7 +117,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 </div>
                 <p
                   data-error={errors.name}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Digite seu nome e sobrenome.
                 </p>
@@ -136,7 +136,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.email}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *E-mail para contato
                 </label>
@@ -146,7 +146,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                     data-error={errors.email}
                     data-filled={!!watch("email")}
                     placeholder="exemplo@exemplo.com"
-                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h-[58px] px-4 text-[15px] text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("email")}
                   />
                   {errors.email && (
@@ -155,7 +155,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 </div>
                 <p
                   data-error={errors.email}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Insira o seu melhor e-mail.
                 </p>
@@ -167,7 +167,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                       {message}
                       <Link
                         href="/contato"
-                        className="text-base font-medium font-title text-[#5a0c94] hover:text-[#5a0c94] underline py-4"
+                        className="text-sm font-normal font-title text-[#5a0c94] hover:text-[#5a0c94] underline py-4"
                       >
                         Fale conosco
                       </Link>
@@ -180,7 +180,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.whatsApp}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Número de WhatsApp
                 </label>
@@ -191,7 +191,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                     data-error={errors.whatsApp}
                     data-filled={!!watch("whatsApp")}
                     placeholder="(99) 99 9 9999-9999"
-                    className="w-full h-10 px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h- px-4 text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("whatsApp")}
                   />
                   {errors.whatsApp && (
@@ -200,7 +200,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 </div>
                 <p
                   data-error={errors.whatsApp}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Por lá acontecem os grupos e maior parte da comunicação.
                 </p>
@@ -219,14 +219,14 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.country}
-                  className="text-base font-medium font-sans leading-[35px]  text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px]  text-black data-[error]:text-[#e70000]"
                 >
                   *País
                 </label>
                 <select
                   data-error={errors.country}
                   data-filled={!!watch("country")}
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans data-[filled=true]:text-black  text-[#dedede] focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-[58px] px-4 text-[15px] text-base font-medium font-sans data-[filled=true]:text-black  text-[#dedede] focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("country")}
                 >
                   <option value="">Selecione o país</option>
@@ -240,7 +240,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 </select>
                 <p
                   data-error={errors.country}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Onde você vive atualmente?
                 </p>
@@ -259,7 +259,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.role}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Função pretendida
                 </label>
@@ -267,7 +267,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                   data-error={errors.role}
                   data-filled={!!watch("role")}
                   {...register("role")}
-                  className="w-full h-10 px-4 text-base font-medium font-sans data-[filled=true]:text-black text-[#dedede] focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-[58px] px-4 text-base font-normal font-sans data-[filled=true]:text-black text-[#dedede] focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                 >
                   <option value="">Selecione uma opção.</option>
                   <option value="QA">
@@ -280,7 +280,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 </select>
                 <p
                   data-error={errors.role}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Em qual área você pretende atuar no projeto?
                 </p>
@@ -299,13 +299,13 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.period}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Disponibilidade de períodos (considerar horário de Brasília)
                 </label>
                 <p
                   data-error={errors.period}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Em qual ou quais turnos você está disponível para participar
                   de reuniões? Selecione pelo menos um. Pode selecionar mais de
@@ -323,7 +323,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                     />
                     <label
                       htmlFor="manha"
-                      className="font-sans font-medium text-base leading-[35px]"
+                      className="font-sans font-normal text-base leading-[35px]"
                     >
                       Manhã
                     </label>
@@ -374,7 +374,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.linkedIn}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Perfil do LinkedIn
                 </label>
@@ -384,7 +384,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                     data-error={errors.linkedIn}
                     data-filled={!!watch("linkedIn")}
                     placeholder="https://linkedin.com/in/seulink"
-                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h-[58px] px-4 text-[15px] text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("linkedIn")}
                   />
                   {errors.linkedIn && (
@@ -394,7 +394,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
 
                 <p
                   data-error={errors.linkedIn}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Insira o link completo.
                 </p>
@@ -413,7 +413,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.comment}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Tem alguma observação a fazer?
                 </label>
@@ -423,7 +423,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                     data-error={errors.comment}
                     data-filled={!!watch("comment")}
                     placeholder="Conte pra gente!"
-                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h-[58px] px-4 text-[15px] text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("comment")}
                   />
                   {errors.comment && (
@@ -432,7 +432,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 </div>
                 <p
                   data-error={errors.comment}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Limite de até 500 caracteres.
                 </p>
