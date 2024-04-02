@@ -20,7 +20,7 @@ const DEFAULT_VALUE = {
   setIsAcceptedTerms: () => {},
   role: "",
   setRole: () => {},
-  currentStep: 1,
+  currentStep: 0,
   setCurrentStep: () => {},
   mentorCurrentStep: 0,
   setMentorCurrentStep: () => {},

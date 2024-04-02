@@ -1,17 +1,19 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { ErrorMessage } from "@hookform/error-message";
-import * as z from "zod";
-import * as Dialog from "@radix-ui/react-dialog";
-import { WarningIcon } from "@/components/icons/WarningIcon";
-import { sendVolunteerConfirmation } from "@/services/email";
-import Link from "next/link";
 import { Error } from "@/components/icons/Error";
+import { WarningIcon } from "@/components/icons/WarningIcon";
 import { UserConfirmationMessage } from "@/components/registration/RegistrationPanel/UserConfirmationMessage";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { GlobalContext } from "@/contexts/GlobalContext";
+import { sendVolunteerConfirmation } from "@/services/email";
+import { sendVolunteerData } from "@/services/sheets";
+import { ErrorMessage } from "@hookform/error-message";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as Dialog from "@radix-ui/react-dialog";
+import Link from "next/link";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 interface FormProps {
   setCurrentStep: (currentStep: number) => void;
@@ -62,21 +64,25 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>;
 
 export function Form({ setCurrentStep, currentStep }: FormProps) {
-  const [open, setOpen] = useState(true);
+  const { setIsAcceptedTerms } = useContext(GlobalContext);
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isDirty, isValid },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
   });
 
   function onSubmit(data: Schema) {
+    sendVolunteerData(data);
     sendVolunteerConfirmation({ to: data.email, name: data.name });
-    setOpen(true);
-    // alert(JSON.stringify(data, null, 2));
   }
+
+  function handleBackHome() {
+    setCurrentStep(0);
+    setIsAcceptedTerms(false);
+  };
 
   return (
     <div className="my-4 px-4 w-full h-full flex flex-col items-center justify-center text-start space-y-10 mb-10">
@@ -456,9 +462,8 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                   <Dialog.DialogTrigger asChild>
                     <Button
                       type="submit"
-                      className="h-full max-w-max font-title text-base font-medium text-[#727272] p-3 rounded-2xl bg-[#DEDEDE]  hover:bg-[#5A0C94] hover:text-white "
-                      // onClick={() => handle()}
-                      // disabled={!form.formState.isValid}
+                      className="h-full max-w-max font-title text-base font-medium text-[#F6F6F6] p-3 rounded-2xl bg-[#5A0C94]  hover:bg-[#5A0C94] hover:text-white disabled:bg-[#DEDEDE] disabled:text-[#727272] disabled:cursor-not-allowed"
+                      disabled={!isDirty || !isValid}
                     >
                       Enviar dados
                     </Button>
@@ -474,7 +479,9 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                         <Dialog.Close>
                           <div className="flex justify-center">
                             <Link href="/">
-                              <Button className="rounded-xl font-title font-medium text-base">
+                              <Button className="rounded-xl font-title font-medium text-base"
+                                onClick={() => handleBackHome()}
+                              >
                                 Voltar para o Início
                               </Button>
                             </Link>

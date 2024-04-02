@@ -11,7 +11,7 @@ interface VolunteerConfirmation {
 
 export function sendVolunteerConfirmation({ to, name }: VolunteerConfirmation) {
   const response = api
-    .post("/mail", {
+    .post("/volunteer", {
       to,
       name,
     })
