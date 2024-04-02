@@ -4,10 +4,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ErrorMessage } from "@hookform/error-message";
 import * as z from "zod";
+import * as Dialog from "@radix-ui/react-dialog";
 import { WarningIcon } from "@/components/icons/WarningIcon";
 import { sendVolunteerConfirmation } from "@/services/email";
 import Link from "next/link";
 import { Error } from "@/components/icons/Error";
+import { UserConfirmationMessage } from "@/components/registration/RegistrationPanel/UserConfirmationMessage";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface FormProps {
   setCurrentStep: (currentStep: number) => void;
@@ -58,6 +62,7 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>;
 
 export function Form({ setCurrentStep, currentStep }: FormProps) {
+  const [open, setOpen] = useState(true);
   const {
     register,
     handleSubmit,
@@ -69,8 +74,8 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
 
   function onSubmit(data: Schema) {
     sendVolunteerConfirmation({ to: data.email, name: data.name });
-
-    alert(JSON.stringify(data, null, 2));
+    setOpen(true);
+    // alert(JSON.stringify(data, null, 2));
   }
 
   return (
@@ -447,12 +452,38 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                 enviar!
               </p>
               <div className="flex justify-center">
-                <button
-                  type="submit"
-                  className="h-full max-w-max font-title text-base font-medium text-[#727272] p-3 rounded-2xl bg-[#DEDEDE]  hover:bg-[#5A0C94] hover:text-white "
-                >
-                  Enviar dados
-                </button>
+                <Dialog.Root>
+                  <Dialog.DialogTrigger asChild>
+                    <Button
+                      type="submit"
+                      className="h-full max-w-max font-title text-base font-medium text-[#727272] p-3 rounded-2xl bg-[#DEDEDE]  hover:bg-[#5A0C94] hover:text-white "
+                      // onClick={() => handle()}
+                      // disabled={!form.formState.isValid}
+                    >
+                      Enviar dados
+                    </Button>
+                  </Dialog.DialogTrigger>
+
+                  <Dialog.Portal>
+                    <Dialog.Overlay className="fixed inset-0 bg-black/70" />
+                    <Dialog.Content className="fixed top-0 left-0 w-full h-full flex items-center justify-center p-4 md:p-10 ">
+                      <div className="bg-[#F6F6F6] rounded-2xl md:max-w-3xl lg:w-[648px] lg:h-[543px] md:h-3/5 overflow-auto p-4 relative flex flex-col items-center justify-evenly gap-6">
+                        <Dialog.Description className="font-sans text-base px-3">
+                          <UserConfirmationMessage />
+                        </Dialog.Description>
+                        <Dialog.Close>
+                          <div className="flex justify-center">
+                            <Link href="/">
+                              <Button className="rounded-xl font-title font-medium text-base">
+                                Voltar para o Início
+                              </Button>
+                            </Link>
+                          </div>
+                        </Dialog.Close>
+                      </div>
+                    </Dialog.Content>
+                  </Dialog.Portal>
+                </Dialog.Root>
               </div>
             </div>
           </form>
