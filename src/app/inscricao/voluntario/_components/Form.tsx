@@ -82,7 +82,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
   function handleBackHome() {
     setCurrentStep(0);
     setIsAcceptedTerms(false);
-  };
+  }
 
   return (
     <div className="my-4 px-4 w-full h-full flex flex-col items-center justify-center text-start space-y-10 mb-10">
@@ -197,7 +197,7 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                     data-error={errors.whatsApp}
                     data-filled={!!watch("whatsApp")}
                     placeholder="(99) 99 9 9999-9999"
-                    className="w-full h- px-4 text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h-[58px] px-4 text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("whatsApp")}
                   />
                   {errors.whatsApp && (
@@ -479,7 +479,8 @@ export function Form({ setCurrentStep, currentStep }: FormProps) {
                         <Dialog.Close>
                           <div className="flex justify-center">
                             <Link href="/">
-                              <Button className="rounded-xl font-title font-medium text-base"
+                              <Button
+                                className="rounded-xl font-title font-medium text-base"
                                 onClick={() => handleBackHome()}
                               >
                                 Voltar para o Início
