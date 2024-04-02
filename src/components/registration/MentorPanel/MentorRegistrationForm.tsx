@@ -97,7 +97,7 @@ export function MentorRegistrationForm({
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.name}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Nome Completo
                 </label>
@@ -107,7 +107,7 @@ export function MentorRegistrationForm({
                     data-error={errors.name}
                     placeholder="Nome e sobrenome"
                     data-filled={!!watch("name")}
-                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h-[58px] px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("name")}
                   />
                   {errors.name && (
@@ -135,7 +135,7 @@ export function MentorRegistrationForm({
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.email}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *E-mail para contato
                 </label>
@@ -145,7 +145,7 @@ export function MentorRegistrationForm({
                     data-error={errors.email}
                     placeholder="exemplo@exemplo.com"
                     data-filled={!!watch("email")}
-                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h-[58px] px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("email")}
                   />
                   {errors.email && (
@@ -179,7 +179,7 @@ export function MentorRegistrationForm({
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.number}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Número de WhatsApp
                 </label>
@@ -190,7 +190,7 @@ export function MentorRegistrationForm({
                     data-error={errors.number}
                     data-filled={!!watch("number")}
                     placeholder="(99) 99 9 9999-9999"
-                    className="w-full h-10 px-4 text-black text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h-[58px] px-4 text-black text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("number")}
                   />
                   {errors.number && (
@@ -218,14 +218,14 @@ export function MentorRegistrationForm({
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.country}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *País
                 </label>
                 <select
                   data-error={errors.country}
                   data-filled={!!watch("country")}
-                  className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans text-[#dedede]  data-[filled=true]:text-black  focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-[58px] px-4  text-base font-medium font-sans text-[#dedede]  data-[filled=true]:text-black  focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                   {...register("country")}
                 >
                   <option value="">Selecione o país</option>
@@ -239,7 +239,7 @@ export function MentorRegistrationForm({
                 </select>
                 <p
                   data-error={errors.country}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Onde você vive atualmente?
                 </p>
@@ -258,7 +258,7 @@ export function MentorRegistrationForm({
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.role}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Função pretendida
                 </label>
@@ -266,7 +266,7 @@ export function MentorRegistrationForm({
                   data-error={errors.role}
                   data-filled={!!watch("role")}
                   {...register("role")}
-                  className="w-full h-10 px-4 text-base font-medium font-sans text-[#dedede] data-[filled=true]:text-black  focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-[58px] px-4 text-base font-normal font-sans text-[#dedede] data-[filled=true]:text-black  focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                 >
                   <option value="">Selecione uma opção.</option>
                   <option value="QA">
@@ -279,7 +279,7 @@ export function MentorRegistrationForm({
                 </select>
                 <p
                   data-error={errors.role}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Em qual área você pretende atuar no projeto?
                 </p>
@@ -298,7 +298,7 @@ export function MentorRegistrationForm({
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.exp}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Tempo de experiência
                 </label>
@@ -306,7 +306,7 @@ export function MentorRegistrationForm({
                   data-error={errors.exp}
                   data-filled={!!watch("exp")}
                   {...register("exp")}
-                  className="w-full h-10 px-4 text-base font-medium font-sans text-[#dedede] data-[filled=true]:text-black focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                  className="w-full h-[58px] px-4 text-base font-normal font-sans text-[#dedede] data-[filled=true]:text-black focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                 >
                   <option value="">Selecione uma opção.</option>
                   <option value="QA">Entre 1 e 2 anos</option>
@@ -336,7 +336,7 @@ export function MentorRegistrationForm({
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.period}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Disponibilidade de períodos (considerar horário de Brasília)
                 </label>
@@ -360,7 +360,7 @@ export function MentorRegistrationForm({
                     />
                     <label
                       htmlFor="manha"
-                      className="font-sans font-medium text-base leading-[35px]"
+                      className="font-sans font-normal text-base leading-[35px]"
                     >
                       Manhã
                     </label>
@@ -376,7 +376,7 @@ export function MentorRegistrationForm({
                     />
                     <label
                       htmlFor="tarde"
-                      className="font-sans font-medium text-base leading-[35px]"
+                      className="font-sans font-normal text-base leading-[35px]"
                     >
                       Tarde
                     </label>
@@ -390,7 +390,7 @@ export function MentorRegistrationForm({
                       data-error={errors.period}
                       className="w-6 h-6 border border-[#5A0C94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
                     />
-                    <label className="font-sans font-medium text-base leading-[35px]">
+                    <label className="font-sans font-normal text-base leading-[35px]">
                       Noite
                     </label>
                   </div>
@@ -411,7 +411,7 @@ export function MentorRegistrationForm({
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.LinkedIn}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Perfil do LinkedIn
                 </label>
@@ -421,7 +421,7 @@ export function MentorRegistrationForm({
                     data-error={errors.LinkedIn}
                     data-filled={!!watch("LinkedIn")}
                     placeholder="https://linkedin.com/in/seulink"
-                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h-[58px] px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("LinkedIn")}
                   />
                   {errors.LinkedIn && (
@@ -430,7 +430,7 @@ export function MentorRegistrationForm({
                 </div>
                 <p
                   data-error={errors.LinkedIn}
-                  className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Insira o link completo.
                 </p>
@@ -449,9 +449,9 @@ export function MentorRegistrationForm({
               <div className="w-full space-y-2">
                 <label
                   data-error={errors.comment}
-                  className="text-base font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
+                  className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
-                  *Tem alguma observação a fazer?
+                  Tem alguma observação a fazer?
                 </label>
                 <div className="relative">
                   <input
@@ -459,7 +459,7 @@ export function MentorRegistrationForm({
                     data-error={errors.comment}
                     data-filled={!!watch("comment")}
                     placeholder="Conte pra gente!"
-                    className="w-full h-10 px-4 text-[15px] text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
+                    className="w-full h-[58px] px-4 text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("comment")}
                   />
                   {errors.comment && (
