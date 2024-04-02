@@ -437,16 +437,21 @@ interface FormProps {
   currentStep: number;
 }
 
+const regexNumber = /^\d+$/;
+
 const schema = z.object({
   name: z.string().min(3, { message: "Você precisa preencher o seu nome." }),
   email: z.string().email({
     message:
       "Verifique o formato do seu e-mail, como: exemplo@gmail.com. Ou, talvez o seu e-mail já esteja cadastrado. Entre em contato conosco caso precise modificar algum dado da sua inscrição, se já a realizou.",
   }),
-  number: z.string().min(11, {
-    message:
-      "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
-  }),
+  number: z
+    .string()
+    .min(11, {
+      message:
+        "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
+    })
+    .regex(regexNumber, { message: "Apenas Números" }),
   country: z.string().nonempty({
     message: "Você precisa selecionar uma opção.",
   }),
@@ -601,6 +606,7 @@ export function MentorRegistrationForm({
                 </label>
                 <div className="relative">
                   <input
+                    maxLength={18}
                     type="text"
                     data-error={errors.number}
                     data-filled={!!watch("number")}
