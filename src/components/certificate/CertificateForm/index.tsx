@@ -34,15 +34,14 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { WarningIcon } from "@/components/icons/WarningIcon";
 import Link from "next/link";
 import { Steps } from "@/components/certificate/Steps";
+import { Error } from "@/components/icons/Error";
 
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
 
 const formSchema = z.object({
   fullname: z
-    .string({
-      required_error: "O nome é obrigatório",
-      invalid_type_error: "Name must be a string",
-    })
+    .string()
+    .min(3, { message: "Você precisa preencher o seu nome." })
     .regex(regex, {
       message: "Nome deve conter apenas caracteres válidos.",
     }),
@@ -50,7 +49,7 @@ const formSchema = z.object({
     .string({
       required_error: "Você precisa preencher o seu e-mail.",
     })
-    .email({ message: "E-mail inválido" }),
+    .email({ message: "Você precisa informar um email válido" }),
   role: z
     .string({ required_error: "Você precisa selecionar uma opção." })
     .min(1, { message: "Você precisa selecionar uma opção." }),
@@ -137,14 +136,22 @@ export function CertificateForm() {
                     *Nome Completo
                   </FormLabel>
                   <FormControl className="relative">
-                    <Input
-                      data-error={!!form.formState.errors.fullname}
-                      data-filled={!!form.watch("fullname")}
-                      className="w-full focus:outline-none font-sans text-base border-2 text-[#DEDEDE] hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94] "
-                      placeholder="Nome e sobrenome"
-                      type="text"
-                      {...field}
-                    />
+                    <div className="relative">
+                      <Input
+                        data-error={!!form.formState.errors.fullname}
+                        data-filled={
+                          !!form.watch("fullname") &&
+                          !form.formState.errors.fullname
+                        }
+                        className="w-full h-[58px] focus:outline-none font-sans text-base border-2 text-[#DEDEDE] hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94] "
+                        placeholder="Nome e sobrenome"
+                        type="text"
+                        {...field}
+                      />
+                      {form.formState.errors.fullname && (
+                        <Error className="w-6 h-6 absolute bottom-5 right-4" />
+                      )}
+                    </div>
                   </FormControl>
                   <FormDescription className="font-sans text-sm font-normal text-[#252525]">
                     Digite como você quer que seu nome e sobrenome apareçam no
@@ -168,14 +175,21 @@ export function CertificateForm() {
                     *E-mail
                   </FormLabel>
                   <FormControl>
-                    <Input
-                      data-error={!!form.formState.errors.email}
-                      data-filled={!!form.watch("email")}
-                      className="w-full focus:outline-none font-sans text-base border-2 text-[#DEDEDE] hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94]"
-                      placeholder="exemplo@gmail.com"
-                      type="email"
-                      {...field}
-                    />
+                    <div className="relative">
+                      <Input
+                        data-error={!!form.formState.errors.email}
+                        data-filled={
+                          !!form.watch("email") && !form.formState.errors.email
+                        }
+                        className="w-full h-[58px] focus:outline-none font-sans text-base border-2 text-[#DEDEDE] hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94]"
+                        placeholder="exemplo@gmail.com"
+                        type="email"
+                        {...field}
+                      />
+                      {form.formState.errors.email && (
+                        <Error className="w-6 h-6 absolute bottom-5 right-4" />
+                      )}
+                    </div>
                   </FormControl>
                   <FormDescription className="font-sans text-sm font-normal text-[#252525]">
                     Insira seu melhor email.
@@ -203,7 +217,7 @@ export function CertificateForm() {
                   >
                     <FormControl>
                       <SelectTrigger
-                        className="hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94] "
+                        className="w-full h-[58px] hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94] "
                         data-error={!!form.formState.errors.role}
                         data-filled={!!form.watch("role")}
                       >
@@ -246,9 +260,9 @@ export function CertificateForm() {
                   >
                     <FormControl>
                       <SelectTrigger
-                        className="hover:ring-1 hover:ring-[#5A0C94]  data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94]  "
                         data-error={!!form.formState.errors.office}
                         data-filled={!!form.watch("office")}
+                        className="w-full h-[58px] hover:border-1 hover:border-[#5A0C94]  data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94]  "
                       >
                         <SelectValue placeholder="Selecione uma opção" />
                       </SelectTrigger>
