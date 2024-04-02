@@ -31,6 +31,7 @@ import { SpotifyIcon } from "@/components/icons/SpotifyIcon";
 import { YouTubeIcon } from "@/components/icons/YouTubeIcon";
 import Link from "next/link";
 import { useEffect } from "react";
+import { Error } from "@/components/icons/Error";
 
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
 let whatsappRegex = /^\d+$/;
@@ -130,14 +131,20 @@ export function ContactForm() {
                       Nome Completo
                     </FormLabel>
                     <FormControl>
-                      <Input
-                        data-filled={!!form.watch("name")}
-                        data-error={!!form.formState.errors.name}
-                        placeholder="Nome e sobrenome"
-                        className="w-full focus:outline-none font-sans text-base placeholder:text-[#DEDEDE] border-2  data-[error=true]:text-red-500 data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] data-[filled=true]:border-[#5a0c94] hover:border-[#5a0c94]"
-                        type="text"
-                        {...field}
-                      />
+                      <div className="relative">
+                        <Input
+                          data-filled={!!form.watch("name")}
+                          data-error={!!form.formState.errors.name}
+                          placeholder="Nome e sobrenome"
+                          className="w-full focus:outline-none font-sans text-base placeholder:text-[#DEDEDE] border-2  data-[error=true]:text-red-500 data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] data-[filled=true]:border-[#5a0c94] hover:border-[#5a0c94]"
+                          type="text"
+                          {...field}
+                        />
+
+                        {form.formState.errors.name && (
+                          <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                        )}
+                      </div>
                     </FormControl>
                     <FormDescription className="font-sans text-sm font-normal text-[#252525]">
                       Digite seu nome e sobrenome.
@@ -200,14 +207,23 @@ export function ContactForm() {
                         *E-mail para contato
                       </FormLabel>
                       <FormControl>
-                        <Input
-                          data-filled={!!form.watch("email")}
-                          data-error={!!form.formState.errors.email}
-                          placeholder="Escreva sua mensagem aqui."
-                          className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] data-[error=true]:text-red-500  data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2 data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
-                          type="text"
-                          {...field}
-                        />
+                        <div className="relative">
+                          <Input
+                            data-filled={
+                              !!form.watch("email") &&
+                              !form.formState.errors.email
+                            }
+                            data-error={!!form.formState.errors.email}
+                            placeholder="Escreva sua mensagem aqui."
+                            className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] data-[error=true]:text-red-500  data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2 data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
+                            type="text"
+                            {...field}
+                          />
+
+                          {form.formState.errors.email && (
+                            <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                          )}
+                        </div>
                       </FormControl>
                       <FormDescription className="font-sans text-sm font-normal text-[#252525]">
                         Insira o seu melhor e-mail.
@@ -233,14 +249,24 @@ export function ContactForm() {
                         *Número de WhatsApp
                       </FormLabel>
                       <FormControl>
-                        <Input
-                          data-error={!!form.formState.errors.whatsapp}
-                          data-filled={!!form.watch("whatsapp")}
-                          placeholder="Escreva sua mensagem aqui."
-                          className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE]  data-[error=true]:text-red-500 data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2  data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
-                          type="text"
-                          {...field}
-                        />
+                        <div className="relative">
+                          <Input
+                            maxLength={18}
+                            data-error={!!form.formState.errors.whatsapp}
+                            data-filled={
+                              !!form.watch("whatsapp") &&
+                              !form.formState.errors.whatsapp
+                            }
+                            placeholder="Escreva sua mensagem aqui."
+                            className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE]  data-[error=true]:text-red-500 data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2  data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
+                            type="text"
+                            {...field}
+                          />
+
+                          {form.formState.errors.whatsapp && (
+                            <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                          )}
+                        </div>
                       </FormControl>
                       <FormDescription className="font-sans text-sm font-normal text-[#252525]">
                         Por lá acontecem os grupos e maior parte da comunicação.
