@@ -337,7 +337,7 @@ export function CertificateForm() {
               <WarningIcon className="w-7 h-7" /> Verifique suas informações
               antes de enviar.
             </span>
-            <Dialog.Root open={true}>
+            <Dialog.Root>
               <Dialog.DialogTrigger asChild>
                 <Button
                   type="submit"
