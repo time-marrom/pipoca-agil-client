@@ -136,13 +136,13 @@ export function ContactForm() {
                           data-filled={!!form.watch("name")}
                           data-error={!!form.formState.errors.name}
                           placeholder="Nome e sobrenome"
-                          className="w-full focus:outline-none font-sans text-base placeholder:text-[#DEDEDE] border-2  data-[error=true]:text-red-500 data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] data-[filled=true]:border-[#5a0c94] hover:border-[#5a0c94]"
+                          className="w-full focus:outline-none font-sans text-base placeholder:text-[#DEDEDE] border  data-[error=true]:text-red-500 data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] data-[filled=true]:border-[#5a0c94] hover:border-[#5a0c94]"
                           type="text"
                           {...field}
                         />
 
                         {form.formState.errors.name && (
-                          <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                          <Error className="w-6 h-6 absolute bottom right-4" />
                         )}
                       </div>
                     </FormControl>
@@ -174,7 +174,7 @@ export function ContactForm() {
                         <SelectTrigger
                           data-filled={!!form.watch("contactWith")}
                           data-error={!form.formState.errors.contactWith}
-                          className="text-[#DEDEDE] data-[filled=true]:text-black data-[error=true]:text-red-500 data-[error=true]:border-red-500 border-2 hover:border-[#5A0C94] data-[filled=true]:border-[#5A0C94]"
+                          className="text-[#DEDEDE] data-[filled=true]:text-black data-[error=true]:text-red-500 data-[error=true]:border-red-500 border hover:border-[#5A0C94] data-[filled=true]:border-[#5A0C94]"
                         >
                           <SelectValue placeholder="Selecione uma opção" />
                         </SelectTrigger>
@@ -215,13 +215,13 @@ export function ContactForm() {
                             }
                             data-error={!!form.formState.errors.email}
                             placeholder="Escreva sua mensagem aqui."
-                            className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] data-[error=true]:text-red-500  data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2 data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
+                            className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] data-[error=true]:text-red-500  data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
                             type="text"
                             {...field}
                           />
 
                           {form.formState.errors.email && (
-                            <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                            <Error className="w-6 h-6 absolute bottom right-4" />
                           )}
                         </div>
                       </FormControl>
@@ -258,13 +258,13 @@ export function ContactForm() {
                               !form.formState.errors.whatsapp
                             }
                             placeholder="Escreva sua mensagem aqui."
-                            className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE]  data-[error=true]:text-red-500 data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border-2  data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
+                            className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE]  data-[error=true]:text-red-500 data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border  data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
                             type="text"
                             {...field}
                           />
 
                           {form.formState.errors.whatsapp && (
-                            <Error className="w-6 h-6 absolute bottom-2 right-4" />
+                            <Error className="w-6 h-6 absolute bottom right-4" />
                           )}
                         </div>
                       </FormControl>
@@ -298,8 +298,8 @@ export function ContactForm() {
                           data-filled={!!form.watch("subject")}
                           className={`text-[#DEDEDE] data-[filled=true]:text-black  data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94] ${
                             form.formState.errors.subject
-                              ? "text-red-500 border-red-500 border-2 "
-                              : " border-2"
+                              ? "text-red-500 border-red-500 border "
+                              : " border"
                           }`}
                         >
                           <SelectValue
@@ -342,7 +342,7 @@ export function ContactForm() {
                         data-error={!!form.formState.errors.message}
                         data-filled={!!form.watch("message")}
                         placeholder="Escreva sua mensagem aqui."
-                        className=" data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94] resize-none w-full h-[160px] p-1 focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] data-[error=true]:text-red-500 data-[error=true]:border-red-500 border-2 focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] rounded-md"
+                        className=" data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94] resize-none w-full h-[160px] p-1 focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] data-[error=true]:text-red-500 data-[error=true]:border-red-500 border focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] rounded-md"
                         {...field}
                       />
                     </FormControl>
