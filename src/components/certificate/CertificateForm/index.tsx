@@ -337,7 +337,7 @@ export function CertificateForm() {
               <WarningIcon className="w-7 h-7" /> Verifique suas informações
               antes de enviar.
             </span>
-            <Dialog.Root>
+            <Dialog.Root open={true}>
               <Dialog.DialogTrigger asChild>
                 <Button
                   type="submit"
@@ -352,21 +352,29 @@ export function CertificateForm() {
               <Dialog.Portal>
                 <Dialog.Overlay className="fixed inset-0 bg-black/70" />
                 <Dialog.Content className="fixed top-0 left-0 w-full h-full flex items-center justify-center p-4 md:p-10">
-                  <div className="bg-[#F6F6F6] rounded-2xl md:max-w-3xl w-full h-full md:h-3/5 overflow-auto p-4 relative flex flex-col items-center justify-evenly">
-                    <Dialog.Title className="font-title text-2xl w-2/3 font-medium text-center mb-4">
+                  <div className="bg-[#F6F6F6] rounded-2xl md:max-w-3xl w-full h-full md:h-3/5 overflow-auto p-4 relative flex flex-col items-center justify-evenly gap-6">
+                    <Dialog.Title className="font-title text-2xl md:text-[32px] w-2/3 font-medium text-center ">
                       Solicitação enviada com sucesso!
                     </Dialog.Title>
                     <Dialog.Description className="font-sans text-base px-3">
-                      Vamos verificar os seus dados, e se estiver tudo correto
-                      vamos emitir o seu certificado de participação na
-                      Simulação de Projetos Ágeis. Poderemos entrar em contato
-                      com você caso haja alguma pendência ou dúvida de nossa
-                      parte. Se estiver tudo certo, assim que finalizado você
-                      receberá o seu certificado no endereço de e-mail que você
-                      nos indicou. Não hesite em entrar em contato conosco caso
-                      tenha alguma dúvida também. Agradecemos pela sua
-                      participação! O Pipoca Ágil tem orgulho de você! Te
-                      desejamos muito sucesso, Equipe Pipoca Ágil
+                      <p className="md:mb-5">
+                        Vamos verificar os seus dados, e se estiver tudo correto
+                        vamos emitir o seu certificado de participação na
+                        Simulação de Projetos Ágeis.
+                      </p>{" "}
+                      <p className="md:mb-5">
+                        Poderemos entrar em contato com você caso haja alguma
+                        pendência ou dúvida de nossa parte. Se estiver tudo
+                        certo, assim que finalizado você receberá o seu
+                        certificado no endereço de e-mail que você nos indicou.
+                        Não hesite em entrar em contato conosco caso tenha
+                        alguma dúvida também.
+                      </p>{" "}
+                      <p className="md:mb-5">
+                        Agradecemos pela sua participação! O Pipoca Ágil tem
+                        orgulho de você! Te desejamos muito sucesso,
+                      </p>
+                      <span className="">Equipe Pipoca Ágil</span>
                     </Dialog.Description>
                     <Dialog.Close>
                       <div className="flex justify-center">
