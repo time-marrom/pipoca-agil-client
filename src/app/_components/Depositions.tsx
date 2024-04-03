@@ -10,8 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { getSanityHomeContent } from "@/services/axios";
 import { useQuery } from "@tanstack/react-query";
-import Autoplay from "embla-carousel-autoplay";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface DepositionsProps {
   content: HomeContent;
@@ -23,8 +22,6 @@ export function Depositions({ content }: DepositionsProps) {
     queryFn: getSanityHomeContent,
     initialData: content,
   });
-
-  const plugin = useRef(Autoplay({ delay: 10000, stopOnInteraction: true }));
 
   const [windowWidth, setWindowWidth] = useState<number>(0);
   const isSmaller = windowWidth < 1024;
@@ -49,12 +46,9 @@ export function Depositions({ content }: DepositionsProps) {
           className="w-[70vw] md:w-[70vw] lg:w-full max-w-5xl gap-10"
           opts={{
             align: "center",
-            loop: true,
+            loop: false,
             slidesToScroll: isSmaller ? 1 : 2,
           }}
-          plugins={[plugin.current]}
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
         >
           <CarouselContent className="-ml-1">
             {data.depositionsTopics.map(({ author, deposition }, index) => (

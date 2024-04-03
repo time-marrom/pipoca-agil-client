@@ -95,7 +95,6 @@ export function ContactForm() {
       form.setValue("whatsapp", "1111111111");
     }
   }, [form.watch("contactWith")]);
-  console.log(form.formState.errors);
 
   return (
     <div className="w-full h-full flex justify-center items-center xl:items-start flex-col xl:flex-row pt-4 md:py-[104px] md:gap-10">
