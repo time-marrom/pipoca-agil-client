@@ -9,9 +9,23 @@ interface VolunteerConfirmation {
   name: string;
 }
 
+interface MentorConfirmation extends VolunteerConfirmation {}
+
 export function sendVolunteerConfirmation({ to, name }: VolunteerConfirmation) {
   const response = api
     .post("/volunteer", {
+      to,
+      name,
+    })
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+
+  return response;
+}
+
+export function sendMentorConfirmation({ to, name }: MentorConfirmation) {
+  const response = api
+    .post("/mentor", {
       to,
       name,
     })

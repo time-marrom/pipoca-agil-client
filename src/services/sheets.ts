@@ -15,9 +15,22 @@ interface VolunteerData {
   comment: string;
 }
 
+interface MentorData extends VolunteerData {
+  exp: string;
+}
+
 export function sendVolunteerData(data: VolunteerData) {
   const response = api
     .post("/volunteer", data)
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+
+  return response;
+}
+
+export function sendMentorData(data: MentorData) {
+  const response = api
+    .post("/mentor", data)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 

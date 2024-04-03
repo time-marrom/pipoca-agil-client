@@ -1,80 +1,82 @@
-"use client";
+"use client"
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { ErrorMessage } from "@hookform/error-message";
-import * as z from "zod";
-import * as Dialog from "@radix-ui/react-dialog";
-import { WarningIcon } from "@/components/icons/WarningIcon";
-import Link from "next/link";
-import { Error } from "@/components/icons/Error";
-import { Button } from "@/components/ui/button";
-import { UserConfirmationMessage } from "../RegistrationPanel/UserConfirmationMessage";
+import { Error } from "@/components/icons/Error"
+import { WarningIcon } from "@/components/icons/WarningIcon"
+import { Button } from "@/components/ui/button"
+import { GlobalContext } from "@/contexts/GlobalContext"
+import { sendMentorConfirmation } from "@/services/email"
+import { sendMentorData } from "@/services/sheets"
+import { ErrorMessage } from "@hookform/error-message"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as Dialog from "@radix-ui/react-dialog"
+import Link from "next/link"
+import { useContext } from "react"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
+import { UserConfirmationMessage } from "../RegistrationPanel/UserConfirmationMessage"
 
-interface FormProps {
-  setCurrentStep: (currentStep: number) => void;
-  currentStep: number;
-}
-
-const regexNumber = /^\d+$/;
+const regexWhatsApp = /^\d+$/
 
 const schema = z.object({
   name: z.string().min(3, { message: "Você precisa preencher o seu nome." }),
   email: z.string().email({
     message:
-      "Verifique o formato do seu e-mail, como: exemplo@gmail.com. Ou, talvez o seu e-mail já esteja cadastrado. Entre em contato conosco caso precise modificar algum dado da sua inscrição, se já a realizou.",
+      "Verifique o formato do seu e-mail, como: exemplo@gmail.com. Ou, talvez o seu e-mail já esteja cadastrado. Entre em contato conosco caso precise modificar algum dado da sua inscrição, se já a realizou."
   }),
-  number: z
+  whatsApp: z
     .string()
     .min(11, {
-      message:
-        "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
+      message: "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN"
     })
-    .regex(regexNumber, { message: "Apenas Números" }),
+    .regex(regexWhatsApp, { message: "Apenas Números" }),
   country: z.string().nonempty({
-    message: "Você precisa selecionar uma opção.",
+    message: "Você precisa selecionar uma opção."
   }),
   role: z.string().nonempty({
-    message: "Você precisa selecionar uma opção.",
+    message: "Você precisa selecionar uma opção."
   }),
   exp: z.string().nonempty({
-    message: "Você precisa selecionar uma opção.",
+    message: "Você precisa selecionar uma opção."
   }),
   period: z
     .array(z.string(), {
       required_error: "Você precisa selecionar pelo menos um período.",
-      invalid_type_error: "Você precisa selecionar pelo menos um período.",
+      invalid_type_error: "Você precisa selecionar pelo menos um período."
     })
     .nonempty({
-      message: "Você precisa selecionar pelo menos um período.",
+      message: "Você precisa selecionar pelo menos um período."
     }),
 
-  LinkedIn: z.string().min(3, {
+  linkedIn: z.string().min(3, {
     message:
-      "Verifique o formato do seu link. Você pode abrir uma aba com seu perfil, copiar do endereço do navegador, e colar aqui.",
+      "Verifique o formato do seu link. Você pode abrir uma aba com seu perfil, copiar do endereço do navegador, e colar aqui."
   }),
   comment: z.string().max(500, {
-    message: "502 caracteres. Você ultrapassou o limite de 500 caracteres.",
-  }),
-});
+    message: "502 caracteres. Você ultrapassou o limite de 500 caracteres."
+  })
+})
 
-type Schema = z.infer<typeof schema>;
+type Schema = z.infer<typeof schema>
 
-export function MentorRegistrationForm({
-  setCurrentStep,
-  currentStep,
-}: FormProps) {
+export function MentorRegistrationForm() {
+  const { setIsAcceptedTerms, setMentorCurrentStep } = useContext(GlobalContext)
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isValid, isDirty },
+    formState: { errors, isValid, isDirty }
   } = useForm<Schema>({
-    resolver: zodResolver(schema),
-  });
+    resolver: zodResolver(schema)
+  })
 
   function onSubmit(data: Schema) {
-    alert(JSON.stringify(data, null, 2));
+    sendMentorData(data)
+    sendMentorConfirmation({ to: data.email, name: data.name })
+  }
+
+  function handleBackHome() {
+    setMentorCurrentStep(0)
+    setIsAcceptedTerms(false)
   }
 
   return (
@@ -88,10 +90,7 @@ export function MentorRegistrationForm({
             Preencha os dados abaixo com atenção.
           </h2>
           <p className="text-base font-bold font-sans">*Campos obrigatórios.</p>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="w-full space-y-2  "
-          >
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-2">
             <div className="flex flex-col justify-between gap-10">
               {/* NOME */}
               <div className="w-full space-y-2">
@@ -110,9 +109,7 @@ export function MentorRegistrationForm({
                     className="w-full h-[58px] px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("name")}
                   />
-                  {errors.name && (
-                    <Error className="w-6 h-6 absolute bottom-2 right-4" />
-                  )}
+                  {errors.name && <Error className="w-6 h-6 absolute bottom-2 right-4" />}
                 </div>
                 <p
                   data-error={errors.name}
@@ -178,7 +175,7 @@ export function MentorRegistrationForm({
               {/* WHATS  */}
               <div className="w-full space-y-2">
                 <label
-                  data-error={errors.number}
+                  data-error={errors.whatsApp}
                   className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Número de WhatsApp
@@ -187,18 +184,18 @@ export function MentorRegistrationForm({
                   <input
                     maxLength={18}
                     type="text"
-                    data-error={errors.number}
-                    data-filled={!!watch("number")}
+                    data-error={errors.whatsApp}
+                    data-filled={!!watch("whatsApp")}
                     placeholder="(99) 99 9 9999-9999"
                     className="w-full h-[58px] px-4 text-black text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
-                    {...register("number")}
+                    {...register("whatsApp")}
                   />
-                  {errors.number && (
+                  {errors.whatsApp && (
                     <Error className="w-6 h-6 absolute bottom-2 right-4" />
                   )}
                 </div>
                 <p
-                  data-error={errors.number}
+                  data-error={errors.whatsApp}
                   className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Por lá acontecem os grupos e maior parte da comunicação.
@@ -269,10 +266,8 @@ export function MentorRegistrationForm({
                   className="w-full h-[58px] px-4 text-base font-normal font-sans text-[#dedede] data-[filled=true]:text-black  focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                 >
                   <option value="">Selecione uma opção.</option>
-                  <option value="QA">
-                    Analista de Teste - Quality Assurance
-                  </option>
-                  <option value="front/back">Programador Front/Back-end</option>
+                  <option value="QA">Analista de Teste - Quality Assurance</option>
+                  <option value="DEV">Programador Front/Back-end</option>
                   <option value="PO">Product Owner</option>
                   <option value="SM">Scrum Master</option>
                   <option value="UX/UI">UX/UI Designer</option>
@@ -309,11 +304,11 @@ export function MentorRegistrationForm({
                   className="w-full h-[58px] px-4 text-base font-normal font-sans text-[#dedede] data-[filled=true]:text-black focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                 >
                   <option value="">Selecione uma opção.</option>
-                  <option value="QA">Entre 1 e 2 anos</option>
-                  <option value="front/back">Entre 2 e 5 anos</option>
-                  <option value="PO">Entre 5 e 10 anos</option>
-                  <option value="SM">Entre 10 e 15 anos</option>
-                  <option value="UX/UI">Mais de 15 anos</option>
+                  <option value="Entre 1 e 2 anos">Entre 1 e 2 anos</option>
+                  <option value="Entre 2 e 5 anos">Entre 2 e 5 anos</option>
+                  <option value="Entre 5 e 10 anos">Entre 5 e 10 anos</option>
+                  <option value="Entre 10 e 15 anos">Entre 10 e 15 anos</option>
+                  <option value="Mais de 15 anos">Mais de 15 anos</option>
                 </select>
                 <p
                   data-error={errors.exp}
@@ -344,22 +339,22 @@ export function MentorRegistrationForm({
                   data-error={errors.period}
                   className="w-4/5 text-sm font-medium font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
-                  Em qual ou quais turnos você está disponível para participar
-                  de reuniões? Selecione pelo menos um. Pode selecionar mais de
-                  um, se quiser.
+                  Em qual ou quais turnos você está disponível para participar de
+                  reuniões? Selecione pelo menos um. Pode selecionar mais de um, se
+                  quiser.
                 </p>
                 <div className="flex flex-col">
                   <div className="flex flex-row items-center gap-2">
                     <input
                       type="checkbox"
-                      id="manha"
-                      value="manha"
+                      id="Manhã"
+                      value="Manhã"
                       {...register("period", { required: true })}
                       data-error={errors.period}
                       className="w-6 h-6  border border-[#5A0C94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
                     />
                     <label
-                      htmlFor="manha"
+                      htmlFor="Manhã"
                       className="font-sans font-normal text-base leading-[35px]"
                     >
                       Manhã
@@ -368,14 +363,14 @@ export function MentorRegistrationForm({
                   <div className="flex flex-row items-center gap-2">
                     <input
                       type="checkbox"
-                      id="tarde"
-                      value="tarde"
+                      id="Tarde"
+                      value="Tarde"
                       {...register("period", { required: true })}
                       data-error={errors.period}
                       className="w-6 h-6 border  border-[#5A0C94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
                     />
                     <label
-                      htmlFor="tarde"
+                      htmlFor="Tarde"
                       className="font-sans font-normal text-base leading-[35px]"
                     >
                       Tarde
@@ -384,13 +379,16 @@ export function MentorRegistrationForm({
                   <div className="flex flex-row items-center gap-2">
                     <input
                       type="checkbox"
-                      id="noite"
-                      value="noite"
+                      id="Noite"
+                      value="Noite"
                       {...register("period", { required: true })}
                       data-error={errors.period}
                       className="w-6 h-6 border border-[#5A0C94] rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000]"
                     />
-                    <label className="font-sans font-normal text-base leading-[35px]">
+                    <label
+                      htmlFor="Noite"
+                      className="font-sans font-normal text-base leading-[35px]"
+                    >
                       Noite
                     </label>
                   </div>
@@ -410,7 +408,7 @@ export function MentorRegistrationForm({
               {/* LinkedIn  */}
               <div className="w-full space-y-2">
                 <label
-                  data-error={errors.LinkedIn}
+                  data-error={errors.linkedIn}
                   className="text-base font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   *Perfil do LinkedIn
@@ -418,18 +416,18 @@ export function MentorRegistrationForm({
                 <div className="relative">
                   <input
                     type="text"
-                    data-error={errors.LinkedIn}
-                    data-filled={!!watch("LinkedIn")}
+                    data-error={errors.linkedIn}
+                    data-filled={!!watch("linkedIn")}
                     placeholder="https://linkedin.com/in/seulink"
                     className="w-full h-[58px] px-4 text-base font-medium font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
-                    {...register("LinkedIn")}
+                    {...register("linkedIn")}
                   />
-                  {errors.LinkedIn && (
+                  {errors.linkedIn && (
                     <Error className="w-6 h-6 absolute bottom-2 right-4" />
                   )}
                 </div>
                 <p
-                  data-error={errors.LinkedIn}
+                  data-error={errors.linkedIn}
                   className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
                   Insira o link completo.
@@ -484,17 +482,15 @@ export function MentorRegistrationForm({
               </div>
 
               <p className="flex flex-row text-base font-normal font-sans leading-[24px] text-black gap-2">
-                <WarningIcon /> Atenção: Verifique suas informações antes de
-                enviar!
+                <WarningIcon /> Atenção: Verifique suas informações antes de enviar!
               </p>
               <div className="flex justify-center">
                 <Dialog.Root>
                   <Dialog.DialogTrigger asChild>
                     <Button
                       type="submit"
-                      className="h-full max-w-max font-title text-base font-medium text-[#727272] p-3 rounded-2xl bg-[#DEDEDE]  hover:bg-[#5A0C94] hover:text-white "
-                      // onClick={() => handle()}
-                      // disabled={!form.formState.isValid}
+                      className="h-full max-w-max font-title text-base font-medium text-[#F6F6F6] p-3 rounded-2xl bg-[#5A0C94]  hover:bg-[#5A0C94] hover:text-white disabled:bg-[#DEDEDE] disabled:text-[#727272] disabled:cursor-not-allowed"
+                      disabled={!isDirty || !isValid}
                     >
                       Enviar dados
                     </Button>
@@ -510,7 +506,10 @@ export function MentorRegistrationForm({
                         <Dialog.Close>
                           <div className="flex justify-center">
                             <Link href="/">
-                              <Button className="rounded-xl font-title font-medium text-base">
+                              <Button
+                                className="rounded-xl font-title font-medium text-base"
+                                onClick={() => handleBackHome()}
+                              >
                                 Voltar para o Início
                               </Button>
                             </Link>
@@ -526,5 +525,5 @@ export function MentorRegistrationForm({
         </div>
       </div>
     </div>
-  );
+  )
 }
