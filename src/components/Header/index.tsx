@@ -32,7 +32,7 @@ export function Header({ content }: HeaderProps) {
     setMenuIsOpen(false);
   }, []);
 
-  const headerOptions = menuOptions.filter((option) => option.name);
+  const headerOptions = menuOptions.filter((option) => option.order < 5);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white w-full h-14  md:h-20 flex justify-between md:justify-between items-center text-sm  px-5">
