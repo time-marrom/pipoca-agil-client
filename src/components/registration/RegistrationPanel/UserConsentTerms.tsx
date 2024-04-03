@@ -15,7 +15,6 @@ export function UserConsentTerms({ content }: UserConsentTermsProps) {
     queryFn: getSanityVoluntaryContent,
     initialData: content,
   });
-  console.log(data);
 
   const orderedRules = data.rules.sort((a, b) => {
     const keyA = parseInt(Object.keys(a)[0]); // Obtém o número da chave de 'a'

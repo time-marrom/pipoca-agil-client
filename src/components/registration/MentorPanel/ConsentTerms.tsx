@@ -33,7 +33,6 @@ export function ConsentTerms({ content }: ConsentTermsProps) {
     setIsAcceptedTerms(!isAcceptedTerms);
   }
 
-  console.log("data.terms", data.terms);
   return (
     <AlertDialog>
       <AlertDialogTrigger className="h-12 px-4 border-none bg-[#5A0C94] text-white font-title text-base font-medium rounded-2xl p-2 xl:m-0 hover:translate-y-[-10px] hover:duration-1000 hover:transition-all hover:shadow-lg hover:shadow-[#858585]">

@@ -95,6 +95,7 @@ export function ContactForm() {
       form.setValue("whatsapp", "1111111111");
     }
   }, [form.watch("contactWith")]);
+  console.log(form.formState.errors);
 
   return (
     <div className="w-full h-full flex justify-center items-center xl:items-start flex-col xl:flex-row pt-4 md:py-[104px] md:gap-10">
@@ -173,7 +174,7 @@ export function ContactForm() {
                       <FormControl>
                         <SelectTrigger
                           data-filled={!!form.watch("contactWith")}
-                          data-error={!form.formState.errors.contactWith}
+                          data-error={form.formState.errors.contactWith}
                           className="text-[#DEDEDE] data-[filled=true]:text-black data-[error=true]:text-red-500 data-[error=true]:border-red-500 border hover:border-[#5A0C94] data-[filled=true]:border-[#5A0C94]"
                         >
                           <SelectValue placeholder="Selecione uma opção" />
