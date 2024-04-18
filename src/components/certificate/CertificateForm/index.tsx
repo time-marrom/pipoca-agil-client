@@ -1,9 +1,10 @@
-"use client";
+"use client"
 
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { Button } from "@/components/ui/button";
+import { Steps } from "@/components/certificate/Steps"
+import { Error } from "@/components/icons/Error"
+import { WarningIcon } from "@/components/icons/WarningIcon"
+import { Button } from "@/components/ui/button"
+import { Calendar } from "@/components/ui/calendar"
 import {
   Form,
   FormControl,
@@ -11,43 +12,39 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import * as React from "react";
-import { Calendar as CalendarIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+  FormMessage
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import * as Dialog from "@radix-ui/react-dialog";
-import { WarningIcon } from "@/components/icons/WarningIcon";
-import Link from "next/link";
-import { Steps } from "@/components/certificate/Steps";
-import { Error } from "@/components/icons/Error";
+  SelectValue
+} from "@/components/ui/select"
+import { cn } from "@/lib/utils"
+import { sendCertificate } from "@/services/email"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as Dialog from "@radix-ui/react-dialog"
+import { Calendar as CalendarIcon } from "lucide-react"
+import Link from "next/link"
+import * as React from "react"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 
-let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
+let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/
 
 const formSchema = z.object({
-  fullname: z
+  fullName: z
     .string()
     .min(3, { message: "Você precisa preencher o seu nome." })
     .regex(regex, {
-      message: "Nome deve conter apenas caracteres válidos.",
+      message: "Nome deve conter apenas caracteres válidos."
     }),
   email: z
     .string({
-      required_error: "Você precisa preencher o seu e-mail.",
+      required_error: "Você precisa preencher o seu e-mail."
     })
     .email({ message: "Você precisa informar um email válido" }),
   role: z
@@ -56,34 +53,34 @@ const formSchema = z.object({
   office: z
     .string({ required_error: "Você precisa selecionar uma opção." })
     .min(1, { message: "Você precisa selecionar uma opção." }),
-  date: z.date({ required_error: "Você precisa selecionar uma data." }),
-});
+  date: z.date({ required_error: "Você precisa selecionar uma data." })
+})
 
 export function CertificateForm() {
-  const [date, setDate] = React.useState<Date>();
+  const [date, setDate] = React.useState<Date>()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    mode: "onChange",
-  });
+    mode: "onChange"
+  })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // console.log(values);
-  }
+  function formatDate(date: Date | undefined) {
+    if (typeof date === "undefined") {
+      date = new Date()
+    }
 
-  function handle() {
-    // console.log("handle: ", date);
-    // console.log("SURTO: ", form.getValues());
-  }
-
-  function formatDate(date: Date) {
     const formattedDate = date.toLocaleDateString("pt-BR", {
       timeZone: "UTC",
       year: "numeric",
       month: "long",
-      day: "numeric",
-    });
-    return formattedDate;
+      day: "numeric"
+    })
+    return formattedDate
+  }
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    const data = { ...values, date: formatDate(date) }
+    sendCertificate(data)
   }
 
   return (
@@ -97,15 +94,14 @@ export function CertificateForm() {
               <WarningIcon className="w-7 h-7" /> Atenção
             </h2>
             <p className="font-sans text-base font-normal">
-              Este formulário é para membros que já concluíram sua participação
-              na Simulação de Projetos Ágeis do Pipoca Ágil.
+              Este formulário é para membros que já concluíram sua participação na
+              Simulação de Projetos Ágeis do Pipoca Ágil.
             </p>
             <p className="font-sans text-base font-normal">
-              Se você foi uma de nossas pessoas voluntárias ou mentoras, pode
-              solicitar o seu certificado de participação na Simulação de
-              Projetos Ágeis preenchendo as informações abaixo. Faremos uma
-              confirmação dos dados enviados, e assim que possível enviaremos o
-              seu certificado por e-mail.
+              Se você foi uma de nossas pessoas voluntárias ou mentoras, pode solicitar o
+              seu certificado de participação na Simulação de Projetos Ágeis preenchendo
+              as informações abaixo. Faremos uma confirmação dos dados enviados, e assim
+              que possível enviaremos o seu certificado por e-mail.
             </p>
           </div>
           <div className="md:flex md:flex-col md:justify-start md:w-3/4 lg:w-1/3">
@@ -125,12 +121,12 @@ export function CertificateForm() {
             {/* NOME COMPLETO */}
             <FormField
               control={form.control}
-              name="fullname"
+              name="fullName"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3 ">
+                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3 w-full">
                   <FormLabel
                     className={`font-sans text-base font-normal ${
-                      form.formState.errors.fullname ? "text-red-500" : ""
+                      form.formState.errors.fullName ? "text-red-500" : ""
                     }`}
                   >
                     *Nome Completo
@@ -138,17 +134,16 @@ export function CertificateForm() {
                   <FormControl className="relative">
                     <div className="relative">
                       <Input
-                        data-error={!!form.formState.errors.fullname}
+                        data-error={!!form.formState.errors.fullName}
                         data-filled={
-                          !!form.watch("fullname") &&
-                          !form.formState.errors.fullname
+                          !!form.watch("fullName") && !form.formState.errors.fullName
                         }
                         className="w-full h-[58px] focus:outline-none font-sans text-base border-2 text-[#DEDEDE] hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94] "
                         placeholder="Nome e sobrenome"
                         type="text"
                         {...field}
                       />
-                      {form.formState.errors.fullname && (
+                      {form.formState.errors.fullName && (
                         <Error className="w-6 h-6 absolute bottom-5 right-4" />
                       )}
                     </div>
@@ -211,10 +206,7 @@ export function CertificateForm() {
                   >
                     *Qual foi a sua participação na Simulação?
                   </FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger
                         className="w-full h-[58px] hover:ring-1 hover:ring-[#5A0C94] data-[error=true]:text-red-500 data-[error=true]:border-red-500 data-[filled=true]:text-[#3A3A3A] data-[filled=true]:border-[#5A0C94] "
@@ -234,8 +226,7 @@ export function CertificateForm() {
                     </SelectContent>
                   </Select>
                   <FormDescription className="font-sans text-sm font-normal  text-[#252525]">
-                    Selecione a que mais se encaixa com a sua atuação no
-                    projeto.
+                    Selecione a que mais se encaixa com a sua atuação no projeto.
                   </FormDescription>
                   <FormMessage className="font-sans text-sm" />
                 </FormItem>
@@ -246,7 +237,7 @@ export function CertificateForm() {
               control={form.control}
               name="office"
               render={({ field }) => (
-                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3">
+                <FormItem className="space-y-2 md:w-3/4 lg:w-1/3 w-full">
                   <FormLabel
                     className={`font-sans text-base font-normal ${
                       form.formState.errors.office ? "text-red-500" : ""
@@ -254,10 +245,7 @@ export function CertificateForm() {
                   >
                     *Qual função você desempenhou ou mentorou no projeto?
                   </FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger
                         data-error={!!form.formState.errors.office}
@@ -274,20 +262,13 @@ export function CertificateForm() {
                       <SelectItem value="Programador Front/Back-end">
                         Programador Front/Back-end
                       </SelectItem>
-                      <SelectItem value="Product Owner">
-                        Product Owner
-                      </SelectItem>
-                      <SelectItem value="Scrum Master">
-                        Scrum Master{" "}
-                      </SelectItem>
-                      <SelectItem value="UX/UI Designer">
-                        UX/UI Designer
-                      </SelectItem>
+                      <SelectItem value="Product Owner">Product Owner</SelectItem>
+                      <SelectItem value="Scrum Master">Scrum Master </SelectItem>
+                      <SelectItem value="UX/UI Designer">UX/UI Designer</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormDescription className="font-sans text-sm font-normal  text-[#252525]">
-                    Selecione a que mais se encaixa com a sua atuação no
-                    projeto.
+                    Selecione a que mais se encaixa com a sua atuação no projeto.
                   </FormDescription>
                   <FormMessage className="font-sans text-sm" />
                 </FormItem>
@@ -308,7 +289,7 @@ export function CertificateForm() {
                         <Button
                           variant={"outline"}
                           className={cn(
-                            "w-full justify-start text-left font-normal font-sans hover:ring-1 hover:ring-[#5A0C94] hover:text-black",
+                            "w-full h-[58px] justify-start text-left font-normal font-sans hover:ring-1 hover:ring-[#5A0C94] hover:text-black",
                             !date && "text-muted-foreground",
                             field.value &&
                               "text-[#3A3A3A] border-[#5A0C94] ring-[#5A0C94] focus:ring-[#5A0C94]"
@@ -330,8 +311,8 @@ export function CertificateForm() {
                           mode="single"
                           selected={field.value}
                           onSelect={(date) => {
-                            setDate(date);
-                            field.onChange(date);
+                            setDate(date)
+                            field.onChange(date)
                           }}
                           initialFocus
                           disabled={{ after: new Date() }}
@@ -348,15 +329,14 @@ export function CertificateForm() {
             />
 
             <span className="flex flex-row items-center justify-start text-start gap-4 w-full mb-4 mt-10 font-normal font-sans md:flex med:flex-row md:w-3/4 lg:w-1/3 md:justify-start">
-              <WarningIcon className="w-7 h-7" /> Verifique suas informações
-              antes de enviar.
+              <WarningIcon className="w-7 h-7" /> Verifique suas informações antes de
+              enviar.
             </span>
             <Dialog.Root>
               <Dialog.DialogTrigger asChild>
                 <Button
                   type="submit"
-                  className="font-title rounded-xl disabled:text-[#727272] disabled:bg-[#dedede] disabeld:cursor-not-allowed"
-                  onClick={() => handle()}
+                  className="font-title rounded-xl disabled:text-[#727272] disabled:bg-[#dedede] disabled:cursor-not-allowed"
                   disabled={!form.formState.isValid}
                 >
                   Solicitar Certificado
@@ -372,21 +352,20 @@ export function CertificateForm() {
                     </Dialog.Title>
                     <Dialog.Description className="font-sans text-base px-3">
                       <p className="md:mb-5">
-                        Vamos verificar os seus dados, e se estiver tudo correto
-                        vamos emitir o seu certificado de participação na
-                        Simulação de Projetos Ágeis.
+                        Vamos verificar os seus dados, e se estiver tudo correto vamos
+                        emitir o seu certificado de participação na Simulação de Projetos
+                        Ágeis.
                       </p>{" "}
                       <p className="md:mb-5">
-                        Poderemos entrar em contato com você caso haja alguma
-                        pendência ou dúvida de nossa parte. Se estiver tudo
-                        certo, assim que finalizado você receberá o seu
-                        certificado no endereço de e-mail que você nos indicou.
-                        Não hesite em entrar em contato conosco caso tenha
-                        alguma dúvida também.
+                        Poderemos entrar em contato com você caso haja alguma pendência ou
+                        dúvida de nossa parte. Se estiver tudo certo, assim que finalizado
+                        você receberá o seu certificado no endereço de e-mail que você nos
+                        indicou. Não hesite em entrar em contato conosco caso tenha alguma
+                        dúvida também.
                       </p>{" "}
                       <p className="md:mb-5">
-                        Agradecemos pela sua participação! O Pipoca Ágil tem
-                        orgulho de você! Te desejamos muito sucesso,
+                        Agradecemos pela sua participação! O Pipoca Ágil tem orgulho de
+                        você! Te desejamos muito sucesso,
                       </p>
                       <span className="">Equipe Pipoca Ágil</span>
                     </Dialog.Description>
@@ -407,5 +386,5 @@ export function CertificateForm() {
         </Form>
       </div>
     </div>
-  );
+  )
 }

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-br" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen w-full flex-col items-center justify-between",
