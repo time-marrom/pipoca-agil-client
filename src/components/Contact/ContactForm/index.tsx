@@ -134,7 +134,7 @@ export function ContactForm() {
                       Nome Completo
                     </FormLabel>
                     <FormControl>
-                      <div className="w-full">
+                      <div className="w-full relative">
                         <Input
                           data-filled={!!form.watch("name")}
                           data-error={!!form.formState.errors.name}
@@ -145,7 +145,7 @@ export function ContactForm() {
                         />
 
                         {form.formState.errors.name && (
-                          <Error className="w-6 h-6 absolute bottom right-4" />
+                          <Error className="w-6 h-6 absolute bottom-2 right-4" />
                         )}
                       </div>
                     </FormControl>
@@ -224,7 +224,7 @@ export function ContactForm() {
                           />
 
                           {form.formState.errors.email && (
-                            <Error className="w-6 h-6 absolute bottom right-4" />
+                            <Error className="w-6 h-6 absolute bottom-2 right-4" />
                           )}
                         </div>
                       </FormControl>
@@ -267,7 +267,7 @@ export function ContactForm() {
                           />
 
                           {form.formState.errors.whatsApp && (
-                            <Error className="w-6 h-6 absolute bottom right-4" />
+                            <Error className="w-6 h-6 absolute bottom-2 right-4" />
                           )}
                         </div>
                       </FormControl>
