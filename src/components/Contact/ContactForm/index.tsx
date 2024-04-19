@@ -32,7 +32,8 @@ import { YouTubeIcon } from "@/components/icons/YouTubeIcon";
 import Link from "next/link";
 import { useEffect } from "react";
 import { Error } from "@/components/icons/Error";
-// import { sendContactForm } from "@/services/email";
+import { useRouter } from "next/navigation";
+import { sendContactForm } from "@/services/email";
 
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
 let whatsAppRegex = /^\d+$/;
@@ -66,20 +67,20 @@ const formSchema = z.object({
     .string({ required_error: "Você precisa selecionar uma opção." })
     .min(1, { message: "Você precisa selecionar uma opção." }),
   message: z.string({
-    required_error:
-      "Você ultrapassou o limite de 1000 caracteres",
+    required_error: "Você ultrapassou o limite de 1000 caracteres",
   }),
 });
 
 export function ContactForm() {
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     mode: "onChange",
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // sendContactForm(values);
+    sendContactForm(values);
   }
 
   useEffect(() => {
@@ -92,6 +93,11 @@ export function ContactForm() {
       form.setValue("whatsApp", "1111111111");
     }
   }, [form.watch("contactWith")]);
+
+  function handleBackHome() {
+    form.reset();
+    router.push("/");
+  }
 
   return (
     <div className="w-full h-full flex justify-center items-center xl:items-start flex-col xl:flex-row pt-4 md:py-[104px] md:gap-10">
@@ -113,13 +119,13 @@ export function ContactForm() {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="flex flex-col gap-10 "
+              className="flex flex-col gap-10 items-center "
             >
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
-                  <FormItem className="space-y-2  flex-shrink">
+                  <FormItem className="space-y-2 w-full flex-shrink">
                     <FormLabel
                       className={`font-sans text-base font-normal ${
                         form.formState.errors.name ? "text-red-500" : ""
@@ -128,7 +134,7 @@ export function ContactForm() {
                       Nome Completo
                     </FormLabel>
                     <FormControl>
-                      <div className="relative">
+                      <div className="w-full">
                         <Input
                           data-filled={!!form.watch("name")}
                           data-error={!!form.formState.errors.name}
@@ -155,7 +161,7 @@ export function ContactForm() {
                 control={form.control}
                 name="contactWith"
                 render={({ field }) => (
-                  <FormItem className="space-y-2 flex-shrink">
+                  <FormItem className="space-y-2 w-full flex-shrink">
                     <FormLabel
                       className={`font-sans text-base font-normal  ${
                         form.formState.errors.contactWith ? "text-red-500" : ""
@@ -195,7 +201,7 @@ export function ContactForm() {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="space-y-2 flex-shrink ">
+                    <FormItem className="space-y-2 w-full flex-shrink ">
                       <FormLabel
                         className={`font-sans text-base font-normal  ${
                           form.formState.errors.email ? "text-red-500" : ""
@@ -237,7 +243,7 @@ export function ContactForm() {
                   control={form.control}
                   name="whatsApp"
                   render={({ field }) => (
-                    <FormItem className="space-y-2 flex-shrink ">
+                    <FormItem className="space-y-2 w-full flex-shrink ">
                       <FormLabel
                         className={`font-sans text-base font-normal ${
                           form.formState.errors.whatsApp ? "text-red-500" : ""
@@ -278,7 +284,7 @@ export function ContactForm() {
                 control={form.control}
                 name="subject"
                 render={({ field }) => (
-                  <FormItem className="space-y-2 flex-shrink">
+                  <FormItem className="space-y-2 w-full flex-shrink">
                     <FormLabel
                       className={`font-sans text-base font-normal ${
                         form.formState.errors.subject ? "text-red-500" : ""
@@ -326,7 +332,7 @@ export function ContactForm() {
                 control={form.control}
                 name="message"
                 render={({ field }) => (
-                  <FormItem className="space-y-2 flex-shrink ">
+                  <FormItem className="space-y-2 w-full flex-shrink ">
                     <FormLabel
                       className={`font-sans text-base font-normal ${
                         form.formState.errors.message ? "text-red-500" : ""
@@ -352,15 +358,40 @@ export function ContactForm() {
               />
               <Dialog.Root>
                 <Dialog.DialogTrigger asChild>
-                  <div className="w-full flex justify-center">
-                    <Button
-                      type="submit"
-                      className="font-title rounded-xl bg-[#431B61] hover:bg-[#5A0C94] p-6 text-base font-medium"
-                    >
-                      Enviar mensagem
-                    </Button>
-                  </div>
+                  <Button
+                    type="submit"
+                    className="w-[161px] h-12 font-title rounded-xl bg-[#431B61] hover:bg-[#5A0C94] p-6 text-base font-medium"
+                    disabled={
+                      !form.formState.isValid || !form.formState.isDirty
+                    }
+                  >
+                    Enviar mensagem
+                  </Button>
                 </Dialog.DialogTrigger>
+                <Dialog.Portal>
+                  <Dialog.Overlay className="fixed inset-0 bg-black/70" />
+                  <Dialog.Content className="fixed top-0 left-0 w-full h-full flex items-center justify-center p-4 md:p-10 ">
+                    <div className="w-[296px] h-[389px] md:w-[680px] md:h-[301px] bg-white rounded-2xl flex flex-col text-center items-center gap-4 p-4 md:p-6 md:gap-6">
+                      <Dialog.Title className="font-title font-medium text-[#252525] text-[32px] ">
+                        Mensagem enviada com sucesso!
+                      </Dialog.Title>
+                      <Dialog.Description className=" text-[#252525] font-sans text-start space-y-4 text-base">
+                        <p>
+                          Assim que possível vamos te dar um retorno através do
+                          meio de contato que você nos forneceu.
+                        </p>
+                        <p>Agradecemos pelo seu contato,</p>
+                        Equipe Pipoca Ágil
+                      </Dialog.Description>
+                      <Button
+                        onClick={() => handleBackHome()}
+                        className="font-title rounded-2xl bg-[#431B61] hover:bg-[#5A0C94] p-6 text-base font-medium "
+                      >
+                        Voltar para o Início
+                      </Button>
+                    </div>
+                  </Dialog.Content>
+                </Dialog.Portal>
               </Dialog.Root>
             </form>
           </Form>
