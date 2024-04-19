@@ -19,6 +19,15 @@ interface CertificateForm {
   date: string
 }
 
+interface ContactForm {
+  message: string
+  name: string
+  email: string
+  whatsApp: string
+  subject: string
+  contactWith?: string | undefined
+}
+
 export function sendVolunteerConfirmation({ to, name }: VolunteerConfirmation) {
   const response = api
     .post("/volunteer", {
@@ -46,6 +55,15 @@ export function sendMentorConfirmation({ to, name }: MentorConfirmation) {
 export function sendCertificate(data: CertificateForm) {
   const response = api
     .post("/certificate", data)
+    .then((response) => response.data)
+    .catch((error) => console.error(error))
+
+  return response
+}
+
+export function sendContactForm(data: ContactForm) {
+  const response = api
+    .post("/contact", data)
     .then((response) => response.data)
     .catch((error) => console.error(error))
 

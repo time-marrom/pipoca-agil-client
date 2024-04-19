@@ -32,9 +32,10 @@ import { YouTubeIcon } from "@/components/icons/YouTubeIcon";
 import Link from "next/link";
 import { useEffect } from "react";
 import { Error } from "@/components/icons/Error";
+// import { sendContactForm } from "@/services/email";
 
 let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
-let whatsappRegex = /^\d+$/;
+let whatsAppRegex = /^\d+$/;
 
 const formSchema = z.object({
   name: z
@@ -54,19 +55,19 @@ const formSchema = z.object({
       required_error: "Você precisa preencher o seu e-mail.",
     })
     .email({ message: "Você precisa informar um email válido" }),
-  whatsapp: z
+  whatsApp: z
     .string({
       required_error: "Você precisa preencher o seu e-mail.",
     })
-    .min(8, { message: "Telefone precisar ter no minimo 8 digitos." })
-    .regex(whatsappRegex, { message: "Você so pode usar numeros." }),
+    .min(8, { message: "Telefone precisar ter no mínimo 8 dígitos." })
+    .regex(whatsAppRegex, { message: "Você só pode usar números." }),
 
   subject: z
     .string({ required_error: "Você precisa selecionar uma opção." })
     .min(1, { message: "Você precisa selecionar uma opção." }),
   message: z.string({
     required_error:
-      "1002 caracteres Você ultrapassou o limite de 1000 caracteres",
+      "Você ultrapassou o limite de 1000 caracteres",
   }),
 });
 
@@ -77,22 +78,18 @@ export function ContactForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // console.log(values);
-    // form.reset();
-  }
-
-  function handle() {
-    // form.reset();
+    console.log(values);
+    // sendContactForm(values);
   }
 
   useEffect(() => {
     if (form.watch("contactWith") === "WhatsApp") {
-      form.setValue("whatsapp", "");
-      form.setValue("email", "tiopaulinho@email.com");
+      form.setValue("whatsApp", "");
+      form.setValue("email", "email@email.com");
     }
     if (form.watch("contactWith") === "E-mail") {
       form.setValue("email", "");
-      form.setValue("whatsapp", "1111111111");
+      form.setValue("whatsApp", "1111111111");
     }
   }, [form.watch("contactWith")]);
 
@@ -214,7 +211,7 @@ export function ContactForm() {
                               !form.formState.errors.email
                             }
                             data-error={!!form.formState.errors.email}
-                            placeholder="Escreva sua mensagem aqui."
+                            placeholder="Escreva seu e-mail aqui."
                             className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE] data-[error=true]:text-red-500  data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
                             type="text"
                             {...field}
@@ -238,12 +235,12 @@ export function ContactForm() {
               {form.watch("contactWith") === "WhatsApp" && (
                 <FormField
                   control={form.control}
-                  name="whatsapp"
+                  name="whatsApp"
                   render={({ field }) => (
                     <FormItem className="space-y-2 flex-shrink ">
                       <FormLabel
                         className={`font-sans text-base font-normal ${
-                          form.formState.errors.whatsapp ? "text-red-500" : ""
+                          form.formState.errors.whatsApp ? "text-red-500" : ""
                         }`}
                       >
                         *Número de WhatsApp
@@ -252,18 +249,18 @@ export function ContactForm() {
                         <div className="relative">
                           <Input
                             maxLength={18}
-                            data-error={!!form.formState.errors.whatsapp}
+                            data-error={!!form.formState.errors.whatsApp}
                             data-filled={
-                              !!form.watch("whatsapp") &&
-                              !form.formState.errors.whatsapp
+                              !!form.watch("whatsApp") &&
+                              !form.formState.errors.whatsApp
                             }
-                            placeholder="Escreva sua mensagem aqui."
+                            placeholder="Escreva seu número aqui."
                             className="w-full  focus:outline-none font-sans text-base placeholder:align-top placeholder:text-[#DEDEDE]  data-[error=true]:text-red-500 data-[error=true]:border-red-500  focus:border-[#5A0C94] focus:ring-1 focus:ring-[#5A0C94] border  data-[filled=true]:border-[#5A0C94] hover:border-[#5A0C94]"
                             type="text"
                             {...field}
                           />
 
-                          {form.formState.errors.whatsapp && (
+                          {form.formState.errors.whatsApp && (
                             <Error className="w-6 h-6 absolute bottom right-4" />
                           )}
                         </div>
