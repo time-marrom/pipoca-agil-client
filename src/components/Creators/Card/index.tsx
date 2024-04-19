@@ -35,7 +35,7 @@ export function Card({ content }: CardProps) {
             <div className="overflow-hidden rounded-t-2xl ">
               <Image
                 src={urlFor(creator.image).url() as string}
-                alt={creator.name}
+                alt={creator.creatorDescription}
                 width={300}
                 height={300}
                 priority

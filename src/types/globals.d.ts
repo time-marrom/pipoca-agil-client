@@ -128,6 +128,7 @@ interface Creator {
   role: string;
   image: string;
   socialNetworks: CreatorSocialNetwork[];
+  creatorDescription: string;
 }
 
 interface CreatorsContent {
