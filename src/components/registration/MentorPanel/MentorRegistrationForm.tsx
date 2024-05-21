@@ -66,7 +66,8 @@ export function MentorRegistrationForm() {
     watch,
     formState: { errors, isValid, isDirty }
   } = useForm<Schema>({
-    resolver: zodResolver(schema)
+    resolver: zodResolver(schema),
+    mode: "onChange"
   })
 
   function onSubmit(data: Schema) {

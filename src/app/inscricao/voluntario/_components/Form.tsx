@@ -1,83 +1,85 @@
-"use client";
+"use client"
 
-import { Error } from "@/components/icons/Error";
-import { WarningIcon } from "@/components/icons/WarningIcon";
-import { UserConfirmationMessage } from "@/components/registration/RegistrationPanel/UserConfirmationMessage";
-import { Button } from "@/components/ui/button";
-import { GlobalContext } from "@/contexts/GlobalContext";
-import { sendVolunteerConfirmation } from "@/services/email";
-import { sendVolunteerData } from "@/services/sheets";
-import { ErrorMessage } from "@hookform/error-message";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as Dialog from "@radix-ui/react-dialog";
-import Link from "next/link";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { Error } from "@/components/icons/Error"
+import { WarningIcon } from "@/components/icons/WarningIcon"
+import { UserConfirmationMessage } from "@/components/registration/RegistrationPanel/UserConfirmationMessage"
+import { Button } from "@/components/ui/button"
+import { GlobalContext } from "@/contexts/GlobalContext"
+import { sendVolunteerConfirmation } from "@/services/email"
+import { sendVolunteerData } from "@/services/sheets"
+import { ErrorMessage } from "@hookform/error-message"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as Dialog from "@radix-ui/react-dialog"
+import Link from "next/link"
+import { useContext } from "react"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
 
-const regexWhatsApp = /^\d+$/;
+const regexWhatsApp = /^\d+$/
 
 const schema = z.object({
   name: z.string().min(3, { message: "Você precisa preencher o seu nome." }),
   email: z.string().email({
     message:
-      "Verifique o formato do seu e-mail, como: exemplo@gmail.com. Ou, talvez o seu e-mail já esteja cadastrado. Entre em contato conosco caso precise modificar algum dado da sua inscrição, se já a realizou.",
+      "Verifique o formato do seu e-mail, como: exemplo@gmail.com. Ou, talvez o seu e-mail já esteja cadastrado. Entre em contato conosco caso precise modificar algum dado da sua inscrição, se já a realizou."
   }),
   whatsApp: z
     .string()
     .min(11, {
-      message:
-        "Verifique o formato do seu número: (CÓDIGO DO PAÍS) DDD NNNNN-NNNN",
+      message: "Verifique o formato do seu número: DDI DDD NNNNN-NNNN"
     })
     .regex(regexWhatsApp, {
-      message: "  Apenas Números",
+      message: "Apenas Números."
     }),
   country: z.string().nonempty({
-    message: "Você precisa selecionar uma opção.",
+    message: "Você precisa selecionar uma opção."
   }),
   role: z.string().nonempty({
-    message: "Você precisa selecionar uma opção.",
+    message: "Você precisa selecionar uma opção."
   }),
   period: z
     .array(z.string(), {
       required_error: "Você precisa selecionar pelo menos um período.",
-      invalid_type_error: "Você precisa selecionar pelo menos um período.",
+      invalid_type_error: "Você precisa selecionar pelo menos um período."
     })
     .nonempty({
-      message: "Você precisa selecionar pelo menos um período.",
+      message: "Você precisa selecionar pelo menos um período."
     }),
 
-  linkedIn: z.string().min(3, {
-    message:
-      "Verifique o formato do seu link. Você pode abrir uma aba com seu perfil, copiar do endereço do navegador, e colar aqui.",
-  }),
+  linkedIn: z
+    .string()
+    .min(3, {
+      message: "Deve ser um link válido."
+    })
+    .url({ message: "Verifique o formato do seu link." }),
 
   comment: z.string().max(500, {
-    message: "502 caracteres. Você ultrapassou o limite de 500 caracteres.",
-  }),
-});
+    message: "Você ultrapassou o limite de 500 caracteres."
+  })
+})
 
-type Schema = z.infer<typeof schema>;
+type Schema = z.infer<typeof schema>
 
 export function Form() {
-  const { setIsAcceptedTerms, setCurrentStep } = useContext(GlobalContext);
+  const { setIsAcceptedTerms, setCurrentStep } = useContext(GlobalContext)
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isDirty, isValid },
+    formState: { errors, isDirty, isValid }
   } = useForm<Schema>({
     resolver: zodResolver(schema),
-  });
+    mode: "onChange"
+  })
 
   function onSubmit(data: Schema) {
-    sendVolunteerData(data);
-    sendVolunteerConfirmation({ to: data.email, name: data.name });
+    sendVolunteerData(data)
+    sendVolunteerConfirmation({ to: data.email, name: data.name })
   }
 
   function handleBackHome() {
-    setCurrentStep(0);
-    setIsAcceptedTerms(false);
+    setCurrentStep(0)
+    setIsAcceptedTerms(false)
   }
 
   return (
@@ -91,10 +93,7 @@ export function Form() {
             Preencha os dados abaixo com atenção.
           </h2>
           <p className="text-base font-bold font-sans">*Campos obrigatórios.</p>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="w-full space-y-2  "
-          >
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-2  ">
             <div className="flex flex-col justify-between gap-10">
               {/* NOME */}
               <div className="w-full space-y-2">
@@ -272,9 +271,7 @@ export function Form() {
                   className="w-full h-[58px] px-4 text-base font-normal font-sans data-[filled=true]:text-black text-[#dedede] focus:text-black border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                 >
                   <option value="">Selecione uma opção.</option>
-                  <option value="QA">
-                    Analista de Teste - Quality Assurance
-                  </option>
+                  <option value="QA">Analista de Teste - Quality Assurance</option>
                   <option value="DEV">Programador Front/Back-end</option>
                   <option value="PO">Product Owner</option>
                   <option value="SM">Scrum Master</option>
@@ -309,9 +306,9 @@ export function Form() {
                   data-error={errors.period}
                   className="w-4/5 text-sm font-normal font-sans leading-[35px] text-black data-[error]:text-[#e70000]"
                 >
-                  Em qual ou quais turnos você está disponível para participar
-                  de reuniões? Selecione pelo menos um. Pode selecionar mais de
-                  um, se quiser.
+                  Em qual ou quais turnos você está disponível para participar de
+                  reuniões? Selecione pelo menos um. Pode selecionar mais de um, se
+                  quiser.
                 </p>
                 <div className="flex flex-col">
                   <div className="flex flex-row items-center gap-2">
@@ -453,8 +450,7 @@ export function Form() {
               </div>
 
               <p className="flex flex-row text-base font-normal font-sans leading-[24px] text-black gap-2">
-                <WarningIcon /> Atenção: Verifique suas informações antes de
-                enviar!
+                <WarningIcon /> Atenção: Verifique suas informações antes de enviar!
               </p>
               <div className="flex justify-center">
                 <Dialog.Root>
@@ -497,5 +493,5 @@ export function Form() {
         </div>
       </div>
     </div>
-  );
+  )
 }
