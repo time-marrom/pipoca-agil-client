@@ -48,8 +48,8 @@ const schema = z.object({
 
   linkedIn: z
     .string()
-    .min(3, {
-      message: "Deve ser um link válido."
+    .startsWith("https://", {
+      message: "O link deve iniciar com https://",
     })
     .url({ message: "Verifique o formato do seu link." }),
 
