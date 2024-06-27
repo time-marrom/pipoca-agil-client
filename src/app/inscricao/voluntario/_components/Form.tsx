@@ -18,7 +18,10 @@ import * as z from "zod"
 const regexWhatsApp = /^\d+$/
 
 const schema = z.object({
-  name: z.string().min(3, { message: "Você precisa preencher o seu nome." }),
+  name: z
+    .string()
+    .min(3, { message: "Você precisa preencher o seu nome." })
+    .regex(/\S/, { message: "O nome não pode conter apenas espaços em branco." }),
   email: z.string().email({
     message:
       "Verifique o formato do seu e-mail, como: exemplo@gmail.com. Ou, talvez o seu e-mail já esteja cadastrado. Entre em contato conosco caso precise modificar algum dado da sua inscrição, se já a realizou."
@@ -26,7 +29,7 @@ const schema = z.object({
   whatsApp: z
     .string()
     .min(11, {
-      message: "Verifique o formato do seu número: DDI DDD NNNNN-NNNN"
+      message: "Verifique o formato do seu número: DDI DDD NÚMERO ex: 55 21 99999-9999."
     })
     .regex(regexWhatsApp, {
       message: "Apenas Números."
@@ -51,7 +54,8 @@ const schema = z.object({
     .min(3, {
       message: "Deve ser um link válido."
     })
-    .url({ message: "Verifique o formato do seu link." }),
+    .url({ message: "Verifique o formato do seu link." })
+    .startsWith("https://www.linkedin.com/in/", { message: "Deve ser um link do LinkedIn. ex: https://www.linkedin.com/in/seu-usuario" }),
 
   comment: z.string().max(500, {
     message: "Você ultrapassou o limite de 500 caracteres."
@@ -191,7 +195,7 @@ export function Form() {
                     maxLength={18}
                     data-error={errors.whatsApp}
                     data-filled={!!watch("whatsApp")}
-                    placeholder="(99) 99 9 9999-9999"
+                    placeholder="5521999999999"
                     className="w-full h-[58px] px-4 text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("whatsApp")}
                   />
@@ -234,10 +238,11 @@ export function Form() {
                   <option value="Brasil">Brasil</option>
                   <option value="Argentina">Argentina</option>
                   <option value="Portugal">Portugal</option>
-                  <option value="us">Estados Unidos</option>
+                  <option value="USA">Estados Unidos</option>
                   <option value="Canadá">Canadá</option>
                   <option value="Inglaterra">Inglaterra</option>
                   <option value="Espanha">Espanha</option>
+                  <option value="Outro">Outro</option>
                 </select>
                 <p
                   data-error={errors.country}
@@ -276,6 +281,15 @@ export function Form() {
                   <option value="PO">Product Owner</option>
                   <option value="SM">Scrum Master</option>
                   <option value="UX/UI">UX/UI Designer</option>
+                  <option value="BI">Business Intelligence</option>
+                  <option value="BA">Business Analyst</option>
+                  <option value="Data Analyst">Analista de Dados</option>
+                  <option value="Data Scientist">Cientista de Dados</option>
+                  <option value="Data Engineer">Engenheiro de Dados</option>
+                  <option value="Data Architect">Arquiteto de Dados</option>
+                  <option value="Data Governance">Governança de Dados</option>
+                  <option value="Data Product Owner">Data Product Owner</option>
+                  <option value="Data Product Manager">Data Product Manager</option>
                 </select>
                 <p
                   data-error={errors.role}
@@ -385,7 +399,7 @@ export function Form() {
                     type="text"
                     data-error={errors.linkedIn}
                     data-filled={!!watch("linkedIn")}
-                    placeholder="https://linkedin.com/in/seulink"
+                    placeholder="https://linkedin.com/in/seu-usuario"
                     className="w-full h-[58px] px-4 text-[15px] text-base font-normal font-sans placeholder:text-[#dedede] border border-[#c3c3c3] data-[filled=true]:border-[#5a0c94]  rounded-md focus:outline-none focus:ring-2 focus:ring-[#5a0c94] hover:border-[#5a0c94] focus:border-transparent data-[error]:border-[#e70000] data-[error]:text-[#e70000] data-[error]:focus:border-[#e70000] data-[error]:focus:ring-[#e70000] data-[error]:hover:border-[#e70000] data-[error]:placeholder:text-[#e70000]"
                     {...register("linkedIn")}
                   />
