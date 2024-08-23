@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import { GlobalContext } from "@/contexts/GlobalContext"
-import { useContext } from "react"
-import { Steps } from "./Steps"
+import { GlobalContext } from "@/contexts/GlobalContext";
+import { useContext } from "react";
+import { Steps } from "./Steps";
 // import { MentorConfirmationMessage } from "./MentorConfirmationMessage";
-import { getSanityMentorContent } from "@/services/axios"
-import { useQuery } from "@tanstack/react-query"
-import { MentorConsentTerms } from "./MentorConsentTerms"
-import { MentorRegistrationForm } from "./MentorRegistrationForm"
+import { getSanityMentorContent } from "@/services/axios";
+import { useQuery } from "@tanstack/react-query";
+import { MentorConsentTerms } from "./MentorConsentTerms";
+import { MentorRegistrationForm } from "./MentorRegistrationForm";
 
 interface MentorPanelProps {
-  content: SubscriptionContent
+  content: SubscriptionContent;
 }
 
 export function MentorPanel({ content }: MentorPanelProps) {
   const { data } = useQuery({
     queryKey: ["mentor"],
     queryFn: getSanityMentorContent,
-    initialData: content
-  })
+    initialData: content,
+  });
 
-  const { mentorCurrentStep } = useContext(GlobalContext)
+  const { mentorCurrentStep } = useContext(GlobalContext);
 
   return (
     <div className="w-full h-full min-h-[65vh] flex flex-col justify-start items-center">
@@ -36,5 +36,5 @@ export function MentorPanel({ content }: MentorPanelProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
