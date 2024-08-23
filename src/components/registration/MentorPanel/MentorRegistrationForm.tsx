@@ -47,9 +47,14 @@ const schema = z.object({
       message: "Você precisa selecionar pelo menos um período."
     }),
 
-  linkedIn: z.string().min(3, {
+  linkedIn: z
+    .string()
+    .startsWith("https://", {
+      message: "O link deve iniciar com https://",
+    })
+    .url({
     message:
-      "Verifique o formato do seu link. Você pode abrir uma aba com seu perfil, copiar do endereço do navegador, e colar aqui."
+        "Verifique o formato do seu link. Você pode abrir uma aba com seu perfil, copiar do endereço do navegador, e colar aqui.",
   }),
   comment: z.string().max(500, {
     message: "502 caracteres. Você ultrapassou o limite de 500 caracteres."
